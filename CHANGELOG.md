@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.4.0 — 2026-08-30
+
+- Rewrote skill-selection metadata around high-intent scientific-writing tasks while keeping explicit negative boundaries for literature search alone, reference formatting alone, central-nervous-system queries, generic copywriting, and AI-detector evasion.
+- Explicitly enabled implicit invocation in `agents/openai.yaml` and strengthened its task-facing short description and starter prompt.
+- Added installable OpenAI/Codex and Claude Code plugin packages, repository marketplaces, and current standalone Agent Skills paths.
+- Added bilingual positive and negative routing evaluations for manuscript polishing, Chinese-to-English rewriting, peer review, citation auditing, visual evidence, and near-neighbor non-target tasks.
+- Added deterministic plugin-payload synchronization and discovery-metadata checks to CI so the standalone skill and marketplace package cannot silently drift.
+- Reworked both README entry pages around concrete user requests and 30-second installation while preserving scientific-integrity boundaries.
+- Added public privacy, terms, and support documents for transparent plugin distribution.
+
 ## 0.3.0 — 2026-08-30
 
 - Made English the default final deliverable for SCI-journal and international-conference workflows, with Chinese retained for evidence locking, terminology, decisions, and risk reporting.

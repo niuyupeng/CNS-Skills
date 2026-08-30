@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "tables": [
+    {
+      "id": "Table 1",
+      "comparison_question": "",
+      "source_data": "",
+      "denominator_and_unit": "",
+      "missing_value_policy": "",
+      "precision_policy": "",
+      "editable_source": "",
+      "caption_complete": false,
+      "cross_references_checked": false,
+      "rendered_page_checked": false,
+      "status": "pending"
+    }
+  ]
+}

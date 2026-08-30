@@ -1,0 +1,34 @@
+{
+  "name": "cns-skills",
+  "owner": {
+    "name": "Yupeng Niu"
+  },
+  "metadata": {
+    "description": "English-first scientific writing and manuscript-quality workflows for journals and leading conferences."
+  },
+  "plugins": [
+    {
+      "name": "cns-skills",
+      "source": "./plugins/cns-skills",
+      "description": "Scientific paper polishing, manuscript revision, Chinese-to-English academic writing, peer review, citation audits, and figure/table QA.",
+      "version": "0.4.0",
+      "author": {
+        "name": "Yupeng Niu"
+      },
+      "category": "Research",
+      "tags": [
+        "academic-writing",
+        "scientific-writing",
+        "paper-polishing",
+        "chinese-to-english",
+        "peer-review",
+        "response-to-reviewers",
+        "citations",
+        "figures",
+        "tables",
+        "top-journals",
+        "top-conferences"
+      ]
+    }
+  ]
+}

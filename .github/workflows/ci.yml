@@ -21,6 +21,12 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - name: Run unit tests
         run: python -m unittest discover -s tests -v
+      - name: Validate skill discovery metadata
+        run: python scripts/check_discovery_metadata.py
+      - name: Verify generated plugin payload
+        run: python scripts/build_plugin_bundle.py --check
+      - name: Package the cross-platform plugin
+        run: python scripts/package_plugin.py --output-dir /tmp/cns-plugin
       - name: Smoke-test the manuscript CLI tools
         run: python scripts/cns_audit.py README.md --json /tmp/cns-report.json
       - name: Smoke-test invariants

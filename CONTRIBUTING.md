@@ -18,10 +18,22 @@ The audit script has no runtime dependencies. Run:
 
 ```bash
 python -m unittest discover -s tests -v
+python scripts/check_discovery_metadata.py
+python scripts/build_plugin_bundle.py --check
+python scripts/package_plugin.py --output-dir /tmp/cns-plugin
 python scripts/cns_audit.py README.md --json /tmp/cns-report.json
 ```
 
 Keep heuristics transparent. A new flag should have a name, rationale, example, and test. Avoid opaque aggregate “human scores.”
+
+The repository root is the canonical standalone skill. After changing `SKILL.md`, `agents/`, `assets/`, `references/`, or a bundled runtime script, regenerate the marketplace payload and verify it:
+
+```bash
+python scripts/build_plugin_bundle.py --write
+python scripts/build_plugin_bundle.py --check
+```
+
+Do not edit generated files under `plugins/cns-skills/skills/cns-skills/` directly.
 
 ## Pull requests
 

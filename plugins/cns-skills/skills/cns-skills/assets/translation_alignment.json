@@ -1,0 +1,18 @@
+{
+  "schema_version": "1.0",
+  "source_language": "zh-CN",
+  "target_language": "en",
+  "protected_tokens": [],
+  "segments": [
+    {
+      "id": "SEG-001",
+      "source_location": "",
+      "source_text": "",
+      "claim_and_evidence_map": "",
+      "target_text": "",
+      "accuracy_status": "pending",
+      "mqm_issues": [],
+      "author_decision": ""
+    }
+  ]
+}

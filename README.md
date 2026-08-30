@@ -2,13 +2,68 @@
   <img src="assets/cns-icon.svg" width="128" alt="CNS Skills logo">
   <h1>CNS Skills</h1>
   <p><strong>Cell · Nature · Science</strong></p>
-  <p>An English-first, bilingual editorial skill that strengthens the science and visual evidence before polishing the sentences.</p>
+  <p><strong>Scientific writing and manuscript revision for ChatGPT/Codex, Claude Code, and Agent Skills-compatible clients.</strong></p>
+  <p>SCI paper polishing, Chinese-to-English academic rewriting, peer review, citation/DOI audits, and figure/table/caption QA for top journals and conferences.</p>
 
   [![License: MIT](https://img.shields.io/badge/License-MIT-0B6E69.svg)](LICENSE)
   [![CI](https://github.com/niuyupeng/CNS-Skills/actions/workflows/ci.yml/badge.svg)](https://github.com/niuyupeng/CNS-Skills/actions/workflows/ci.yml)
   [![Python 3.9+](https://img.shields.io/badge/Python-3.9%2B-123B5D.svg)](https://www.python.org/)
   [![Release](https://img.shields.io/github/v/release/niuyupeng/CNS-Skills?color=7A263A)](https://github.com/niuyupeng/CNS-Skills/releases)
+
+  English · [简体中文](README.zh-CN.md)
 </div>
+
+## Start in 30 seconds
+
+### ChatGPT desktop and Codex plugin
+
+Add the public repository marketplace:
+
+```bash
+codex plugin marketplace add niuyupeng/CNS-Skills
+```
+
+Restart the ChatGPT desktop app, open the Plugins Directory, choose the **CNS Skills** source, install **CNS Skills**, and start a new chat. This repository package is ready for local/repository distribution; global listing in the shared ChatGPT/Codex directory still requires separate platform review.
+
+### Claude Code plugin
+
+```bash
+claude plugin marketplace add niuyupeng/CNS-Skills
+claude plugin install cns-skills@cns-skills
+```
+
+Claude can select the skill automatically from the task description. Explicit plugin invocation is `/cns-skills:cns-skills`.
+
+### Standalone Agent Skill
+
+For current ChatGPT desktop/Codex local discovery:
+
+```bash
+git clone https://github.com/niuyupeng/CNS-Skills.git ~/.agents/skills/cns-skills
+```
+
+For Claude Code personal discovery:
+
+```bash
+git clone https://github.com/niuyupeng/CNS-Skills.git ~/.claude/skills/cns-skills
+```
+
+The repository root remains a complete standalone skill. The versioned plugin payload is generated from that same source and checked for drift in CI.
+
+Each GitHub release also provides a platform-uploadable `cns-skills-vX.Y.Z.zip` plus its SHA-256 checksum. The archive contains both OpenAI and Claude plugin manifests around the same provider-neutral skill.
+
+## Ask naturally
+
+You do not need a special prompt when implicit skill selection is enabled. Typical requests include:
+
+- “Polish my SCI manuscript while preserving every claim and citation.”
+- “Translate this Chinese draft into natural academic English, not a literal translation.”
+- “Review this paper like Reviewer 2 for Nature/CVPR.”
+- “Audit citation and DOI validity, claim support, and overclaiming.”
+- “Revise my abstract, introduction, and discussion for a top journal.”
+- “Design or audit manuscript figures, tables, captions, and a graphical abstract.”
+
+Chinese requests such as “帮我润色这篇 SCI 论文”, “论文中译英”, “回复审稿人”, and “按顶刊/顶会标准审稿” route to the same English-final workflow when scholarly text is supplied. Literature search alone, reference-style conversion alone, generic copywriting, central-nervous-system questions, and AI-detector evasion should not trigger CNS Skills; the public [routing evaluation](evals/README.md) tests both positive and negative cases and states its limitations.
 
 ## Why CNS
 
@@ -29,7 +84,7 @@ The priority is explicit:
 
 > evidence integrity > meaning preservation > logic > voice > elegance
 
-| Verifiable component | Included in v0.3.0 |
+| Verifiable component | Included in v0.4.0 |
 |---|---|
 | selective-venue review | 12 editorial gates and 8 named venue profiles |
 | writing baseline | 320 sampled English abstracts with disclosed years and bias limits |
@@ -55,26 +110,6 @@ The corpus informs judgment but supplies no text-generation template. The tools 
 ## What it refuses to do
 
 CNS does not fabricate evidence, invent DOIs, blur preprints into published articles, or promise a “0% AI score.” It also does not guarantee editorial triage, peer-review success, conference acceptance, or citation impact. AI-writing detectors are not a reliable scientific endpoint. CNS improves authentic authorial voice, argument quality, and evidential accountability; it does not help deceive editors or evade safeguards.
-
-## Install
-
-### Codex / skills-compatible agents
-
-Clone the repository into your personal skills directory:
-
-```bash
-git clone https://github.com/niuyupeng/CNS-Skills.git ~/.codex/skills/cns-skills
-```
-
-Then invoke it explicitly:
-
-```text
-Use $cns-skills in CNS/top-venue mode on this manuscript for a Nature-family target.
-Use English-final mode, run the 12-gate editorial review, preserve the evidence boundary,
-and return a clean English DOCX plus a concise Chinese decision/risk map.
-```
-
-The `SKILL.md` workflow is portable to agents that support instruction skills. The included `agents/openai.yaml` provides Codex UI metadata.
 
 ## CLI audit
 
@@ -103,7 +138,7 @@ The tools report prose patterns, claim-risk language, DOI status, changes to num
 
 ## Reproducible venue-language baseline
 
-Version 0.3.0 includes a dependency-free analyzer and an auditable **320-abstract** baseline: 40 sampled abstracts each from Cell, Nature, Science, AAAI, CVPR, NeurIPS, ICML, and ICLR.
+Version 0.3.0 introduced a dependency-free analyzer and an auditable **320-abstract** baseline, retained in v0.4.0: 40 sampled abstracts each from Cell, Nature, Science, AAAI, CVPR, NeurIPS, ICML, and ICLR.
 
 ```bash
 python scripts/venue_corpus_analyzer.py --per-venue 40 --seed 20260830

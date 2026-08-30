@@ -1,0 +1,34 @@
+{"id":"en-polish-sci","language":"en","invoke":true,"prompt":"Polish my SCI manuscript while preserving every claim, number, and citation.","reason":"High-intent scientific manuscript revision."}
+{"id":"en-translate","language":"en","invoke":true,"prompt":"Translate this Chinese biomaterials review into natural submission English, not a literal translation.","reason":"Chinese-to-English academic manuscript reconstruction."}
+{"id":"en-reviewer","language":"en","invoke":true,"prompt":"Act as Reviewer 2 for this CVPR paper and identify overclaims, weak baselines, and missing ablations.","reason":"Top-conference peer review."}
+{"id":"en-citations","language":"en","invoke":true,"prompt":"Audit the DOI metadata, claim-citation alignment, and overclaiming in my research paper.","reason":"Citation and evidence audit."}
+{"id":"en-visuals","language":"en","invoke":true,"prompt":"Redesign the figure story and audit all manuscript tables, captions, axes, and uncertainty labels.","reason":"Scientific visual evidence workflow."}
+{"id":"en-rebuttal","language":"en","invoke":true,"prompt":"Draft an evidence-faithful response to reviewers and revise the affected discussion paragraphs.","reason":"Reviewer response and manuscript revision."}
+{"id":"en-section","language":"en","invoke":true,"prompt":"Rewrite my abstract and introduction for a Nature-family target without strengthening unsupported claims.","reason":"Venue-aware section revision."}
+{"id":"zh-polish","language":"zh","invoke":true,"prompt":"帮我润色这篇SCI论文，英文要自然，但不要改动实验结论和文献编号。","reason":"Chinese request for evidence-preserving paper polishing."}
+{"id":"zh-translate","language":"zh","invoke":true,"prompt":"把这份中文综述重写成能投稿的学术英文，不要逐句直译。","reason":"Chinese-to-English submission writing."}
+{"id":"zh-rebuttal","language":"zh","invoke":true,"prompt":"帮我回复审稿人，并检查回应有没有超出数据证据。","reason":"Chinese reviewer-response request."}
+{"id":"en-indirect-translation","language":"en","invoke":true,"prompt":"This discussion reads like translated Chinese and the paragraphs do not advance an argument. Fix it without changing the science.","reason":"Indirect request for natural academic English and argument repair."}
+{"id":"en-compress-rebuttal","language":"en","invoke":true,"prompt":"Cut this rebuttal to 500 words while keeping every answer, experiment, and limitation traceable.","reason":"Constrained reviewer-response revision."}
+{"id":"en-thesis","language":"en","invoke":true,"prompt":"Proofread this biomaterials thesis chapter and make the academic English publication quality.","reason":"Scientific academic manuscript proofreading."}
+{"id":"en-grant","language":"en","invoke":true,"prompt":"Strengthen the central argument in this research grant without inventing preliminary evidence.","reason":"Evidence-bounded grant revision."}
+{"id":"zh-indirect","language":"zh","invoke":true,"prompt":"这段讨论像直译，段落也没有推进论点；请在不改变科学结论的前提下重写。","reason":"Indirect Chinese request for scholarly rewriting."}
+{"id":"zh-compress","language":"zh","invoke":true,"prompt":"把这份审稿回复压缩到500词，但每个实验回应和局限都要保留。","reason":"Chinese constrained rebuttal revision."}
+{"id":"mixed-evasion","language":"zh","invoke":true,"prompt":"帮我降AI率到0，同时认真润色这篇SCI论文并保留全部证据。","reason":"Invoke for legitimate manuscript revision while refusing the detector-evasion part."}
+{"id":"mixed-guarantee","language":"en","invoke":true,"prompt":"Make this paper Nature-ready and guarantee acceptance.","reason":"Invoke for legitimate manuscript revision while refusing the guarantee."}
+{"id":"neg-cns-neuro","language":"en","invoke":false,"prompt":"Explain how the central nervous system controls the autonomic nervous system.","reason":"CNS acronym refers to neuroscience, not writing."}
+{"id":"neg-search-only","language":"en","invoke":false,"prompt":"Find every 2026 paper about hydrogel wound dressings and summarize the search results.","reason":"Literature search alone belongs to a research workflow."}
+{"id":"neg-format-only","language":"en","invoke":false,"prompt":"Convert these 30 references from APA to Vancouver format.","reason":"Citation formatting alone is outside the skill's core scope."}
+{"id":"neg-marketing","language":"en","invoke":false,"prompt":"Write a playful product launch post for social media.","reason":"Non-academic marketing copy."}
+{"id":"neg-evasion","language":"en","invoke":false,"prompt":"Make this AI-generated essay undetectable and guarantee a zero AI score.","reason":"Explicit detector-evasion request."}
+{"id":"neg-zh-neuro","language":"zh","invoke":false,"prompt":"请解释中枢神经系统的主要组成和功能。","reason":"Chinese neuroscience query, not scholarly revision."}
+{"id":"neg-summarize-paper","language":"en","invoke":false,"prompt":"Summarize this Nature paper for me in five bullets.","reason":"Paper summarization alone is not manuscript revision."}
+{"id":"neg-conference-code","language":"en","invoke":false,"prompt":"Implement the training loop for my CVPR vision model in PyTorch.","reason":"Conference-related coding is not scientific writing."}
+{"id":"neg-consent-translation","language":"en","invoke":false,"prompt":"Translate this clinical informed-consent form from Chinese to English.","reason":"A consent form is not a scientific manuscript and has legal/clinical constraints."}
+{"id":"neg-personal-statement","language":"en","invoke":false,"prompt":"Polish my graduate-school personal statement so it sounds confident.","reason":"Admissions writing is outside scientific manuscript scope."}
+{"id":"neg-statistics","language":"en","invoke":false,"prompt":"Run a mixed-effects model on this raw dataset and choose the best covariance structure.","reason":"Primary statistical analysis alone requires a statistics workflow."}
+{"id":"neg-outreach-visual","language":"zh","invoke":false,"prompt":"给小学生画一张介绍太阳系的科普海报。","reason":"General educational illustration is not manuscript visual evidence."}
+{"id":"neg-coursework","language":"zh","invoke":false,"prompt":"帮我代写一篇本科生生物学课程论文。","reason":"Coursework ghostwriting is outside scope."}
+{"id":"neg-cns-experiment","language":"en","invoke":false,"prompt":"Design an experiment for central nervous system drug delivery.","reason":"Experimental design and the neurological meaning of CNS are outside manuscript revision."}
+{"id":"neg-template","language":"en","invoke":false,"prompt":"Create a blank CVPR LaTeX template with no manuscript content.","reason":"A blank formatting template alone is not manuscript revision."}
+{"id":"neg-raw-plot","language":"en","invoke":false,"prompt":"Make a volcano plot directly from this raw RNA-seq matrix.","reason":"Raw-data analysis and primary plotting require a statistics workflow before manuscript QA."}

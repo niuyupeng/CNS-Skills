@@ -1,0 +1,28 @@
+{
+  "name": "cns-skills",
+  "version": "0.4.0",
+  "description": "Scientific paper polishing, academic manuscript revision, Chinese-to-English translation, peer review, citation auditing, and figure/table QA for Cell, Nature, Science, and leading conferences.",
+  "author": {
+    "name": "Yupeng Niu"
+  },
+  "homepage": "https://github.com/niuyupeng/CNS-Skills",
+  "repository": "https://github.com/niuyupeng/CNS-Skills",
+  "license": "MIT",
+  "keywords": [
+    "scientific-writing",
+    "academic-writing",
+    "research-paper",
+    "paper-polishing",
+    "manuscript-revision",
+    "academic-english",
+    "chinese-to-english",
+    "peer-review",
+    "response-to-reviewers",
+    "rebuttal",
+    "citation-verification",
+    "scientific-figures",
+    "top-journals",
+    "top-conferences"
+  ],
+  "skills": "./skills/"
+}

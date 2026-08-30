@@ -4,3 +4,4 @@ __pycache__/
 Thumbs.db
 *.json.tmp
 .pytest_cache/
+dist/

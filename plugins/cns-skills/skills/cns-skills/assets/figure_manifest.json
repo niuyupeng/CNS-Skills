@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0",
+  "figures": [
+    {
+      "id": "Figure 1",
+      "reader_question": "",
+      "supported_claim": "",
+      "source_data_or_asset": "",
+      "evidence_layer": "",
+      "independent_n": "",
+      "uncertainty_and_statistics": "",
+      "transformations": [],
+      "license_or_permission": "",
+      "editable_source": "",
+      "submission_export": "",
+      "final_size_checked": false,
+      "rendered_page_checked": false,
+      "status": "pending"
+    }
+  ]
+}

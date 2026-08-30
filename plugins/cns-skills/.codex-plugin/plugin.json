@@ -1,0 +1,51 @@
+{
+  "name": "cns-skills",
+  "version": "0.4.0",
+  "description": "Scientific paper polishing, academic manuscript revision, Chinese-to-English translation, peer review, citation auditing, and figure/table QA for Cell, Nature, Science, and leading conferences.",
+  "author": {
+    "name": "Yupeng Niu",
+    "url": "https://github.com/niuyupeng"
+  },
+  "homepage": "https://github.com/niuyupeng/CNS-Skills",
+  "repository": "https://github.com/niuyupeng/CNS-Skills",
+  "license": "MIT",
+  "keywords": [
+    "scientific-writing",
+    "academic-writing",
+    "research-paper",
+    "paper-polishing",
+    "manuscript-revision",
+    "academic-english",
+    "chinese-to-english",
+    "peer-review",
+    "response-to-reviewers",
+    "rebuttal",
+    "citation-verification",
+    "scientific-figures",
+    "top-journals",
+    "top-conferences"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "CNS Skills — Scientific Writing",
+    "shortDescription": "Scientific paper revision with evidence and visual audits",
+    "longDescription": "English-first bilingual scientific writing for research papers, reviews, grants, rebuttals, and cover letters, with evidence, citation, figure, table, and rendered-artifact QA.",
+    "developerName": "Yupeng Niu",
+    "category": "Productivity",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/niuyupeng/CNS-Skills",
+    "privacyPolicyURL": "https://github.com/niuyupeng/CNS-Skills/blob/main/PRIVACY.md",
+    "termsOfServiceURL": "https://github.com/niuyupeng/CNS-Skills/blob/main/TERMS.md",
+    "defaultPrompt": [
+      "Polish this SCI manuscript into natural submission English and audit overclaiming.",
+      "Translate this Chinese draft into evidence-faithful academic English.",
+      "Peer-review this paper and audit its citations, figures, tables, and captions."
+    ],
+    "brandColor": "#123B5D",
+    "composerIcon": "./skills/cns-skills/assets/cns-icon.svg",
+    "logo": "./skills/cns-skills/assets/cns-icon.svg"
+  }
+}
