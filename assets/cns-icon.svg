@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">CNS Skills</title>
+  <desc id="desc">A claim, evidence, and writing mark</desc>
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#123B5D"/>
+      <stop offset="1" stop-color="#0B6E69"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="104" fill="url(#g)"/>
+  <path d="M128 146h256v40H128zm0 90h196v40H128zm0 90h132v40H128z" fill="#F6F1E7"/>
+  <circle cx="358" cy="345" r="68" fill="#E9B44C"/>
+  <path d="m328 345 20 20 42-47" fill="none" stroke="#123B5D" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
