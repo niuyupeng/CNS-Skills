@@ -1,0 +1,73 @@
+name: Reproducible defect
+description: Report a routing, manuscript-audit, packaging, or documentation defect.
+title: "[Bug] "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for making CNS Skills more reliable. Do not upload confidential manuscripts, reviewer correspondence, unpublished data, credentials, or identifiable participant information. Use a minimal synthetic or redacted example.
+  - type: dropdown
+    id: surface
+    attributes:
+      label: Affected surface
+      options:
+        - Skill routing or invocation
+        - Scientific revision behavior
+        - Citation or DOI audit
+        - Invariant or cross-reference audit
+        - Figure, table, caption, or artifact QA
+        - Plugin installation or packaging
+        - Documentation
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: CNS Skills version or commit
+      placeholder: v0.6.0 or a commit SHA
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Agent host, operating system, Python version, and installation method when relevant.
+      placeholder: Codex desktop; Windows 11; Python 3.11; GitHub marketplace install
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Minimal reproduction
+      description: Provide the smallest privacy-safe request, input, or command that reproduces the defect.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected result
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual result
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Privacy-safe evidence
+      description: Paste a shareable audit excerpt, error message, or screenshot. Use `--shareable` for JSON reports.
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Safety checks
+      options:
+        - label: I removed confidential, unpublished, personal, and credential data.
+          required: true
+        - label: I searched existing issues for the same defect.
+          required: true

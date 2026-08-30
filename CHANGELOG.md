@@ -1,5 +1,13 @@
 # Changelog
 
+## Unreleased
+
+- Rebuilt the English and Chinese GitHub landing pages around **evidence-first manuscript engineering**, with a flagship workflow, a synthetic evidence-boundary demonstration, a verifiable proof matrix, and direct install/star/citation calls to action.
+- Added a 1280×640 brand hero and social-preview asset for consistent repository sharing.
+- Strengthened citation metadata without implying publisher affiliation or editorial certification.
+- Added privacy-aware issue forms and a scientific-integrity pull-request checklist to lower the barrier for serious community contributions.
+- Updated GitHub Actions to current Node 24-compatible `actions/checkout@v7` and `actions/setup-python@v7` releases.
+
 ## 0.6.0 — 2026-08-30
 
 - Added argument-gap-driven review expansion with an explicit evidence-state machine and a clear structured-narrative versus systematic-review boundary.

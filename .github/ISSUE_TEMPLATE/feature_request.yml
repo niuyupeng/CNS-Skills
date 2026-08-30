@@ -1,0 +1,54 @@
+name: Capability proposal
+description: Propose a testable scientific-writing or manuscript-QA capability.
+title: "[Proposal] "
+labels:
+  - enhancement
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Strong proposals begin with a real manuscript decision, not a feature name. Do not include confidential manuscript text or proprietary prompts.
+  - type: textarea
+    id: use_case
+    attributes:
+      label: Research-writing use case
+      description: What supplied artifact and author decision should CNS Skills handle better?
+    validations:
+      required: true
+  - type: textarea
+    id: current_gap
+    attributes:
+      label: Current failure or limitation
+      description: Show a privacy-safe example or explain the concrete gap.
+    validations:
+      required: true
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Desired outcome
+      description: Describe observable behavior without prescribing wording.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence_boundary
+    attributes:
+      label: Evidence, integrity, and scope boundary
+      description: What must the capability never infer, fabricate, expose, or silently change?
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance test
+      description: How could a maintainer verify that the capability works and does not create a nearby regression?
+    validations:
+      required: true
+  - type: checkboxes
+    id: provenance
+    attributes:
+      label: Provenance
+      options:
+        - label: Any proposed external text, code, data, or asset has a reusable license and can be attributed.
+          required: true
+        - label: I removed confidential and unpublished content.
+          required: true

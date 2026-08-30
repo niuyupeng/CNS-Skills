@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Workflow and design discussion
+    url: https://github.com/niuyupeng/CNS-Skills/discussions
+    about: Ask questions, share a privacy-safe workflow, or discuss a proposal before filing an issue.
+  - name: Security policy
+    url: https://github.com/niuyupeng/CNS-Skills/security/policy
+    about: Report security-sensitive issues through the process in SECURITY.md.

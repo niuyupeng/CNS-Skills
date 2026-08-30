@@ -1,6 +1,6 @@
 cff-version: 1.2.0
-message: "If CNS Skills supports your research workflow, please cite this software."
-title: "CNS Skills: Cell, Nature, Science Editorial-Grade Scientific Writing"
+message: "If CNS Skills contributes to manuscript preparation, peer review, or citation QA, please cite this software."
+title: "CNS Skills: Evidence-First Scientific Manuscript Revision and Quality Assurance"
 type: software
 authors:
   - family-names: "Niu"
