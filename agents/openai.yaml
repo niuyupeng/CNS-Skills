@@ -1,7 +1,7 @@
 interface:
   display_name: "CNS Skills"
-  short_description: "Claim-grounded, natural, scholarly writing"
-  icon_small: "../assets/cns-icon.svg"
-  icon_large: "../assets/cns-icon.svg"
+  short_description: "Cell/Nature/Science-level scientific revision"
+  icon_small: "./assets/cns-icon.svg"
+  icon_large: "./assets/cns-icon.svg"
   brand_color: "#123B5D"
-  default_prompt: "Use $cns-skills to revise this scientific draft for evidence integrity, natural academic voice, and publication readiness."
+  default_prompt: "Use $cns-skills to revise this manuscript against Cell, Nature, Science, or top-conference editorial standards without overstating the evidence."

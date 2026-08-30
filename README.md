@@ -1,17 +1,19 @@
 <div align="center">
   <img src="assets/cns-icon.svg" width="128" alt="CNS Skills logo">
   <h1>CNS Skills</h1>
-  <p><strong>Claim-grounded · Natural · Scholarly</strong></p>
-  <p>An evidence-first skill for scientific writing that sounds like a researcher because it reasons like one.</p>
+  <p><strong>Cell · Nature · Science</strong></p>
+  <p>A top-journal and top-conference editorial skill that strengthens the science before polishing the sentences.</p>
 
   [![License: MIT](https://img.shields.io/badge/License-MIT-0B6E69.svg)](LICENSE)
-  [![CI](https://github.com/niuyupeng/cns-skills/actions/workflows/ci.yml/badge.svg)](https://github.com/niuyupeng/cns-skills/actions/workflows/ci.yml)
+  [![CI](https://github.com/niuyupeng/CNS-Skills/actions/workflows/ci.yml/badge.svg)](https://github.com/niuyupeng/CNS-Skills/actions/workflows/ci.yml)
   [![Python 3.9+](https://img.shields.io/badge/Python-3.9%2B-123B5D.svg)](https://www.python.org/)
 </div>
 
 ## Why CNS
 
-Most “humanizers” work at the surface. Most academic-writing agents focus on search and citation formatting. Scientific revision needs both—and a strict order of operations.
+**CNS means Cell, Nature, and Science.** The name states the benchmark: conceptual clarity, broad significance, evidential depth, disciplined claims, and communication that works beyond a narrow specialty. For conference papers, CNS applies the corresponding top-venue standards for technical novelty, fair baselines, ablations, reproducibility, and error analysis.
+
+Most “humanizers” work at the surface. Most academic-writing agents focus on search and citation formatting. Top-venue revision needs both—and a strict order of operations.
 
 CNS locks claims and evidence before it touches style. It then repairs the argument, gives each paragraph a job, removes formulaic language without flattening disciplinary meaning, audits claim–citation alignment, tests the manuscript through four skeptical readers, and verifies the final file as a rendered artifact.
 
@@ -29,13 +31,14 @@ The priority is explicit:
 - Revises Chinese and English scientific manuscripts, reviews, grants, and rebuttals.
 - Separates computational prediction, experimental validation, and clinical/deployment evidence.
 - Audits DOI existence, overclaiming, numeric claims, repeated templates, sentence rhythm, and citation proximity.
-- Supports four modes: `audit`, `revise`, `deep-review`, and `journal-ready`.
+- Supports five modes: `audit`, `revise`, `deep-review`, `journal-ready`, and `CNS/top-venue`.
+- Runs a 12-gate CNS editorial review covering the central claim, importance, novelty, evidence chain, alternative explanations, robustness, narrative, figures, accessibility, reproducibility, integrity, and venue fit.
 - Preserves the source and requires rendered-file QA for DOCX/PDF deliverables.
 - Provides a dependency-free CLI for `.docx`, `.md`, and `.txt` triage.
 
 ## What it refuses to do
 
-CNS does not fabricate evidence, invent DOIs, blur preprints into published articles, or promise a “0% AI score.” AI-writing detectors are not a reliable scientific endpoint. CNS improves authentic authorial voice, argument quality, and evidential accountability; it does not help deceive editors or evade safeguards.
+CNS does not fabricate evidence, invent DOIs, blur preprints into published articles, or promise a “0% AI score.” It also does not guarantee editorial triage, peer-review success, conference acceptance, or citation impact. AI-writing detectors are not a reliable scientific endpoint. CNS improves authentic authorial voice, argument quality, and evidential accountability; it does not help deceive editors or evade safeguards.
 
 ## Install
 
@@ -44,14 +47,14 @@ CNS does not fabricate evidence, invent DOIs, blur preprints into published arti
 Clone the repository into your personal skills directory:
 
 ```bash
-git clone https://github.com/niuyupeng/cns-skills.git ~/.codex/skills/cns-skills
+git clone https://github.com/niuyupeng/CNS-Skills.git ~/.codex/skills/cns-skills
 ```
 
 Then invoke it explicitly:
 
 ```text
-Use $cns-skills in deep-review mode on this review article.
-Preserve all claims, audit every DOI, and return a clean DOCX plus unresolved evidence risks.
+Use $cns-skills in CNS/top-venue mode on this manuscript for a Nature-family target.
+Run the 12-gate editorial review, preserve the evidence boundary, and return a clean DOCX plus unresolved scientific risks.
 ```
 
 The `SKILL.md` workflow is portable to agents that support instruction skills. The included `agents/openai.yaml` provides Codex UI metadata.
@@ -87,21 +90,22 @@ The report is triage, not a quality score or AI detector. Every flag must be int
 4. **Paragraph function** — make each paragraph perform one primary intellectual move.
 5. **Natural voice** — replace stock framing with the real logical relationship while preserving technical nouns.
 6. **Citation audit** — check existence, entailment, scope, and placement separately.
-7. **Skeptical readers** — simulate a domain expert, methods reviewer, editor, and adjacent-field reader.
-8. **Artifact QA** — render and inspect every page, table, figure, caption, and reference.
+7. **CNS Editorial Gate** — test the central claim, significance, novelty, evidence chain, alternative explanations, robustness, figure story, accessibility, reproducibility, integrity, and venue fit.
+8. **Skeptical readers** — simulate a domain expert, methods reviewer, editor, and adjacent-field reader.
+9. **Artifact QA** — render and inspect every page, table, figure, caption, and reference.
 
-The full operating rules live in [SKILL.md](SKILL.md). Focused references cover [scientific integrity](references/scientific-integrity.md), [natural academic style](references/natural-academic-style.md), [review articles](references/review-article-mode.md), and the [evaluation rubric](references/evaluation-rubric.md).
+The full operating rules live in [SKILL.md](SKILL.md). Focused references cover the [CNS Editorial Standard](references/cns-editorial-standard.md), [scientific integrity](references/scientific-integrity.md), [natural academic style](references/natural-academic-style.md), [review articles](references/review-article-mode.md), and the [evaluation rubric](references/evaluation-rubric.md).
 
 ## 中文快速开始
 
-CNS = **Claim-grounded, Natural, Scholarly**，即“主张有据、表达自然、符合学术规范”。它不是简单的“降 AI 痕迹”工具，而是一套先核对事实与证据、再处理结构和语言的深度修订流程。
+CNS = **Cell · Nature · Science**。这个名字代表目标标准：用顶刊编辑和审稿人的视角，检查中心发现、广泛意义、证据闭环、图表叙事、可复现性与表达质量；面向顶会时，则进一步检查强基线、公平比较、消融、误差分析和复现条件。它不是简单的“降 AI 痕迹”工具。
 
 推荐提示词：
 
 ```text
-使用 $cns-skills 的 deep-review 模式完善这篇中文综述。
-以证据完整性为最高优先级，保留原始文献编号，核验 DOI 和发表状态，
-减少模板化句式但不要口语化，最后逐页检查输出的 DOCX。
+使用 $cns-skills 的 CNS/top-venue 模式完善这篇中文综述，目标为 Nature 系列期刊。
+运行 12 项编辑门槛审查，保留原始文献编号，核验 DOI、发表状态与证据边界，
+重构中心论点、摘要和图表叙事，最后逐页检查输出的 DOCX。
 ```
 
 如果某一结论尚未被实验支持，CNS 会缩小表述或明确标注待核验，而不会用更漂亮的语言把不确定性藏起来。
@@ -124,7 +128,7 @@ Contributions, benchmark manuscripts, language-specific pattern reports, and pee
 
 ## Name and affiliation
 
-“CNS” in this project means **Claim-grounded, Natural, Scholarly**. This project is not affiliated with or endorsed by *Cell*, *Nature*, *Science*, their publishers, OpenAI, Anthropic, or the referenced open-source projects.
+“CNS” in this project means **Cell, Nature, and Science** as an aspirational editorial benchmark. This independent project is not affiliated with or endorsed by those journals, their publishers, any conference, OpenAI, Anthropic, or the referenced open-source projects. The names are used descriptively; no acceptance or publication outcome is promised.
 
 ## License
 

@@ -24,7 +24,7 @@ from pathlib import Path
 from typing import Any, Iterable
 from xml.etree import ElementTree as ET
 
-VERSION = "0.1.0"
+VERSION = "0.2.0"
 
 STOCK_PATTERNS: dict[str, str] = {
     "zh_this_shows": r"这(?:一结果|些结果|一发现)?(?:说明|表明|提示)",

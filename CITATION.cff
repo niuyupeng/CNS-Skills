@@ -1,15 +1,15 @@
 cff-version: 1.2.0
 message: "If CNS Skills supports your research workflow, please cite this software."
-title: "CNS Skills: Claim-grounded, Natural, Scholarly Scientific Writing"
+title: "CNS Skills: Cell, Nature, Science Editorial-Grade Scientific Writing"
 type: software
 authors:
   - family-names: "Niu"
     given-names: "Yupeng"
     alias: "niuyupeng"
-repository-code: "https://github.com/niuyupeng/cns-skills"
-url: "https://github.com/niuyupeng/cns-skills"
+repository-code: "https://github.com/niuyupeng/CNS-Skills"
+url: "https://github.com/niuyupeng/CNS-Skills"
 license: MIT
-version: 0.1.0
+version: 0.2.0
 date-released: 2026-08-30
 keywords:
   - scientific writing
@@ -18,3 +18,5 @@ keywords:
   - manuscript revision
   - natural language
   - research integrity
+  - top journals
+  - top conferences

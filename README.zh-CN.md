@@ -1,8 +1,10 @@
 # CNS Skills 中文说明
 
-**CNS = Claim-grounded, Natural, Scholarly（主张有据、表达自然、符合学术规范）**。
+**CNS = Cell · Nature · Science。**
 
-CNS Skills 面向中文与英文科研写作。它先锁定主张、证据和适用范围，再修复论证结构、段落功能与语言节奏；最后核对引用并检查生成文件。它适合综述、研究论文、基金申请、审稿回复和科研报告。
+CNS Skills 面向中文与英文科研写作，以 Cell、Nature、Science 及各领域顶刊顶会的编辑与审稿标准为目标。它先锁定主张、证据和适用范围，再检查中心发现、广泛意义、证据闭环、图表叙事、可复现性和语言质量。它适合综述、研究论文、基金申请、审稿回复和科研报告。
+
+这里的 CNS 是质量标杆，不代表与 Cell、Nature、Science、相关出版社或任何顶会存在官方关系，也不承诺录用结果。没有足够实验和证据时，润色不能把工作“写成顶刊”；CNS 会明确指出需要补充的实验、分析或报告项目。
 
 ## 为什么不是普通“润色”
 
@@ -15,15 +17,15 @@ CNS Skills 面向中文与英文科研写作。它先锁定主张、证据和适
 ## 安装与使用
 
 ```bash
-git clone https://github.com/niuyupeng/cns-skills.git ~/.codex/skills/cns-skills
+git clone https://github.com/niuyupeng/CNS-Skills.git ~/.codex/skills/cns-skills
 ```
 
 推荐提示词：
 
 ```text
-使用 $cns-skills 的 deep-review 模式完善这篇综述。
-保留原始主张和文献编号，核对 DOI、发表状态与实验验证层级，
-减少模板化表达但不要口语化，输出修改说明和逐页检查后的 DOCX。
+使用 $cns-skills 的 CNS/top-venue 模式完善这篇综述，目标为 Nature 系列期刊。
+运行 12 项编辑门槛审查，保留原始主张和文献编号，核对 DOI、发表状态与实验验证层级，
+重构中心论点、摘要和图表叙事，输出修改说明和逐页检查后的 DOCX。
 ```
 
 自动审计：
@@ -36,6 +38,6 @@ python scripts/cns_audit.py manuscript.docx --verify-dois --json cns-report.json
 
 ## 重要边界
 
-CNS 不承诺“零 AI 率”，也不帮助规避编辑部或平台的检测。AI 检测分数缺乏稳定、可复现的科学含义。项目关注的是更可靠的目标：事实可核验、结论不过界、论证由作者判断驱动、语言符合目标领域的真实写作习惯。
+CNS 不承诺“零 AI 率”，不帮助规避编辑部或平台检测，也不保证顶刊顶会录用。AI 检测分数缺乏稳定、可复现的科学含义。项目关注更可靠的目标：事实可核验、结论不过界、贡献说得清、关键替代解释得到处理、图表承担论证、语言符合目标领域的真实写作习惯。
 
 完整英文文档见 [README.md](README.md)，详细工作流见 [SKILL.md](SKILL.md)。

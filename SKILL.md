@@ -1,11 +1,13 @@
 ---
 name: cns-skills
-description: Claim-grounded, Natural, Scholarly writing and revision for scientific manuscripts, reviews, grants, rebuttals, and research documents. Use when the user asks to draft, revise, humanize, polish, peer-review, de-AI, verify citations, strengthen argumentation, or prepare academic text for submission in English or Chinese. Preserves claims and evidence, makes prose sound like a real domain expert, audits citations and overclaiming, and supports DOCX/PDF quality control. Does not promise AI-detector evasion or fabricate evidence.
+description: Editorial-grade scientific writing and revision benchmarked to Cell, Nature, Science, and leading-conference standards. Use when the user asks to draft, revise, humanize, polish, peer-review, verify citations, strengthen argumentation, or prepare an English or Chinese manuscript, review, grant, rebuttal, or research document for a top venue. Preserves claims and evidence, audits overclaiming, improves authorial voice, and supports DOCX/PDF quality control. Does not guarantee acceptance, promise AI-detector evasion, or fabricate evidence.
 ---
 
 # CNS Skills
 
-CNS means **Claim-grounded, Natural, Scholarly**. It is not affiliated with the journals *Cell*, *Nature*, or *Science*.
+**CNS means Cell · Nature · Science.** Use those journals as an aspirational benchmark for editorial clarity, conceptual importance, evidential depth, and cross-disciplinary communication. Also apply the corresponding rigor expected by leading conferences when the target is conference publication.
+
+CNS Skills is an independent project. It is not affiliated with, endorsed by, or an acceptance pathway for *Cell*, *Nature*, *Science*, their publishers, or any conference. Never claim that editing alone can turn unsupported work into a top-venue paper.
 
 Apply this priority order whenever goals conflict:
 
@@ -23,8 +25,26 @@ Never trade a precise claim for smoother prose. Never invent a source, DOI, resu
 - **Revise**: improve a supplied draft while preserving scope, claims, citations, and document structure unless asked otherwise.
 - **Deep review**: combine structural review, line editing, claim–citation audit, and skeptical-reader testing.
 - **Journal-ready**: deep review plus journal/style constraints, abstract/figure/table checks, references, and rendered-file QA.
+- **CNS/top-venue**: run the full editorial gate for *Cell*, *Nature*, *Science*, a named top journal, or a leading conference; rebuild the paper's central claim, evidence chain, figure narrative, accessibility, and reviewer defense without overstating the work.
 
 If the user does not specify a mode, use **Revise** for bounded passages and **Deep review** for full manuscripts.
+
+## Run the CNS Editorial Gate
+
+For **CNS/top-venue** mode, read `references/cns-editorial-standard.md` and adapt the gate to the actual venue. Do not treat *Cell*, *Nature*, and *Science* as having identical scopes or formats.
+
+Scale the gate to the supplied artifact. A title or abstract needs only the applicable gates and outputs; a full manuscript needs the full scorecard, figure narrative, references, reporting, and artifact QA. Mark a gate `N/A` when it genuinely does not apply and `M` when required material was not supplied. Do not convert missing material into an observed failure, but do not call the work submission-ready while required items remain `M`.
+
+Before line editing, require a defensible answer to four questions:
+
+1. What is the single central claim?
+2. Why does it matter beyond the immediate niche?
+3. Which evidence closes the main alternative explanations?
+4. What remains outside the evidence boundary?
+
+If the manuscript lacks the data needed for its intended claim, return a revision-and-experiment plan rather than manufacturing a stronger story. A top-venue edit may sharpen significance; it may not create significance unsupported by the work.
+
+When the user says only “Nature level”, “CNS level”, or “top conference”, treat it as a broad-selective editorial benchmark and mark exact venue fit as pending. Ask for the exact venue only when its scope or format would materially change the work and cannot be deferred.
 
 ## 0. Establish the source lock
 
@@ -123,6 +143,8 @@ Read once as each of these readers:
 - an adjacent-field reader looking for undefined terms and hidden inferential jumps.
 
 Use `references/evaluation-rubric.md` to score the revision. Revise again when any critical dimension is below 3/4 or when a factual-risk item remains unlabelled.
+
+For **CNS/top-venue** mode, also return the editorial-gate scorecard from `references/cns-editorial-standard.md`. Use “CNS-targeted” or “top-venue-targeted” for work that has passed the writing workflow; reserve “submission-ready” for artifacts whose evidence, reporting, references, figures, and venue requirements have all been checked.
 
 ## 7. Verify the artifact
 
