@@ -8,9 +8,9 @@
 
 **面向顶刊顶会审稿压力的证据优先稿件工程。**
 
-CNS Skills 把中文或英文初稿推进为更清晰、更可辩护的英文投稿稿，并继续检查句子级润色可能遗漏的主张、引文、图表、审稿逻辑与最终文件。
+CNS Skills 是面向 ChatGPT/Codex、Claude Code 和兼容客户端的开源科研写作 Agent Skill。它把中文或英文初稿推进为更清晰、更可辩护的英文投稿稿，并继续检查句子级润色可能遗漏的主张、引文、图表、审稿逻辑与最终文件。
 
-[**快速安装**](#快速安装) · [**运行旗舰工作流**](#运行旗舰工作流) · [**查看硬证据**](#不是口号而是可核验资产) · [**引用 CNS Skills**](#引用-cns-skills) · [English](README.md)
+[**快速安装**](#快速安装) · [**公开演示**](examples/synthetic-hydrogel-demo/README.md) · [**运行旗舰工作流**](#运行旗舰工作流) · [**查看硬证据**](#不是口号而是可核验资产) · [**引用 CNS Skills**](#引用-cns-skills) · [English](README.md)
 
 [![Release](https://img.shields.io/github/v/release/niuyupeng/CNS-Skills?label=release&color=E9B44C)](https://github.com/niuyupeng/CNS-Skills/releases)
 [![CI](https://github.com/niuyupeng/CNS-Skills/actions/workflows/ci.yml/badge.svg)](https://github.com/niuyupeng/CNS-Skills/actions/workflows/ci.yml)
@@ -18,7 +18,7 @@ CNS Skills 把中文或英文初稿推进为更清晰、更可辩护的英文投
 [![Agent Skills](https://img.shields.io/badge/standard-Agent_Skills-123B5D.svg)](https://agentskills.io/)
 [![Cite](https://img.shields.io/badge/cite-CITATION.cff-7A263A.svg)](CITATION.cff)
 
-**12 项编辑门槛 · 8 类场所配置 · 320 篇摘要可审计基线 · 64 条路由案例 · 60 项确定性测试 · 4 个透明审计器**
+**12 项编辑门槛 · 8 类场所配置 · 320 篇摘要基线 · 600 条分文体语料 · 两组各 100 个题名（共 150 个不同题名） · 68 条路由案例 · 191 项确定性测试 · 6 个透明审计器**
 
 <sub>独立 MIT 开源项目。CNS 指 Cell · Nature · Science 这一编辑质量标杆，不表示隶属、背书或录用保证。</sub>
 
@@ -53,6 +53,8 @@ CNS Skills 把中文或英文初稿推进为更清晰、更可辩护的英文投
 
 一次调用可以同时交付：**修改稿 · 决策/风险图 · 引文审计 · 图表 QA · 在宿主支持文档渲染时完成最终版面检查**。
 
+[公开合成演示](examples/synthetic-hydrogel-demo/README.md)提供完整输入、修改稿、可分享审计报告和渲染后的 DOCX 示例，不使用任何保密研究材料。
+
 ## 运行旗舰工作流
 
 上传稿件后可以直接这样说：
@@ -73,6 +75,7 @@ CNS Skills 把中文或英文初稿推进为更清晰、更可辩护的英文投
 - “围绕一个可辩护的中心主张重构摘要、引言和讨论。”
 - “逐条检查重要主张是否被对应文献真正支持。”
 - “按论证缺口扩充这篇综述，不要为了凑篇数堆引用。”
+- “先读懂整篇稿件，再优化中英文科学题名，不能把贡献说大。”
 - “设计或审计论文图、证据表、图注和图形摘要。”
 - “写一份证据范围准确的审稿回复和 rebuttal。”
 
@@ -107,7 +110,9 @@ git clone https://github.com/niuyupeng/CNS-Skills.git ~/.agents/skills/cns-skill
 git clone https://github.com/niuyupeng/CNS-Skills.git ~/.claude/skills/cns-skills
 ```
 
-每个 Release 都提供可上传的 ZIP 和 SHA-256 校验文件；仓库根 Skill 与生成的插件包会在 CI 中检查是否漂移。
+自 v0.4.0 起的 Release 均提供可上传的 ZIP 和 SHA-256 校验文件；仓库根 Skill 与生成的插件包会在 CI 中检查是否漂移。
+
+先决条件、安装验证、更新、卸载和常见问题见[完整安装指南](docs/INSTALL.zh-CN.md)。
 
 ## 不是口号，而是可核验资产
 
@@ -116,14 +121,17 @@ git clone https://github.com/niuyupeng/CNS-Skills.git ~/.claude/skills/cns-skill
 | [12 项 CNS 编辑门槛](references/cns-editorial-standard.md) | 一套公开的 12 维顶刊导向审查面 | 任何期刊或会议必然录用 |
 | [8 类场所配置](references/venue-profiles.md) | 期刊与顶会不会被当成同一种写法 | 永久替代最新官方投稿政策 |
 | [320 篇摘要聚合基线](references/venue-corpus-findings.md) | 可复现的场所语言描述 | 风格迁移语料或录用预测器 |
-| [64 条中英文路由案例](evals/README.md) | 正负触发防回归 | 所有宿主都保证自动调用 |
+| [600 条分文体语料](research/genre-corpus-2026/README.md) | 分别审计综述、原创 Article 和顶会论文的写作机制，并公开逐条来源与实际文本层级 | 600 篇专家逐句精读、领域发生率或录用模型 |
+| [顶级核心 100 题名](research/elite-venue-title-study.md) | 70 个含 DOI 元数据的顶级期刊题名，加 30 个具有官方稳定标识的 2025 正式主会题名 | 100 篇全文精读、万能题名公式或录用模型 |
+| [领域比较 100 题名](research/field-journal-title-study.md) | 第二组主题匹配面板，保留 *ACS Nano*、*Advanced Functional Materials*、*Acta Biomaterialia*、*Biomaterials* 等强领域期刊；其中 50 个 DOI 与核心组重叠，两组合计 150 个不同题名 | 200 个不同题名、混合计算的“声望平均值”或无视文体的模仿理由 |
+| [68 条中英文路由案例](evals/README.md) | 正负触发防回归 | 所有宿主都保证自动调用 |
 | 30 条锁定留出集 | 降低针对已知样例堆关键词的风险 | 外部排行榜成绩 |
-| [60 项确定性测试](tests) | 脚本行为和关键不变量 | 每一次文字修改都语义正确 |
-| 4 个无第三方依赖审计器 | 本地、透明、可复核的分诊 | 自动代替原文精读和作者判断 |
+| [191 项确定性测试](tests) | 脚本行为和关键不变量；其中 118 项综述检索测试围绕 93 个独立设计的反例构建 | 每一次文字修改都语义正确 |
+| 6 个无第三方依赖审计器 | 本地、透明、可复核的分诊 | 自动代替原文精读和作者判断 |
 
 本项目不虚构“成功率”、用户数量、引用次数、录用率或 AI 检测分数。宣传可以很强，但硬数字必须能在仓库里点开核验。
 
-## 四个透明稿件审计器
+## 六个透明稿件与题名审计器
 
 需要 Python 3.9+，不依赖第三方包：
 
@@ -131,13 +139,15 @@ git clone https://github.com/niuyupeng/CNS-Skills.git ~/.claude/skills/cns-skill
 python scripts/cns_audit.py manuscript.docx --strict-clean-copy
 python scripts/cns_audit.py manuscript.docx --verify-dois --shareable --json cns-report.json
 python scripts/review_citation_audit.py review.docx --shareable --json review-citations.json
+python scripts/review_search_audit.py review.docx --shareable --json review-search.json
+python scripts/title_audit.py "暂定论文题目"
 python scripts/check_invariants.py 中文源稿.docx 英文修改稿.docx --shareable --json invariants.json
 python scripts/check_crossrefs.py 英文修改稿.docx --shareable --json crossrefs.json
 ```
 
-它们会报告高风险表述、DOI 状态、公式化/编辑脚手架模式、方括号数字引文结构、数字/单位/统计量/引文变化、断裂的图表引用和读者可见的成稿泄漏。严格成稿门禁还会检查重复的 1×1 提示框、作者侧生产说明、表题样式、表内字号漂移，以及 DOCX 文件名或元数据中的工具/版本痕迹。它们不会自动改稿、独立判断全文支持关系、证明翻译等价或充当 AI 检测器。未经 `--shareable` 处理的 JSON 可能包含本地路径和未发表片段，不能随意外传。
+它们会报告高风险表述、DOI 状态、公式化/编辑脚手架模式、综述检索披露、题名结构与检索词、方括号数字引文结构、数字/单位/统计量/引文变化、断裂的图表引用和读者可见的成稿泄漏。严格成稿门禁还会检查重复的 1×1 提示框、作者侧生产说明、表题样式、表内字号漂移，以及 DOCX 文件名或元数据中的工具/版本痕迹。综述检索的严格类型门禁只覆盖明确声明的系统综述、范围综述和荟萃分析；rapid、umbrella、integrative、realist 等未支持类型必须人工分类。它们不会自动改稿、独立判断全文支持关系、证明翻译等价、预测录用或充当 AI 检测器。未经 `--shareable` 处理的 JSON 可能包含本地路径和未发表片段，不能随意外传。
 
-完整运行规则见 [SKILL.md](SKILL.md)。专题参考包括[英文优先双语写作](references/english-first-bilingual.md)、[综述写作](references/review-article-mode.md)、[自然学术语言](references/natural-academic-style.md)、[综述—Skill 双向迭代](references/iterative-review-development.md)、[图表与图注](references/figures-tables.md)、[科研诚信](references/scientific-integrity.md)和[场所配置](references/venue-profiles.md)。
+完整运行规则见 [SKILL.md](SKILL.md)。专题参考包括[英文优先双语写作](references/english-first-bilingual.md)、[科学题名优化](references/scientific-title-optimization.md)、[综述写作](references/review-article-mode.md)、[分文体顶级写作迁移](references/genre-aware-top-venue-writing.md)、[自然学术语言](references/natural-academic-style.md)、[综述—Skill 双向迭代](references/iterative-review-development.md)、[图表与图注](references/figures-tables.md)、[科研诚信](references/scientific-integrity.md)和[场所配置](references/venue-profiles.md)。
 
 ## 引用 CNS Skills
 
@@ -150,7 +160,7 @@ GitHub 会根据根目录 [CITATION.cff](CITATION.cff) 自动显示 **Cite this 
   author  = {Niu, Yupeng},
   title   = {CNS Skills: Evidence-First Scientific Manuscript Revision and Quality Assurance},
   year    = {2026},
-  version = {0.7.0},
+  version = {0.8.0},
   url     = {https://github.com/niuyupeng/CNS-Skills}
 }
 ```

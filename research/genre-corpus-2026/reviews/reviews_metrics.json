@@ -1,0 +1,445 @@
+{
+  "corpus_name": "Top review/review-type genre corpus, 2021-2026",
+  "generated_on": "2026-08-30",
+  "declared_access_date": "2026-08-30",
+  "sampling_design": "purposive stratified genre sample; 20 venues x 10 records",
+  "date_window": [
+    "2021-01-01",
+    "2026-08-30"
+  ],
+  "quality_checks": {
+    "row_count": 200,
+    "expected_row_count": 200,
+    "exactly_200": true,
+    "unique_persistent_ids": 200,
+    "unique_dois": 200,
+    "duplicate_persistent_ids": 0,
+    "crossref_verified": 200,
+    "crossref_title_review_needed": 0
+  },
+  "candidate_counts_before_quota_selection": {
+    "Nature": 163,
+    "Science": 243,
+    "Cell": 208,
+    "Nature Reviews Materials": 16,
+    "Nature Reviews Bioengineering": 12,
+    "Nature Reviews Chemistry": 267,
+    "Nature Reviews Drug Discovery": 208,
+    "Nature Reviews Molecular Cell Biology": 272,
+    "Nature Reviews Cancer": 258,
+    "Nature Reviews Microbiology": 283,
+    "Nature Materials": 79,
+    "Nature Nanotechnology": 74,
+    "Nature Biomedical Engineering": 52,
+    "Nature Biotechnology": 45,
+    "Nature Methods": 81,
+    "Chemical Reviews": 1206,
+    "Advanced Materials": 2037,
+    "Advanced Drug Delivery Reviews": 1063,
+    "Trends in Biotechnology": 569,
+    "Annual Review of Biomedical Engineering": 109
+  },
+  "counts": {
+    "by_stratum": {
+      "CNS_flagship": 30,
+      "Materials_chemistry_reviews": 20,
+      "Nature_Reviews": 70,
+      "Nature_specialist": 50,
+      "Specialist_review_leaders": 30
+    },
+    "by_journal": {
+      "Advanced Drug Delivery Reviews": 10,
+      "Advanced Materials": 10,
+      "Annual Review of Biomedical Engineering": 10,
+      "Cell": 10,
+      "Chemical Reviews": 10,
+      "Nature": 10,
+      "Nature Biomedical Engineering": 10,
+      "Nature Biotechnology": 10,
+      "Nature Materials": 10,
+      "Nature Methods": 10,
+      "Nature Nanotechnology": 10,
+      "Nature Reviews Bioengineering": 10,
+      "Nature Reviews Cancer": 10,
+      "Nature Reviews Chemistry": 10,
+      "Nature Reviews Drug Discovery": 10,
+      "Nature Reviews Materials": 10,
+      "Nature Reviews Microbiology": 10,
+      "Nature Reviews Molecular Cell Biology": 10,
+      "Science": 10,
+      "Trends in Biotechnology": 10
+    },
+    "by_year": {
+      "2021": 32,
+      "2022": 35,
+      "2023": 39,
+      "2024": 31,
+      "2025": 29,
+      "2026": 34
+    },
+    "by_subtype": {
+      "meta_analysis": 1,
+      "perspective_review_type": 15,
+      "review_narrative_or_unspecified": 180,
+      "scoping_review": 1,
+      "systematic_review": 3
+    },
+    "by_topic": {
+      "AI_computation_and_data": 115,
+      "bioengineering_regeneration_synthetic_biology": 11,
+      "biomaterials_nanomedicine_delivery": 52,
+      "biotechnology_omics_and_methods": 7,
+      "chemistry_materials_and_sustainability": 6,
+      "disease_immunology_and_microbiology": 3,
+      "molecular_and_cell_life_science": 1,
+      "therapeutics_and_drug_discovery": 5
+    },
+    "by_analysis_text_level": {
+      "abstract": 157,
+      "full_text_xml": 42,
+      "title": 1
+    },
+    "by_oa_status": {
+      "open_access_europepmc_full_text": 42,
+      "open_access_no_epmc_full_text": 1,
+      "subscription_or_oa_unknown": 157
+    },
+    "by_full_text_license_category": {
+      "CC_BY": 4,
+      "Creative_Commons_other_or_unclear": 1,
+      "license_not_machine_resolved": 37,
+      "not_applicable_no_full_text": 158
+    },
+    "by_explicit_search_status": {
+      "no_explicit_review_search_detected": 42,
+      "not_assessed_without_full_text": 158
+    }
+  },
+  "analysis_denominators": {
+    "all_records_title_metadata": 200,
+    "records_with_abstract_or_full_text": 199,
+    "records_with_full_text_xml_audited": 42,
+    "narrative_or_perspective_full_text": 42,
+    "systematic_scoping_meta_full_text": 0,
+    "rule": "Absence of a search statement is coded only for accessible full text; abstract/title-only silence is not treated as body-text absence."
+  },
+  "schema_definitions": {
+    "whole_corpus_missingness_bounds": "Legacy key retained for compatibility. Its two values are the lower and upper possible whole-corpus FEATURE RATES when every unassessed body is assumed negative versus positive; they are not bounds on the missingness rate. Body-text missingness itself is fixed at 158/200 (0.79)."
+  },
+  "feature_metrics_all_records_with_missingness_bounds": {
+    "explicit_methods_or_search_strategy": {
+      "field": "explicit_methods_or_search_strategy",
+      "yes": 0,
+      "assessed_denominator": 42,
+      "unassessed_or_unknown": 158,
+      "rate_among_assessed": 0.0,
+      "descriptive_wilson_95pct_within_assessed_only": [
+        0.0,
+        0.0838
+      ],
+      "whole_corpus_missingness_bounds": [
+        0.0,
+        0.79
+      ],
+      "boundary_note": "Purposive corpus: interval is descriptive only; missingness bounds treat every unassessed item as absent vs present."
+    },
+    "databases_reporting_status": {
+      "field": "databases_reporting_status",
+      "yes": 0,
+      "assessed_denominator": 42,
+      "unassessed_or_unknown": 158,
+      "rate_among_assessed": 0.0,
+      "descriptive_wilson_95pct_within_assessed_only": [
+        0.0,
+        0.0838
+      ],
+      "whole_corpus_missingness_bounds": [
+        0.0,
+        0.79
+      ],
+      "boundary_note": "Purposive corpus: interval is descriptive only; missingness bounds treat every unassessed item as absent vs present."
+    },
+    "search_date_limits_status": {
+      "field": "search_date_limits_status",
+      "yes": 0,
+      "assessed_denominator": 42,
+      "unassessed_or_unknown": 158,
+      "rate_among_assessed": 0.0,
+      "descriptive_wilson_95pct_within_assessed_only": [
+        0.0,
+        0.0838
+      ],
+      "whole_corpus_missingness_bounds": [
+        0.0,
+        0.79
+      ],
+      "boundary_note": "Purposive corpus: interval is descriptive only; missingness bounds treat every unassessed item as absent vs present."
+    },
+    "search_terms_or_keyword_list_reported": {
+      "field": "search_terms_or_keyword_list_reported",
+      "yes": 0,
+      "assessed_denominator": 42,
+      "unassessed_or_unknown": 158,
+      "rate_among_assessed": 0.0,
+      "descriptive_wilson_95pct_within_assessed_only": [
+        0.0,
+        0.0838
+      ],
+      "whole_corpus_missingness_bounds": [
+        0.0,
+        0.79
+      ],
+      "boundary_note": "Purposive corpus: interval is descriptive only; missingness bounds treat every unassessed item as absent vs present."
+    },
+    "supplementary_search_string_reported": {
+      "field": "supplementary_search_string_reported",
+      "yes": 0,
+      "assessed_denominator": 42,
+      "unassessed_or_unknown": 158,
+      "rate_among_assessed": 0.0,
+      "descriptive_wilson_95pct_within_assessed_only": [
+        0.0,
+        0.0838
+      ],
+      "whole_corpus_missingness_bounds": [
+        0.0,
+        0.79
+      ],
+      "boundary_note": "Purposive corpus: interval is descriptive only; missingness bounds treat every unassessed item as absent vs present."
+    },
+    "inclusion_exclusion_reported": {
+      "field": "inclusion_exclusion_reported",
+      "yes": 0,
+      "assessed_denominator": 42,
+      "unassessed_or_unknown": 158,
+      "rate_among_assessed": 0.0,
+      "descriptive_wilson_95pct_within_assessed_only": [
+        0.0,
+        0.0838
+      ],
+      "whole_corpus_missingness_bounds": [
+        0.0,
+        0.79
+      ],
+      "boundary_note": "Purposive corpus: interval is descriptive only; missingness bounds treat every unassessed item as absent vs present."
+    },
+    "screening_process_reported": {
+      "field": "screening_process_reported",
+      "yes": 0,
+      "assessed_denominator": 42,
+      "unassessed_or_unknown": 158,
+      "rate_among_assessed": 0.0,
+      "descriptive_wilson_95pct_within_assessed_only": [
+        0.0,
+        0.0838
+      ],
+      "whole_corpus_missingness_bounds": [
+        0.0,
+        0.79
+      ],
+      "boundary_note": "Purposive corpus: interval is descriptive only; missingness bounds treat every unassessed item as absent vs present."
+    },
+    "deduplication_reported": {
+      "field": "deduplication_reported",
+      "yes": 0,
+      "assessed_denominator": 42,
+      "unassessed_or_unknown": 158,
+      "rate_among_assessed": 0.0,
+      "descriptive_wilson_95pct_within_assessed_only": [
+        0.0,
+        0.0838
+      ],
+      "whole_corpus_missingness_bounds": [
+        0.0,
+        0.79
+      ],
+      "boundary_note": "Purposive corpus: interval is descriptive only; missingness bounds treat every unassessed item as absent vs present."
+    },
+    "prisma_reported": {
+      "field": "prisma_reported",
+      "yes": 0,
+      "assessed_denominator": 42,
+      "unassessed_or_unknown": 158,
+      "rate_among_assessed": 0.0,
+      "descriptive_wilson_95pct_within_assessed_only": [
+        0.0,
+        0.0838
+      ],
+      "whole_corpus_missingness_bounds": [
+        0.0,
+        0.79
+      ],
+      "boundary_note": "Purposive corpus: interval is descriptive only; missingness bounds treat every unassessed item as absent vs present."
+    },
+    "flow_diagram_reported": {
+      "field": "flow_diagram_reported",
+      "yes": 0,
+      "assessed_denominator": 42,
+      "unassessed_or_unknown": 158,
+      "rate_among_assessed": 0.0,
+      "descriptive_wilson_95pct_within_assessed_only": [
+        0.0,
+        0.0838
+      ],
+      "whole_corpus_missingness_bounds": [
+        0.0,
+        0.79
+      ],
+      "boundary_note": "Purposive corpus: interval is descriptive only; missingness bounds treat every unassessed item as absent vs present."
+    }
+  },
+  "full_text_only_search_disclosure": {
+    "all_full_text": {
+      "field": "explicit_methods_or_search_strategy",
+      "yes": 0,
+      "assessed_denominator": 42,
+      "unassessed_or_unknown": 0,
+      "rate_among_assessed": 0.0,
+      "descriptive_wilson_95pct_within_assessed_only": [
+        0.0,
+        0.0838
+      ],
+      "whole_corpus_missingness_bounds": [
+        0.0,
+        0.0
+      ],
+      "boundary_note": "Purposive corpus: interval is descriptive only; missingness bounds treat every unassessed item as absent vs present."
+    },
+    "narrative_or_perspective_full_text": {
+      "field": "explicit_methods_or_search_strategy",
+      "yes": 0,
+      "assessed_denominator": 42,
+      "unassessed_or_unknown": 0,
+      "rate_among_assessed": 0.0,
+      "descriptive_wilson_95pct_within_assessed_only": [
+        0.0,
+        0.0838
+      ],
+      "whole_corpus_missingness_bounds": [
+        0.0,
+        0.0
+      ],
+      "boundary_note": "Purposive corpus: interval is descriptive only; missingness bounds treat every unassessed item as absent vs present."
+    },
+    "systematic_scoping_meta_full_text": {
+      "field": "explicit_methods_or_search_strategy",
+      "yes": 0,
+      "assessed_denominator": 0,
+      "unassessed_or_unknown": 0,
+      "rate_among_assessed": null,
+      "descriptive_wilson_95pct_within_assessed_only": null,
+      "whole_corpus_missingness_bounds": null,
+      "boundary_note": "No records in this subgroup; no proportion calculated."
+    }
+  },
+  "non_text_writing_indicators": {
+    "title_word_count": {
+      "n": 200,
+      "min": 2.0,
+      "q1": 7.0,
+      "median": 8.0,
+      "q3": 10.0,
+      "max": 21.0
+    },
+    "title_with_colon": {
+      "no": 163,
+      "yes": 37
+    },
+    "title_as_question": {
+      "no": 198,
+      "yes": 2
+    },
+    "abstract_denominator": 199,
+    "abstract_word_count": {
+      "n": 199,
+      "min": 64.0,
+      "q1": 125.5,
+      "median": 153.0,
+      "q3": 185.0,
+      "max": 390.0
+    },
+    "abstract_sentence_count": {
+      "n": 199,
+      "min": 3.0,
+      "q1": 5.0,
+      "median": 6.0,
+      "q3": 7.5,
+      "max": 14.0
+    },
+    "abstract_first_person": {
+      "no": 39,
+      "yes": 160
+    },
+    "abstract_why_now_signal": {
+      "no": 62,
+      "yes": 137
+    },
+    "abstract_problem_or_gap_move": {
+      "no": 159,
+      "yes": 40
+    },
+    "abstract_scope_signpost_move": {
+      "no": 40,
+      "yes": 159
+    },
+    "abstract_synthesis_or_comparison_move": {
+      "no": 165,
+      "yes": 34
+    },
+    "abstract_boundary_or_limitation_move": {
+      "no": 159,
+      "yes": 40
+    },
+    "abstract_outlook_or_implication_move": {
+      "no": 116,
+      "yes": 83
+    },
+    "fulltext_top_level_section_count": {
+      "n": 42,
+      "min": 4.0,
+      "q1": 6.0,
+      "median": 9.0,
+      "q3": 13.0,
+      "max": 16.0
+    },
+    "fulltext_figure_count": {
+      "n": 42,
+      "min": 0.0,
+      "q1": 4.0,
+      "median": 4.0,
+      "q3": 6.0,
+      "max": 71.0
+    },
+    "fulltext_table_count": {
+      "n": 42,
+      "min": 0.0,
+      "q1": 1.0,
+      "median": 2.0,
+      "q3": 2.0,
+      "max": 7.0
+    },
+    "fulltext_box_count": {
+      "n": 42,
+      "min": 0.0,
+      "q1": 0.0,
+      "median": 1.0,
+      "q3": 2.0,
+      "max": 4.0
+    },
+    "fulltext_introduction_heading": {
+      "yes": 42
+    },
+    "fulltext_conclusion_or_outlook_heading": {
+      "yes": 42
+    },
+    "fulltext_limitations_or_challenges_heading": {
+      "no_or_embedded": 26,
+      "yes": 16
+    },
+    "fulltext_organization_logic": {
+      "thematic_synthesis_with_explicit_conclusion_or_outlook": 42
+    },
+    "interpretation_rule": "Indicators describe structure and rhetorical moves; they are not acceptance rules or prose templates."
+  },
+  "interpretive_limit": "This is a relevance-weighted, venue-quota genre corpus. Counts describe these 200 records and cannot estimate prevalence across all top journals or all reviews."
+}

@@ -4,14 +4,14 @@
     "name": "Yupeng Niu"
   },
   "metadata": {
-    "description": "English-first scientific writing and manuscript-quality workflows for journals and leading conferences."
+    "description": "English-first scientific title and manuscript-quality workflows for journals and leading conferences."
   },
   "plugins": [
     {
       "name": "cns-skills",
       "source": "./plugins/cns-skills",
-      "description": "Scientific paper polishing, manuscript revision, Chinese-to-English academic writing, peer review, citation audits, clean-copy gates, and figure/table QA.",
-      "version": "0.7.0",
+      "description": "Scientific title optimization, paper polishing, manuscript revision, Chinese-to-English academic writing, peer review, citation audits, clean-copy gates, and figure/table QA.",
+      "version": "0.8.0",
       "author": {
         "name": "Yupeng Niu"
       },
@@ -20,6 +20,9 @@
         "academic-writing",
         "scientific-writing",
         "paper-polishing",
+        "scientific-title",
+        "paper-title",
+        "title-optimization",
         "chinese-to-english",
         "peer-review",
         "response-to-reviewers",

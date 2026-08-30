@@ -1,0 +1,141 @@
+{
+  "tool": "CNS scientific title audit",
+  "version": "0.8.0",
+  "policy_snapshot": "2026-08-30",
+  "candidate_analyses": [],
+  "limitations": [
+    "Observable title features do not establish scientific quality or acceptance probability.",
+    "Corpus frequencies are descriptive and must not be converted into copyable formulas.",
+    "Final title selection requires the manuscript's central contribution, evidence boundary, article type, and live venue rules."
+  ],
+  "corpus_summary": {
+    "source_file": "elite-venue-title-corpus-100.csv",
+    "records": 100,
+    "unique_normalized_titles": 100,
+    "unique_stable_ids": 100,
+    "unique_nonempty_dois": 70,
+    "duplicate_normalized_titles": [],
+    "duplicate_stable_ids": [],
+    "duplicate_dois": [],
+    "years": {
+      "minimum": 2018,
+      "maximum": 2026
+    },
+    "title_words": {
+      "median": 9.0,
+      "q1": 7.0,
+      "q3": 11.25
+    },
+    "title_characters": {
+      "median": 78.5,
+      "q1": 64.75,
+      "q3": 92.75
+    },
+    "feature_percent": {
+      "colon": 23.0,
+      "question": 1.0,
+      "acronym": 11.0,
+      "generic_review_formula": 0.0
+    },
+    "venue_counts": {
+      "AAAI": 4,
+      "Advanced Materials": 4,
+      "CVPR": 4,
+      "Cell": 3,
+      "Chemical Reviews": 5,
+      "ICLR": 7,
+      "ICML": 8,
+      "Journal of the American Chemical Society": 4,
+      "Matter": 9,
+      "Nature": 4,
+      "Nature Biomedical Engineering": 2,
+      "Nature Biotechnology": 2,
+      "Nature Chemistry": 2,
+      "Nature Machine Intelligence": 3,
+      "Nature Materials": 6,
+      "Nature Methods": 2,
+      "Nature Nanotechnology": 2,
+      "Nature Reviews Bioengineering": 2,
+      "Nature Reviews Materials": 3,
+      "NeurIPS": 7,
+      "Science": 4,
+      "Science Advances": 10,
+      "Science Robotics": 3
+    },
+    "venue_family_counts": {
+      "CNS flagship": 11,
+      "CNS-family elite specialty": 46,
+      "field flagship": 13,
+      "flagship conference": 30
+    },
+    "venue_type_counts": {
+      "conference": 30,
+      "journal": 70
+    },
+    "title_features_by_venue_type": {
+      "conference": {
+        "records": 30,
+        "title_words": {
+          "median": 10.0,
+          "q1": 8.0,
+          "q3": 12.75
+        },
+        "title_characters": {
+          "median": 82.5,
+          "q1": 69.5,
+          "q3": 100.5
+        },
+        "feature_percent": {
+          "colon": 40.0,
+          "question": 0.0,
+          "acronym": 20.0,
+          "generic_review_formula": 0.0
+        }
+      },
+      "journal": {
+        "records": 70,
+        "title_words": {
+          "median": 9.0,
+          "q1": 7.0,
+          "q3": 11.0
+        },
+        "title_characters": {
+          "median": 76.0,
+          "q1": 61.25,
+          "q3": 88.75
+        },
+        "feature_percent": {
+          "colon": 15.7,
+          "question": 1.4,
+          "acronym": 7.1,
+          "generic_review_formula": 0.0
+        }
+      }
+    },
+    "article_type_counts": {
+      "Conference paper": 30,
+      "Journal article (genre not verified)": 49,
+      "Review": 21
+    },
+    "stored_fields": [
+      "acceptance_status",
+      "article_type",
+      "doi",
+      "metadata_source",
+      "metadata_url",
+      "official_url",
+      "record_id",
+      "relevance_domain",
+      "selection_reason",
+      "stable_id",
+      "stable_id_type",
+      "title",
+      "venue",
+      "venue_family",
+      "venue_type",
+      "verified_date",
+      "year"
+    ],
+    "stores_abstract_or_full_text": false
+  }
+}

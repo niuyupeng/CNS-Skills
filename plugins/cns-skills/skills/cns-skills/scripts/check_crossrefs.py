@@ -15,7 +15,7 @@ from typing import Any
 from xml.etree import ElementTree as ET
 
 
-VERSION = "0.7.0"
+VERSION = "0.8.0"
 CAPTION_RE = re.compile(
     r"^\s*(?:(?P<scope>Supplementary|Supplemental|Extended\s+Data|补充|扩展数据)\s*)?"
     r"(?P<kind>Fig(?:ure)?|Table|图|表)\s*\.?\s*(?P<number>S?\d+)(?:[A-Za-z])?\b"

@@ -1,0 +1,94 @@
+{
+  "schema_version": "1.0",
+  "demo_id": "synthetic-hydrogel-demo",
+  "report_type": "overclaim_risk_comparison",
+  "synthetic_notice": "This is a synthetic software demonstration, not a scientific assessment of a material.",
+  "evidence_layer_available": "deterministic retrospective fixture emulating single-batch technical-well means",
+  "automated_triage": {
+    "tool": "CNS Skills manuscript audit",
+    "tool_version": "0.8.0",
+    "before_high_risk_language_sentences": 7,
+    "after_high_risk_language_sentences": 2,
+    "after_context_review": [
+      {
+        "trigger": "causal",
+        "context": "The sentence states that the fixture does not support causal inference.",
+        "decision": "retain_as_explicit_boundary"
+      },
+      {
+        "trigger": "cause substring in because",
+        "context": "The heuristic matched the word 'because' in a sentence explaining why error bars are absent.",
+        "decision": "retain_as_false_positive"
+      }
+    ]
+  },
+  "risks": [
+    {
+      "id": "OC-01",
+      "before_language": "universally effective; effective for all wound types",
+      "risk_class": "unsupported_generalization",
+      "severity_before": "critical",
+      "resolution": "Restrict all interpretation to the six fixed synthetic holdout rows.",
+      "status_after": "resolved"
+    },
+    {
+      "id": "OC-02",
+      "before_language": "completely safe; clinically safe; clinically effective; immediate clinical readiness",
+      "risk_class": "validation_layer_inflation",
+      "severity_before": "critical",
+      "resolution": "State that a fictional viability proxy cannot establish organism-level tolerability or patient benefit.",
+      "status_after": "resolved"
+    },
+    {
+      "id": "OC-03",
+      "before_language": "fully autonomous and closed loop",
+      "risk_class": "automation_inflation",
+      "severity_before": "high",
+      "resolution": "Classify the workflow as retrospective because no result changed a subsequent experiment.",
+      "status_after": "resolved"
+    },
+    {
+      "id": "OC-04",
+      "before_language": "state-of-the-art accuracy; generalized across the entire design space",
+      "risk_class": "benchmark_and_external_validity_overclaim",
+      "severity_before": "high",
+      "resolution": "Delete the comparison and generalization claims because no benchmark or external validation exists.",
+      "status_after": "resolved_by_deletion"
+    },
+    {
+      "id": "OC-05",
+      "before_language": "caused superior wound healing",
+      "risk_class": "causal_and_endpoint_substitution",
+      "severity_before": "critical",
+      "resolution": "Delete the claim; no wound-healing endpoint or causal design exists.",
+      "status_after": "resolved_by_deletion"
+    },
+    {
+      "id": "OC-06",
+      "before_language": "can eliminate animal testing and support direct clinical deployment",
+      "risk_class": "translational_overreach",
+      "severity_before": "critical",
+      "resolution": "Delete the claim and identify independent prospective validation as missing evidence, without predicting its result.",
+      "status_after": "resolved_by_deletion"
+    },
+    {
+      "id": "OC-07",
+      "before_language": "three replicate wells establish reproducibility and safety",
+      "risk_class": "pseudoreplication",
+      "severity_before": "high",
+      "resolution": "Identify the wells as technical replicates from one fictional batch and withhold inferential statistics.",
+      "status_after": "resolved"
+    }
+  ],
+  "after_summary": {
+    "unresolved_overclaim_risks": 0,
+    "remaining_scientific_unknowns": [
+      "independent-batch reproducibility",
+      "external validity",
+      "biological mechanism",
+      "organism-level tolerability",
+      "clinical performance"
+    ],
+    "interpretation": "The prose is evidence-calibrated for the synthetic fixture; the unknowns remain unknown rather than being polished away."
+  }
+}

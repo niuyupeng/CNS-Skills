@@ -11,6 +11,14 @@ Distinguish the product before searching:
 
 Do not use “systematic”, “comprehensive”, or “all studies” when the corresponding search and screening record does not exist. A structured search can strengthen a narrative review without changing its article type.
 
+For a structured narrative review, keep the reader-facing method proportional.
+The main text usually needs purpose, sources, cutoff, selection logic, and the
+limit on coverage claims. When exact search strings and record-level provenance
+are needed, put them in a genuine supplement or audit archive rather than
+compressing many keywords into non-executable prose. Separate bibliographic
+search from full-text retrieval, DOI/metadata verification, and an author's
+pre-existing collection.
+
 ## Expand from argument gaps
 
 Search from a missing inferential role, not from a target reference count. Maintain a small gap register:

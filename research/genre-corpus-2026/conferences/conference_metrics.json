@@ -1,0 +1,1071 @@
+{
+  "schema_version": "1.0",
+  "generated_at_utc": "2026-08-30T14:53:00.513568+00:00",
+  "access_date": "2026-08-30",
+  "corpus_design": {
+    "target": "English accepted main-conference papers",
+    "year": 2025,
+    "reason_for_year": "Most recent common completed conference year with official proceedings for all five venues; avoids mixing publication cycles.",
+    "venues": [
+      "AAAI",
+      "CVPR",
+      "NeurIPS",
+      "ICML",
+      "ICLR"
+    ],
+    "sample_per_venue": 40,
+    "sampling_method": "Deterministic equal-interval systematic sample after sorting each eligible official frame by stable native paper identifier/canonical URL.",
+    "frame_sizes": {
+      "AAAI": 2903,
+      "CVPR": 2871,
+      "NeurIPS": 5286,
+      "ICML": 3330,
+      "ICLR": 3703
+    },
+    "excluded": "Workshops, special tracks, position-paper tracks, datasets-and-benchmarks tracks, journal tracks, demos, student abstracts, and rejected/withdrawn submissions."
+  },
+  "validation": {
+    "total_records": 200,
+    "per_venue": {
+      "AAAI": 40,
+      "CVPR": 40,
+      "ICLR": 40,
+      "ICML": 40,
+      "NeurIPS": 40
+    },
+    "per_year": {
+      "2025": 200
+    },
+    "unique_paper_ids": 200,
+    "unique_canonical_urls": 200,
+    "duplicate_titles_casefolded": 0,
+    "title_level_analyzed": 200,
+    "abstract_level_analyzed": 200,
+    "full_text_level_analyzed": 195,
+    "doi_available_per_venue": {
+      "AAAI": 40,
+      "NeurIPS": 40
+    },
+    "all_exactly_40": true,
+    "all_main_conference_year_2025": true
+  },
+  "overall": {
+    "records": 200,
+    "title_level_analyzed": 200,
+    "abstract_level_analyzed": 200,
+    "full_text_level_analyzed": 195,
+    "analysis_text_levels_mutually_exclusive": {
+      "abstract_only": 5,
+      "full_text_extracted": 195
+    },
+    "title_words": {
+      "n": 200,
+      "median": 9.0,
+      "q1": 7.75,
+      "q3": 11.0,
+      "min": 3.0,
+      "max": 15.0
+    },
+    "abstract_words": {
+      "n": 200,
+      "median": 181.0,
+      "q1": 155.75,
+      "q3": 210.25,
+      "min": 95.0,
+      "max": 338.0
+    },
+    "pdf_pages": {
+      "n": 195,
+      "median": 19.0,
+      "q1": 10.0,
+      "q3": 28.0,
+      "min": 8.0,
+      "max": 68.0
+    },
+    "full_text_words": {
+      "n": 195,
+      "median": 9527.0,
+      "q1": 6559.5,
+      "q3": 12870.0,
+      "min": 4921.0,
+      "max": 36921.0
+    },
+    "topics": {
+      "computer_vision_multimodal": 40,
+      "data_benchmarks_evaluation": 16,
+      "general_machine_learning": 2,
+      "generative_models": 16,
+      "graphs_structured_data": 20,
+      "language_models_nlp": 57,
+      "reinforcement_learning_agents": 13,
+      "robotics_embodied_autonomy": 4,
+      "scientific_ml_biomedicine": 3,
+      "theory_optimization": 19,
+      "trustworthy_ai_privacy_fairness": 10
+    },
+    "tracks": {
+      "AAAI Technical Track on Application Domains": 2,
+      "AAAI Technical Track on Cognitive Modeling & Cognitive Systems": 1,
+      "AAAI Technical Track on Computer Vision I": 1,
+      "AAAI Technical Track on Computer Vision II": 1,
+      "AAAI Technical Track on Computer Vision III": 2,
+      "AAAI Technical Track on Computer Vision IV": 2,
+      "AAAI Technical Track on Computer Vision IX": 2,
+      "AAAI Technical Track on Computer Vision V": 1,
+      "AAAI Technical Track on Computer Vision VI": 2,
+      "AAAI Technical Track on Computer Vision VII": 2,
+      "AAAI Technical Track on Computer Vision VIII": 1,
+      "AAAI Technical Track on Data Mining & Knowledge Management I": 2,
+      "AAAI Technical Track on Data Mining & Knowledge Management II": 2,
+      "AAAI Technical Track on Game Theory and Economic Paradigms": 1,
+      "AAAI Technical Track on Intelligent Robots": 1,
+      "AAAI Technical Track on Machine Learning I": 2,
+      "AAAI Technical Track on Machine Learning II": 2,
+      "AAAI Technical Track on Machine Learning III": 2,
+      "AAAI Technical Track on Machine Learning IV": 1,
+      "AAAI Technical Track on Machine Learning V": 2,
+      "AAAI Technical Track on Machine Learning VII": 2,
+      "AAAI Technical Track on Natural Language Processing I": 1,
+      "AAAI Technical Track on Natural Language Processing II": 2,
+      "AAAI Technical Track on Natural Language Processing III": 1,
+      "AAAI Technical Track on Philosophy and Ethics of AI": 1,
+      "AAAI Technical Track on Reasoning under Uncertainty": 1,
+      "Conference": 40,
+      "Main Conference": 80,
+      "Main Conference Track": 40
+    },
+    "abstract_moves": {
+      "context_or_problem;gap_or_contrast": 1,
+      "context_or_problem;gap_or_contrast;implication_or_boundary": 2,
+      "context_or_problem;gap_or_contrast;method_or_resource": 8,
+      "context_or_problem;gap_or_contrast;method_or_resource;implication_or_boundary": 14,
+      "context_or_problem;gap_or_contrast;method_or_resource;result_or_evidence": 14,
+      "context_or_problem;gap_or_contrast;method_or_resource;result_or_evidence;implication_or_boundary": 41,
+      "context_or_problem;gap_or_contrast;result_or_evidence": 1,
+      "context_or_problem;gap_or_contrast;result_or_evidence;implication_or_boundary": 3,
+      "context_or_problem;implication_or_boundary": 1,
+      "context_or_problem;method_or_resource": 7,
+      "context_or_problem;method_or_resource;implication_or_boundary": 3,
+      "context_or_problem;method_or_resource;result_or_evidence": 14,
+      "context_or_problem;method_or_resource;result_or_evidence;implication_or_boundary": 11,
+      "context_or_problem;result_or_evidence": 5,
+      "context_or_problem;result_or_evidence;implication_or_boundary": 3,
+      "descriptive_only": 1,
+      "gap_or_contrast": 1,
+      "gap_or_contrast;method_or_resource": 2,
+      "gap_or_contrast;method_or_resource;implication_or_boundary": 9,
+      "gap_or_contrast;method_or_resource;result_or_evidence": 8,
+      "gap_or_contrast;method_or_resource;result_or_evidence;implication_or_boundary": 14,
+      "gap_or_contrast;result_or_evidence": 6,
+      "gap_or_contrast;result_or_evidence;implication_or_boundary": 3,
+      "implication_or_boundary": 1,
+      "method_or_resource": 4,
+      "method_or_resource;implication_or_boundary": 8,
+      "method_or_resource;result_or_evidence": 6,
+      "method_or_resource;result_or_evidence;implication_or_boundary": 6,
+      "result_or_evidence": 1,
+      "result_or_evidence;implication_or_boundary": 2
+    },
+    "introduction_contribution_list": {
+      "explicit_list": 44,
+      "explicit_prose": 18,
+      "not_detected": 133
+    },
+    "related_work_position": {
+      "between_method_and_experiments": 1,
+      "early_dedicated": 26,
+      "late_dedicated": 3,
+      "no_dedicated_heading_detected": 165
+    },
+    "method_narrative": {
+      "dedicated_method_or_approach": 61,
+      "no_generic_method_heading_detected": 85,
+      "preliminaries_then_method_or_analysis": 9,
+      "problem_formulation_then_method": 3,
+      "theory_led_without_generic_method_heading": 37
+    },
+    "conclusion_moves": {
+      "not_detected": 150,
+      "recapitulates_contribution": 1,
+      "recapitulates_contribution;summarizes_evidence;states_boundary_or_future_work": 5,
+      "recapitulates_contribution;summarizes_evidence;states_boundary_or_future_work;states_implication": 3,
+      "summarizes_evidence": 5,
+      "summarizes_evidence;states_boundary_or_future_work": 8,
+      "summarizes_evidence;states_boundary_or_future_work;states_implication": 15,
+      "summarizes_evidence;states_implication": 8
+    },
+    "full_text_signal_frequencies": {
+      "experiments_section": {
+        "count": 39,
+        "denominator_full_text": 195,
+        "proportion": 0.2
+      },
+      "baseline_language": {
+        "count": 195,
+        "denominator_full_text": 195,
+        "proportion": 1.0
+      },
+      "ablation_reported": {
+        "count": 126,
+        "denominator_full_text": 195,
+        "proportion": 0.6462
+      },
+      "uncertainty_reporting": {
+        "count": 100,
+        "denominator_full_text": 195,
+        "proportion": 0.5128
+      },
+      "limitations_section": {
+        "count": 6,
+        "denominator_full_text": 195,
+        "proportion": 0.0308
+      },
+      "ethics_or_impact_section": {
+        "count": 11,
+        "denominator_full_text": 195,
+        "proportion": 0.0564
+      },
+      "checklist_present": {
+        "count": 37,
+        "denominator_full_text": 195,
+        "proportion": 0.1897
+      },
+      "conclusion_section": {
+        "count": 45,
+        "denominator_full_text": 195,
+        "proportion": 0.2308
+      }
+    },
+    "figure_caption_count": {
+      "n": 195,
+      "median": 5.0,
+      "q1": 3.0,
+      "q3": 8.0,
+      "min": 0.0,
+      "max": 50.0
+    },
+    "table_caption_count": {
+      "n": 195,
+      "median": 3.0,
+      "q1": 2.0,
+      "q3": 6.0,
+      "min": 0.0,
+      "max": 27.0
+    }
+  },
+  "per_venue": {
+    "AAAI": {
+      "records": 40,
+      "title_level_analyzed": 40,
+      "abstract_level_analyzed": 40,
+      "full_text_level_analyzed": 40,
+      "analysis_text_levels_mutually_exclusive": {
+        "full_text_extracted": 40
+      },
+      "title_words": {
+        "n": 40,
+        "median": 10.0,
+        "q1": 7.0,
+        "q3": 11.0,
+        "min": 3.0,
+        "max": 15.0
+      },
+      "abstract_words": {
+        "n": 40,
+        "median": 183.5,
+        "q1": 161.0,
+        "q3": 209.25,
+        "min": 110.0,
+        "max": 266.0
+      },
+      "pdf_pages": {
+        "n": 40,
+        "median": 9.0,
+        "q1": 9.0,
+        "q3": 9.0,
+        "min": 8.0,
+        "max": 10.0
+      },
+      "full_text_words": {
+        "n": 40,
+        "median": 6162.0,
+        "q1": 5858.25,
+        "q3": 6538.25,
+        "min": 4921.0,
+        "max": 8508.0
+      },
+      "topics": {
+        "computer_vision_multimodal": 6,
+        "data_benchmarks_evaluation": 4,
+        "general_machine_learning": 1,
+        "generative_models": 2,
+        "graphs_structured_data": 8,
+        "language_models_nlp": 7,
+        "reinforcement_learning_agents": 2,
+        "robotics_embodied_autonomy": 3,
+        "scientific_ml_biomedicine": 1,
+        "theory_optimization": 2,
+        "trustworthy_ai_privacy_fairness": 4
+      },
+      "tracks": {
+        "AAAI Technical Track on Application Domains": 2,
+        "AAAI Technical Track on Cognitive Modeling & Cognitive Systems": 1,
+        "AAAI Technical Track on Computer Vision I": 1,
+        "AAAI Technical Track on Computer Vision II": 1,
+        "AAAI Technical Track on Computer Vision III": 2,
+        "AAAI Technical Track on Computer Vision IV": 2,
+        "AAAI Technical Track on Computer Vision IX": 2,
+        "AAAI Technical Track on Computer Vision V": 1,
+        "AAAI Technical Track on Computer Vision VI": 2,
+        "AAAI Technical Track on Computer Vision VII": 2,
+        "AAAI Technical Track on Computer Vision VIII": 1,
+        "AAAI Technical Track on Data Mining & Knowledge Management I": 2,
+        "AAAI Technical Track on Data Mining & Knowledge Management II": 2,
+        "AAAI Technical Track on Game Theory and Economic Paradigms": 1,
+        "AAAI Technical Track on Intelligent Robots": 1,
+        "AAAI Technical Track on Machine Learning I": 2,
+        "AAAI Technical Track on Machine Learning II": 2,
+        "AAAI Technical Track on Machine Learning III": 2,
+        "AAAI Technical Track on Machine Learning IV": 1,
+        "AAAI Technical Track on Machine Learning V": 2,
+        "AAAI Technical Track on Machine Learning VII": 2,
+        "AAAI Technical Track on Natural Language Processing I": 1,
+        "AAAI Technical Track on Natural Language Processing II": 2,
+        "AAAI Technical Track on Natural Language Processing III": 1,
+        "AAAI Technical Track on Philosophy and Ethics of AI": 1,
+        "AAAI Technical Track on Reasoning under Uncertainty": 1
+      },
+      "abstract_moves": {
+        "context_or_problem;gap_or_contrast;implication_or_boundary": 1,
+        "context_or_problem;gap_or_contrast;method_or_resource": 2,
+        "context_or_problem;gap_or_contrast;method_or_resource;implication_or_boundary": 1,
+        "context_or_problem;gap_or_contrast;method_or_resource;result_or_evidence": 3,
+        "context_or_problem;gap_or_contrast;method_or_resource;result_or_evidence;implication_or_boundary": 8,
+        "context_or_problem;gap_or_contrast;result_or_evidence": 1,
+        "context_or_problem;implication_or_boundary": 1,
+        "context_or_problem;method_or_resource": 1,
+        "context_or_problem;method_or_resource;result_or_evidence": 5,
+        "context_or_problem;method_or_resource;result_or_evidence;implication_or_boundary": 3,
+        "gap_or_contrast": 1,
+        "gap_or_contrast;method_or_resource;implication_or_boundary": 1,
+        "gap_or_contrast;method_or_resource;result_or_evidence": 4,
+        "gap_or_contrast;method_or_resource;result_or_evidence;implication_or_boundary": 2,
+        "gap_or_contrast;result_or_evidence": 2,
+        "implication_or_boundary": 1,
+        "method_or_resource;result_or_evidence": 2,
+        "method_or_resource;result_or_evidence;implication_or_boundary": 1
+      },
+      "introduction_contribution_list": {
+        "explicit_list": 10,
+        "explicit_prose": 4,
+        "not_detected": 26
+      },
+      "related_work_position": {
+        "early_dedicated": 3,
+        "no_dedicated_heading_detected": 37
+      },
+      "method_narrative": {
+        "dedicated_method_or_approach": 7,
+        "no_generic_method_heading_detected": 26,
+        "preliminaries_then_method_or_analysis": 1,
+        "problem_formulation_then_method": 1,
+        "theory_led_without_generic_method_heading": 5
+      },
+      "conclusion_moves": {
+        "not_detected": 28,
+        "recapitulates_contribution;summarizes_evidence;states_boundary_or_future_work": 1,
+        "summarizes_evidence": 2,
+        "summarizes_evidence;states_boundary_or_future_work": 2,
+        "summarizes_evidence;states_boundary_or_future_work;states_implication": 3,
+        "summarizes_evidence;states_implication": 4
+      },
+      "full_text_signal_frequencies": {
+        "experiments_section": {
+          "count": 2,
+          "denominator_full_text": 40,
+          "proportion": 0.05
+        },
+        "baseline_language": {
+          "count": 40,
+          "denominator_full_text": 40,
+          "proportion": 1.0
+        },
+        "ablation_reported": {
+          "count": 27,
+          "denominator_full_text": 40,
+          "proportion": 0.675
+        },
+        "uncertainty_reporting": {
+          "count": 14,
+          "denominator_full_text": 40,
+          "proportion": 0.35
+        },
+        "limitations_section": {
+          "count": 1,
+          "denominator_full_text": 40,
+          "proportion": 0.025
+        },
+        "ethics_or_impact_section": {
+          "count": 0,
+          "denominator_full_text": 40,
+          "proportion": 0.0
+        },
+        "checklist_present": {
+          "count": 0,
+          "denominator_full_text": 40,
+          "proportion": 0.0
+        },
+        "conclusion_section": {
+          "count": 12,
+          "denominator_full_text": 40,
+          "proportion": 0.3
+        }
+      },
+      "figure_caption_count": {
+        "n": 40,
+        "median": 2.0,
+        "q1": 2.0,
+        "q3": 3.0,
+        "min": 0.0,
+        "max": 6.0
+      },
+      "table_caption_count": {
+        "n": 40,
+        "median": 2.0,
+        "q1": 2.0,
+        "q3": 3.0,
+        "min": 0.0,
+        "max": 6.0
+      }
+    },
+    "CVPR": {
+      "records": 40,
+      "title_level_analyzed": 40,
+      "abstract_level_analyzed": 40,
+      "full_text_level_analyzed": 40,
+      "analysis_text_levels_mutually_exclusive": {
+        "full_text_extracted": 40
+      },
+      "title_words": {
+        "n": 40,
+        "median": 9.0,
+        "q1": 8.0,
+        "q3": 11.0,
+        "min": 5.0,
+        "max": 14.0
+      },
+      "abstract_words": {
+        "n": 40,
+        "median": 184.0,
+        "q1": 166.25,
+        "q3": 217.25,
+        "min": 109.0,
+        "max": 265.0
+      },
+      "pdf_pages": {
+        "n": 40,
+        "median": 11.0,
+        "q1": 10.0,
+        "q3": 11.0,
+        "min": 10.0,
+        "max": 13.0
+      },
+      "full_text_words": {
+        "n": 40,
+        "median": 6659.5,
+        "q1": 6247.75,
+        "q3": 7426.75,
+        "min": 5361.0,
+        "max": 8641.0
+      },
+      "topics": {
+        "computer_vision_multimodal": 21,
+        "data_benchmarks_evaluation": 2,
+        "generative_models": 5,
+        "graphs_structured_data": 2,
+        "language_models_nlp": 9,
+        "robotics_embodied_autonomy": 1
+      },
+      "tracks": {
+        "Main Conference": 40
+      },
+      "abstract_moves": {
+        "context_or_problem;gap_or_contrast;implication_or_boundary": 1,
+        "context_or_problem;gap_or_contrast;method_or_resource": 2,
+        "context_or_problem;gap_or_contrast;method_or_resource;implication_or_boundary": 2,
+        "context_or_problem;gap_or_contrast;method_or_resource;result_or_evidence": 4,
+        "context_or_problem;gap_or_contrast;method_or_resource;result_or_evidence;implication_or_boundary": 8,
+        "context_or_problem;gap_or_contrast;result_or_evidence;implication_or_boundary": 1,
+        "context_or_problem;method_or_resource": 3,
+        "context_or_problem;method_or_resource;implication_or_boundary": 1,
+        "context_or_problem;method_or_resource;result_or_evidence;implication_or_boundary": 1,
+        "context_or_problem;result_or_evidence": 1,
+        "gap_or_contrast;method_or_resource": 1,
+        "gap_or_contrast;method_or_resource;implication_or_boundary": 2,
+        "gap_or_contrast;method_or_resource;result_or_evidence;implication_or_boundary": 4,
+        "gap_or_contrast;result_or_evidence": 1,
+        "gap_or_contrast;result_or_evidence;implication_or_boundary": 1,
+        "method_or_resource": 1,
+        "method_or_resource;implication_or_boundary": 1,
+        "method_or_resource;result_or_evidence;implication_or_boundary": 3,
+        "result_or_evidence": 1,
+        "result_or_evidence;implication_or_boundary": 1
+      },
+      "introduction_contribution_list": {
+        "explicit_list": 9,
+        "explicit_prose": 8,
+        "not_detected": 23
+      },
+      "related_work_position": {
+        "no_dedicated_heading_detected": 40
+      },
+      "method_narrative": {
+        "dedicated_method_or_approach": 11,
+        "no_generic_method_heading_detected": 29
+      },
+      "conclusion_moves": {
+        "not_detected": 40
+      },
+      "full_text_signal_frequencies": {
+        "experiments_section": {
+          "count": 0,
+          "denominator_full_text": 40,
+          "proportion": 0.0
+        },
+        "baseline_language": {
+          "count": 40,
+          "denominator_full_text": 40,
+          "proportion": 1.0
+        },
+        "ablation_reported": {
+          "count": 29,
+          "denominator_full_text": 40,
+          "proportion": 0.725
+        },
+        "uncertainty_reporting": {
+          "count": 7,
+          "denominator_full_text": 40,
+          "proportion": 0.175
+        },
+        "limitations_section": {
+          "count": 0,
+          "denominator_full_text": 40,
+          "proportion": 0.0
+        },
+        "ethics_or_impact_section": {
+          "count": 0,
+          "denominator_full_text": 40,
+          "proportion": 0.0
+        },
+        "checklist_present": {
+          "count": 0,
+          "denominator_full_text": 40,
+          "proportion": 0.0
+        },
+        "conclusion_section": {
+          "count": 0,
+          "denominator_full_text": 40,
+          "proportion": 0.0
+        }
+      },
+      "figure_caption_count": {
+        "n": 40,
+        "median": 4.0,
+        "q1": 3.0,
+        "q3": 5.0,
+        "min": 2.0,
+        "max": 8.0
+      },
+      "table_caption_count": {
+        "n": 40,
+        "median": 3.0,
+        "q1": 2.0,
+        "q3": 4.0,
+        "min": 0.0,
+        "max": 8.0
+      }
+    },
+    "NeurIPS": {
+      "records": 40,
+      "title_level_analyzed": 40,
+      "abstract_level_analyzed": 40,
+      "full_text_level_analyzed": 38,
+      "analysis_text_levels_mutually_exclusive": {
+        "abstract_only": 2,
+        "full_text_extracted": 38
+      },
+      "title_words": {
+        "n": 40,
+        "median": 9.0,
+        "q1": 7.0,
+        "q3": 10.25,
+        "min": 5.0,
+        "max": 14.0
+      },
+      "abstract_words": {
+        "n": 40,
+        "median": 197.0,
+        "q1": 164.25,
+        "q3": 217.0,
+        "min": 95.0,
+        "max": 301.0
+      },
+      "pdf_pages": {
+        "n": 38,
+        "median": 32.0,
+        "q1": 27.0,
+        "q3": 38.0,
+        "min": 21.0,
+        "max": 68.0
+      },
+      "full_text_words": {
+        "n": 38,
+        "median": 14098.0,
+        "q1": 12158.0,
+        "q3": 15700.0,
+        "min": 10335.0,
+        "max": 36921.0
+      },
+      "topics": {
+        "computer_vision_multimodal": 5,
+        "data_benchmarks_evaluation": 4,
+        "generative_models": 4,
+        "graphs_structured_data": 1,
+        "language_models_nlp": 15,
+        "reinforcement_learning_agents": 2,
+        "theory_optimization": 8,
+        "trustworthy_ai_privacy_fairness": 1
+      },
+      "tracks": {
+        "Main Conference Track": 40
+      },
+      "abstract_moves": {
+        "context_or_problem;gap_or_contrast;method_or_resource": 3,
+        "context_or_problem;gap_or_contrast;method_or_resource;implication_or_boundary": 5,
+        "context_or_problem;gap_or_contrast;method_or_resource;result_or_evidence": 2,
+        "context_or_problem;gap_or_contrast;method_or_resource;result_or_evidence;implication_or_boundary": 11,
+        "context_or_problem;method_or_resource": 1,
+        "context_or_problem;method_or_resource;result_or_evidence": 3,
+        "context_or_problem;method_or_resource;result_or_evidence;implication_or_boundary": 2,
+        "context_or_problem;result_or_evidence": 1,
+        "descriptive_only": 1,
+        "gap_or_contrast;method_or_resource": 1,
+        "gap_or_contrast;method_or_resource;implication_or_boundary": 3,
+        "gap_or_contrast;method_or_resource;result_or_evidence": 1,
+        "gap_or_contrast;result_or_evidence;implication_or_boundary": 1,
+        "method_or_resource": 1,
+        "method_or_resource;implication_or_boundary": 3,
+        "method_or_resource;result_or_evidence": 1
+      },
+      "introduction_contribution_list": {
+        "explicit_list": 13,
+        "explicit_prose": 2,
+        "not_detected": 23
+      },
+      "related_work_position": {
+        "between_method_and_experiments": 1,
+        "early_dedicated": 23,
+        "late_dedicated": 3,
+        "no_dedicated_heading_detected": 11
+      },
+      "method_narrative": {
+        "dedicated_method_or_approach": 19,
+        "no_generic_method_heading_detected": 3,
+        "preliminaries_then_method_or_analysis": 8,
+        "problem_formulation_then_method": 2,
+        "theory_led_without_generic_method_heading": 6
+      },
+      "conclusion_moves": {
+        "not_detected": 7,
+        "recapitulates_contribution": 1,
+        "recapitulates_contribution;summarizes_evidence;states_boundary_or_future_work": 4,
+        "recapitulates_contribution;summarizes_evidence;states_boundary_or_future_work;states_implication": 3,
+        "summarizes_evidence": 2,
+        "summarizes_evidence;states_boundary_or_future_work": 6,
+        "summarizes_evidence;states_boundary_or_future_work;states_implication": 12,
+        "summarizes_evidence;states_implication": 3
+      },
+      "full_text_signal_frequencies": {
+        "experiments_section": {
+          "count": 30,
+          "denominator_full_text": 38,
+          "proportion": 0.7895
+        },
+        "baseline_language": {
+          "count": 38,
+          "denominator_full_text": 38,
+          "proportion": 1.0
+        },
+        "ablation_reported": {
+          "count": 25,
+          "denominator_full_text": 38,
+          "proportion": 0.6579
+        },
+        "uncertainty_reporting": {
+          "count": 38,
+          "denominator_full_text": 38,
+          "proportion": 1.0
+        },
+        "limitations_section": {
+          "count": 5,
+          "denominator_full_text": 38,
+          "proportion": 0.1316
+        },
+        "ethics_or_impact_section": {
+          "count": 2,
+          "denominator_full_text": 38,
+          "proportion": 0.0526
+        },
+        "checklist_present": {
+          "count": 37,
+          "denominator_full_text": 38,
+          "proportion": 0.9737
+        },
+        "conclusion_section": {
+          "count": 31,
+          "denominator_full_text": 38,
+          "proportion": 0.8158
+        }
+      },
+      "figure_caption_count": {
+        "n": 38,
+        "median": 6.0,
+        "q1": 3.0,
+        "q3": 8.75,
+        "min": 0.0,
+        "max": 50.0
+      },
+      "table_caption_count": {
+        "n": 38,
+        "median": 3.5,
+        "q1": 1.25,
+        "q3": 6.75,
+        "min": 0.0,
+        "max": 16.0
+      }
+    },
+    "ICML": {
+      "records": 40,
+      "title_level_analyzed": 40,
+      "abstract_level_analyzed": 40,
+      "full_text_level_analyzed": 40,
+      "analysis_text_levels_mutually_exclusive": {
+        "full_text_extracted": 40
+      },
+      "title_words": {
+        "n": 40,
+        "median": 9.0,
+        "q1": 7.75,
+        "q3": 11.0,
+        "min": 5.0,
+        "max": 14.0
+      },
+      "abstract_words": {
+        "n": 40,
+        "median": 165.0,
+        "q1": 143.5,
+        "q3": 186.0,
+        "min": 104.0,
+        "max": 213.0
+      },
+      "pdf_pages": {
+        "n": 40,
+        "median": 22.0,
+        "q1": 18.0,
+        "q3": 27.0,
+        "min": 13.0,
+        "max": 62.0
+      },
+      "full_text_words": {
+        "n": 40,
+        "median": 10986.5,
+        "q1": 9453.5,
+        "q3": 12911.0,
+        "min": 6833.0,
+        "max": 28839.0
+      },
+      "topics": {
+        "computer_vision_multimodal": 5,
+        "data_benchmarks_evaluation": 1,
+        "general_machine_learning": 1,
+        "generative_models": 3,
+        "graphs_structured_data": 5,
+        "language_models_nlp": 12,
+        "reinforcement_learning_agents": 4,
+        "scientific_ml_biomedicine": 1,
+        "theory_optimization": 4,
+        "trustworthy_ai_privacy_fairness": 4
+      },
+      "tracks": {
+        "Main Conference": 40
+      },
+      "abstract_moves": {
+        "context_or_problem;gap_or_contrast": 1,
+        "context_or_problem;gap_or_contrast;method_or_resource": 1,
+        "context_or_problem;gap_or_contrast;method_or_resource;result_or_evidence": 2,
+        "context_or_problem;gap_or_contrast;method_or_resource;result_or_evidence;implication_or_boundary": 7,
+        "context_or_problem;gap_or_contrast;result_or_evidence;implication_or_boundary": 1,
+        "context_or_problem;method_or_resource": 2,
+        "context_or_problem;method_or_resource;implication_or_boundary": 1,
+        "context_or_problem;method_or_resource;result_or_evidence": 2,
+        "context_or_problem;method_or_resource;result_or_evidence;implication_or_boundary": 2,
+        "context_or_problem;result_or_evidence": 2,
+        "context_or_problem;result_or_evidence;implication_or_boundary": 3,
+        "gap_or_contrast;method_or_resource;implication_or_boundary": 2,
+        "gap_or_contrast;method_or_resource;result_or_evidence": 2,
+        "gap_or_contrast;method_or_resource;result_or_evidence;implication_or_boundary": 5,
+        "gap_or_contrast;result_or_evidence": 2,
+        "method_or_resource": 1,
+        "method_or_resource;implication_or_boundary": 1,
+        "method_or_resource;result_or_evidence": 1,
+        "method_or_resource;result_or_evidence;implication_or_boundary": 1,
+        "result_or_evidence;implication_or_boundary": 1
+      },
+      "introduction_contribution_list": {
+        "explicit_list": 8,
+        "explicit_prose": 1,
+        "not_detected": 31
+      },
+      "related_work_position": {
+        "no_dedicated_heading_detected": 40
+      },
+      "method_narrative": {
+        "dedicated_method_or_approach": 13,
+        "no_generic_method_heading_detected": 11,
+        "theory_led_without_generic_method_heading": 16
+      },
+      "conclusion_moves": {
+        "not_detected": 39,
+        "summarizes_evidence;states_implication": 1
+      },
+      "full_text_signal_frequencies": {
+        "experiments_section": {
+          "count": 4,
+          "denominator_full_text": 40,
+          "proportion": 0.1
+        },
+        "baseline_language": {
+          "count": 40,
+          "denominator_full_text": 40,
+          "proportion": 1.0
+        },
+        "ablation_reported": {
+          "count": 22,
+          "denominator_full_text": 40,
+          "proportion": 0.55
+        },
+        "uncertainty_reporting": {
+          "count": 22,
+          "denominator_full_text": 40,
+          "proportion": 0.55
+        },
+        "limitations_section": {
+          "count": 0,
+          "denominator_full_text": 40,
+          "proportion": 0.0
+        },
+        "ethics_or_impact_section": {
+          "count": 9,
+          "denominator_full_text": 40,
+          "proportion": 0.225
+        },
+        "checklist_present": {
+          "count": 0,
+          "denominator_full_text": 40,
+          "proportion": 0.0
+        },
+        "conclusion_section": {
+          "count": 1,
+          "denominator_full_text": 40,
+          "proportion": 0.025
+        }
+      },
+      "figure_caption_count": {
+        "n": 40,
+        "median": 6.5,
+        "q1": 5.0,
+        "q3": 10.0,
+        "min": 0.0,
+        "max": 24.0
+      },
+      "table_caption_count": {
+        "n": 40,
+        "median": 5.5,
+        "q1": 1.75,
+        "q3": 8.0,
+        "min": 0.0,
+        "max": 27.0
+      }
+    },
+    "ICLR": {
+      "records": 40,
+      "title_level_analyzed": 40,
+      "abstract_level_analyzed": 40,
+      "full_text_level_analyzed": 37,
+      "analysis_text_levels_mutually_exclusive": {
+        "abstract_only": 3,
+        "full_text_extracted": 37
+      },
+      "title_words": {
+        "n": 40,
+        "median": 9.5,
+        "q1": 8.0,
+        "q3": 11.0,
+        "min": 5.0,
+        "max": 13.0
+      },
+      "abstract_words": {
+        "n": 40,
+        "median": 197.5,
+        "q1": 153.25,
+        "q3": 223.75,
+        "min": 103.0,
+        "max": 338.0
+      },
+      "pdf_pages": {
+        "n": 37,
+        "median": 25.0,
+        "q1": 23.0,
+        "q3": 32.0,
+        "min": 14.0,
+        "max": 54.0
+      },
+      "full_text_words": {
+        "n": 37,
+        "median": 11713.0,
+        "q1": 10476.0,
+        "q3": 15421.0,
+        "min": 7287.0,
+        "max": 24131.0
+      },
+      "topics": {
+        "computer_vision_multimodal": 3,
+        "data_benchmarks_evaluation": 5,
+        "generative_models": 2,
+        "graphs_structured_data": 4,
+        "language_models_nlp": 14,
+        "reinforcement_learning_agents": 5,
+        "scientific_ml_biomedicine": 1,
+        "theory_optimization": 5,
+        "trustworthy_ai_privacy_fairness": 1
+      },
+      "tracks": {
+        "Conference": 40
+      },
+      "abstract_moves": {
+        "context_or_problem;gap_or_contrast;method_or_resource;implication_or_boundary": 6,
+        "context_or_problem;gap_or_contrast;method_or_resource;result_or_evidence": 3,
+        "context_or_problem;gap_or_contrast;method_or_resource;result_or_evidence;implication_or_boundary": 7,
+        "context_or_problem;gap_or_contrast;result_or_evidence;implication_or_boundary": 1,
+        "context_or_problem;method_or_resource;implication_or_boundary": 1,
+        "context_or_problem;method_or_resource;result_or_evidence": 4,
+        "context_or_problem;method_or_resource;result_or_evidence;implication_or_boundary": 3,
+        "context_or_problem;result_or_evidence": 1,
+        "gap_or_contrast;method_or_resource;implication_or_boundary": 1,
+        "gap_or_contrast;method_or_resource;result_or_evidence": 1,
+        "gap_or_contrast;method_or_resource;result_or_evidence;implication_or_boundary": 3,
+        "gap_or_contrast;result_or_evidence": 1,
+        "gap_or_contrast;result_or_evidence;implication_or_boundary": 1,
+        "method_or_resource": 1,
+        "method_or_resource;implication_or_boundary": 3,
+        "method_or_resource;result_or_evidence": 2,
+        "method_or_resource;result_or_evidence;implication_or_boundary": 1
+      },
+      "introduction_contribution_list": {
+        "explicit_list": 4,
+        "explicit_prose": 3,
+        "not_detected": 30
+      },
+      "related_work_position": {
+        "no_dedicated_heading_detected": 37
+      },
+      "method_narrative": {
+        "dedicated_method_or_approach": 11,
+        "no_generic_method_heading_detected": 16,
+        "theory_led_without_generic_method_heading": 10
+      },
+      "conclusion_moves": {
+        "not_detected": 36,
+        "summarizes_evidence": 1
+      },
+      "full_text_signal_frequencies": {
+        "experiments_section": {
+          "count": 3,
+          "denominator_full_text": 37,
+          "proportion": 0.0811
+        },
+        "baseline_language": {
+          "count": 37,
+          "denominator_full_text": 37,
+          "proportion": 1.0
+        },
+        "ablation_reported": {
+          "count": 23,
+          "denominator_full_text": 37,
+          "proportion": 0.6216
+        },
+        "uncertainty_reporting": {
+          "count": 19,
+          "denominator_full_text": 37,
+          "proportion": 0.5135
+        },
+        "limitations_section": {
+          "count": 0,
+          "denominator_full_text": 37,
+          "proportion": 0.0
+        },
+        "ethics_or_impact_section": {
+          "count": 0,
+          "denominator_full_text": 37,
+          "proportion": 0.0
+        },
+        "checklist_present": {
+          "count": 0,
+          "denominator_full_text": 37,
+          "proportion": 0.0
+        },
+        "conclusion_section": {
+          "count": 1,
+          "denominator_full_text": 37,
+          "proportion": 0.027
+        }
+      },
+      "figure_caption_count": {
+        "n": 37,
+        "median": 8.0,
+        "q1": 6.0,
+        "q3": 13.0,
+        "min": 1.0,
+        "max": 33.0
+      },
+      "table_caption_count": {
+        "n": 37,
+        "median": 5.0,
+        "q1": 3.0,
+        "q3": 11.0,
+        "min": 0.0,
+        "max": 16.0
+      }
+    }
+  },
+  "feature_definitions": {
+    "title_level_analyzed": "A non-empty title was obtained from an official proceedings page.",
+    "abstract_level_analyzed": "A non-empty abstract was obtained from an official article/abstract page.",
+    "full_text_level_analyzed": "An official PDF was downloaded, validated by PDF magic bytes, and yielded at least 800 English-word tokens via pdftotext.",
+    "intro_contribution_list": "Regex-assisted detection in the extracted Introduction segment; explicit_list requires a contribution marker plus enumerated/bulleted formatting.",
+    "related_work_position": "Position of a dedicated Related Work-like heading relative to detected method and experiment headings.",
+    "baseline_language": "Presence of baseline/comparator language anywhere in extracted text; not proof of comparator quality.",
+    "ablation_reported": "Presence of ablation terminology; not a judgment that the ablation is causally decisive.",
+    "uncertainty_reporting": "Presence of variance/error-bar/confidence-interval/seed/statistical-significance language; not a completeness score.",
+    "figure_caption_count": "Unique caption identifiers detected at line starts in pdftotext output; approximate and may include appendix displays.",
+    "structural_analysis_char_window": "Complete extracted text when <=450,000 characters; otherwise the first 300,000 plus final 150,000 characters. PDF hash, page count, and full-text word count still use the complete file/text."
+  },
+  "known_measurement_limits": [
+    "PDF column order, equations, and appendix placement can confuse heading/caption regexes.",
+    "Presence/absence metrics are descriptive signals, not acceptance criteria or quality scores.",
+    "The sample is equal by venue, not weighted by venue population size.",
+    "A single 2025 cross-section cannot estimate temporal trends.",
+    "Full-text extraction does not mean line-by-line human close reading of every equation or appendix.",
+    "For extracted texts above 450,000 characters, structural regexes use an explicit head-plus-tail window to bound runtime while retaining main-paper and end-matter regions."
+  ]
+}

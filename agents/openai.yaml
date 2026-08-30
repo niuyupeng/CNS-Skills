@@ -1,10 +1,10 @@
 interface:
   display_name: "CNS Skills"
-  short_description: "Scientific writing and top-venue manuscript revision"
+  short_description: "Scientific title and top-venue manuscript revision"
   icon_small: "./assets/cns-icon.svg"
   icon_large: "./assets/cns-icon.svg"
   brand_color: "#123B5D"
-  default_prompt: "Use $cns-skills to revise or translate this scientific manuscript into evidence-faithful submission English, audit claims, citations, figures, and tables, and return a concise Chinese risk map when useful."
+  default_prompt: "Use $cns-skills to optimize the scientific title and revise or translate this manuscript into evidence-faithful submission English, audit claims, citations, figures, and tables, and return a concise Chinese risk map when useful."
 
 policy:
   allow_implicit_invocation: true

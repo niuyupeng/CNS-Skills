@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640" role="img" aria-labelledby="title desc">
   <title id="title">CNS Skills — Make every claim earn its place</title>
-  <desc id="desc">Social preview for the independent evidence-first manuscript engineering project CNS Skills.</desc>
+  <desc id="desc">Social preview for CNS Skills, an independent scientific-writing skill with citation, figure, table, and DOCX quality assurance.</desc>
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#071827"/>
@@ -33,13 +33,13 @@
 
     <g transform="translate(0 420)">
       <rect width="1136" height="76" rx="18" fill="#F6FAF9"/>
-      <text x="32" y="47" fill="#123B5D" font-size="21" font-weight="700" letter-spacing="0.4">12-GATE EDITORIAL SYSTEM</text>
-      <circle cx="355" cy="38" r="4" fill="#E9B44C"/>
-      <text x="377" y="47" fill="#123B5D" font-size="21" font-weight="700">8 VENUE PROFILES</text>
-      <circle cx="622" cy="38" r="4" fill="#E9B44C"/>
-      <text x="644" y="47" fill="#123B5D" font-size="21" font-weight="700">45 TESTS</text>
-      <circle cx="788" cy="38" r="4" fill="#E9B44C"/>
-      <text x="810" y="47" fill="#123B5D" font-size="21" font-weight="700">4 AUDITORS</text>
+      <text x="32" y="47" fill="#123B5D" font-size="20" font-weight="700" letter-spacing="0.25">SCIENTIFIC WRITING</text>
+      <circle cx="276" cy="38" r="4" fill="#E9B44C"/>
+      <text x="298" y="47" fill="#123B5D" font-size="20" font-weight="700">CITATION AUDIT</text>
+      <circle cx="502" cy="38" r="4" fill="#E9B44C"/>
+      <text x="524" y="47" fill="#123B5D" font-size="20" font-weight="700">FIGURE &amp; TABLE QA</text>
+      <circle cx="772" cy="38" r="4" fill="#E9B44C"/>
+      <text x="794" y="47" fill="#123B5D" font-size="20" font-weight="700">CLEAN-COPY DOCX QA</text>
     </g>
 
     <text x="0" y="556" fill="#8DB6C6" font-size="14" letter-spacing="1.3">CNS = CELL · NATURE · SCIENCE — ASPIRATIONAL BENCHMARK; NO AFFILIATION OR ENDORSEMENT</text>

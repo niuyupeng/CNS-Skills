@@ -8,6 +8,7 @@ For a bounded passage, `Artifact quality` is normally `N/A` unless a file artifa
 |---|---|---|---|
 | Claim fidelity | claims changed or invented | core meaning mostly preserved, some drift | every consequential change traceable and scoped |
 | Evidence alignment | citations absent/misleading | existence checked, entailment uneven | existence, entailment, scope, and placement checked |
+| Review-corpus transparency | review type or coverage claim is misleading | type is named but search/selection disclosure is incomplete or ambiguous | disclosure matches the review type, actual protocol, selection-dependent claims, and provenance record |
 | Argument architecture | topic list | sections coherent but synthesis uneven | governing question and decision logic are explicit |
 | Paragraph function | fragmented or overloaded | mostly purposeful | each paragraph makes one clear intellectual move |
 | Scholarly judgment | generic summary | occasional comparison | selection, comparison, and boundaries are explicit |

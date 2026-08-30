@@ -119,7 +119,7 @@ These are diagnosis prompts, not banned phrases. Keep a conventional phrase when
 
 ## Title and abstract in English-final mode
 
-The title should expose the scientific object and contribution without hype. Match the exact venue's length and style requirements. Avoid unnecessary acronyms, priority claims, and decorative punctuation.
+For title naming or optimization, use `references/scientific-title-optimization.md`. Choose the English title from the English argument map, then write a Chinese title with the same scientific object, contribution, article type, and evidence boundary. Do not strengthen one language to make it sound more impressive. Match the exact venue's current length and style requirements, and avoid unnecessary acronyms, priority claims, and decorative punctuation.
 
 The abstract should normally make these moves, in an order suited to the work:
 

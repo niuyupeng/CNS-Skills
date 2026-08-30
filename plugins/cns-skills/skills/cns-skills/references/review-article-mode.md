@@ -13,7 +13,30 @@ Before using literature counts or claiming coverage, classify the review as narr
 - extraction fields, evidence cards, and reviewer agreement process;
 - treatment of preprints, corrections, retractions, and publication linkage.
 
+The bundled search auditor uses a deliberately closed type ontology. Its strict
+gate covers explicit systematic, scoping, and meta-analytic declarations; rapid,
+umbrella, integrative, realist, and other review types remain manual-review cases
+and must not be treated as passing merely because the tool returns `unspecified`.
+
 For systematic or scoping work, follow the applicable reporting framework and retain a study-flow record. For a narrative review, distinguish systematic retrieval from purposive examples.
+
+Match search disclosure to the article's actual claim. A narrative review's
+main-text scope note should normally identify the search purpose, primary
+bibliographic sources, cutoff, selection logic, and the boundary on coverage
+claims. Treat publisher pages, DOI landing pages, and personal full-text
+collections as discovery, retrieval, or verification sources and name those
+roles; they are not interchangeable with a bibliographic database.
+
+Avoid **query-shaped prose**: a long slash- or comma-separated keyword inventory
+that looks systematic but cannot be rerun. Choose one honest layer:
+
+- concise narrative scope disclosure, with concept blocks rather than a pseudo-query; or
+- a concise main-text scope note plus a real supplementary record containing database-specific executable strings, run dates, eligibility logic, deduplication/version handling, and the included-record manifest.
+
+Use the second layer when a defined corpus supports comparative tables, counts,
+or strong selection-dependent claims. Do not cite a supplementary search record
+until it actually exists, and do not add PRISMA-style flow language to a
+narrative review merely to look rigorous.
 
 If this protocol is missing or incomplete, label the corpus as a **non-systematic illustrative selection**. Do not claim completeness, representativeness, prevalence, field-wide proportions, or a verified paper count. Keep provisional counts and classification statistics marked `pending verification` until identifiers, publication status, duplicates, and evidence cards are audited.
 

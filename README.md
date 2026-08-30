@@ -8,9 +8,9 @@
 
 **Evidence-first manuscript engineering for top journals and conferences.**
 
-CNS Skills turns English or Chinese drafts into clearer, more defensible submission manuscripts—then audits the claims, citations, figures, tables, reviewer logic, and final file that sentence-level polishing can leave behind.
+CNS Skills is an open-source scientific-writing Agent Skill for ChatGPT/Codex, Claude Code, and compatible clients. It turns English or Chinese drafts into clearer, more defensible submission manuscripts—then audits the claims, citations, figures, tables, reviewer logic, and final file that sentence-level polishing can leave behind.
 
-[**Quick install**](#quick-install) · [**Run the flagship workflow**](#run-the-flagship-workflow) · [**See the proof**](#proof-not-hype) · [**Cite CNS Skills**](#cite-cns-skills) · [简体中文](README.zh-CN.md)
+[**Quick install**](#quick-install) · [**Public demo**](examples/synthetic-hydrogel-demo/README.md) · [**Run the flagship workflow**](#run-the-flagship-workflow) · [**See the proof**](#proof-not-hype) · [**Cite CNS Skills**](#cite-cns-skills) · [简体中文](README.zh-CN.md)
 
 [![Release](https://img.shields.io/github/v/release/niuyupeng/CNS-Skills?label=release&color=E9B44C)](https://github.com/niuyupeng/CNS-Skills/releases)
 [![CI](https://github.com/niuyupeng/CNS-Skills/actions/workflows/ci.yml/badge.svg)](https://github.com/niuyupeng/CNS-Skills/actions/workflows/ci.yml)
@@ -18,7 +18,7 @@ CNS Skills turns English or Chinese drafts into clearer, more defensible submiss
 [![Agent Skills](https://img.shields.io/badge/standard-Agent_Skills-123B5D.svg)](https://agentskills.io/)
 [![Cite](https://img.shields.io/badge/cite-CITATION.cff-7A263A.svg)](CITATION.cff)
 
-**12 editorial gates · 8 venue profiles · 320-abstract auditable baseline · 64 routing cases · 60 deterministic tests · 4 transparent auditors**
+**12 editorial gates · 8 venue profiles · 320-abstract baseline · 600-record genre corpus · two 100-title panels (150 distinct titles) · 68 routing cases · 191 deterministic tests · 6 transparent auditors**
 
 <sub>Independent MIT-licensed project. CNS means Cell · Nature · Science as an aspirational editorial benchmark; it does not imply affiliation, endorsement, or acceptance.</sub>
 
@@ -55,6 +55,8 @@ This synthetic example shows the difference between surface polishing and eviden
 
 One request can return a **revised manuscript · decision/risk map · citation audit · figure/table QA · rendered-file check when the host supports document rendering**.
 
+The [public synthetic demo](examples/synthetic-hydrogel-demo/README.md) provides the complete input, revised manuscript, shareable audit report, and rendered DOCX example without using confidential research.
+
 ## Run the flagship workflow
 
 Attach a manuscript and ask naturally. For the full workflow:
@@ -75,6 +77,7 @@ Other high-value requests:
 - “Strengthen the abstract, introduction, and discussion around one defensible central claim.”
 - “Audit every consequential claim against its citation and identify overclaiming.”
 - “Expand this review from argument gaps, not from a target reference count.”
+- “Read the manuscript, then optimize its English and Chinese scientific titles without overstating the contribution.”
 - “Design or audit the paper’s figures, evidence tables, captions, and graphical abstract.”
 - “Prepare an evidence-faithful rebuttal and response-to-reviewers letter.”
 
@@ -109,7 +112,9 @@ git clone https://github.com/niuyupeng/CNS-Skills.git ~/.agents/skills/cns-skill
 git clone https://github.com/niuyupeng/CNS-Skills.git ~/.claude/skills/cns-skills
 ```
 
-Every release includes a platform-uploadable ZIP and a SHA-256 checksum. The root skill and generated plugin payload are checked for drift in CI.
+Releases from v0.4.0 onward include a platform-uploadable ZIP and a SHA-256 checksum. The root skill and generated plugin payload are checked for drift in CI.
+
+For prerequisites, verification, updates, removal, and troubleshooting, use the [complete installation guide](docs/INSTALL.md).
 
 ## Proof, not hype
 
@@ -120,10 +125,13 @@ Every number below is inspectable in this repository.
 | [12-gate editorial standard](references/cns-editorial-standard.md) | a documented 12-dimension selective-venue review surface | acceptance by any journal or conference |
 | [8 venue profiles](references/venue-profiles.md) | distinct journal/conference review paths | permanent substitution for current official policies |
 | [320-abstract aggregate baseline](references/venue-corpus-findings.md) | reproducible descriptive venue-language checks | a style-transfer corpus or acceptance model |
-| [64 bilingual routing cases](evals/README.md) | positive and negative discovery regression coverage | guaranteed activation in every agent host |
+| [600-record genre corpus](research/genre-corpus-2026/README.md) | separately audited Review, original Article, and top-conference writing mechanisms with per-record provenance and text-level disclosure | 600 expert close readings, field-wide prevalence, or an acceptance model |
+| [100-title elite core](research/elite-venue-title-study.md) | 70 elite-journal titles with DOI metadata plus 30 accepted 2025 main-conference titles with official stable IDs | 100 full-paper readings, a title formula, or an acceptance model |
+| [100-title field layer](research/field-journal-title-study.md) | a second topic-matched panel retaining strong field venues including *ACS Nano*, *Advanced Functional Materials*, *Acta Biomaterialia*, and *Biomaterials*; 50 DOI records overlap the core, leaving 150 distinct titles across both panels | 200 distinct titles, a pooled prestige average, or a reason to override article type |
+| [68 bilingual routing cases](evals/README.md) | positive and negative discovery regression coverage | guaranteed activation in every agent host |
 | 30-case locked held-out split | resistance to metadata overfitting | an external benchmark leaderboard |
-| [60 deterministic tests](tests) | observable invariants and CLI behavior | semantic proof that every edit is correct |
-| 4 dependency-free auditors | transparent, local manuscript diagnostics | source-reading or author judgment |
+| [191 deterministic tests](tests) | observable invariants and CLI behavior, including 118 review-search tests built around 93 independently designed counterexamples | semantic proof that every edit is correct |
+| 6 dependency-free auditors | transparent, local manuscript diagnostics | source-reading or author judgment |
 | source/plugin synchronization in CI | packaged payload matches the root skill | endorsement by OpenAI, Anthropic, or a publisher |
 
 The project deliberately refuses unverifiable marketing claims. There is no fabricated “success rate,” user count, citation count, acceptance rate, or detector-evasion score.
@@ -155,7 +163,7 @@ source lock → claim ledger → argument architecture → paragraph function
 
 Five operating modes keep the depth proportional to the task: `audit`, `revise`, `deep-review`, `journal-ready`, and `CNS/top-venue`.
 
-## Transparent manuscript auditors
+## Six transparent manuscript and title auditors
 
 The CLI requires Python 3.9+ and no third-party packages.
 
@@ -163,13 +171,15 @@ The CLI requires Python 3.9+ and no third-party packages.
 python scripts/cns_audit.py manuscript.docx --strict-clean-copy
 python scripts/cns_audit.py manuscript.docx --verify-dois --shareable --json cns-report.json
 python scripts/review_citation_audit.py review.docx --shareable --json review-citations.json
+python scripts/review_search_audit.py review.docx --shareable --json review-search.json
+python scripts/title_audit.py "Provisional manuscript title"
 python scripts/check_invariants.py source.docx revision.docx --shareable --json invariants.json
 python scripts/check_crossrefs.py revision.docx --shareable --json crossrefs.json
 ```
 
-They report risky claim language, DOI status, formulaic/editorial-scaffolding patterns, bracketed numeric-reference structure, changed numbers/units/statistics/citations, broken figure/table references, and reader-visible clean-copy defects. The strict clean-copy gate also checks repeated 1×1 callouts, author-side production notes, caption styles, table-font drift, and tool/version leakage in DOCX filenames or metadata. They do not edit the manuscript, determine entailment by themselves, prove translation equivalence, or act as AI detectors. Non-shareable JSON can contain local paths and unpublished excerpts; use `--shareable` before external distribution.
+They report risky claim language, DOI status, formulaic/editorial-scaffolding patterns, review-search disclosure, title architecture and retrieval terms, bracketed numeric-reference structure, changed numbers/units/statistics/citations, broken figure/table references, and reader-visible clean-copy defects. The strict clean-copy gate also checks repeated 1×1 callouts, author-side production notes, caption styles, table-font drift, and tool/version leakage in DOCX filenames or metadata. The review-search strict gate covers explicit systematic, scoping, and meta-analytic declarations; rapid, umbrella, integrative, realist, and other unsupported types require manual classification. They do not edit the manuscript, determine entailment by themselves, prove translation equivalence, predict acceptance, or act as AI detectors. Non-shareable JSON can contain local paths and unpublished excerpts; use `--shareable` before external distribution.
 
-The full operating contract is [SKILL.md](SKILL.md). Focused references cover [English-first bilingual writing](references/english-first-bilingual.md), [review articles](references/review-article-mode.md), [iterative review development](references/iterative-review-development.md), [figures and tables](references/figures-tables.md), [scientific integrity](references/scientific-integrity.md), and [venue profiles](references/venue-profiles.md).
+The full operating contract is [SKILL.md](SKILL.md). Focused references cover [English-first bilingual writing](references/english-first-bilingual.md), [scientific-title optimization](references/scientific-title-optimization.md), [review articles](references/review-article-mode.md), [genre-aware transfer](references/genre-aware-top-venue-writing.md), [iterative review development](references/iterative-review-development.md), [figures and tables](references/figures-tables.md), [scientific integrity](references/scientific-integrity.md), and [venue profiles](references/venue-profiles.md).
 
 ## Cite CNS Skills
 
@@ -182,7 +192,7 @@ GitHub exposes **Cite this repository** from the root [CITATION.cff](CITATION.cf
   author  = {Niu, Yupeng},
   title   = {CNS Skills: Evidence-First Scientific Manuscript Revision and Quality Assurance},
   year    = {2026},
-  version = {0.7.0},
+  version = {0.8.0},
   url     = {https://github.com/niuyupeng/CNS-Skills}
 }
 ```

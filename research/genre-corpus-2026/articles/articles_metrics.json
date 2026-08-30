@@ -1,0 +1,1322 @@
+{
+  "analysis_level_counts": {
+    "abstract_only_mislabeled_as_full_text": 0,
+    "abstract_pubmed": 200,
+    "full_text_jats": 200,
+    "title_metadata": 200
+  },
+  "corpus_size": 200,
+  "date_window": {
+    "basis": "first_publication_date",
+    "from": "2021-01-01",
+    "through": "2026-08-30"
+  },
+  "generated_on": "2026-08-30",
+  "heuristic_definitions": {
+    "abstract_moves": {
+      "author_action": "\\bwe (?:report|show|demonstrate|develop|present|investigate|test|use|identify|find|reveal|establish|introduce)\\b",
+      "background_or_problem": "\\b(?:important|central|major|challenge|problem|disease|need|critical)\\b",
+      "explicit_boundary": "\\b(?:limit(?:ed|ation)?|caveat|remains? (?:unknown|unclear)|in this (?:study|model|cohort)|may not|cannot)\\b",
+      "gap_or_unknown": "\\b(?:however|unknown|unclear|poorly understood|remains? (?:unknown|unclear|challenging)|lack)\\b",
+      "implication": "\\b(?:suggest|provide|enable|advance|implication|potential|may (?:allow|enable|inform)|offers?)\\b",
+      "result_or_discovery": "\\b(?:we (?:show|find|found|demonstrate|reveal|identify)|results? (?:show|demonstrate|indicate)|increased|decreased|improved|reduced)\\b"
+    },
+    "discussion_or_closing_moves": {
+      "claim_or_interpretation": "\\b(?:our (?:results|findings)|these (?:results|findings)|we (?:show|found|demonstrate)|indicate|support)\\b",
+      "implication_or_next_test": "\\b(?:suggest|implication|enable|provide|potential|future|next|warrant|should be tested)\\b",
+      "limitation_or_unknown": "\\b(?:limit(?:ed|ation|ations)?|caveat|remain(?:s)? (?:unknown|unclear|to be)|cannot|could not|may not|future work|further studies|in this (?:study|model|cohort))\\b"
+    },
+    "figure_reference_proxy": "\\b(?:Fig(?:ure)?\\.?|Extended Data Fig\\.?)\\s*[A-Z]?\\d+",
+    "introduction_final_paragraph_moves": {
+      "aim_or_question": "\\bwe (?:sought|aimed|set out|investigated|tested|asked|examined|explored|developed|used)\\b|\\b(?:here,? we|in this study)\\b",
+      "hypothesis": "\\b(?:hypothesized|hypothesis|postulated|predicted)\\b",
+      "result_preview": "\\bwe (?:show|find|found|demonstrate|reveal|report|identify|establish)\\b",
+      "scope_boundary": "\\b(?:in this (?:study|work|model|cohort)|limited to|focus(?:ed)? on|within)\\b"
+    },
+    "methods_markers": {
+      "blinding": "\\b(?:blind(?:ed|ing)?|mask(?:ed|ing)?)\\b",
+      "data_or_code_availability": "\\b(?:data availability|code availability|available at|accession|repository|github|zenodo|figshare|dryad)\\b",
+      "ethics_or_approval": "\\b(?:ethics|ethical approval|institutional review board|informed consent|animal care|approved by)\\b",
+      "randomization": "\\b(?:randomi[sz]|randomly assigned|random allocation)\\w*\\b",
+      "replicates": "\\b(?:replicate|independent experiment|technical repeat|biological repeat)\\w*\\b",
+      "sample_size": "\\b(?:sample size|n\\s*=\\s*\\d+|power analysis)\\b",
+      "software_or_version": "\\b(?:software|version\\s+\\d|python\\s+\\d|r\\s+version|matlab|graphpad|github)\\b",
+      "statistics": "\\b(?:statistical|p\\s*[<=>]|confidence interval|standard deviation|s\\.d\\.|anova|t-test|regression)\\b"
+    },
+    "number_proxy": "\\b\\d+(?:[.,]\\d+)?\\b|%",
+    "passive_voice_proxy": "\\b(?:is|are|was|were|be|been|being)\\s+(?:\\w+ly\\s+)?(?:\\w+(?:ed|en|wn|ne|nt))\\b"
+  },
+  "interpretation_limits": [
+    "Published-paper frequencies are descriptive and cannot establish acceptance causality.",
+    "PMC availability creates OA/funder/publisher and version-selection bias.",
+    "JATS section inference and regex move detection have false positives and false negatives.",
+    "The 2026 stratum ends on 30 August and is not a complete publication year.",
+    "Original research Article conventions cannot be transferred wholesale to narrative Reviews."
+  ],
+  "metric_scopes": {
+    "discussion_like_closing": "explicit Discussion when present; otherwise explicit Conclusion or an inferred final five body-prose paragraphs, with the mode retained per record",
+    "full_text_words": "JATS body prose only; back matter and captions excluded",
+    "methods_markers": "identified Methods-section prose only; standalone Data/Code Availability sections are not counted in this marker percentage",
+    "prose_paragraphs": "JATS p elements in article prose; figure/table captions, table cells, supplementary-material containers, reference lists, and footnote groups excluded"
+  },
+  "oa_status_counts": {
+    "not_flagged_oa": 2,
+    "oa": 198
+  },
+  "sampling_seed": 20260830,
+  "schema_version": "1.0",
+  "section_identification_modes": {
+    "discussion_or_closing": {
+      "conclusion_section_used": 10,
+      "explicit_discussion_section": 158,
+      "inferred_closing_paragraphs": 32
+    },
+    "introduction": {
+      "explicit_section": 101,
+      "inferred_opening_paragraphs": 99
+    },
+    "methods": {
+      "explicit_methods_section": 173,
+      "methods_not_identified": 27
+    },
+    "results": {
+      "explicit_results_section": 132,
+      "inferred_finding_sections": 68
+    }
+  },
+  "stratification": {
+    "by_first_publication_year": {
+      "2021": 32,
+      "2022": 32,
+      "2023": 32,
+      "2024": 32,
+      "2025": 40,
+      "2026": 32
+    },
+    "by_journal": {
+      "Advanced Materials": 25,
+      "Biomaterials": 25,
+      "Cell": 25,
+      "Nature": 25,
+      "Nature Biomedical Engineering": 25,
+      "Nature Materials": 25,
+      "Science": 25,
+      "Science Translational Medicine": 25
+    },
+    "by_journal_and_first_publication_year": {
+      "Advanced Materials": {
+        "2021": 4,
+        "2022": 4,
+        "2023": 4,
+        "2024": 4,
+        "2025": 5,
+        "2026": 4
+      },
+      "Biomaterials": {
+        "2021": 4,
+        "2022": 4,
+        "2023": 4,
+        "2024": 4,
+        "2025": 5,
+        "2026": 4
+      },
+      "Cell": {
+        "2021": 4,
+        "2022": 4,
+        "2023": 4,
+        "2024": 4,
+        "2025": 5,
+        "2026": 4
+      },
+      "Nature": {
+        "2021": 4,
+        "2022": 4,
+        "2023": 4,
+        "2024": 4,
+        "2025": 5,
+        "2026": 4
+      },
+      "Nature Biomedical Engineering": {
+        "2021": 4,
+        "2022": 4,
+        "2023": 4,
+        "2024": 4,
+        "2025": 5,
+        "2026": 4
+      },
+      "Nature Materials": {
+        "2021": 4,
+        "2022": 4,
+        "2023": 4,
+        "2024": 4,
+        "2025": 5,
+        "2026": 4
+      },
+      "Science": {
+        "2021": 4,
+        "2022": 4,
+        "2023": 4,
+        "2024": 4,
+        "2025": 5,
+        "2026": 4
+      },
+      "Science Translational Medicine": {
+        "2021": 4,
+        "2022": 4,
+        "2023": 4,
+        "2024": 4,
+        "2025": 5,
+        "2026": 4
+      }
+    },
+    "by_venue_class": {
+      "field_selective": 125,
+      "flagship_broad": 75
+    }
+  },
+  "topic_counts": {
+    "biomaterials_and_tissue_engineering": 5,
+    "cardiometabolic": 4,
+    "cell_and_developmental_biology": 46,
+    "chemistry_and_catalysis": 11,
+    "climate_ecology_and_evolution": 1,
+    "computation_and_ai": 8,
+    "drug_and_gene_delivery": 4,
+    "genomics_and_gene_regulation": 2,
+    "imaging_and_diagnostics": 5,
+    "immunology_and_inflammation": 8,
+    "infectious_disease": 40,
+    "materials_and_condensed_matter": 20,
+    "multidisciplinary_science": 2,
+    "neuroscience": 22,
+    "oncology": 11,
+    "translational_and_clinical": 11
+  },
+  "unique_identifier_counts": {
+    "doi": 200,
+    "pmcid": 200,
+    "pmid": 200
+  },
+  "verification_counts": {
+    "crossref_verified": 200,
+    "pmc_jats_retrieved_research_article": 200,
+    "pubmed_verified": 200
+  },
+  "writing_metrics": {
+    "by_journal": {
+      "Advanced Materials": {
+        "abstract": {
+          "first_person_count": 4,
+          "first_person_pct": 16.0,
+          "median_sentences": 7.0,
+          "median_words": 180.0,
+          "move_counts": {
+            "author_action": 4,
+            "background_or_problem": 8,
+            "explicit_boundary": 4,
+            "gap_or_unknown": 11,
+            "implication": 13,
+            "result_or_discovery": 2
+          },
+          "move_pct": {
+            "author_action": 16.0,
+            "background_or_problem": 32.0,
+            "explicit_boundary": 16.0,
+            "gap_or_unknown": 44.0,
+            "implication": 52.0,
+            "result_or_discovery": 8.0
+          },
+          "number_count": 16,
+          "number_pct": 64.0
+        },
+        "discussion_or_closing": {
+          "explicit_discussion_count": 22,
+          "explicit_discussion_pct": 88.0,
+          "implication_or_next_test_count": 21,
+          "implication_or_next_test_pct": 84.0,
+          "limitation_or_unknown_count": 18,
+          "limitation_or_unknown_pct": 72.0
+        },
+        "full_text": {
+          "median_body_paragraphs": 37.0,
+          "median_body_words": 5564.0
+        },
+        "introduction": {
+          "final_paragraph_aim_or_question_count": 10,
+          "final_paragraph_aim_or_question_pct": 40.0,
+          "final_paragraph_result_preview_count": 11,
+          "final_paragraph_result_preview_pct": 44.0,
+          "median_final_paragraph_words": 190.0,
+          "median_words": 726.0
+        },
+        "methods": {
+          "explicit_section_count": 19,
+          "explicit_section_pct": 76.0,
+          "marker_counts": {
+            "blinding": 4,
+            "data_or_code_availability": 1,
+            "ethics_or_approval": 5,
+            "randomization": 0,
+            "replicates": 3,
+            "sample_size": 2,
+            "software_or_version": 12,
+            "statistics": 9
+          },
+          "marker_pct": {
+            "blinding": 16.0,
+            "data_or_code_availability": 4.0,
+            "ethics_or_approval": 20.0,
+            "randomization": 0.0,
+            "replicates": 12.0,
+            "sample_size": 8.0,
+            "software_or_version": 48.0,
+            "statistics": 36.0
+          },
+          "median_first_person_per_1000_words": 0.0,
+          "median_passive_proxy_per_1000_words": 36.517,
+          "median_words": 1155.0
+        },
+        "n": 25,
+        "results": {
+          "heading_count": 162,
+          "headings_with_finding_verb_count": 6,
+          "headings_with_finding_verb_pct": 3.7,
+          "median_words": 3028.0,
+          "paragraph_count": 452,
+          "paragraphs_with_figure_count": 372,
+          "paragraphs_with_figure_pct": 82.3,
+          "paragraphs_with_number_count": 387,
+          "paragraphs_with_number_pct": 85.6,
+          "paragraphs_with_statistic_count": 119,
+          "paragraphs_with_statistic_pct": 26.3
+        },
+        "title": {
+          "colon_count": 1,
+          "colon_pct": 4.0,
+          "mean_words": 10.96,
+          "median_words": 10.0,
+          "number_count": 0,
+          "number_pct": 0.0,
+          "question_count": 0,
+          "question_pct": 0.0
+        },
+        "voice": {
+          "median_full_text_first_person_per_1000_words": 4.689,
+          "median_full_text_passive_proxy_per_1000_words": 17.139
+        }
+      },
+      "Biomaterials": {
+        "abstract": {
+          "first_person_count": 22,
+          "first_person_pct": 88.0,
+          "median_sentences": 8.0,
+          "median_words": 203.0,
+          "move_counts": {
+            "author_action": 8,
+            "background_or_problem": 13,
+            "explicit_boundary": 7,
+            "gap_or_unknown": 11,
+            "implication": 14,
+            "result_or_discovery": 16
+          },
+          "move_pct": {
+            "author_action": 32.0,
+            "background_or_problem": 52.0,
+            "explicit_boundary": 28.0,
+            "gap_or_unknown": 44.0,
+            "implication": 56.0,
+            "result_or_discovery": 64.0
+          },
+          "number_count": 21,
+          "number_pct": 84.0
+        },
+        "discussion_or_closing": {
+          "explicit_discussion_count": 21,
+          "explicit_discussion_pct": 84.0,
+          "implication_or_next_test_count": 24,
+          "implication_or_next_test_pct": 96.0,
+          "limitation_or_unknown_count": 21,
+          "limitation_or_unknown_pct": 84.0
+        },
+        "full_text": {
+          "median_body_paragraphs": 43.0,
+          "median_body_words": 8102.0
+        },
+        "introduction": {
+          "final_paragraph_aim_or_question_count": 13,
+          "final_paragraph_aim_or_question_pct": 52.0,
+          "final_paragraph_result_preview_count": 7,
+          "final_paragraph_result_preview_pct": 28.0,
+          "median_final_paragraph_words": 138.0,
+          "median_words": 793.0
+        },
+        "methods": {
+          "explicit_section_count": 23,
+          "explicit_section_pct": 92.0,
+          "marker_counts": {
+            "blinding": 7,
+            "data_or_code_availability": 3,
+            "ethics_or_approval": 20,
+            "randomization": 5,
+            "replicates": 7,
+            "sample_size": 12,
+            "software_or_version": 20,
+            "statistics": 19
+          },
+          "marker_pct": {
+            "blinding": 28.0,
+            "data_or_code_availability": 12.0,
+            "ethics_or_approval": 80.0,
+            "randomization": 20.0,
+            "replicates": 28.0,
+            "sample_size": 48.0,
+            "software_or_version": 80.0,
+            "statistics": 76.0
+          },
+          "median_first_person_per_1000_words": 0.451,
+          "median_passive_proxy_per_1000_words": 41.019,
+          "median_words": 2606.0
+        },
+        "n": 25,
+        "results": {
+          "heading_count": 197,
+          "headings_with_finding_verb_count": 22,
+          "headings_with_finding_verb_pct": 11.2,
+          "median_words": 2967.0,
+          "paragraph_count": 369,
+          "paragraphs_with_figure_count": 325,
+          "paragraphs_with_figure_pct": 88.1,
+          "paragraphs_with_number_count": 350,
+          "paragraphs_with_number_pct": 94.9,
+          "paragraphs_with_statistic_count": 181,
+          "paragraphs_with_statistic_pct": 49.1
+        },
+        "title": {
+          "colon_count": 1,
+          "colon_pct": 4.0,
+          "mean_words": 14.16,
+          "median_words": 14.0,
+          "number_count": 5,
+          "number_pct": 20.0,
+          "question_count": 0,
+          "question_pct": 0.0
+        },
+        "voice": {
+          "median_full_text_first_person_per_1000_words": 5.868,
+          "median_full_text_passive_proxy_per_1000_words": 23.245
+        }
+      },
+      "Cell": {
+        "abstract": {
+          "first_person_count": 22,
+          "first_person_pct": 88.0,
+          "median_sentences": 7.0,
+          "median_words": 151.0,
+          "move_counts": {
+            "author_action": 13,
+            "background_or_problem": 11,
+            "explicit_boundary": 4,
+            "gap_or_unknown": 8,
+            "implication": 12,
+            "result_or_discovery": 13
+          },
+          "move_pct": {
+            "author_action": 52.0,
+            "background_or_problem": 44.0,
+            "explicit_boundary": 16.0,
+            "gap_or_unknown": 32.0,
+            "implication": 48.0,
+            "result_or_discovery": 52.0
+          },
+          "number_count": 19,
+          "number_pct": 76.0
+        },
+        "discussion_or_closing": {
+          "explicit_discussion_count": 24,
+          "explicit_discussion_pct": 96.0,
+          "implication_or_next_test_count": 25,
+          "implication_or_next_test_pct": 100.0,
+          "limitation_or_unknown_count": 23,
+          "limitation_or_unknown_pct": 92.0
+        },
+        "full_text": {
+          "median_body_paragraphs": 75.0,
+          "median_body_words": 11592.0
+        },
+        "introduction": {
+          "final_paragraph_aim_or_question_count": 14,
+          "final_paragraph_aim_or_question_pct": 56.0,
+          "final_paragraph_result_preview_count": 9,
+          "final_paragraph_result_preview_pct": 36.0,
+          "median_final_paragraph_words": 160.0,
+          "median_words": 627.0
+        },
+        "methods": {
+          "explicit_section_count": 24,
+          "explicit_section_pct": 96.0,
+          "marker_counts": {
+            "blinding": 10,
+            "data_or_code_availability": 16,
+            "ethics_or_approval": 16,
+            "randomization": 10,
+            "replicates": 10,
+            "sample_size": 12,
+            "software_or_version": 23,
+            "statistics": 22
+          },
+          "marker_pct": {
+            "blinding": 40.0,
+            "data_or_code_availability": 64.0,
+            "ethics_or_approval": 64.0,
+            "randomization": 40.0,
+            "replicates": 40.0,
+            "sample_size": 48.0,
+            "software_or_version": 92.0,
+            "statistics": 88.0
+          },
+          "median_first_person_per_1000_words": 2.157,
+          "median_passive_proxy_per_1000_words": 30.101,
+          "median_words": 4172.0
+        },
+        "n": 25,
+        "results": {
+          "heading_count": 197,
+          "headings_with_finding_verb_count": 26,
+          "headings_with_finding_verb_pct": 13.2,
+          "median_words": 4629.0,
+          "paragraph_count": 574,
+          "paragraphs_with_figure_count": 439,
+          "paragraphs_with_figure_pct": 76.5,
+          "paragraphs_with_number_count": 502,
+          "paragraphs_with_number_pct": 87.5,
+          "paragraphs_with_statistic_count": 199,
+          "paragraphs_with_statistic_pct": 34.7
+        },
+        "title": {
+          "colon_count": 2,
+          "colon_pct": 8.0,
+          "mean_words": 11.76,
+          "median_words": 12.0,
+          "number_count": 7,
+          "number_pct": 28.0,
+          "question_count": 0,
+          "question_pct": 0.0
+        },
+        "voice": {
+          "median_full_text_first_person_per_1000_words": 6.616,
+          "median_full_text_passive_proxy_per_1000_words": 18.756
+        }
+      },
+      "Nature": {
+        "abstract": {
+          "first_person_count": 25,
+          "first_person_pct": 100.0,
+          "median_sentences": 8.0,
+          "median_words": 209.0,
+          "move_counts": {
+            "author_action": 19,
+            "background_or_problem": 11,
+            "explicit_boundary": 2,
+            "gap_or_unknown": 10,
+            "implication": 13,
+            "result_or_discovery": 16
+          },
+          "move_pct": {
+            "author_action": 76.0,
+            "background_or_problem": 44.0,
+            "explicit_boundary": 8.0,
+            "gap_or_unknown": 40.0,
+            "implication": 52.0,
+            "result_or_discovery": 64.0
+          },
+          "number_count": 25,
+          "number_pct": 100.0
+        },
+        "discussion_or_closing": {
+          "explicit_discussion_count": 15,
+          "explicit_discussion_pct": 60.0,
+          "implication_or_next_test_count": 16,
+          "implication_or_next_test_pct": 64.0,
+          "limitation_or_unknown_count": 14,
+          "limitation_or_unknown_pct": 56.0
+        },
+        "full_text": {
+          "median_body_paragraphs": 53.0,
+          "median_body_words": 8834.0
+        },
+        "introduction": {
+          "final_paragraph_aim_or_question_count": 7,
+          "final_paragraph_aim_or_question_pct": 28.0,
+          "final_paragraph_result_preview_count": 5,
+          "final_paragraph_result_preview_pct": 20.0,
+          "median_final_paragraph_words": 183.0,
+          "median_words": 443.0
+        },
+        "methods": {
+          "explicit_section_count": 23,
+          "explicit_section_pct": 92.0,
+          "marker_counts": {
+            "blinding": 5,
+            "data_or_code_availability": 6,
+            "ethics_or_approval": 13,
+            "randomization": 7,
+            "replicates": 6,
+            "sample_size": 9,
+            "software_or_version": 17,
+            "statistics": 18
+          },
+          "marker_pct": {
+            "blinding": 20.0,
+            "data_or_code_availability": 24.0,
+            "ethics_or_approval": 52.0,
+            "randomization": 28.0,
+            "replicates": 24.0,
+            "sample_size": 36.0,
+            "software_or_version": 68.0,
+            "statistics": 72.0
+          },
+          "median_first_person_per_1000_words": 3.465,
+          "median_passive_proxy_per_1000_words": 28.229,
+          "median_words": 4362.0
+        },
+        "n": 25,
+        "results": {
+          "heading_count": 586,
+          "headings_with_finding_verb_count": 16,
+          "headings_with_finding_verb_pct": 2.7,
+          "median_words": 3528.0,
+          "paragraph_count": 487,
+          "paragraphs_with_figure_count": 306,
+          "paragraphs_with_figure_pct": 62.8,
+          "paragraphs_with_number_count": 412,
+          "paragraphs_with_number_pct": 84.6,
+          "paragraphs_with_statistic_count": 137,
+          "paragraphs_with_statistic_pct": 28.1
+        },
+        "title": {
+          "colon_count": 0,
+          "colon_pct": 0.0,
+          "mean_words": 8.92,
+          "median_words": 9.0,
+          "number_count": 4,
+          "number_pct": 16.0,
+          "question_count": 0,
+          "question_pct": 0.0
+        },
+        "voice": {
+          "median_full_text_first_person_per_1000_words": 7.478,
+          "median_full_text_passive_proxy_per_1000_words": 20.535
+        }
+      },
+      "Nature Biomedical Engineering": {
+        "abstract": {
+          "first_person_count": 25,
+          "first_person_pct": 100.0,
+          "median_sentences": 6.0,
+          "median_words": 166.0,
+          "move_counts": {
+            "author_action": 22,
+            "background_or_problem": 6,
+            "explicit_boundary": 6,
+            "gap_or_unknown": 5,
+            "implication": 14,
+            "result_or_discovery": 18
+          },
+          "move_pct": {
+            "author_action": 88.0,
+            "background_or_problem": 24.0,
+            "explicit_boundary": 24.0,
+            "gap_or_unknown": 20.0,
+            "implication": 56.0,
+            "result_or_discovery": 72.0
+          },
+          "number_count": 12,
+          "number_pct": 48.0
+        },
+        "discussion_or_closing": {
+          "explicit_discussion_count": 23,
+          "explicit_discussion_pct": 92.0,
+          "implication_or_next_test_count": 22,
+          "implication_or_next_test_pct": 88.0,
+          "limitation_or_unknown_count": 19,
+          "limitation_or_unknown_pct": 76.0
+        },
+        "full_text": {
+          "median_body_paragraphs": 61.0,
+          "median_body_words": 9009.0
+        },
+        "introduction": {
+          "final_paragraph_aim_or_question_count": 15,
+          "final_paragraph_aim_or_question_pct": 60.0,
+          "final_paragraph_result_preview_count": 11,
+          "final_paragraph_result_preview_pct": 44.0,
+          "median_final_paragraph_words": 184.0,
+          "median_words": 767.0
+        },
+        "methods": {
+          "explicit_section_count": 25,
+          "explicit_section_pct": 100.0,
+          "marker_counts": {
+            "blinding": 11,
+            "data_or_code_availability": 5,
+            "ethics_or_approval": 20,
+            "randomization": 5,
+            "replicates": 6,
+            "sample_size": 7,
+            "software_or_version": 23,
+            "statistics": 21
+          },
+          "marker_pct": {
+            "blinding": 44.0,
+            "data_or_code_availability": 20.0,
+            "ethics_or_approval": 80.0,
+            "randomization": 20.0,
+            "replicates": 24.0,
+            "sample_size": 28.0,
+            "software_or_version": 92.0,
+            "statistics": 84.0
+          },
+          "median_first_person_per_1000_words": 2.316,
+          "median_passive_proxy_per_1000_words": 32.448,
+          "median_words": 3673.0
+        },
+        "n": 25,
+        "results": {
+          "heading_count": 261,
+          "headings_with_finding_verb_count": 33,
+          "headings_with_finding_verb_pct": 12.6,
+          "median_words": 3431.0,
+          "paragraph_count": 458,
+          "paragraphs_with_figure_count": 371,
+          "paragraphs_with_figure_pct": 81.0,
+          "paragraphs_with_number_count": 391,
+          "paragraphs_with_number_pct": 85.4,
+          "paragraphs_with_statistic_count": 188,
+          "paragraphs_with_statistic_pct": 41.0
+        },
+        "title": {
+          "colon_count": 0,
+          "colon_pct": 0.0,
+          "mean_words": 13.72,
+          "median_words": 13.0,
+          "number_count": 1,
+          "number_pct": 4.0,
+          "question_count": 0,
+          "question_pct": 0.0
+        },
+        "voice": {
+          "median_full_text_first_person_per_1000_words": 8.42,
+          "median_full_text_passive_proxy_per_1000_words": 18.462
+        }
+      },
+      "Nature Materials": {
+        "abstract": {
+          "first_person_count": 25,
+          "first_person_pct": 100.0,
+          "median_sentences": 6.0,
+          "median_words": 154.0,
+          "move_counts": {
+            "author_action": 21,
+            "background_or_problem": 3,
+            "explicit_boundary": 5,
+            "gap_or_unknown": 6,
+            "implication": 12,
+            "result_or_discovery": 16
+          },
+          "move_pct": {
+            "author_action": 84.0,
+            "background_or_problem": 12.0,
+            "explicit_boundary": 20.0,
+            "gap_or_unknown": 24.0,
+            "implication": 48.0,
+            "result_or_discovery": 64.0
+          },
+          "number_count": 13,
+          "number_pct": 52.0
+        },
+        "discussion_or_closing": {
+          "explicit_discussion_count": 9,
+          "explicit_discussion_pct": 36.0,
+          "implication_or_next_test_count": 9,
+          "implication_or_next_test_pct": 36.0,
+          "limitation_or_unknown_count": 8,
+          "limitation_or_unknown_pct": 32.0
+        },
+        "full_text": {
+          "median_body_paragraphs": 45.0,
+          "median_body_words": 6786.0
+        },
+        "introduction": {
+          "final_paragraph_aim_or_question_count": 8,
+          "final_paragraph_aim_or_question_pct": 32.0,
+          "final_paragraph_result_preview_count": 6,
+          "final_paragraph_result_preview_pct": 24.0,
+          "median_final_paragraph_words": 156.0,
+          "median_words": 553.0
+        },
+        "methods": {
+          "explicit_section_count": 23,
+          "explicit_section_pct": 92.0,
+          "marker_counts": {
+            "blinding": 10,
+            "data_or_code_availability": 1,
+            "ethics_or_approval": 8,
+            "randomization": 4,
+            "replicates": 8,
+            "sample_size": 8,
+            "software_or_version": 15,
+            "statistics": 12
+          },
+          "marker_pct": {
+            "blinding": 40.0,
+            "data_or_code_availability": 4.0,
+            "ethics_or_approval": 32.0,
+            "randomization": 16.0,
+            "replicates": 32.0,
+            "sample_size": 32.0,
+            "software_or_version": 60.0,
+            "statistics": 48.0
+          },
+          "median_first_person_per_1000_words": 1.078,
+          "median_passive_proxy_per_1000_words": 35.398,
+          "median_words": 2399.0
+        },
+        "n": 25,
+        "results": {
+          "heading_count": 481,
+          "headings_with_finding_verb_count": 19,
+          "headings_with_finding_verb_pct": 4.0,
+          "median_words": 3815.0,
+          "paragraph_count": 540,
+          "paragraphs_with_figure_count": 348,
+          "paragraphs_with_figure_pct": 64.4,
+          "paragraphs_with_number_count": 433,
+          "paragraphs_with_number_pct": 80.2,
+          "paragraphs_with_statistic_count": 134,
+          "paragraphs_with_statistic_pct": 24.8
+        },
+        "title": {
+          "colon_count": 0,
+          "colon_pct": 0.0,
+          "mean_words": 9.96,
+          "median_words": 10.0,
+          "number_count": 0,
+          "number_pct": 0.0,
+          "question_count": 0,
+          "question_pct": 0.0
+        },
+        "voice": {
+          "median_full_text_first_person_per_1000_words": 5.088,
+          "median_full_text_passive_proxy_per_1000_words": 18.715
+        }
+      },
+      "Science": {
+        "abstract": {
+          "first_person_count": 24,
+          "first_person_pct": 96.0,
+          "median_sentences": 6.0,
+          "median_words": 128.0,
+          "move_counts": {
+            "author_action": 6,
+            "background_or_problem": 9,
+            "explicit_boundary": 3,
+            "gap_or_unknown": 7,
+            "implication": 9,
+            "result_or_discovery": 15
+          },
+          "move_pct": {
+            "author_action": 24.0,
+            "background_or_problem": 36.0,
+            "explicit_boundary": 12.0,
+            "gap_or_unknown": 28.0,
+            "implication": 36.0,
+            "result_or_discovery": 60.0
+          },
+          "number_count": 16,
+          "number_pct": 64.0
+        },
+        "discussion_or_closing": {
+          "explicit_discussion_count": 19,
+          "explicit_discussion_pct": 76.0,
+          "implication_or_next_test_count": 21,
+          "implication_or_next_test_pct": 84.0,
+          "limitation_or_unknown_count": 18,
+          "limitation_or_unknown_pct": 72.0
+        },
+        "full_text": {
+          "median_body_paragraphs": 30.0,
+          "median_body_words": 4433.0
+        },
+        "introduction": {
+          "final_paragraph_aim_or_question_count": 10,
+          "final_paragraph_aim_or_question_pct": 40.0,
+          "final_paragraph_result_preview_count": 2,
+          "final_paragraph_result_preview_pct": 8.0,
+          "median_final_paragraph_words": 150.0,
+          "median_words": 452.0
+        },
+        "methods": {
+          "explicit_section_count": 11,
+          "explicit_section_pct": 44.0,
+          "marker_counts": {
+            "blinding": 5,
+            "data_or_code_availability": 3,
+            "ethics_or_approval": 8,
+            "randomization": 4,
+            "replicates": 4,
+            "sample_size": 3,
+            "software_or_version": 7,
+            "statistics": 8
+          },
+          "marker_pct": {
+            "blinding": 20.0,
+            "data_or_code_availability": 12.0,
+            "ethics_or_approval": 32.0,
+            "randomization": 16.0,
+            "replicates": 16.0,
+            "sample_size": 12.0,
+            "software_or_version": 28.0,
+            "statistics": 32.0
+          },
+          "median_first_person_per_1000_words": 0.0,
+          "median_passive_proxy_per_1000_words": 0.0,
+          "median_words": 0.0
+        },
+        "n": 25,
+        "results": {
+          "heading_count": 251,
+          "headings_with_finding_verb_count": 39,
+          "headings_with_finding_verb_pct": 15.5,
+          "median_words": 2975.0,
+          "paragraph_count": 443,
+          "paragraphs_with_figure_count": 351,
+          "paragraphs_with_figure_pct": 79.2,
+          "paragraphs_with_number_count": 395,
+          "paragraphs_with_number_pct": 89.2,
+          "paragraphs_with_statistic_count": 160,
+          "paragraphs_with_statistic_pct": 36.1
+        },
+        "title": {
+          "colon_count": 2,
+          "colon_pct": 8.0,
+          "mean_words": 10.52,
+          "median_words": 10.0,
+          "number_count": 6,
+          "number_pct": 24.0,
+          "question_count": 0,
+          "question_pct": 0.0
+        },
+        "voice": {
+          "median_full_text_first_person_per_1000_words": 11.104,
+          "median_full_text_passive_proxy_per_1000_words": 13.086
+        }
+      },
+      "Science Translational Medicine": {
+        "abstract": {
+          "first_person_count": 24,
+          "first_person_pct": 96.0,
+          "median_sentences": 8.0,
+          "median_words": 222.0,
+          "move_counts": {
+            "author_action": 12,
+            "background_or_problem": 15,
+            "explicit_boundary": 3,
+            "gap_or_unknown": 3,
+            "implication": 13,
+            "result_or_discovery": 15
+          },
+          "move_pct": {
+            "author_action": 48.0,
+            "background_or_problem": 60.0,
+            "explicit_boundary": 12.0,
+            "gap_or_unknown": 12.0,
+            "implication": 52.0,
+            "result_or_discovery": 60.0
+          },
+          "number_count": 21,
+          "number_pct": 84.0
+        },
+        "discussion_or_closing": {
+          "explicit_discussion_count": 25,
+          "explicit_discussion_pct": 100.0,
+          "implication_or_next_test_count": 24,
+          "implication_or_next_test_pct": 96.0,
+          "limitation_or_unknown_count": 24,
+          "limitation_or_unknown_pct": 96.0
+        },
+        "full_text": {
+          "median_body_paragraphs": 42.0,
+          "median_body_words": 6630.0
+        },
+        "introduction": {
+          "final_paragraph_aim_or_question_count": 19,
+          "final_paragraph_aim_or_question_pct": 76.0,
+          "final_paragraph_result_preview_count": 6,
+          "final_paragraph_result_preview_pct": 24.0,
+          "median_final_paragraph_words": 122.0,
+          "median_words": 559.0
+        },
+        "methods": {
+          "explicit_section_count": 25,
+          "explicit_section_pct": 100.0,
+          "marker_counts": {
+            "blinding": 16,
+            "data_or_code_availability": 8,
+            "ethics_or_approval": 23,
+            "randomization": 12,
+            "replicates": 9,
+            "sample_size": 18,
+            "software_or_version": 16,
+            "statistics": 22
+          },
+          "marker_pct": {
+            "blinding": 64.0,
+            "data_or_code_availability": 32.0,
+            "ethics_or_approval": 92.0,
+            "randomization": 48.0,
+            "replicates": 36.0,
+            "sample_size": 72.0,
+            "software_or_version": 64.0,
+            "statistics": 88.0
+          },
+          "median_first_person_per_1000_words": 1.623,
+          "median_passive_proxy_per_1000_words": 38.961,
+          "median_words": 1678.0
+        },
+        "n": 25,
+        "results": {
+          "heading_count": 171,
+          "headings_with_finding_verb_count": 41,
+          "headings_with_finding_verb_pct": 24.0,
+          "median_words": 2764.0,
+          "paragraph_count": 374,
+          "paragraphs_with_figure_count": 335,
+          "paragraphs_with_figure_pct": 89.6,
+          "paragraphs_with_number_count": 355,
+          "paragraphs_with_number_pct": 94.9,
+          "paragraphs_with_statistic_count": 176,
+          "paragraphs_with_statistic_pct": 47.1
+        },
+        "title": {
+          "colon_count": 0,
+          "colon_pct": 0.0,
+          "mean_words": 15.52,
+          "median_words": 15.0,
+          "number_count": 12,
+          "number_pct": 48.0,
+          "question_count": 0,
+          "question_pct": 0.0
+        },
+        "voice": {
+          "median_full_text_first_person_per_1000_words": 6.809,
+          "median_full_text_passive_proxy_per_1000_words": 18.627
+        }
+      }
+    },
+    "by_venue_class": {
+      "field_selective": {
+        "abstract": {
+          "first_person_count": 100,
+          "first_person_pct": 80.0,
+          "median_sentences": 7.0,
+          "median_words": 177.0,
+          "move_counts": {
+            "author_action": 67,
+            "background_or_problem": 45,
+            "explicit_boundary": 25,
+            "gap_or_unknown": 36,
+            "implication": 66,
+            "result_or_discovery": 67
+          },
+          "move_pct": {
+            "author_action": 53.6,
+            "background_or_problem": 36.0,
+            "explicit_boundary": 20.0,
+            "gap_or_unknown": 28.8,
+            "implication": 52.8,
+            "result_or_discovery": 53.6
+          },
+          "number_count": 83,
+          "number_pct": 66.4
+        },
+        "discussion_or_closing": {
+          "explicit_discussion_count": 100,
+          "explicit_discussion_pct": 80.0,
+          "implication_or_next_test_count": 100,
+          "implication_or_next_test_pct": 80.0,
+          "limitation_or_unknown_count": 90,
+          "limitation_or_unknown_pct": 72.0
+        },
+        "full_text": {
+          "median_body_paragraphs": 45.0,
+          "median_body_words": 7475.0
+        },
+        "introduction": {
+          "final_paragraph_aim_or_question_count": 65,
+          "final_paragraph_aim_or_question_pct": 52.0,
+          "final_paragraph_result_preview_count": 41,
+          "final_paragraph_result_preview_pct": 32.8,
+          "median_final_paragraph_words": 163.0,
+          "median_words": 668.0
+        },
+        "methods": {
+          "explicit_section_count": 115,
+          "explicit_section_pct": 92.0,
+          "marker_counts": {
+            "blinding": 48,
+            "data_or_code_availability": 18,
+            "ethics_or_approval": 76,
+            "randomization": 26,
+            "replicates": 33,
+            "sample_size": 47,
+            "software_or_version": 86,
+            "statistics": 83
+          },
+          "marker_pct": {
+            "blinding": 38.4,
+            "data_or_code_availability": 14.4,
+            "ethics_or_approval": 60.8,
+            "randomization": 20.8,
+            "replicates": 26.4,
+            "sample_size": 37.6,
+            "software_or_version": 68.8,
+            "statistics": 66.4
+          },
+          "median_first_person_per_1000_words": 0.529,
+          "median_passive_proxy_per_1000_words": 37.209,
+          "median_words": 2257.0
+        },
+        "n": 125,
+        "results": {
+          "heading_count": 1272,
+          "headings_with_finding_verb_count": 121,
+          "headings_with_finding_verb_pct": 9.5,
+          "median_words": 3116.0,
+          "paragraph_count": 2193,
+          "paragraphs_with_figure_count": 1751,
+          "paragraphs_with_figure_pct": 79.8,
+          "paragraphs_with_number_count": 1916,
+          "paragraphs_with_number_pct": 87.4,
+          "paragraphs_with_statistic_count": 798,
+          "paragraphs_with_statistic_pct": 36.4
+        },
+        "title": {
+          "colon_count": 2,
+          "colon_pct": 1.6,
+          "mean_words": 12.86,
+          "median_words": 12.0,
+          "number_count": 18,
+          "number_pct": 14.4,
+          "question_count": 0,
+          "question_pct": 0.0
+        },
+        "voice": {
+          "median_full_text_first_person_per_1000_words": 5.931,
+          "median_full_text_passive_proxy_per_1000_words": 19.507
+        }
+      },
+      "flagship_broad": {
+        "abstract": {
+          "first_person_count": 71,
+          "first_person_pct": 94.7,
+          "median_sentences": 6.0,
+          "median_words": 149.0,
+          "move_counts": {
+            "author_action": 38,
+            "background_or_problem": 31,
+            "explicit_boundary": 9,
+            "gap_or_unknown": 25,
+            "implication": 34,
+            "result_or_discovery": 44
+          },
+          "move_pct": {
+            "author_action": 50.7,
+            "background_or_problem": 41.3,
+            "explicit_boundary": 12.0,
+            "gap_or_unknown": 33.3,
+            "implication": 45.3,
+            "result_or_discovery": 58.7
+          },
+          "number_count": 60,
+          "number_pct": 80.0
+        },
+        "discussion_or_closing": {
+          "explicit_discussion_count": 58,
+          "explicit_discussion_pct": 77.3,
+          "implication_or_next_test_count": 62,
+          "implication_or_next_test_pct": 82.7,
+          "limitation_or_unknown_count": 55,
+          "limitation_or_unknown_pct": 73.3
+        },
+        "full_text": {
+          "median_body_paragraphs": 55.0,
+          "median_body_words": 8924.0
+        },
+        "introduction": {
+          "final_paragraph_aim_or_question_count": 31,
+          "final_paragraph_aim_or_question_pct": 41.3,
+          "final_paragraph_result_preview_count": 16,
+          "final_paragraph_result_preview_pct": 21.3,
+          "median_final_paragraph_words": 163.0,
+          "median_words": 516.0
+        },
+        "methods": {
+          "explicit_section_count": 58,
+          "explicit_section_pct": 77.3,
+          "marker_counts": {
+            "blinding": 20,
+            "data_or_code_availability": 25,
+            "ethics_or_approval": 37,
+            "randomization": 21,
+            "replicates": 20,
+            "sample_size": 24,
+            "software_or_version": 47,
+            "statistics": 48
+          },
+          "marker_pct": {
+            "blinding": 26.7,
+            "data_or_code_availability": 33.3,
+            "ethics_or_approval": 49.3,
+            "randomization": 28.0,
+            "replicates": 26.7,
+            "sample_size": 32.0,
+            "software_or_version": 62.7,
+            "statistics": 64.0
+          },
+          "median_first_person_per_1000_words": 1.144,
+          "median_passive_proxy_per_1000_words": 27.615,
+          "median_words": 3372.0
+        },
+        "n": 75,
+        "results": {
+          "heading_count": 1034,
+          "headings_with_finding_verb_count": 81,
+          "headings_with_finding_verb_pct": 7.8,
+          "median_words": 3538.0,
+          "paragraph_count": 1504,
+          "paragraphs_with_figure_count": 1096,
+          "paragraphs_with_figure_pct": 72.9,
+          "paragraphs_with_number_count": 1309,
+          "paragraphs_with_number_pct": 87.0,
+          "paragraphs_with_statistic_count": 496,
+          "paragraphs_with_statistic_pct": 33.0
+        },
+        "title": {
+          "colon_count": 4,
+          "colon_pct": 5.3,
+          "mean_words": 10.4,
+          "median_words": 10.0,
+          "number_count": 17,
+          "number_pct": 22.7,
+          "question_count": 0,
+          "question_pct": 0.0
+        },
+        "voice": {
+          "median_full_text_first_person_per_1000_words": 8.073,
+          "median_full_text_passive_proxy_per_1000_words": 18.407
+        }
+      }
+    },
+    "overall": {
+      "abstract": {
+        "first_person_count": 171,
+        "first_person_pct": 85.5,
+        "median_sentences": 7.0,
+        "median_words": 165.0,
+        "move_counts": {
+          "author_action": 105,
+          "background_or_problem": 76,
+          "explicit_boundary": 34,
+          "gap_or_unknown": 61,
+          "implication": 100,
+          "result_or_discovery": 111
+        },
+        "move_pct": {
+          "author_action": 52.5,
+          "background_or_problem": 38.0,
+          "explicit_boundary": 17.0,
+          "gap_or_unknown": 30.5,
+          "implication": 50.0,
+          "result_or_discovery": 55.5
+        },
+        "number_count": 143,
+        "number_pct": 71.5
+      },
+      "discussion_or_closing": {
+        "explicit_discussion_count": 158,
+        "explicit_discussion_pct": 79.0,
+        "implication_or_next_test_count": 162,
+        "implication_or_next_test_pct": 81.0,
+        "limitation_or_unknown_count": 145,
+        "limitation_or_unknown_pct": 72.5
+      },
+      "full_text": {
+        "median_body_paragraphs": 48.0,
+        "median_body_words": 7735.5
+      },
+      "introduction": {
+        "final_paragraph_aim_or_question_count": 96,
+        "final_paragraph_aim_or_question_pct": 48.0,
+        "final_paragraph_result_preview_count": 57,
+        "final_paragraph_result_preview_pct": 28.5,
+        "median_final_paragraph_words": 163.0,
+        "median_words": 633.0
+      },
+      "methods": {
+        "explicit_section_count": 173,
+        "explicit_section_pct": 86.5,
+        "marker_counts": {
+          "blinding": 68,
+          "data_or_code_availability": 43,
+          "ethics_or_approval": 113,
+          "randomization": 47,
+          "replicates": 53,
+          "sample_size": 71,
+          "software_or_version": 133,
+          "statistics": 131
+        },
+        "marker_pct": {
+          "blinding": 34.0,
+          "data_or_code_availability": 21.5,
+          "ethics_or_approval": 56.5,
+          "randomization": 23.5,
+          "replicates": 26.5,
+          "sample_size": 35.5,
+          "software_or_version": 66.5,
+          "statistics": 65.5
+        },
+        "median_first_person_per_1000_words": 0.733,
+        "median_passive_proxy_per_1000_words": 33.916,
+        "median_words": 2518.0
+      },
+      "n": 200,
+      "results": {
+        "heading_count": 2306,
+        "headings_with_finding_verb_count": 202,
+        "headings_with_finding_verb_pct": 8.8,
+        "median_words": 3314.5,
+        "paragraph_count": 3697,
+        "paragraphs_with_figure_count": 2847,
+        "paragraphs_with_figure_pct": 77.0,
+        "paragraphs_with_number_count": 3225,
+        "paragraphs_with_number_pct": 87.2,
+        "paragraphs_with_statistic_count": 1294,
+        "paragraphs_with_statistic_pct": 35.0
+      },
+      "title": {
+        "colon_count": 6,
+        "colon_pct": 3.0,
+        "mean_words": 11.94,
+        "median_words": 11.0,
+        "number_count": 35,
+        "number_pct": 17.5,
+        "question_count": 0,
+        "question_pct": 0.0
+      },
+      "voice": {
+        "median_full_text_first_person_per_1000_words": 6.472,
+        "median_full_text_passive_proxy_per_1000_words": 19.233
+      }
+    }
+  }
+}

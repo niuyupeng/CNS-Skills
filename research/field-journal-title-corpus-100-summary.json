@@ -1,0 +1,97 @@
+{
+  "tool": "CNS scientific title audit",
+  "version": "0.8.0",
+  "policy_snapshot": "2026-08-30",
+  "candidate_analyses": [],
+  "limitations": [
+    "Observable title features do not establish scientific quality or acceptance probability.",
+    "Corpus frequencies are descriptive and must not be converted into copyable formulas.",
+    "Final title selection requires the manuscript's central contribution, evidence boundary, article type, and live venue rules."
+  ],
+  "corpus_summary": {
+    "source_file": "field-journal-title-corpus-100.csv",
+    "records": 100,
+    "unique_normalized_titles": 100,
+    "unique_stable_ids": 100,
+    "unique_nonempty_dois": 100,
+    "duplicate_normalized_titles": [],
+    "duplicate_stable_ids": [],
+    "duplicate_dois": [],
+    "years": {
+      "minimum": 2018,
+      "maximum": 2026
+    },
+    "title_words": {
+      "median": 10.0,
+      "q1": 8.0,
+      "q3": 12.0
+    },
+    "title_characters": {
+      "median": 80.0,
+      "q1": 62.75,
+      "q3": 99.25
+    },
+    "feature_percent": {
+      "colon": 13.0,
+      "question": 1.0,
+      "acronym": 7.0,
+      "generic_review_formula": 0.0
+    },
+    "venue_counts": {
+      "ACS Nano": 8,
+      "Acta Biomaterialia": 3,
+      "Advanced Functional Materials": 6,
+      "Advanced Materials": 9,
+      "Biomaterials": 1,
+      "Cell Systems": 1,
+      "Chemical Reviews": 3,
+      "Journal of the American Chemical Society": 4,
+      "Materials Today": 3,
+      "Matter": 7,
+      "Nature": 6,
+      "Nature Biotechnology": 2,
+      "Nature Chemistry": 1,
+      "Nature Communications": 10,
+      "Nature Machine Intelligence": 3,
+      "Nature Materials": 4,
+      "Nature Methods": 2,
+      "Nature Nanotechnology": 2,
+      "Nature Reviews Bioengineering": 2,
+      "Nature Reviews Materials": 2,
+      "Proceedings of the National Academy of Sciences": 5,
+      "Science": 4,
+      "Science Advances": 7,
+      "Trends in Biotechnology": 3,
+      "Trends in Chemistry": 2
+    },
+    "venue_family_counts": {
+      "not_provided": 100
+    },
+    "venue_type_counts": {
+      "not_provided": 100
+    },
+    "title_features_by_venue_type": {},
+    "article_type_counts": {
+      "Comment/editorial/letter": 3,
+      "Journal article (genre unknown)": 73,
+      "Review": 24
+    },
+    "stored_fields": [
+      "article_type",
+      "doi",
+      "doi_url",
+      "genre_role",
+      "journal",
+      "metadata_source",
+      "metadata_type",
+      "metadata_url",
+      "record_id",
+      "relevance_domain",
+      "selection_reason",
+      "title",
+      "verified_date",
+      "year"
+    ],
+    "stores_abstract_or_full_text": false
+  }
+}

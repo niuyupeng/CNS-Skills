@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640" role="img" aria-labelledby="title desc">
   <title id="title">CNS Skills — From draft to defensible manuscript</title>
-  <desc id="desc">A dark navy and teal banner for evidence-first manuscript engineering for top journals and conferences.</desc>
+  <desc id="desc">A dark navy and teal banner for CNS Skills, an evidence-first scientific-writing workflow for ChatGPT, Codex, Claude, and Agent Skills clients.</desc>
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#071522"/>
@@ -48,12 +48,12 @@
         <text x="0" y="25" fill="#AAC3CD" font-size="13" font-weight="700" letter-spacing="1.2">VENUE PROFILES</text>
       </g>
       <g transform="translate(326 0)">
-        <text x="0" y="0" fill="#F5D486" font-size="29" font-weight="800">45</text>
-        <text x="0" y="25" fill="#AAC3CD" font-size="13" font-weight="700" letter-spacing="1.2">TESTS</text>
+        <text x="0" y="0" fill="#F5D486" font-size="25" font-weight="800">EN / ZH</text>
+        <text x="0" y="25" fill="#AAC3CD" font-size="13" font-weight="700" letter-spacing="1.2">BILINGUAL WORKFLOW</text>
       </g>
-      <g transform="translate(436 0)">
-        <text x="0" y="0" fill="#F5D486" font-size="29" font-weight="800">4</text>
-        <text x="0" y="25" fill="#AAC3CD" font-size="13" font-weight="700" letter-spacing="1.2">AUDITORS</text>
+      <g transform="translate(548 0)">
+        <text x="0" y="0" fill="#F5D486" font-size="25" font-weight="800">LOCAL</text>
+        <text x="0" y="25" fill="#AAC3CD" font-size="13" font-weight="700" letter-spacing="1.2">TRANSPARENT QA</text>
       </g>
     </g>
 

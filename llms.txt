@@ -1,0 +1,31 @@
+# CNS Skills
+
+> An independent, MIT-licensed scientific-writing skill for ChatGPT/Codex,
+> Claude Code, and Agent Skills-compatible clients. It revises English or
+> Chinese manuscripts while preserving evidence boundaries, and audits claims,
+> citations, titles, figures, tables, cross-references, and clean-submission
+> DOCX artifacts.
+
+Repository: https://github.com/niuyupeng/CNS-Skills
+License: https://github.com/niuyupeng/CNS-Skills/blob/main/LICENSE
+
+## Start here
+
+- Overview: https://github.com/niuyupeng/CNS-Skills/blob/main/README.md
+- Chinese overview: https://github.com/niuyupeng/CNS-Skills/blob/main/README.zh-CN.md
+- Installation: https://github.com/niuyupeng/CNS-Skills/blob/main/docs/INSTALL.md
+- Skill contract: https://github.com/niuyupeng/CNS-Skills/blob/main/SKILL.md
+- Public synthetic demo: https://github.com/niuyupeng/CNS-Skills/tree/main/examples/synthetic-hydrogel-demo
+- Evaluation notes: https://github.com/niuyupeng/CNS-Skills/blob/main/evals/README.md
+- Privacy: https://github.com/niuyupeng/CNS-Skills/blob/main/PRIVACY.md
+- Terms: https://github.com/niuyupeng/CNS-Skills/blob/main/TERMS.md
+- Support: https://github.com/niuyupeng/CNS-Skills/blob/main/SUPPORT.md
+
+## Important boundaries
+
+- CNS means Cell, Nature, and Science only as an aspirational editorial
+  benchmark; it does not imply affiliation or endorsement.
+- The project does not fabricate evidence, guarantee acceptance, replace source
+  reading, or optimize for AI-detector evasion.
+- Public examples are synthetic. Do not upload confidential manuscripts unless
+  the selected host and institutional policy allow it.

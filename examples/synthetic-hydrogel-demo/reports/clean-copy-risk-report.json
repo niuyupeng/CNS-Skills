@@ -1,0 +1,70 @@
+{
+  "schema_version": "1.0",
+  "demo_id": "synthetic-hydrogel-demo",
+  "report_type": "reader_visible_clean_copy_comparison",
+  "synthetic_notice": "Both sources are synthetic demonstration manuscripts; no private or unpublished research is included.",
+  "tool": "CNS Skills manuscript audit",
+  "tool_version": "0.8.0",
+  "before": {
+    "source": "input_manuscript.md",
+    "clean_copy_gate": "fail",
+    "defect_hits": 4,
+    "reader_visible_candidates": [
+      {
+        "pattern": "en_analysis_label",
+        "count": 1,
+        "example_label": "Editorial assessment"
+      },
+      {
+        "pattern": "en_author_prompt",
+        "count": 1,
+        "example_label": "Author query"
+      },
+      {
+        "pattern": "en_output_label",
+        "count": 1,
+        "example_label": "Revised version"
+      },
+      {
+        "pattern": "unresolved_placeholder",
+        "count": 1,
+        "example_label": "TODO for an independent batch and statistical test"
+      }
+    ]
+  },
+  "after": {
+    "source": "revised_manuscript.md",
+    "clean_copy_gate": "pass",
+    "defect_hits": 0,
+    "reader_visible_candidates": [],
+    "stock_phrase_patterns": 0,
+    "editorial_scaffolding_patterns": 0,
+    "repeated_sentence_opener_patterns": 0,
+    "docx_package_checks": "not_performed_no_docx_in_this_subtask"
+  },
+  "repairs": [
+    "Removed editor-facing assessment and output-version headings.",
+    "Resolved the scientific limitation in Methods instead of leaving a TODO.",
+    "Moved the novelty question out of the reader-visible manuscript and deleted the unsupported answer.",
+    "Converted missing-statistics production language into a direct explanation of why inference is unavailable."
+  ],
+  "human_review_decisions": [
+    {
+      "item": "SYNTHETIC DEMONSTRATION notice",
+      "decision": "retain",
+      "reason": "It is provenance and safety labeling for a public software fixture, not manuscript-production leakage."
+    },
+    {
+      "item": "Placeholder DOI labels",
+      "decision": "retain",
+      "reason": "They prevent the demonstration references from being mistaken for real publications."
+    }
+  ],
+  "remaining_artifact_checks": [
+    "Generate the DOCX with the standard Documents workflow.",
+    "Run cns_audit.py --strict-clean-copy on the DOCX.",
+    "Inspect core properties, comments, tracked changes, styles, captions, and table typography.",
+    "Render every page and inspect clipping, overlap, figure placement, and cross-references."
+  ],
+  "status": "markdown_clean_copy_pass_docx_qa_pending"
+}

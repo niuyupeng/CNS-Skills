@@ -1,0 +1,128 @@
+{
+  "schema_version": "1.0",
+  "demo_id": "synthetic-hydrogel-demo",
+  "report_type": "claim_citation_risk_comparison",
+  "synthetic_notice": "All claims, records, values, citations, and DOIs in this report are synthetic demonstration fixtures. The DOIs are deliberately non-resolving placeholders and are not publications.",
+  "sources": {
+    "before": "input_manuscript.md",
+    "after": "revised_manuscript.md"
+  },
+  "structural_audit": {
+    "tool": "CNS Skills review citation audit",
+    "tool_version": "0.8.0",
+    "before": {
+      "reference_entries": 2,
+      "unique_cited_references": 2,
+      "missing_reference_entries": [3],
+      "uncited_reference_entries": [2],
+      "duplicate_dois": [
+        {
+          "doi": "10.0000/cns.synthetic.protocol.001",
+          "reference_numbers": [1, 2]
+        }
+      ]
+    },
+    "after": {
+      "reference_entries": 3,
+      "unique_cited_references": 3,
+      "missing_reference_entries": [],
+      "uncited_reference_entries": [],
+      "duplicate_dois": []
+    }
+  },
+  "claim_review": [
+    {
+      "id": "CC-01",
+      "severity_before": "critical",
+      "before_claim": "H-07 is universally effective, completely safe, and clinically ready.",
+      "available_support": "Frozen synthetic technical-well means from one fictional batch.",
+      "risk": "A synthetic in vitro proxy cannot support universal, safety, efficacy, or clinical-readiness claims.",
+      "action": "remove_and_replace_with_evidence_layer",
+      "after_claim": "The values illustrate retrospective ranking within this fixture, not safety, efficacy, mechanism, or clinical performance.",
+      "status_after": "resolved"
+    },
+    {
+      "id": "CC-02",
+      "severity_before": "high",
+      "before_claim": "The workflow was fully autonomous and closed loop.",
+      "available_support": "All 18 rows existed before fitting; no subsequent experiment was selected or run.",
+      "risk": "Retrospective holdout ranking was mislabeled as adaptive experimentation.",
+      "action": "correct_workflow_classification",
+      "after_claim": "The workflow is retrospective rather than closed loop because no result changed a subsequent experimental choice.",
+      "status_after": "resolved"
+    },
+    {
+      "id": "CC-03",
+      "severity_before": "high",
+      "before_claim": "A 78.4% bacterial-signal reduction proves bactericidal activity, and 90.3% viability proves biocompatibility.",
+      "available_support": "Two deterministic, fictional endpoint means with no independent batch or well-level variance.",
+      "risk": "Descriptive proxy values were converted into biological conclusions.",
+      "action": "retain_numbers_narrow_inference",
+      "after_claim": "H-07 has frozen synthetic outcomes of 78.4% reduction and 90.3% viability; these descriptive values do not establish independent-experiment superiority or organism-level tolerability.",
+      "status_after": "resolved"
+    },
+    {
+      "id": "CC-04",
+      "severity_before": "critical",
+      "before_claim": "The in vitro difference caused superior wound healing.",
+      "available_support": "No wound-healing endpoint, animal study, intervention comparison, or causal design exists.",
+      "risk": "A causal clinical outcome was invented from an in vitro proxy.",
+      "action": "remove_claim",
+      "after_claim": null,
+      "status_after": "resolved_by_deletion"
+    },
+    {
+      "id": "CC-05",
+      "severity_before": "high",
+      "before_claim": "The model achieved state-of-the-art accuracy and generalized across the entire hydrogel design space [3].",
+      "available_support": "No benchmark, accuracy metric, external split, or reference 3 was supplied in the input.",
+      "risk": "The citation was missing and the comparison and generalization domains were undefined.",
+      "action": "remove_claim",
+      "after_claim": null,
+      "status_after": "resolved_by_deletion"
+    },
+    {
+      "id": "CC-06",
+      "severity_before": "high",
+      "before_claim": "The result is unprecedented and the first AI-designed hydrogel.",
+      "available_support": "No literature search or priority evidence exists.",
+      "risk": "An unsupported novelty claim was presented as fact.",
+      "action": "remove_claim",
+      "after_claim": null,
+      "status_after": "resolved_by_deletion"
+    }
+  ],
+  "citation_records_after": [
+    {
+      "citation": 1,
+      "identifier": "10.0000/cns.synthetic.dataset.001",
+      "identifier_status": "synthetic_placeholder_deliberately_non_resolving",
+      "role": "points to the frozen synthetic rows and deterministic generator",
+      "entailment_scope": "fixture values and split only"
+    },
+    {
+      "citation": 2,
+      "identifier": "10.0000/cns.synthetic.method.002",
+      "identifier_status": "synthetic_placeholder_deliberately_non_resolving",
+      "role": "points to the toy ridge-ranking specification",
+      "entailment_scope": "model definition only"
+    },
+    {
+      "citation": 3,
+      "identifier": "10.0000/cns.synthetic.reporting.003",
+      "identifier_status": "synthetic_placeholder_deliberately_non_resolving",
+      "role": "points to the demonstration reporting card",
+      "entailment_scope": "reporting boundary only"
+    }
+  ],
+  "verification": {
+    "crossref_lookup_performed": false,
+    "reason": "The identifiers are visibly labeled synthetic placeholders. Querying Crossref would add no scientific verification and could imply that they were intended as real citations.",
+    "real_world_entailment_established": false
+  },
+  "limitations": [
+    "Structural citation checks do not establish entailment.",
+    "The after manuscript is internally coherent as a demo, not scientifically validated.",
+    "Placeholder citations must be replaced and verified before adapting any structure to a real manuscript."
+  ]
+}

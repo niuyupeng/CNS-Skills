@@ -35,7 +35,7 @@ Do not score an unseen figure as `0`; mark it `M`. Exclude `N/A` from any summar
 
 For a broad, selective journal, the opening must establish the field-level problem before technical detail. The manuscript should show why the result changes understanding or capability, not merely why the method scores better. Require:
 
-- a title that states the discovery or conceptual advance, not a list of techniques;
+- for research articles, a title that states the supported discovery or conceptual advance; for reviews and perspectives, a title that exposes the object and distinctive synthesis, decision problem, or organizing lens rather than a list of techniques;
 - an abstract with problem, gap, central result, decisive evidence, boundary, and implication;
 - an introduction that reaches the unresolved question quickly;
 - results ordered by inference rather than experiment chronology;
@@ -43,6 +43,13 @@ For a broad, selective journal, the opening must establish the field-level probl
 - main figures that carry the argument without depending on promotional prose.
 
 A review article needs a new synthesis, decision framework, taxonomy, or controversy resolution. Exhaustive coverage alone is not a top-journal contribution.
+
+Judge review-method transparency relative to the declared article type. A
+narrative Review can be rigorous without an IMRaD Methods section or PRISMA flow,
+but its source selection and coverage boundary must remain honest. Conversely, a
+keyword list without a rerunnable database-specific strategy must not be treated
+as systematic-review reproducibility. Current article-type instructions for the
+named venue override cross-journal corpus habits.
 
 ## Leading-conference emphasis
 

@@ -1,9 +1,9 @@
 ---
 name: cns-skills
-description: Edits, translates, polishes, proofreads, and peer-reviews scientific manuscripts and academic research papers for journals and top conferences. Use for SCI papers, theses/dissertations, review articles, Chinese-to-English scholarly translation, research grants, rebuttals, journal cover letters, claim/citation/DOI/overclaiming audits, manuscript figure/table/caption design or QA, graphical abstracts, clean-submission-copy audits, and DOCX/PDF/LaTeX QA. Also match 论文润色、SCI英文润色、学术中译英、审稿回复、参考文献核验、科研图表. Benchmarked to Cell, Nature, Science, AAAI, CVPR, NeurIPS, ICML, and ICLR; preserves evidence and author intent. Excludes general translation, coursework/ghostwriting, literature search, identifier lookup, or citation formatting alone, raw data analysis, generic illustration, and biomedical Q&A without manuscript revision. CNS means Cell/Nature/Science, not central nervous system. For mixed requests, do legitimate manuscript work but refuse fabricated evidence, acceptance guarantees, or AI-detector evasion.
+description: Edits, translates, polishes, proofreads, peer-reviews, and optimizes titles for scientific manuscripts and research papers targeting journals and top conferences. Use for scientific title optimization, paper-title refinement, SCI papers, theses/dissertations, review articles, Chinese-to-English scholarly translation, grants, rebuttals, cover letters, claim/citation/DOI/overclaiming audits, figure/table/caption QA, graphical abstracts, clean-submission-copy audits, and DOCX/PDF/LaTeX QA. Also match 论文题目优化、SCI标题润色、论文润色、SCI英文润色、学术中译英、审稿回复、参考文献核验、科研图表. Benchmarked to Cell, Nature, Science, AAAI, CVPR, NeurIPS, ICML, and ICLR; preserves evidence and author intent. Excludes general translation, coursework/ghostwriting, literature search, identifier lookup, citation formatting alone, raw data analysis, generic naming/illustration, and biomedical Q&A without manuscript revision. CNS means Cell/Nature/Science, not central nervous system. Refuse fabricated evidence, acceptance guarantees, and AI-detector evasion.
 license: MIT
 metadata:
-  version: "0.7.0"
+  version: "0.8.0"
 ---
 
 # CNS Skills
@@ -36,6 +36,7 @@ Add these conditional tracks to any mode when applicable:
 
 - **English-final**: return submission English plus a concise Chinese decision/risk map unless the user requests English only.
 - **Bilingual bridge**: lock claims and terminology in Chinese, compose in English, and back-audit every consequential English claim.
+- **Scientific title**: align the title with the article type, central contribution, evidence boundary, retrieval terms, and verified venue rules using `references/scientific-title-optimization.md`.
 - **Visual evidence**: design or audit figures, tables, captions, graphical abstracts, accessibility, and rendered output using `references/figures-tables.md`.
 
 If the user does not specify a mode, use **Revise** for bounded passages and **Deep review** for full manuscripts.
@@ -43,6 +44,12 @@ If the user does not specify a mode, use **Revise** for bounded passages and **D
 ## Run the CNS Editorial Gate
 
 For **CNS/top-venue** mode, read `references/cns-editorial-standard.md` and adapt the gate to the actual venue. When the target is Cell, Nature, Science, AAAI, CVPR, NeurIPS, ICML, or ICLR, also read `references/venue-profiles.md`. Do not treat journals or conferences as interchangeable. Verify the current official author instructions before submission because formats and policies change.
+
+When comparing or transferring conventions across Reviews, original research
+Articles, and leading-conference papers, also read
+`references/genre-aware-top-venue-writing.md`. Transfer rhetorical and evidential
+functions, not surface templates, and preserve the corpus's actual per-record
+analysis levels.
 
 The aggregate corpus in `references/venue-corpus-findings.md` is descriptive context only. Never turn its medians, frequencies, or rhetorical moves into acceptance rules or copyable prose templates.
 
@@ -83,6 +90,28 @@ When Chinese is the source and English is the target, create a small termbase fo
 
 For a review article, complete the `Review corpus lock` in `references/review-article-mode.md` before treating literature counts, coverage, or evidence-grade statistics as established.
 
+When a review reports how literature was found or selected, run
+`scripts/review_search_audit.py`. Treat its output as a genre-boundary prompt:
+the absence of a Methods section does not by itself make a narrative review
+weak, and a keyword inventory does not make a search reproducible. Do not add
+systematic-review machinery unless the article type and actual protocol support
+it. A `systematic_record_structurally_complete` result means only that required
+signals were detected; manually verify the executable strings, cited supplement,
+record flow, and current reporting standard before calling the search
+reproducible. The auditor's strict type gate currently covers explicit systematic,
+scoping, and meta-analytic declarations; rapid, umbrella, integrative, realist,
+and other unsupported review types require manual classification rather than a
+strict-pass interpretation.
+
+For title optimization, read `references/scientific-title-optimization.md`. A
+topic or draft title alone supports provisional candidates, not a final
+manuscript-level recommendation. Read the supplied abstract or full manuscript,
+lock the article type and central contribution, then return one recommended
+English title, a scope-equivalent Chinese title when useful, materially different
+alternatives, and the rejected overclaiming risk. A title-metadata corpus is
+descriptive evidence about conventions, not proof that its papers were read in
+full and not a source of phrases to copy.
+
 ## 1. Build a claim ledger
 
 Read the whole relevant document before revising it. Map consequential claims into five fields:
@@ -104,7 +133,8 @@ Use `references/scientific-integrity.md` for the evidence rules. If external ver
 Determine the document's governing question and the function of each section. Prefer an argument map over a topic inventory.
 
 For a review article, use `references/review-article-mode.md` and
-`references/review-prose-naturalness.md`. When expanding or rebalancing its
+`references/review-prose-naturalness.md`. For top-venue or cross-genre requests,
+also use `references/genre-aware-top-venue-writing.md`. When expanding or rebalancing its
 literature base, also read `references/iterative-review-development.md`; search
 from argument gaps, keep evidence states explicit, and do not imply a systematic
 review unless the protocol and screening record support that label. Each major
@@ -263,6 +293,8 @@ python scripts/cns_audit.py manuscript.docx --strict-clean-copy
 python scripts/cns_audit.py manuscript.docx --shareable --json report.json
 python scripts/cns_audit.py manuscript.docx --verify-dois --shareable --json report.json
 python scripts/review_citation_audit.py review.docx --shareable --json citations.json
+python scripts/review_search_audit.py review.docx --shareable --json review-search.json
+python scripts/title_audit.py "Provisional scientific title" --target nature --article-type review
 python scripts/check_invariants.py source.docx revised.docx --shareable --json invariants.json
 python scripts/check_crossrefs.py revised.docx --shareable --json crossrefs.json
 ```

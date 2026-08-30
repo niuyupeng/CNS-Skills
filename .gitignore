@@ -5,3 +5,6 @@ Thumbs.db
 *.json.tmp
 .pytest_cache/
 dist/
+research/genre-corpus-2026/**/work/
+examples/**/*.unscrubbed.docx
+examples/**/*.new.docx

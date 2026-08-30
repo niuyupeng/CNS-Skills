@@ -2,6 +2,14 @@
 
 ## Unreleased
 
+## 0.8.0 — 2026-08-30
+
+- Added article-type-aware scientific-title optimization and a transparent title auditor, grounded in two deliberately separate 100-record metadata panels: a 70 elite-journal plus 30 accepted main-conference core, and a topic-matched field comparison. Fifty DOI records overlap the panels, yielding 150 distinct titles; these are title studies, not full-paper readings or acceptance rules.
+- Added a genre-separated 600-record research corpus covering 200 top Reviews, 200 original research Articles, and 200 accepted leading-conference papers, with per-record provenance, actual title/abstract/full-text analysis levels, and explicit missingness and selection-bias boundaries.
+- Added `review_search_audit.py` to distinguish concise narrative scope disclosure, query-shaped but non-reproducible keyword inventories, and incomplete systematic-review records without forcing PRISMA machinery onto narrative Reviews.
+- Added genre-aware transfer guidance so Review, original Article, and conference conventions are compared by rhetorical and evidential function rather than copied as surface templates.
+- Expanded discovery coverage to 68 bilingual cases and deterministic regression coverage to 191 tests, including 118 review-search tests built around 93 independently designed search-disclosure counterexamples and strict-gate checks; the generated plugin includes the new references and auditors. The frozen R6 holdout is preserved both before repair (3/12 full-field, including one strict false accept) and after repair (12/12), without presenting either result as real-world accuracy.
+
 ## 0.7.0 — 2026-08-30
 
 - Added a final clean-submission-copy gate that separates reader-visible manuscript prose from author queries, editorial judgments, prompts, scorecards, and production notes.

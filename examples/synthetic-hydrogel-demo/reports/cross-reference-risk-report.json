@@ -1,0 +1,52 @@
+{
+  "schema_version": "1.0",
+  "demo_id": "synthetic-hydrogel-demo",
+  "report_type": "figure_table_cross_reference_comparison",
+  "synthetic_notice": "The display and manuscript are synthetic demonstration artifacts.",
+  "tool": "CNS Skills cross-reference checker",
+  "tool_version": "0.8.0",
+  "before": {
+    "source": "input_manuscript.md",
+    "status": "issues_found",
+    "caption_count": 2,
+    "in_text_reference_count": 1,
+    "references_without_caption": ["figure:2"],
+    "captions_without_reference": ["figure:1", "table:1"],
+    "duplicate_captions": []
+  },
+  "after": {
+    "source": "revised_manuscript.md",
+    "status": "clean",
+    "caption_count": 2,
+    "in_text_reference_count": 2,
+    "references_without_caption": [],
+    "captions_without_reference": [],
+    "duplicate_captions": []
+  },
+  "repairs": [
+    {
+      "issue": "The input cited Figure 2, but only Figure 1 existed.",
+      "action": "Reference Figure 1 next to the result it displays."
+    },
+    {
+      "issue": "Figure 1 and Table 1 captions were orphaned.",
+      "action": "Introduce both display items in the Results section before their captions."
+    },
+    {
+      "issue": "The input caption promised future error bars and statistics.",
+      "action": "Replace the production note with an auditable caption explaining why uncertainty is not shown."
+    }
+  ],
+  "visual_asset": {
+    "file": "figure-1.svg",
+    "editable": true,
+    "underlying_data": "synthetic_data.csv",
+    "encoding": "colorblind-safe colors plus distinct circle/square shapes",
+    "uncertainty": "not shown because independent replicate data do not exist",
+    "source_status": "author-created synthetic demonstration"
+  },
+  "limitations": [
+    "The checker confirms label consistency, not that a DOCX embeds or renders the asset correctly.",
+    "Final-size and rendered-page inspection remain required after DOCX generation."
+  ]
+}
