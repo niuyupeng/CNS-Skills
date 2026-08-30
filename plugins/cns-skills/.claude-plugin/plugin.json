@@ -1,6 +1,6 @@
 {
   "name": "cns-skills",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "Scientific paper polishing, academic manuscript revision, Chinese-to-English translation, peer review, citation auditing, and figure/table QA for Cell, Nature, Science, and leading conferences.",
   "author": {
     "name": "Yupeng Niu"
@@ -20,6 +20,8 @@
     "response-to-reviewers",
     "rebuttal",
     "citation-verification",
+    "citation-audit",
+    "review-article",
     "scientific-figures",
     "top-journals",
     "top-conferences"

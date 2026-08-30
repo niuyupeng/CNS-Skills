@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.6.0 — 2026-08-30
+
+- Added argument-gap-driven review expansion with an explicit evidence-state machine and a clear structured-narrative versus systematic-review boundary.
+- Expanded citation QA from four to six axes: existence, metadata/status, entailment, scope, placement, and independence.
+- Added action/autonomy/validation boundary checks; animal validation alone does not establish a high-autonomy or `C4` closed loop.
+- Added a defect-to-rule gate so manuscript lessons enter CNS Skills only after counterexample review and held-out forward testing.
+- Added `review_citation_audit.py`, a dependency-free numeric-reference and section-coverage audit for DOCX, Markdown, and text, with shareable JSON output.
+- Expanded bilingual routing evaluations from 34 to 64 cases and locked a balanced 30-case held-out split with a canonical SHA-256 digest.
+- Documented blind A/B naturalness evaluation while preserving the prohibition on AI-detector optimization or evasion claims.
+- Expanded open-source design research and strengthened license boundaries: learn principles, record provenance, and do not copy source-available or proprietary content without permission.
+- Advanced plugin, marketplace, citation, and CLI version metadata to 0.6.0; the generated plugin now includes the new reference and audit tool.
+
 ## 0.5.0 — 2026-08-30
 
 - Added a review-prose naturalness workflow that keeps editorial scaffolding—claim ledgers, evidence cards, evidence chains, comparison frameworks, and evidence profiles—backstage unless the terminology is scientifically necessary.

@@ -1,6 +1,9 @@
 ---
 name: cns-skills
-description: Edits, translates, polishes, proofreads, and peer-reviews scientific manuscripts and academic research papers for journals and top conferences. Use for SCI papers, theses/dissertations, review articles, Chinese-to-English scholarly translation, research grants, rebuttals, journal cover letters, claim/citation/DOI/overclaiming audits, manuscript figure/table/caption design or QA, graphical abstracts, and DOCX/PDF/LaTeX QA. Also match 论文润色、SCI英文润色、学术中译英、审稿回复、参考文献核验、科研图表. Benchmarked to Cell, Nature, Science, AAAI, CVPR, NeurIPS, ICML, and ICLR; preserves evidence and author intent. Excludes general translation, coursework/ghostwriting, literature search or citation formatting alone, raw data analysis, generic illustration, and biomedical Q&A without manuscript revision. CNS means Cell/Nature/Science, not central nervous system. For mixed requests, do legitimate manuscript work but refuse fabricated evidence, acceptance guarantees, or AI-detector evasion.
+description: Edits, translates, polishes, proofreads, and peer-reviews scientific manuscripts and academic research papers for journals and top conferences. Use for SCI papers, theses/dissertations, review articles, Chinese-to-English scholarly translation, research grants, rebuttals, journal cover letters, claim/citation/DOI/overclaiming audits, manuscript figure/table/caption design or QA, graphical abstracts, and DOCX/PDF/LaTeX QA. Also match 论文润色、SCI英文润色、学术中译英、审稿回复、参考文献核验、科研图表. Benchmarked to Cell, Nature, Science, AAAI, CVPR, NeurIPS, ICML, and ICLR; preserves evidence and author intent. Excludes general translation, coursework/ghostwriting, literature search, identifier lookup, or citation formatting alone, raw data analysis, generic illustration, and biomedical Q&A without manuscript revision. CNS means Cell/Nature/Science, not central nervous system. For mixed requests, do legitimate manuscript work but refuse fabricated evidence, acceptance guarantees, or AI-detector evasion.
+license: MIT
+metadata:
+  version: "0.6.0"
 ---
 
 # CNS Skills
@@ -101,7 +104,11 @@ Use `references/scientific-integrity.md` for the evidence rules. If external ver
 Determine the document's governing question and the function of each section. Prefer an argument map over a topic inventory.
 
 For a review article, use `references/review-article-mode.md` and
-`references/review-prose-naturalness.md`. Each major section should answer:
+`references/review-prose-naturalness.md`. When expanding or rebalancing its
+literature base, also read `references/iterative-review-development.md`; search
+from argument gaps, keep evidence states explicit, and do not imply a systematic
+review unless the protocol and screening record support that label. Each major
+section should answer:
 
 1. What decision or scientific problem does this section address?
 2. What evidence changes the reader's understanding?
@@ -155,12 +162,14 @@ For English-final work, complete a dedicated pass for articles and countability,
 
 ## 5. Audit citations and overclaiming
 
-Check four separate questions:
+Check six separate questions:
 
-1. **Existence**: does the cited item exist with matching DOI/metadata?
-2. **Entailment**: does it support the nearby claim?
-3. **Scope**: does the manuscript extend beyond its population, material, endpoint, or validation level?
-4. **Placement**: can a reader tell which clause the citation supports?
+1. **Existence**: does the cited item and identifier resolve?
+2. **Metadata/status**: do authors, title, venue, year, version, correction, and retraction state match?
+3. **Entailment**: does it support the nearby claim?
+4. **Scope**: does the manuscript extend beyond its population, material, endpoint, or validation level?
+5. **Placement**: can a reader tell which clause the citation supports?
+6. **Independence**: are apparently corroborating sources independent of the same dataset, study, or tightly coupled lineage?
 
 Treat reviews as orientation, not automatic primary evidence for specific experimental claims. Prefer primary studies for quantitative or mechanistic statements. Keep preprints, conference items, corrections, retractions, and “online ahead of print” states visible.
 
@@ -208,6 +217,7 @@ Run the local diagnostic before and after a substantial revision:
 python scripts/cns_audit.py manuscript.docx
 python scripts/cns_audit.py manuscript.docx --shareable --json report.json
 python scripts/cns_audit.py manuscript.docx --verify-dois --shareable --json report.json
+python scripts/review_citation_audit.py review.docx --shareable --json citations.json
 python scripts/check_invariants.py source.docx revised.docx --shareable --json invariants.json
 python scripts/check_crossrefs.py revised.docx --shareable --json crossrefs.json
 ```

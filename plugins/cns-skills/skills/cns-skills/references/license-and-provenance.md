@@ -14,6 +14,7 @@ Check each layer separately. A repository license may not cover model weights, d
 ## Rules
 
 - Publicly visible is not the same as open source or reusable.
+- Verify the license at a pinned version or commit. A repository-wide license may contain per-directory exceptions, and a later revision may change the terms.
 - Retain copyright and license notices required by MIT/BSD licenses.
 - For Apache-2.0 material, retain the license, mark modifications, and preserve any applicable `NOTICE` content.
 - Attribute CC BY content; respect share-alike, non-commercial, and no-derivatives restrictions.
@@ -21,6 +22,9 @@ Check each layer separately. A repository license may not cover model weights, d
 - “Nature-style” or similar wording is descriptive, not certification or endorsement. State the access date and require final official-policy verification.
 - Record permission for adapted/reproduced figures and the exact caption credit line.
 - Verify that icon, stock-art, diagram, and graphical-abstract licenses permit publication, modification, and the intended distribution model.
+- Treat source-available or proprietary skills as inspectable comparison material only. Do not import their prompts, instructions, code, templates, or assets without permission that covers modification and redistribution. For example, Anthropic's public `docx`, `pdf`, `pptx`, and `xlsx` skill directories have repository-specific proprietary terms even though other directories in the same repository are Apache-2.0.
+
+Learning a general principle is not a license shortcut. Record the problem observed, derive an implementation independently, and keep the sources that informed the principle in the design review. If wording, code, examples, tests, or assets are adapted rather than independently implemented, treat them as a third-party component in the provenance register and satisfy the exact attribution and notice terms.
 
 ## Confidentiality gate
 

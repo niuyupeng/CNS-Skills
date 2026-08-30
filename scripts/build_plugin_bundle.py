@@ -24,6 +24,7 @@ FILE_PATHS = (
     Path("scripts/cns_audit.py"),
     Path("scripts/check_crossrefs.py"),
     Path("scripts/check_invariants.py"),
+    Path("scripts/review_citation_audit.py"),
     Path("scripts/venue_corpus_analyzer.py"),
 )
 

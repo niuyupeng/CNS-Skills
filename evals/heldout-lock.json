@@ -1,0 +1,7 @@
+{
+  "schema_version": 1,
+  "split": "heldout",
+  "count": 30,
+  "sha256": "6221641b76ff42d79fac1e8b7ea88d66a56f04bbac4c595dc77203bb427ded5c",
+  "policy": "Append-only after release. Do not tune routing metadata against this split; document and version any label correction."
+}

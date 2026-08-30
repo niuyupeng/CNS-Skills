@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import hashlib
 import json
 import re
 import sys
@@ -11,7 +12,7 @@ from typing import Any
 
 
 ROOT = Path(__file__).resolve().parents[1]
-VERSION = "0.5.0"
+VERSION = "0.6.0"
 
 
 def load_json(relative: str, errors: list[str]) -> dict[str, Any]:
@@ -45,6 +46,10 @@ def validate_skill(errors: list[str]) -> None:
     fields = skill_frontmatter(errors)
     if fields.get("name") != "cns-skills":
         errors.append("SKILL.md: name must remain cns-skills")
+    if fields.get("license") != "MIT":
+        errors.append("SKILL.md: license must remain MIT")
+    if fields.get("version") != VERSION:
+        errors.append(f"SKILL.md: metadata version must be {VERSION}")
     description = fields.get("description", "")
     if not description or len(description) > 1024:
         errors.append("SKILL.md: description must contain 1-1024 characters")
@@ -106,6 +111,36 @@ def validate_plugin_metadata(errors: list[str]) -> None:
         errors.append("OpenAI marketplace: name must be cns-skills")
     if claude_market.get("name") != "cns-skills":
         errors.append("Claude marketplace: name must be cns-skills")
+    market_plugins = claude_market.get("plugins", [])
+    market_version = (
+        market_plugins[0].get("version")
+        if isinstance(market_plugins, list)
+        and market_plugins
+        and isinstance(market_plugins[0], dict)
+        else None
+    )
+    if (
+        not isinstance(market_plugins, list)
+        or not market_plugins
+        or market_version != VERSION
+    ):
+        errors.append(f"Claude marketplace: plugin version must be {VERSION}")
+
+
+def validate_version_metadata(errors: list[str]) -> None:
+    cff = (ROOT / "CITATION.cff").read_text(encoding="utf-8")
+    if not re.search(rf"^version:\s*{re.escape(VERSION)}\s*$", cff, flags=re.MULTILINE):
+        errors.append(f"CITATION.cff: version must be {VERSION}")
+    for relative in (
+        "scripts/cns_audit.py",
+        "scripts/check_crossrefs.py",
+        "scripts/check_invariants.py",
+        "scripts/review_citation_audit.py",
+        "scripts/venue_corpus_analyzer.py",
+    ):
+        text = (ROOT / relative).read_text(encoding="utf-8")
+        if f'VERSION = "{VERSION}"' not in text:
+            errors.append(f"{relative}: VERSION must be {VERSION}")
 
 
 def validate_evals(errors: list[str]) -> None:
@@ -113,6 +148,10 @@ def validate_evals(errors: list[str]) -> None:
     positives = 0
     negatives = 0
     languages: set[str] = set()
+    split_labels: dict[str, set[bool]] = {"development": set(), "heldout": set()}
+    split_languages: dict[str, set[str]] = {"development": set(), "heldout": set()}
+    ids: set[str] = set()
+    items: list[dict[str, Any]] = []
     try:
         lines = path.read_text(encoding="utf-8").splitlines()
     except OSError as exc:
@@ -126,16 +165,62 @@ def validate_evals(errors: list[str]) -> None:
         except json.JSONDecodeError as exc:
             errors.append(f"evals/discovery-prompts.jsonl:{number}: invalid JSON ({exc})")
             continue
+        if not isinstance(item, dict):
+            errors.append(f"evals/discovery-prompts.jsonl:{number}: row must be an object")
+            continue
         if not isinstance(item.get("prompt"), str) or not isinstance(item.get("invoke"), bool):
             errors.append(f"evals/discovery-prompts.jsonl:{number}: prompt/invoke schema error")
             continue
+        item_id = item.get("id")
+        if not isinstance(item_id, str) or not item_id:
+            errors.append(f"evals/discovery-prompts.jsonl:{number}: missing id")
+        elif item_id in ids:
+            errors.append(f"evals/discovery-prompts.jsonl:{number}: duplicate id {item_id}")
+        else:
+            ids.add(item_id)
+        if not isinstance(item.get("reason"), str) or not item["reason"].strip():
+            errors.append(f"evals/discovery-prompts.jsonl:{number}: missing reason")
+        split = item.get("split")
+        if split not in split_labels:
+            errors.append(
+                f"evals/discovery-prompts.jsonl:{number}: split must be development or heldout"
+            )
+            continue
+        language = str(item.get("language", ""))
+        if language not in {"en", "zh"}:
+            errors.append(f"evals/discovery-prompts.jsonl:{number}: language must be en or zh")
+            continue
+        items.append(item)
         positives += int(item["invoke"])
         negatives += int(not item["invoke"])
-        languages.add(str(item.get("language", "")))
-    if positives < 5 or negatives < 3:
-        errors.append("discovery evals require at least 5 positive and 3 negative prompts")
+        languages.add(language)
+        split_labels[split].add(item["invoke"])
+        split_languages[split].add(language)
+    if not 60 <= len(items) <= 80:
+        errors.append("discovery evals require 60-80 valid prompts")
+    if positives < 20 or negatives < 20:
+        errors.append("discovery evals require at least 20 positive and 20 negative prompts")
     if not {"en", "zh"}.issubset(languages):
         errors.append("discovery evals must cover English and Chinese prompts")
+    for split in ("development", "heldout"):
+        if split_labels[split] != {True, False}:
+            errors.append(f"{split} split must include positive and negative prompts")
+        if split_languages[split] != {"en", "zh"}:
+            errors.append(f"{split} split must include English and Chinese prompts")
+
+    lock = load_json("evals/heldout-lock.json", errors)
+    heldout = [item for item in items if item.get("split") == "heldout"]
+    canonical = "\n".join(
+        json.dumps(item, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
+        for item in heldout
+    ).encode("utf-8")
+    digest = hashlib.sha256(canonical).hexdigest()
+    if lock.get("schema_version") != 1 or lock.get("split") != "heldout":
+        errors.append("evals/heldout-lock.json: unsupported lock schema")
+    if lock.get("count") != len(heldout):
+        errors.append("evals/heldout-lock.json: heldout count mismatch")
+    if lock.get("sha256") != digest:
+        errors.append("evals/heldout-lock.json: heldout split hash mismatch")
 
 
 def validate_readme_installation(errors: list[str]) -> None:
@@ -156,6 +241,7 @@ def main() -> int:
     validate_skill(errors)
     validate_openai_metadata(errors)
     validate_plugin_metadata(errors)
+    validate_version_metadata(errors)
     validate_evals(errors)
     validate_readme_installation(errors)
     if errors:

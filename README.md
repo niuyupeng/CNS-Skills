@@ -74,7 +74,9 @@ Most “humanizers” work at the surface. Most academic-writing agents focus on
 
 CNS locks claims and evidence before it touches style. It then repairs the argument, gives each paragraph a job, removes formulaic language without flattening disciplinary meaning, audits claim–citation alignment, tests the manuscript through four skeptical readers, and verifies the final file as a rendered artifact.
 
-Version 0.5.0 adds a dedicated **review-prose naturalness audit**. Editorial devices such as claim ledgers, evidence cards, evidence chains, comparison frameworks, and evidence profiles remain useful during analysis, but CNS keeps them backstage unless the manuscript genuinely needs the term. Finished prose should name the study, material, measurement, result, comparison, and limitation directly. The audit is contextual: it does not flag legitimate object-level uses of words such as “dataset,” a named reporting framework, or experimental evidence merely because those words appear.
+Version 0.6.0 adds an **iterative review-development loop**. Literature is expanded from an argument gap, each candidate advances through explicit verification states, and citations are audited for existence, metadata/status, entailment, scope, placement, and independence. A new bracketed-numeric-reference CLI reports missing, uncited, duplicated, gapped, and out-of-order entries plus section-level coverage; it does not parse author–year or superscript citations, decide whether a source entails a claim, or decide whether a review has “enough” references.
+
+Version 0.5.0 introduced the dedicated **review-prose naturalness audit**. Editorial devices such as claim ledgers, evidence cards, evidence chains, comparison frameworks, and evidence profiles remain useful during analysis, but CNS keeps them backstage unless the manuscript genuinely needs the term. Finished prose should name the study, material, measurement, result, comparison, and limitation directly. The audit is contextual: it does not flag legitimate object-level uses of words such as “dataset,” a named reporting framework, or experimental evidence merely because those words appear.
 
 For SCI journals and international conferences, **English is the default final deliverable**. Chinese remains available as a rigorous reasoning layer for evidence locking, terminology, author decisions, and revision explanations. CNS rebuilds the English argument from a claim map; it does not polish a sentence-by-sentence literal translation.
 
@@ -87,14 +89,15 @@ The priority is explicit:
 
 > evidence integrity > meaning preservation > logic > voice > elegance
 
-| Verifiable component | Included in v0.5.0 |
+| Verifiable component | Included in v0.6.0 |
 |---|---|
 | selective-venue review | 12 editorial gates and 8 named venue profiles |
 | writing baseline | 320 sampled English abstracts with disclosed years and bias limits |
 | review-prose naturalness | backstage-scaffolding rules and bilingual contextual diagnostics |
+| iterative review development | argument-gap search, evidence states, six-axis citation QA, action/autonomy boundaries |
 | bilingual safety | claim reconstruction, protected-token diff, terminology and MQM-style audit |
 | visual evidence | figure/table contracts, captions, provenance, accessibility, final-size QA |
-| transparent tooling | 3 dependency-free CLI auditors and 38 deterministic tests |
+| transparent tooling | 4 dependency-free CLI auditors and 45 deterministic tests |
 
 The corpus informs judgment but supplies no text-generation template. The tools expose what they check and where they can fail.
 
@@ -124,6 +127,7 @@ No third-party Python packages are required.
 python scripts/cns_audit.py manuscript.docx
 python scripts/cns_audit.py manuscript.docx --json cns-report.json
 python scripts/cns_audit.py manuscript.docx --verify-dois --shareable --json cns-report.json
+python scripts/review_citation_audit.py review.docx --shareable --json review-citations.json
 python scripts/check_invariants.py chinese-source.docx english-revision.docx --shareable --json invariants.json
 python scripts/check_crossrefs.py english-revision.docx --shareable --json crossrefs.json
 ```
@@ -140,11 +144,11 @@ Editorial-scaffolding candidates: 3 pattern(s)
 DOI verification: verified=41, not_found=2
 ```
 
-The tools report prose patterns, claim-risk language, DOI status, changes to numbers/units/statistics/citations, and broken figure/table references. They do not edit files, prove translation equivalence, assign a quality score, or act as AI detectors. Every flag must be interpreted in context. Full JSON reports can contain local paths and unpublished manuscript excerpts; treat them as confidential or use `--shareable` to redact those fields before sharing.
+The tools report prose patterns, claim-risk language, DOI status, numeric-reference structure and section coverage, changes to numbers/units/statistics/citations, and broken figure/table references. They do not edit files, read sources for entailment, prove translation equivalence, assign a quality score, or act as AI detectors. Every flag must be interpreted in context. Full JSON reports can contain local paths and unpublished manuscript excerpts; treat them as confidential or use `--shareable` to redact those fields before sharing.
 
 ## Reproducible venue-language baseline
 
-Version 0.3.0 introduced a dependency-free analyzer and an auditable **320-abstract** baseline, retained in v0.5.0: 40 sampled abstracts each from Cell, Nature, Science, AAAI, CVPR, NeurIPS, ICML, and ICLR.
+Version 0.3.0 introduced a dependency-free analyzer and an auditable **320-abstract** baseline, retained in v0.6.0: 40 sampled abstracts each from Cell, Nature, Science, AAAI, CVPR, NeurIPS, ICML, and ICLR.
 
 ```bash
 python scripts/venue_corpus_analyzer.py --per-venue 40 --seed 20260830
@@ -160,13 +164,13 @@ The analyzer reconstructs abstracts only in memory. It stores aggregate metrics 
 4. **Paragraph function** — make each paragraph perform one primary intellectual move.
 5. **Natural voice** — replace stock framing with the real logical relationship while preserving technical nouns.
 6. **English-final bridge** — compose from the claim map, run field-native language QA, and back-audit against the source.
-7. **Citation audit** — check existence, entailment, scope, and placement separately.
+7. **Citation audit** — check existence, metadata/status, entailment, scope, placement, and independence separately; expand reviews from argument gaps rather than a reference-count target.
 8. **Visual evidence** — make figures and tables carry auditable claims with honest uncertainty and complete captions.
 9. **CNS Editorial Gate** — test the central claim, significance, novelty, evidence chain, alternative explanations, robustness, figure story, accessibility, reproducibility, integrity, and venue fit.
 10. **Skeptical readers** — simulate a domain expert, methods reviewer, editor, and adjacent-field reader.
 11. **Artifact QA** — render and inspect every page, table, figure, caption, and reference.
 
-The full operating rules live in [SKILL.md](SKILL.md). Focused references cover the [English-first bilingual workflow](references/english-first-bilingual.md), [CNS Editorial Standard](references/cns-editorial-standard.md), [venue profiles](references/venue-profiles.md), [figures and tables](references/figures-tables.md), [scientific integrity](references/scientific-integrity.md), [natural academic style](references/natural-academic-style.md), [review articles](references/review-article-mode.md), [corpus findings](references/venue-corpus-findings.md), [license and provenance](references/license-and-provenance.md), and the [evaluation rubric](references/evaluation-rubric.md).
+The full operating rules live in [SKILL.md](SKILL.md). Focused references cover the [English-first bilingual workflow](references/english-first-bilingual.md), [CNS Editorial Standard](references/cns-editorial-standard.md), [venue profiles](references/venue-profiles.md), [figures and tables](references/figures-tables.md), [scientific integrity](references/scientific-integrity.md), [natural academic style](references/natural-academic-style.md), [review articles](references/review-article-mode.md), [iterative review development](references/iterative-review-development.md), [corpus findings](references/venue-corpus-findings.md), [license and provenance](references/license-and-provenance.md), and the [evaluation rubric](references/evaluation-rubric.md).
 
 ## 中文快速开始
 
@@ -185,9 +189,9 @@ CNS = **Cell · Nature · Science**。这个名字代表目标标准：用顶刊
 
 ## Design lineage
 
-CNS was informed by several excellent open-source approaches: [`blader/humanizer`](https://github.com/blader/humanizer) and [`hannsxpeter/humanizer`](https://github.com/hannsxpeter/humanizer) for transparent prose-pattern editing; K-Dense's [`scientific-writing`](https://github.com/K-Dense-AI/scientific-agent-skills/blob/main/skills/scientific-writing/SKILL.md) and [`scientific-visualization`](https://github.com/K-Dense-AI/scientific-agent-skills/blob/main/skills/scientific-visualization/SKILL.md) for manifests, consistency gates, and visual provenance; [`research-paper-lifecycle-skills`](https://github.com/ShaishavMaisuria/research-paper-lifecycle-skills) for modular PASS/WARN/FAIL workflows; Anthropic's [`doc-coauthoring`](https://github.com/anthropics/skills/blob/main/skills/doc-coauthoring/SKILL.md) for staged collaboration; John Kitchin's [`literature-review`](https://github.com/jkitchin/skillz/blob/main/skills/research/literature-review/SKILL.md) for citation-verification discipline; and the open [MQM framework](https://www.themqm.org/) for bilingual error taxonomy.
+CNS learns design principles from inspectable projects without copying their wording or implementation. The [Agent Skills specification](https://github.com/agentskills/agentskills), [OpenAI skill-creator](https://github.com/openai/skills/tree/main/skills/.system/skill-creator), and [Anthropic skill-creator](https://github.com/anthropics/skills/tree/main/skills/skill-creator) inform progressive disclosure and held-out iteration. K-Dense's [`scientific-writing`](https://github.com/K-Dense-AI/scientific-agent-skills/blob/main/skills/scientific-writing/SKILL.md) and [`scientific-visualization`](https://github.com/K-Dense-AI/scientific-agent-skills/blob/main/skills/scientific-visualization/SKILL.md) motivate auditable manifests and visual provenance. [PaperQA2](https://github.com/Future-House/paper-qa), [OpenScholar](https://github.com/AkariAsai/OpenScholar), and [ScholarQABench](https://github.com/AkariAsai/ScholarQABench) motivate source-grounded synthesis and rubric-based evaluation; [`ai-peer-review`](https://github.com/poldrack/ai-peer-review) motivates independent-reader comparison. The open [MQM framework](https://www.themqm.org/) informs typed bilingual-error review.
 
-CNS is an independent implementation. It does not copy proprietary phrasebanks or publisher text. It combines these concerns around a claim-first architecture and adds English-first Chinese-to-English reconstruction, evidence-layer control, deterministic invariant and cross-reference checks, aggregate venue research, four-reader testing, and rendered-artifact QA.
+CNS is an independent MIT-licensed implementation. The detailed [open-source review](research/open-source-skill-review.md) records per-project lessons and license boundaries. No proprietary phrasebank, publisher text, or source-available document-skill content is copied; Anthropic's public `docx`, `pdf`, `pptx`, and `xlsx` skill directories are explicitly treated as non-reusable without separate permission. CNS adds English-first Chinese-to-English reconstruction, evidence-state and independence checks, deterministic reference/invariant/cross-reference audits, aggregate venue research, skeptical-reader testing, and rendered-artifact QA.
 
 ## Roadmap
 

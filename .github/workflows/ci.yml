@@ -29,6 +29,8 @@ jobs:
         run: python scripts/package_plugin.py --output-dir /tmp/cns-plugin
       - name: Smoke-test the manuscript CLI tools
         run: python scripts/cns_audit.py README.md --json /tmp/cns-report.json
+      - name: Smoke-test the review-citation CLI
+        run: python scripts/review_citation_audit.py README.md --json /tmp/review-citations.json
       - name: Smoke-test invariants
         run: python scripts/check_invariants.py README.md README.md --strict --json /tmp/invariants.json
       - name: Smoke-test cross-references
