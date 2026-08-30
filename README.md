@@ -61,6 +61,7 @@ You do not need a special prompt when implicit skill selection is enabled. Typic
 - “Review this paper like Reviewer 2 for Nature/CVPR.”
 - “Audit citation and DOI validity, claim support, and overclaiming.”
 - “Revise my abstract, introduction, and discussion for a top journal.”
+- “Audit this review for editorial scaffolding that has leaked into the prose.”
 - “Design or audit manuscript figures, tables, captions, and a graphical abstract.”
 
 Chinese requests such as “帮我润色这篇 SCI 论文”, “论文中译英”, “回复审稿人”, and “按顶刊/顶会标准审稿” route to the same English-final workflow when scholarly text is supplied. Literature search alone, reference-style conversion alone, generic copywriting, central-nervous-system questions, and AI-detector evasion should not trigger CNS Skills; the public [routing evaluation](evals/README.md) tests both positive and negative cases and states its limitations.
@@ -73,6 +74,8 @@ Most “humanizers” work at the surface. Most academic-writing agents focus on
 
 CNS locks claims and evidence before it touches style. It then repairs the argument, gives each paragraph a job, removes formulaic language without flattening disciplinary meaning, audits claim–citation alignment, tests the manuscript through four skeptical readers, and verifies the final file as a rendered artifact.
 
+Version 0.5.0 adds a dedicated **review-prose naturalness audit**. Editorial devices such as claim ledgers, evidence cards, evidence chains, comparison frameworks, and evidence profiles remain useful during analysis, but CNS keeps them backstage unless the manuscript genuinely needs the term. Finished prose should name the study, material, measurement, result, comparison, and limitation directly. The audit is contextual: it does not flag legitimate object-level uses of words such as “dataset,” a named reporting framework, or experimental evidence merely because those words appear.
+
 For SCI journals and international conferences, **English is the default final deliverable**. Chinese remains available as a rigorous reasoning layer for evidence locking, terminology, author decisions, and revision explanations. CNS rebuilds the English argument from a claim map; it does not polish a sentence-by-sentence literal translation.
 
 ```text
@@ -84,13 +87,14 @@ The priority is explicit:
 
 > evidence integrity > meaning preservation > logic > voice > elegance
 
-| Verifiable component | Included in v0.4.0 |
+| Verifiable component | Included in v0.5.0 |
 |---|---|
 | selective-venue review | 12 editorial gates and 8 named venue profiles |
 | writing baseline | 320 sampled English abstracts with disclosed years and bias limits |
+| review-prose naturalness | backstage-scaffolding rules and bilingual contextual diagnostics |
 | bilingual safety | claim reconstruction, protected-token diff, terminology and MQM-style audit |
 | visual evidence | figure/table contracts, captions, provenance, accessibility, final-size QA |
-| transparent tooling | 3 dependency-free CLI auditors and 35 deterministic tests |
+| transparent tooling | 3 dependency-free CLI auditors and 38 deterministic tests |
 
 The corpus informs judgment but supplies no text-generation template. The tools expose what they check and where they can fail.
 
@@ -100,6 +104,7 @@ The corpus informs judgment but supplies no text-generation template. The tools 
 - Revises Chinese and English scientific manuscripts, reviews, grants, and rebuttals.
 - Separates computational prediction, experimental validation, and clinical/deployment evidence.
 - Audits DOI existence, overclaiming, numeric claims, repeated templates, sentence rhythm, and citation proximity.
+- Detects editorial scaffolding that has leaked into review prose while preserving legitimate scientific terminology.
 - Supports five modes: `audit`, `revise`, `deep-review`, `journal-ready`, and `CNS/top-venue`.
 - Runs a 12-gate CNS editorial review covering the central claim, importance, novelty, evidence chain, alternative explanations, robustness, narrative, figures, accessibility, reproducibility, integrity, and venue fit.
 - Adds venue-aware review paths for Cell, Nature, Science, AAAI, CVPR, NeurIPS, ICML, and ICLR while requiring current official instructions to be rechecked.
@@ -131,6 +136,7 @@ Characters: 18422 | paragraphs: 97 | sentences: 286 | DOIs: 43
 Sentence length mean/CV: 61.4 / 0.51
 Stock phrase patterns: 4 pattern(s)
 Repeated contrast patterns: 2 pattern(s)
+Editorial-scaffolding candidates: 3 pattern(s)
 DOI verification: verified=41, not_found=2
 ```
 
@@ -138,7 +144,7 @@ The tools report prose patterns, claim-risk language, DOI status, changes to num
 
 ## Reproducible venue-language baseline
 
-Version 0.3.0 introduced a dependency-free analyzer and an auditable **320-abstract** baseline, retained in v0.4.0: 40 sampled abstracts each from Cell, Nature, Science, AAAI, CVPR, NeurIPS, ICML, and ICLR.
+Version 0.3.0 introduced a dependency-free analyzer and an auditable **320-abstract** baseline, retained in v0.5.0: 40 sampled abstracts each from Cell, Nature, Science, AAAI, CVPR, NeurIPS, ICML, and ICLR.
 
 ```bash
 python scripts/venue_corpus_analyzer.py --per-venue 40 --seed 20260830

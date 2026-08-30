@@ -100,7 +100,8 @@ Use `references/scientific-integrity.md` for the evidence rules. If external ver
 
 Determine the document's governing question and the function of each section. Prefer an argument map over a topic inventory.
 
-For a review article, use `references/review-article-mode.md`. Each major section should answer:
+For a review article, use `references/review-article-mode.md` and
+`references/review-prose-naturalness.md`. Each major section should answer:
 
 1. What decision or scientific problem does this section address?
 2. What evidence changes the reader's understanding?
@@ -125,6 +126,16 @@ Do not force every paragraph into the same visible pattern. Vary paragraph lengt
 ## 4. Naturalize the academic voice
 
 Use `references/natural-academic-style.md` for language-specific guidance and `references/english-first-bilingual.md` for English-final or bilingual work.
+
+Keep the editorial scaffolding backstage. Claim ledgers, evidence cards, section
+contracts, synthesis units, reviewer gates, and comparison frameworks are tools
+for analysis; do not copy their labels into the manuscript by default. In a
+review article, run the object-level pass in
+`references/review-prose-naturalness.md`: prefer materials, models, measurements,
+experiments, results, and tested limitations as sentence subjects. Terms such as
+`evidence`, `dataset`, `framework`, `pipeline`, `benchmark`, `closed loop`,
+`证据`, `数据集`, `框架`, and `闭环` remain valid when they have a specific
+scientific referent. Do not use them as generic connective tissue.
 
 Natural scholarly prose is not casual prose. It shows selection, judgment, and calibrated confidence. Improve it by:
 

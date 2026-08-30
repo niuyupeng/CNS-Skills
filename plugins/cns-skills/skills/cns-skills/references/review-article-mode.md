@@ -43,6 +43,13 @@ Prefer a synthesis unit of 2–5 related studies:
 
 Avoid one-study-per-paragraph catalogues unless chronology or provenance is the point.
 
+Write the synthesis at the level of the scientific objects. Use
+`review-prose-naturalness.md` when a draft repeatedly announces its framework,
+evidence chain, landscape, axes, or pipeline. Those labels may remain in the
+internal section contract or extraction table, but the reader usually needs to
+know which material was tested, what the model changed, which result transferred,
+and what remained untested.
+
 ## Cross-cutting comparison dimensions
 
 - representation and input data;

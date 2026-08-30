@@ -25,6 +25,34 @@ class CNSAuditTests(unittest.TestCase):
         hit = next(item for item in report["stock_phrase_hits"] if item["pattern"] == "zh_this_shows")
         self.assertEqual(hit["count"], 2)
 
+    def test_editorial_scaffolding_is_flagged_contextually(self):
+        text = (
+            "本文构建统一比较框架并形成三轴证据剖面。 "
+            "We propose a decision-centered framework and an evidence chain."
+        )
+        report = cns_audit.build_report(Path("sample.txt"), text)
+        labels = {item["pattern"] for item in report["editorial_scaffolding_candidates"]}
+        self.assertIn("zh_evidence_scaffold", labels)
+        self.assertIn("zh_generic_framework", labels)
+        self.assertIn("en_evidence_scaffold", labels)
+        self.assertIn("en_generic_framework", labels)
+
+    def test_plain_evidence_card_is_flagged_as_scaffolding(self):
+        report = cns_audit.build_report(Path("sample.txt"), "作者用证据卡记录每篇论文。")
+        by_pattern = {
+            item["pattern"]: item["count"]
+            for item in report["editorial_scaffolding_candidates"]
+        }
+        self.assertEqual(by_pattern["zh_evidence_scaffold"], 1)
+
+    def test_legitimate_dataset_and_named_framework_are_not_scaffolding(self):
+        text = (
+            "The dataset comprised 584 experimentally tested lipids. "
+            "The DOME framework specifies data and model reporting requirements."
+        )
+        report = cns_audit.build_report(Path("sample.txt"), text)
+        self.assertEqual(report["editorial_scaffolding_candidates"], [])
+
     def test_numeric_claim_with_bracket_citation_is_not_flagged(self):
         sentences = ["准确率为92%[12]。", "准确率为91%。"]
         flagged = cns_audit.numeric_claims_without_citation(sentences)
@@ -68,12 +96,16 @@ class CNSAuditTests(unittest.TestCase):
             {"opener": "secret start", "count": 3, "examples": ["secret excerpt"]}
         ]
         report["repeated_fragments"] = [{"fragment": "secret fragment", "count": 3}]
+        report["editorial_scaffolding_candidates"] = [
+            {"pattern": "en_evidence_scaffold", "count": 1, "examples": ["private excerpt"]}
+        ]
         shareable = cns_audit.make_shareable(report)
         self.assertEqual(shareable["source"], "paper.txt")
         self.assertEqual(shareable["numeric_claims_without_nearby_citation"], [])
         self.assertEqual(shareable["numeric_claims_without_nearby_citation_count"], 1)
         self.assertIsNone(shareable["repeated_sentence_openers"][0]["opener"])
         self.assertIsNone(shareable["repeated_fragments"][0]["fragment"])
+        self.assertNotIn("examples", shareable["editorial_scaffolding_candidates"][0])
 
     def test_crossref_429_is_retried(self):
         class FakeResponse:

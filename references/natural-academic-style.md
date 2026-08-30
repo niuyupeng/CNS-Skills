@@ -10,6 +10,10 @@ The goal is prose that carries a researcher's decisions: what to foreground, wha
 - Use first person only when appropriate to the genre and venue.
 - Retain necessary repetition when it prevents ambiguity.
 - Cut meta-commentary that merely announces the next sentence.
+- Keep editorial tools out of the finished prose unless the manuscript is
+  explicitly describing its methods. A claim ledger, evidence chain, section
+  contract, synthesis unit, or reviewer gate is not automatically a manuscript
+  term.
 - Vary rhythm through reasoning: definition may be compact; comparison may need parallel form; qualification may need a longer sentence.
 
 ## Chinese scholarly prose
@@ -33,6 +37,12 @@ Do not delete them mechanically. Replace the shell with the actual relation: lim
 
 Avoid paragraph chains in which every sentence begins with an abstract noun such as “该研究/该方法/这种策略”. Reintroduce the concrete material, model, endpoint, or experimental action where useful.
 
+Also watch for abstract editorial nouns used as paragraph glue: “证据链”“证据剖面”
+“框架”“图谱”“范式”“链路”“维度”“体系”“赋能”“闭环”. These terms are
+not forbidden. Keep them when they name a defined construct or actual feedback
+process; otherwise replace them with the study, experiment, comparison, result,
+or untested condition being discussed.
+
 ## English scholarly prose
 
 Watch for:
@@ -46,6 +56,13 @@ Watch for:
 - unsupported “robust”, “novel”, “promising”, or “transformative”
 
 Prefer a verb that states the scientific move: estimates, constrains, separates, fails, reproduces, or remains untested.
+
+Do not let `evidence`, `dataset`, `framework`, `pipeline`, `landscape`, `axis`,
+or `boundary` become generic subjects. `Dataset` is precise when a defined
+collection is meant; `framework` is precise for a named method or original
+taxonomy; `evidence` is precise when the level or type of support is the object
+of discussion. Else name the measurements, samples, models, experiments, or
+limitations directly. For reviews, apply `review-prose-naturalness.md`.
 
 ## A useful revision sequence
 

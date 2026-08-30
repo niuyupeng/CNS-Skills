@@ -25,7 +25,7 @@ from pathlib import Path
 from typing import Any, Iterable
 from xml.etree import ElementTree as ET
 
-VERSION = "0.4.0"
+VERSION = "0.5.0"
 CROSSREF_PUBLIC_INTERVAL_SECONDS = 0.22
 
 STOCK_PATTERNS: dict[str, str] = {
@@ -46,6 +46,33 @@ CONTRAST_PATTERNS: dict[str, str] = {
     "zh_not_only": r"不仅.{0,60}?(?:而且|还|也)",
     "en_not_but": r"\bnot\s+.{1,80}?\s+but\b",
     "en_not_only": r"\bnot only\s+.{1,100}?\s+but also\b",
+}
+
+# These patterns are deliberately narrower than a word list. The terms below
+# can be correct scientific language; the audit flags compound editorial labels
+# that often leak from a writer's planning notes into finished review prose.
+SCAFFOLD_PATTERNS: dict[str, str] = {
+    "zh_evidence_scaffold": (
+        r"(?:证据链|证据剖面|证据矩阵|证据图谱|证据轴|证据层|证据边界|"
+        r"(?:核心)?证据卡|证据拼接|拼接证据|编织证据)"
+    ),
+    "zh_generic_framework": (
+        r"(?:本文|本综述|我们).{0,30}?(?:提出|构建|建立|采用|使用).{0,18}?"
+        r"(?:统一|综合|比较|分析|决策)?框架"
+    ),
+    "zh_abstract_glue": r"(?:全链条|逻辑闭环|研究图谱|方法图谱|赋能.{0,12}?(?:研究|设计|创新))",
+    "en_evidence_scaffold": (
+        r"\b(?:evidence chain|evidence profile|evidence matrix|evidence landscape|"
+        r"evidence layer|evidence axis|evidence boundary|evidence card|"
+        r"evidence[- ]cent(?:er|re)ed)\b"
+    ),
+    "en_generic_framework": (
+        r"\b(?:this review|we)\s+(?:therefore\s+)?(?:propose|present|establish|"
+        r"introduce|adopt|use|develop)\b.{0,70}?\b(?:unified |comparison |"
+        r"decision[- ]cent(?:er|re)ed )?framework\b"
+    ),
+    "en_evidence_stitching": r"\b(?:stitch|weav|assembl|bridg)\w*\s+(?:the\s+)?evidence\b",
+    "en_abstract_landscape": r"\b(?:rapidly evolving|research|current|broader) landscape\b",
 }
 
 HIGH_RISK_TERMS = re.compile(
@@ -195,7 +222,7 @@ def doi_list(text: str) -> list[str]:
 
 def verify_doi(doi: str, timeout: float = 12.0, retries: int = 3) -> dict[str, Any]:
     url = "https://api.crossref.org/works/" + urllib.parse.quote(doi, safe="")
-    request = urllib.request.Request(url, headers={"User-Agent": "CNS-Skills/0.4.0 (https://github.com/niuyupeng/CNS-Skills)"})
+    request = urllib.request.Request(url, headers={"User-Agent": "CNS-Skills/0.5.0 (https://github.com/niuyupeng/CNS-Skills)"})
     for attempt in range(retries):
         try:
             with urllib.request.urlopen(request, timeout=timeout) as response:
@@ -260,6 +287,7 @@ def build_report(path: Path, text: str, verify_dois: bool = False) -> dict[str, 
         "paragraph_length": stats(visible_length(item) for item in paragraphs),
         "stock_phrase_hits": pattern_hits(text, STOCK_PATTERNS),
         "repeated_contrast_hits": pattern_hits(text, CONTRAST_PATTERNS),
+        "editorial_scaffolding_candidates": pattern_hits(text, SCAFFOLD_PATTERNS),
         "repeated_sentence_openers": sentence_openers(sentences),
         "repeated_fragments": normalized_ngrams(text),
         "numeric_claims_without_nearby_citation": numeric_claims_without_citation(sentences),
@@ -291,6 +319,7 @@ def render_text(report: dict[str, Any]) -> str:
     for title, key in [
         ("Stock phrase patterns", "stock_phrase_hits"),
         ("Repeated contrast patterns", "repeated_contrast_hits"),
+        ("Editorial-scaffolding candidates", "editorial_scaffolding_candidates"),
         ("Repeated sentence openers", "repeated_sentence_openers"),
         ("Repeated fragments", "repeated_fragments"),
     ]:
@@ -316,7 +345,12 @@ def make_shareable(report: dict[str, Any]) -> dict[str, Any]:
     output = copy.deepcopy(report)
     output["source"] = Path(output["source"]).name
     output["shareable_redaction"] = "Local paths and manuscript excerpts removed; counts and diagnostics retained."
-    for key in ("stock_phrase_hits", "repeated_contrast_hits", "repeated_sentence_openers"):
+    for key in (
+        "stock_phrase_hits",
+        "repeated_contrast_hits",
+        "editorial_scaffolding_candidates",
+        "repeated_sentence_openers",
+    ):
         for item in output.get(key, []):
             item.pop("examples", None)
     for item in output.get("repeated_sentence_openers", []):

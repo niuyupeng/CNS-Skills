@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.5.0 — 2026-08-30
+
+- Added a review-prose naturalness workflow that keeps editorial scaffolding—claim ledgers, evidence cards, evidence chains, comparison frameworks, and evidence profiles—backstage unless the terminology is scientifically necessary.
+- Added bilingual, contextual editorial-scaffolding diagnostics to `cns_audit.py`; legitimate uses of datasets, named frameworks, and concrete experimental evidence are not treated as automatic failures.
+- Added review-specific guidance to replace meta-language with the actual study, material, measurement, result, comparison, or limitation, without weakening claims or deleting field terms mechanically.
+- Expanded deterministic audit tests and advanced all public plugin, marketplace, citation, and CLI version metadata to 0.5.0.
+
 ## 0.4.0 — 2026-08-30
 
 - Rewrote skill-selection metadata around high-intent scientific-writing tasks while keeping explicit negative boundaries for literature search alone, reference formatting alone, central-nervous-system queries, generic copywriting, and AI-detector evasion.
