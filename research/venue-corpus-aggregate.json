@@ -1,0 +1,709 @@
+{
+  "tool": "CNS Skills venue corpus analyzer",
+  "version": "0.3.0",
+  "generated_at_utc": "2026-08-30T00:00:00+00:00",
+  "data_provider": "OpenAlex",
+  "sample_seed": 20260830,
+  "requested_abstracts_per_venue": 40,
+  "total_analyzed_abstracts": 320,
+  "method": "Random source-and-date-filtered candidate samples; records shorter than 80 English tokens were treated as metadata stubs, and abstracts were reconstructed only in memory. Outputs contain aggregate metrics, per-record non-text features, abstract hashes, and metadata, never abstract text.",
+  "interpretation_limits": [
+    "The sample describes indexed English abstracts, not complete papers or editorial causality.",
+    "Source assignment, abstract availability, historical coverage, and heuristic move detection can bias results.",
+    "Conference corpus years differ where OpenAlex source coverage is historical; verify current official venue rules separately.",
+    "Aggregate frequencies are diagnostic context, not prose templates or acceptance predictors."
+  ],
+  "requests": [
+    {
+      "venue": "Cell",
+      "url": "https://api.openalex.org/works?filter=primary_location.source.id%3AS110447773%2Cfrom_publication_date%3A2024-01-01%2Cto_publication_date%3A2026-08-30%2Chas_abstract%3Atrue%2Ctype%3Aarticle&sample=100&seed=20260830&per-page=100&select=id%2Ctitle%2Cabstract_inverted_index%2Cpublication_year%2Ctype%2Cdoi"
+    },
+    {
+      "venue": "Nature",
+      "url": "https://api.openalex.org/works?filter=primary_location.source.id%3AS137773608%2Cfrom_publication_date%3A2024-01-01%2Cto_publication_date%3A2026-08-30%2Chas_abstract%3Atrue%2Ctype%3Aarticle&sample=100&seed=20260830&per-page=100&select=id%2Ctitle%2Cabstract_inverted_index%2Cpublication_year%2Ctype%2Cdoi"
+    },
+    {
+      "venue": "Science",
+      "url": "https://api.openalex.org/works?filter=primary_location.source.id%3AS3880285%2Cfrom_publication_date%3A2024-01-01%2Cto_publication_date%3A2026-08-30%2Chas_abstract%3Atrue%2Ctype%3Aarticle&sample=100&seed=20260830&per-page=100&select=id%2Ctitle%2Cabstract_inverted_index%2Cpublication_year%2Ctype%2Cdoi"
+    },
+    {
+      "venue": "AAAI",
+      "url": "https://api.openalex.org/works?filter=primary_location.source.id%3AS4210191458%2Cfrom_publication_date%3A2024-01-01%2Cto_publication_date%3A2026-08-30%2Chas_abstract%3Atrue%2Ctype%3Aconference-paper&sample=100&seed=20260830&per-page=100&select=id%2Ctitle%2Cabstract_inverted_index%2Cpublication_year%2Ctype%2Cdoi"
+    },
+    {
+      "venue": "CVPR",
+      "url": "https://api.openalex.org/works?filter=primary_location.source.id%3AS4363607701%2Cfrom_publication_date%3A2022-01-01%2Cto_publication_date%3A2022-12-31%2Chas_abstract%3Atrue%2Ctype%3Aconference-paper&sample=100&seed=20260830&per-page=100&select=id%2Ctitle%2Cabstract_inverted_index%2Cpublication_year%2Ctype%2Cdoi"
+    },
+    {
+      "venue": "NeurIPS",
+      "url": "https://api.openalex.org/works?filter=primary_location.source.id%3AS4306420609%2Cfrom_publication_date%3A2021-01-01%2Cto_publication_date%3A2021-12-31%2Chas_abstract%3Atrue%2Ctype%3Aarticle&sample=100&seed=20260830&per-page=100&select=id%2Ctitle%2Cabstract_inverted_index%2Cpublication_year%2Ctype%2Cdoi"
+    },
+    {
+      "venue": "ICML",
+      "url": "https://api.openalex.org/works?filter=primary_location.source.id%3AS4306419644%2Cfrom_publication_date%3A2021-01-01%2Cto_publication_date%3A2021-12-31%2Chas_abstract%3Atrue%2Ctype%3Aconference-paper&sample=100&seed=20260830&per-page=100&select=id%2Ctitle%2Cabstract_inverted_index%2Cpublication_year%2Ctype%2Cdoi"
+    },
+    {
+      "venue": "ICLR",
+      "url": "https://api.openalex.org/works?filter=primary_location.source.id%3AS4306419637%2Cfrom_publication_date%3A2021-01-01%2Cto_publication_date%3A2021-12-31%2Chas_abstract%3Atrue%2Ctype%3Aconference-paper&sample=100&seed=20260830&per-page=100&select=id%2Ctitle%2Cabstract_inverted_index%2Cpublication_year%2Ctype%2Cdoi"
+    }
+  ],
+  "venues": [
+    {
+      "venue": "Cell",
+      "family": "journal",
+      "openalex_source_id": "S110447773",
+      "sample_window": {
+        "from": "2024-01-01",
+        "to": "2026-08-30"
+      },
+      "coverage_note": "Recent abstract-bearing articles indexed under Cell.",
+      "sampled_abstracts": 40,
+      "publication_years": {
+        "2024": 17,
+        "2025": 17,
+        "2026": 6
+      },
+      "title": {
+        "word_count": {
+          "count": 40,
+          "mean": 10.8,
+          "median": 11.0,
+          "stdev": 2.83,
+          "cv": 0.262,
+          "min": 6,
+          "max": 20
+        },
+        "colon_percent": 5.0,
+        "question_percent": 0.0,
+        "acronym_percent": 15.0
+      },
+      "abstract": {
+        "word_count": {
+          "count": 40,
+          "mean": 153.68,
+          "median": 151.5,
+          "stdev": 11.42,
+          "cv": 0.074,
+          "min": 136,
+          "max": 200
+        },
+        "sentence_count": {
+          "count": 40,
+          "mean": 6.8,
+          "median": 7.0,
+          "stdev": 1.17,
+          "cv": 0.171,
+          "min": 5,
+          "max": 9
+        },
+        "sentence_word_count_pooled": {
+          "count": 272,
+          "mean": 22.6,
+          "median": 21.0,
+          "stdev": 8.95,
+          "cv": 0.396,
+          "min": 7,
+          "max": 53
+        },
+        "first_person_percent": 97.5,
+        "numeric_evidence_percent": 60.0,
+        "strong_verbs_per_1000_words": 15.94,
+        "hedges_per_1000_words": 3.42,
+        "rhetorical_move_presence_percent": {
+          "context": 12.5,
+          "gap_or_problem": 47.5,
+          "contribution": 77.5,
+          "result": 47.5,
+          "implication": 35.0,
+          "limitation_or_boundary": 0.0
+        },
+        "first_sentence_move_percent": {
+          "context": 7.5,
+          "contribution": 2.5,
+          "gap_or_problem": 22.5,
+          "other": 67.5
+        },
+        "final_sentence_move_percent": {
+          "contribution": 5.0,
+          "implication": 25.0,
+          "other": 62.5,
+          "result": 7.5
+        }
+      }
+    },
+    {
+      "venue": "Nature",
+      "family": "journal",
+      "openalex_source_id": "S137773608",
+      "sample_window": {
+        "from": "2024-01-01",
+        "to": "2026-08-30"
+      },
+      "coverage_note": "Recent abstract-bearing articles indexed under Nature.",
+      "sampled_abstracts": 40,
+      "publication_years": {
+        "2024": 11,
+        "2025": 21,
+        "2026": 8
+      },
+      "title": {
+        "word_count": {
+          "count": 40,
+          "mean": 8.32,
+          "median": 8.0,
+          "stdev": 1.86,
+          "cv": 0.224,
+          "min": 4,
+          "max": 11
+        },
+        "colon_percent": 0.0,
+        "question_percent": 0.0,
+        "acronym_percent": 10.0
+      },
+      "abstract": {
+        "word_count": {
+          "count": 40,
+          "mean": 215.97,
+          "median": 217.5,
+          "stdev": 33.49,
+          "cv": 0.155,
+          "min": 147,
+          "max": 282
+        },
+        "sentence_count": {
+          "count": 40,
+          "mean": 8.88,
+          "median": 8.5,
+          "stdev": 1.71,
+          "cv": 0.192,
+          "min": 6,
+          "max": 13
+        },
+        "sentence_word_count_pooled": {
+          "count": 355,
+          "mean": 24.34,
+          "median": 23,
+          "stdev": 9.56,
+          "cv": 0.393,
+          "min": 0,
+          "max": 62
+        },
+        "first_person_percent": 100.0,
+        "numeric_evidence_percent": 95.0,
+        "strong_verbs_per_1000_words": 12.5,
+        "hedges_per_1000_words": 4.86,
+        "rhetorical_move_presence_percent": {
+          "context": 7.5,
+          "gap_or_problem": 70.0,
+          "contribution": 87.5,
+          "result": 70.0,
+          "implication": 35.0,
+          "limitation_or_boundary": 0.0
+        },
+        "first_sentence_move_percent": {
+          "context": 5.0,
+          "gap_or_problem": 10.0,
+          "other": 85.0
+        },
+        "final_sentence_move_percent": {
+          "contribution": 2.5,
+          "implication": 5.0,
+          "other": 92.5
+        }
+      }
+    },
+    {
+      "venue": "Science",
+      "family": "journal",
+      "openalex_source_id": "S3880285",
+      "sample_window": {
+        "from": "2024-01-01",
+        "to": "2026-08-30"
+      },
+      "coverage_note": "Recent abstract-bearing articles indexed under Science.",
+      "sampled_abstracts": 40,
+      "publication_years": {
+        "2024": 10,
+        "2025": 20,
+        "2026": 10
+      },
+      "title": {
+        "word_count": {
+          "count": 40,
+          "mean": 9.6,
+          "median": 10.0,
+          "stdev": 2.92,
+          "cv": 0.304,
+          "min": 5,
+          "max": 20
+        },
+        "colon_percent": 2.5,
+        "question_percent": 0.0,
+        "acronym_percent": 17.5
+      },
+      "abstract": {
+        "word_count": {
+          "count": 40,
+          "mean": 127.42,
+          "median": 126.0,
+          "stdev": 13.74,
+          "cv": 0.108,
+          "min": 89,
+          "max": 160
+        },
+        "sentence_count": {
+          "count": 40,
+          "mean": 5.62,
+          "median": 5.5,
+          "stdev": 1.07,
+          "cv": 0.189,
+          "min": 3,
+          "max": 8
+        },
+        "sentence_word_count_pooled": {
+          "count": 225,
+          "mean": 22.65,
+          "median": 21,
+          "stdev": 8.24,
+          "cv": 0.364,
+          "min": 6,
+          "max": 48
+        },
+        "first_person_percent": 92.5,
+        "numeric_evidence_percent": 62.5,
+        "strong_verbs_per_1000_words": 14.13,
+        "hedges_per_1000_words": 3.92,
+        "rhetorical_move_presence_percent": {
+          "context": 2.5,
+          "gap_or_problem": 52.5,
+          "contribution": 40.0,
+          "result": 45.0,
+          "implication": 20.0,
+          "limitation_or_boundary": 0.0
+        },
+        "first_sentence_move_percent": {
+          "context": 2.5,
+          "contribution": 2.5,
+          "gap_or_problem": 7.5,
+          "other": 87.5
+        },
+        "final_sentence_move_percent": {
+          "contribution": 2.5,
+          "gap_or_problem": 2.5,
+          "implication": 7.5,
+          "other": 87.5
+        }
+      }
+    },
+    {
+      "venue": "AAAI",
+      "family": "conference",
+      "openalex_source_id": "S4210191458",
+      "sample_window": {
+        "from": "2024-01-01",
+        "to": "2026-08-30"
+      },
+      "coverage_note": "Recent papers indexed under the AAAI proceedings source.",
+      "sampled_abstracts": 40,
+      "publication_years": {
+        "2024": 11,
+        "2025": 10,
+        "2026": 19
+      },
+      "title": {
+        "word_count": {
+          "count": 40,
+          "mean": 10.4,
+          "median": 10.0,
+          "stdev": 3.15,
+          "cv": 0.303,
+          "min": 4,
+          "max": 16
+        },
+        "colon_percent": 65.0,
+        "question_percent": 7.5,
+        "acronym_percent": 17.5
+      },
+      "abstract": {
+        "word_count": {
+          "count": 40,
+          "mean": 176.38,
+          "median": 174.5,
+          "stdev": 37.12,
+          "cv": 0.21,
+          "min": 108,
+          "max": 259
+        },
+        "sentence_count": {
+          "count": 40,
+          "mean": 7.83,
+          "median": 8.0,
+          "stdev": 1.66,
+          "cv": 0.212,
+          "min": 4,
+          "max": 11
+        },
+        "sentence_word_count_pooled": {
+          "count": 313,
+          "mean": 22.54,
+          "median": 21,
+          "stdev": 8.49,
+          "cv": 0.376,
+          "min": 5,
+          "max": 57
+        },
+        "first_person_percent": 97.5,
+        "numeric_evidence_percent": 37.5,
+        "strong_verbs_per_1000_words": 14.46,
+        "hedges_per_1000_words": 1.42,
+        "rhetorical_move_presence_percent": {
+          "context": 5.0,
+          "gap_or_problem": 75.0,
+          "contribution": 92.5,
+          "result": 50.0,
+          "implication": 15.0,
+          "limitation_or_boundary": 2.5
+        },
+        "first_sentence_move_percent": {
+          "context": 5.0,
+          "contribution": 5.0,
+          "gap_or_problem": 10.0,
+          "limitation_or_boundary": 2.5,
+          "other": 77.5
+        },
+        "final_sentence_move_percent": {
+          "contribution": 5.0,
+          "other": 70.0,
+          "result": 25.0
+        }
+      }
+    },
+    {
+      "venue": "CVPR",
+      "family": "conference",
+      "openalex_source_id": "S4363607701",
+      "sample_window": {
+        "from": "2022-01-01",
+        "to": "2022-12-31"
+      },
+      "coverage_note": "CVPR 2022 source snapshot; use current official rules for submission decisions.",
+      "sampled_abstracts": 40,
+      "publication_years": {
+        "2022": 40
+      },
+      "title": {
+        "word_count": {
+          "count": 40,
+          "mean": 9.43,
+          "median": 9.0,
+          "stdev": 2.64,
+          "cv": 0.28,
+          "min": 4,
+          "max": 16
+        },
+        "colon_percent": 60.0,
+        "question_percent": 0.0,
+        "acronym_percent": 12.5
+      },
+      "abstract": {
+        "word_count": {
+          "count": 40,
+          "mean": 186.18,
+          "median": 186.5,
+          "stdev": 35.17,
+          "cv": 0.189,
+          "min": 126,
+          "max": 292
+        },
+        "sentence_count": {
+          "count": 40,
+          "mean": 8.38,
+          "median": 8.0,
+          "stdev": 1.89,
+          "cv": 0.226,
+          "min": 5,
+          "max": 15
+        },
+        "sentence_word_count_pooled": {
+          "count": 335,
+          "mean": 22.23,
+          "median": 21,
+          "stdev": 8.42,
+          "cv": 0.379,
+          "min": 7,
+          "max": 57
+        },
+        "first_person_percent": 97.5,
+        "numeric_evidence_percent": 45.0,
+        "strong_verbs_per_1000_words": 12.09,
+        "hedges_per_1000_words": 1.21,
+        "rhetorical_move_presence_percent": {
+          "context": 12.5,
+          "gap_or_problem": 42.5,
+          "contribution": 90.0,
+          "result": 37.5,
+          "implication": 17.5,
+          "limitation_or_boundary": 2.5
+        },
+        "first_sentence_move_percent": {
+          "context": 12.5,
+          "contribution": 7.5,
+          "gap_or_problem": 2.5,
+          "other": 77.5
+        },
+        "final_sentence_move_percent": {
+          "implication": 5.0,
+          "other": 77.5,
+          "result": 17.5
+        }
+      }
+    },
+    {
+      "venue": "NeurIPS",
+      "family": "conference",
+      "openalex_source_id": "S4306420609",
+      "sample_window": {
+        "from": "2021-01-01",
+        "to": "2021-12-31"
+      },
+      "coverage_note": "NeurIPS 2021 source snapshot; use current official rules for submission decisions.",
+      "sampled_abstracts": 40,
+      "publication_years": {
+        "2021": 40
+      },
+      "title": {
+        "word_count": {
+          "count": 40,
+          "mean": 8.18,
+          "median": 8.0,
+          "stdev": 2.57,
+          "cv": 0.314,
+          "min": 4,
+          "max": 14
+        },
+        "colon_percent": 35.0,
+        "question_percent": 2.5,
+        "acronym_percent": 7.5
+      },
+      "abstract": {
+        "word_count": {
+          "count": 40,
+          "mean": 186.07,
+          "median": 182.5,
+          "stdev": 41.15,
+          "cv": 0.221,
+          "min": 92,
+          "max": 277
+        },
+        "sentence_count": {
+          "count": 40,
+          "mean": 7.5,
+          "median": 7.0,
+          "stdev": 1.94,
+          "cv": 0.258,
+          "min": 2,
+          "max": 12
+        },
+        "sentence_word_count_pooled": {
+          "count": 300,
+          "mean": 24.81,
+          "median": 23.5,
+          "stdev": 10.65,
+          "cv": 0.429,
+          "min": 6,
+          "max": 77
+        },
+        "first_person_percent": 100.0,
+        "numeric_evidence_percent": 50.0,
+        "strong_verbs_per_1000_words": 17.2,
+        "hedges_per_1000_words": 3.09,
+        "rhetorical_move_presence_percent": {
+          "context": 12.5,
+          "gap_or_problem": 45.0,
+          "contribution": 82.5,
+          "result": 77.5,
+          "implication": 17.5,
+          "limitation_or_boundary": 0.0
+        },
+        "first_sentence_move_percent": {
+          "context": 2.5,
+          "contribution": 15.0,
+          "gap_or_problem": 7.5,
+          "implication": 2.5,
+          "other": 72.5
+        },
+        "final_sentence_move_percent": {
+          "contribution": 7.5,
+          "implication": 5.0,
+          "other": 70.0,
+          "result": 17.5
+        }
+      }
+    },
+    {
+      "venue": "ICML",
+      "family": "conference",
+      "openalex_source_id": "S4306419644",
+      "sample_window": {
+        "from": "2021-01-01",
+        "to": "2021-12-31"
+      },
+      "coverage_note": "ICML 2021 source snapshot; use current official rules for submission decisions.",
+      "sampled_abstracts": 40,
+      "publication_years": {
+        "2021": 40
+      },
+      "title": {
+        "word_count": {
+          "count": 40,
+          "mean": 8.18,
+          "median": 8.0,
+          "stdev": 3.94,
+          "cv": 0.482,
+          "min": 2,
+          "max": 20
+        },
+        "colon_percent": 27.5,
+        "question_percent": 2.5,
+        "acronym_percent": 7.5
+      },
+      "abstract": {
+        "word_count": {
+          "count": 40,
+          "mean": 165.5,
+          "median": 166.0,
+          "stdev": 42.31,
+          "cv": 0.256,
+          "min": 83,
+          "max": 283
+        },
+        "sentence_count": {
+          "count": 40,
+          "mean": 7.38,
+          "median": 7.0,
+          "stdev": 2.06,
+          "cv": 0.279,
+          "min": 4,
+          "max": 14
+        },
+        "sentence_word_count_pooled": {
+          "count": 295,
+          "mean": 22.44,
+          "median": 21,
+          "stdev": 10.1,
+          "cv": 0.45,
+          "min": 5,
+          "max": 122
+        },
+        "first_person_percent": 95.0,
+        "numeric_evidence_percent": 32.5,
+        "strong_verbs_per_1000_words": 16.01,
+        "hedges_per_1000_words": 1.81,
+        "rhetorical_move_presence_percent": {
+          "context": 7.5,
+          "gap_or_problem": 30.0,
+          "contribution": 82.5,
+          "result": 42.5,
+          "implication": 12.5,
+          "limitation_or_boundary": 2.5
+        },
+        "first_sentence_move_percent": {
+          "context": 2.5,
+          "contribution": 5.0,
+          "other": 92.5
+        },
+        "final_sentence_move_percent": {
+          "context": 2.5,
+          "contribution": 10.0,
+          "gap_or_problem": 2.5,
+          "implication": 5.0,
+          "limitation_or_boundary": 2.5,
+          "other": 60.0,
+          "result": 17.5
+        }
+      }
+    },
+    {
+      "venue": "ICLR",
+      "family": "conference",
+      "openalex_source_id": "S4306419637",
+      "sample_window": {
+        "from": "2021-01-01",
+        "to": "2021-12-31"
+      },
+      "coverage_note": "ICLR 2021 source snapshot; use current official rules for submission decisions.",
+      "sampled_abstracts": 40,
+      "publication_years": {
+        "2021": 40
+      },
+      "title": {
+        "word_count": {
+          "count": 40,
+          "mean": 8.78,
+          "median": 9.5,
+          "stdev": 2.3,
+          "cv": 0.262,
+          "min": 3,
+          "max": 13
+        },
+        "colon_percent": 42.5,
+        "question_percent": 0.0,
+        "acronym_percent": 17.5
+      },
+      "abstract": {
+        "word_count": {
+          "count": 40,
+          "mean": 173.15,
+          "median": 167.5,
+          "stdev": 43.24,
+          "cv": 0.25,
+          "min": 85,
+          "max": 310
+        },
+        "sentence_count": {
+          "count": 40,
+          "mean": 7.6,
+          "median": 7.0,
+          "stdev": 2.43,
+          "cv": 0.319,
+          "min": 4,
+          "max": 18
+        },
+        "sentence_word_count_pooled": {
+          "count": 304,
+          "mean": 22.78,
+          "median": 22.0,
+          "stdev": 9.41,
+          "cv": 0.413,
+          "min": 1,
+          "max": 52
+        },
+        "first_person_percent": 92.5,
+        "numeric_evidence_percent": 57.5,
+        "strong_verbs_per_1000_words": 14.29,
+        "hedges_per_1000_words": 2.02,
+        "rhetorical_move_presence_percent": {
+          "context": 2.5,
+          "gap_or_problem": 52.5,
+          "contribution": 80.0,
+          "result": 52.5,
+          "implication": 15.0,
+          "limitation_or_boundary": 5.0
+        },
+        "first_sentence_move_percent": {
+          "context": 2.5,
+          "contribution": 7.5,
+          "gap_or_problem": 10.0,
+          "other": 77.5,
+          "result": 2.5
+        },
+        "final_sentence_move_percent": {
+          "contribution": 7.5,
+          "implication": 2.5,
+          "other": 52.5,
+          "result": 37.5
+        }
+      }
+    }
+  ]
+}

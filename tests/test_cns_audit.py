@@ -1,8 +1,11 @@
 import importlib.util
+import json
 import tempfile
 import unittest
+import urllib.error
 import zipfile
 from pathlib import Path
+from unittest import mock
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -37,6 +40,69 @@ class CNSAuditTests(unittest.TestCase):
             with zipfile.ZipFile(path, "w") as archive:
                 archive.writestr("word/document.xml", xml)
             self.assertEqual(cns_audit.read_docx(path), "Hello CNS")
+
+    def test_docx_reader_includes_office_math_text(self):
+        xml = b'''<?xml version="1.0" encoding="UTF-8"?>
+        <w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"
+          xmlns:m="http://schemas.openxmlformats.org/officeDocument/2006/math">
+          <w:body><w:p><w:r><w:t>Equation: </w:t></w:r><m:oMath><m:r><m:t>5</m:t></m:r></m:oMath></w:p></w:body>
+        </w:document>'''
+        with tempfile.TemporaryDirectory() as temp_dir:
+            path = Path(temp_dir) / "math.docx"
+            with zipfile.ZipFile(path, "w") as archive:
+                archive.writestr("word/document.xml", xml)
+            self.assertEqual(cns_audit.read_docx(path), "Equation: 5")
+
+    def test_json_output_cannot_overwrite_input(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            path = Path(temp_dir) / "paper.txt"
+            path.write_text("Original manuscript", encoding="utf-8")
+            self.assertEqual(cns_audit.main([str(path), "--json", str(path)]), 1)
+            self.assertEqual(path.read_text(encoding="utf-8"), "Original manuscript")
+
+    def test_shareable_report_removes_path_and_excerpts(self):
+        report = cns_audit.build_report(
+            Path("private/paper.txt"), "Accuracy increased to 92% without a citation."
+        )
+        report["repeated_sentence_openers"] = [
+            {"opener": "secret start", "count": 3, "examples": ["secret excerpt"]}
+        ]
+        report["repeated_fragments"] = [{"fragment": "secret fragment", "count": 3}]
+        shareable = cns_audit.make_shareable(report)
+        self.assertEqual(shareable["source"], "paper.txt")
+        self.assertEqual(shareable["numeric_claims_without_nearby_citation"], [])
+        self.assertEqual(shareable["numeric_claims_without_nearby_citation_count"], 1)
+        self.assertIsNone(shareable["repeated_sentence_openers"][0]["opener"])
+        self.assertIsNone(shareable["repeated_fragments"][0]["fragment"])
+
+    def test_crossref_429_is_retried(self):
+        class FakeResponse:
+            def __enter__(self):
+                return self
+
+            def __exit__(self, *args):
+                return False
+
+            def read(self):
+                return json.dumps(
+                    {
+                        "message": {
+                            "title": ["Verified title"],
+                            "issued": {"date-parts": [[2026]]},
+                            "URL": "https://doi.org/10.1000/test",
+                        }
+                    }
+                ).encode("utf-8")
+
+        rate_limit = urllib.error.HTTPError(
+            "https://api.crossref.org/works/test", 429, "rate limited", {"Retry-After": "0"}, None
+        )
+        with mock.patch.object(
+            cns_audit.urllib.request, "urlopen", side_effect=[rate_limit, FakeResponse()]
+        ), mock.patch.object(cns_audit.time, "sleep") as sleep:
+            result = cns_audit.verify_doi("10.1000/test")
+        self.assertEqual(result["status"], "verified")
+        sleep.assert_called_once()
 
 
 if __name__ == "__main__":

@@ -1,7 +1,7 @@
 interface:
   display_name: "CNS Skills"
-  short_description: "Cell/Nature/Science-level scientific revision"
+  short_description: "English-first CNS and top-conference revision"
   icon_small: "./assets/cns-icon.svg"
   icon_large: "./assets/cns-icon.svg"
   brand_color: "#123B5D"
-  default_prompt: "Use $cns-skills to revise this manuscript against Cell, Nature, Science, or top-conference editorial standards without overstating the evidence."
+  default_prompt: "Use $cns-skills in English-final mode to revise this manuscript for Cell, Nature, Science, or a named top conference; preserve the evidence boundary, audit figures and citations, and explain consequential decisions in Chinese when useful."

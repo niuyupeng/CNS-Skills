@@ -1,5 +1,22 @@
 # Review article mode
 
+## Lock the review corpus
+
+Before using literature counts or claiming coverage, classify the review as narrative, scoping, systematic, or meta-analytic and record:
+
+- search cutoff date and update date;
+- databases, registries, archives, and other sources;
+- full query strings or a reproducible search strategy;
+- inclusion/exclusion criteria and article-type rules;
+- deduplication and version handling;
+- title/abstract and full-text screening process;
+- extraction fields, evidence cards, and reviewer agreement process;
+- treatment of preprints, corrections, retractions, and publication linkage.
+
+For systematic or scoping work, follow the applicable reporting framework and retain a study-flow record. For a narrative review, distinguish systematic retrieval from purposive examples.
+
+If this protocol is missing or incomplete, label the corpus as a **non-systematic illustrative selection**. Do not claim completeness, representativeness, prevalence, field-wide proportions, or a verified paper count. Keep provisional counts and classification statistics marked `pending verification` until identifiers, publication status, duplicates, and evidence cards are audited.
+
 ## Build the review around a decision problem
 
 A high-value review does more than enumerate papers. It gives readers a map for deciding among methods, interpreting evidence, and locating the next useful experiment.
@@ -62,12 +79,16 @@ Keep forecasts conditional and time-bounded when appropriate.
 
 ## Evidence grading
 
-When heterogeneous studies are compared, define an explicit ladder. One reusable form is:
+When heterogeneous studies are compared, keep distinct constructs in separate fields. A reusable evidence profile may include:
 
-- C0: concept or computational proposal;
-- C1: retrospective/internal computational validation;
-- C2: prospective computational or limited laboratory validation;
-- C3: independent, external, animal, or clinically relevant validation;
-- C4: prospective clinical or real-world deployment evidence.
+- validation design: none, retrospective, held-out, prospective, or deployed;
+- biological/physical setting: in silico, in vitro, ex vivo, in vivo, human, or field/production;
+- generalization: internal, temporal, cross-site, cross-domain, or independent external;
+- AI decision role or loop autonomy, using a project-defined scheme;
+- reporting completeness and reproducibility status.
 
-Adapt definitions to the field and verify every assignment. Do not let polished tables conceal uncertain classifications.
+Do not collapse these fields into a universal ordinal “maturity” score: a prospective in vitro study and a retrospective external in vivo study are not naturally ordered on one axis.
+
+If a compact code is necessary, give each construct its own namespace and state every definition beside the table. Never reuse labels already defined by the project, source literature, or target field. If a project already uses `C0–C4` or another named scale, preserve those definitions exactly.
+
+Verify every assignment. Do not let polished tables conceal uncertain classifications or silently collapse several axes into one.

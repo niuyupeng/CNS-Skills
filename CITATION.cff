@@ -9,7 +9,7 @@ authors:
 repository-code: "https://github.com/niuyupeng/CNS-Skills"
 url: "https://github.com/niuyupeng/CNS-Skills"
 license: MIT
-version: 0.2.0
+version: 0.3.0
 date-released: 2026-08-30
 keywords:
   - scientific writing
@@ -20,3 +20,6 @@ keywords:
   - research integrity
   - top journals
   - top conferences
+  - bilingual scientific writing
+  - scientific figures
+  - venue corpus analysis

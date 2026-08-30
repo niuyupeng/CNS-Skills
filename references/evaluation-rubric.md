@@ -1,6 +1,8 @@
 # CNS evaluation rubric
 
-Score each dimension from 0 to 4. A full manuscript should not be called finished when a critical dimension is below 3.
+Score each observable dimension from 0 to 4. Use `M` when required material was not supplied and `N/A` when the dimension genuinely does not apply. Do not convert `M` or `N/A` to zero or include it in an average. A full manuscript should not be called finished when a critical dimension is below 3 or a required dimension remains `M`.
+
+For a bounded passage, `Artifact quality` is normally `N/A` unless a file artifact was requested. When a low score is caused by missing evidence, data, or reporting rather than editable prose, stop the language-strengthening loop and return the missing-evidence action; repeated rewriting cannot raise that dimension honestly.
 
 | Dimension | 0 | 2 | 4 |
 |---|---|---|---|

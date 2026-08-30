@@ -9,6 +9,7 @@ using only the Python standard library.
 from __future__ import annotations
 
 import argparse
+import copy
 import json
 import math
 import re
@@ -24,7 +25,8 @@ from pathlib import Path
 from typing import Any, Iterable
 from xml.etree import ElementTree as ET
 
-VERSION = "0.2.0"
+VERSION = "0.3.0"
+CROSSREF_PUBLIC_INTERVAL_SECONDS = 0.22
 
 STOCK_PATTERNS: dict[str, str] = {
     "zh_this_shows": r"这(?:一结果|些结果|一发现)?(?:说明|表明|提示)",
@@ -65,24 +67,29 @@ NUMBER_RE = re.compile(r"(?<![A-Za-z])(?:\d+(?:\.\d+)?\s*%?|[一二三四五六�
 def read_docx(path: Path) -> str:
     with zipfile.ZipFile(path) as archive:
         try:
-            xml = archive.read("word/document.xml")
+            xml_parts = [archive.read("word/document.xml")]
         except KeyError as exc:
             raise ValueError("DOCX has no word/document.xml") from exc
-    root = ET.fromstring(xml)
+        for optional_part in ("word/footnotes.xml", "word/endnotes.xml"):
+            if optional_part in archive.namelist():
+                xml_parts.append(archive.read(optional_part))
     namespace = "{http://schemas.openxmlformats.org/wordprocessingml/2006/main}"
+    math_text = "{http://schemas.openxmlformats.org/officeDocument/2006/math}t"
     paragraphs: list[str] = []
-    for paragraph in root.iter(namespace + "p"):
-        parts: list[str] = []
-        for node in paragraph.iter():
-            if node.tag == namespace + "t" and node.text:
-                parts.append(node.text)
-            elif node.tag == namespace + "tab":
-                parts.append("\t")
-            elif node.tag in {namespace + "br", namespace + "cr"}:
-                parts.append("\n")
-        text = "".join(parts).strip()
-        if text:
-            paragraphs.append(text)
+    for xml in xml_parts:
+        root = ET.fromstring(xml)
+        for paragraph in root.iter(namespace + "p"):
+            parts: list[str] = []
+            for node in paragraph.iter():
+                if node.tag in {namespace + "t", math_text} and node.text:
+                    parts.append(node.text)
+                elif node.tag == namespace + "tab":
+                    parts.append("\t")
+                elif node.tag in {namespace + "br", namespace + "cr"}:
+                    parts.append("\n")
+            text = "".join(parts).strip()
+            if text:
+                paragraphs.append(text)
     return "\n\n".join(paragraphs)
 
 
@@ -186,30 +193,40 @@ def doi_list(text: str) -> list[str]:
     return dois
 
 
-def verify_doi(doi: str, timeout: float = 12.0) -> dict[str, Any]:
+def verify_doi(doi: str, timeout: float = 12.0, retries: int = 3) -> dict[str, Any]:
     url = "https://api.crossref.org/works/" + urllib.parse.quote(doi, safe="")
-    request = urllib.request.Request(url, headers={"User-Agent": "CNS-Skills/0.1 (mailto:opensource@example.invalid)"})
-    try:
-        with urllib.request.urlopen(request, timeout=timeout) as response:
-            payload = json.loads(response.read().decode("utf-8"))
-        message = payload.get("message", {})
-        title = (message.get("title") or [None])[0]
-        issued = message.get("published-print") or message.get("published-online") or message.get("issued") or {}
-        date_parts = issued.get("date-parts") or []
-        year = date_parts[0][0] if date_parts and date_parts[0] else None
-        return {
-            "doi": doi,
-            "status": "verified",
-            "title": title,
-            "publisher": message.get("publisher"),
-            "type": message.get("type"),
-            "year": year,
-            "url": message.get("URL"),
-        }
-    except urllib.error.HTTPError as exc:
-        return {"doi": doi, "status": "not_found" if exc.code == 404 else "http_error", "http_code": exc.code}
-    except (urllib.error.URLError, TimeoutError, json.JSONDecodeError) as exc:
-        return {"doi": doi, "status": "network_error", "error": str(exc)}
+    request = urllib.request.Request(url, headers={"User-Agent": "CNS-Skills/0.3.0 (https://github.com/niuyupeng/CNS-Skills)"})
+    for attempt in range(retries):
+        try:
+            with urllib.request.urlopen(request, timeout=timeout) as response:
+                payload = json.loads(response.read().decode("utf-8"))
+            message = payload.get("message", {})
+            title = (message.get("title") or [None])[0]
+            issued = message.get("published-print") or message.get("published-online") or message.get("issued") or {}
+            date_parts = issued.get("date-parts") or []
+            year = date_parts[0][0] if date_parts and date_parts[0] else None
+            return {
+                "doi": doi,
+                "status": "verified",
+                "title": title,
+                "publisher": message.get("publisher"),
+                "type": message.get("type"),
+                "year": year,
+                "url": message.get("URL"),
+            }
+        except urllib.error.HTTPError as exc:
+            if exc.code == 429 and attempt + 1 < retries:
+                retry_value = exc.headers.get("Retry-After", "1") if exc.headers else "1"
+                try:
+                    delay = float(retry_value)
+                except ValueError:
+                    delay = 1.0
+                time.sleep(min(max(delay, CROSSREF_PUBLIC_INTERVAL_SECONDS), 10.0))
+                continue
+            return {"doi": doi, "status": "not_found" if exc.code == 404 else "http_error", "http_code": exc.code}
+        except (urllib.error.URLError, TimeoutError, json.JSONDecodeError) as exc:
+            return {"doi": doi, "status": "network_error", "error": str(exc)}
+    return {"doi": doi, "status": "http_error", "http_code": 429}
 
 
 def numeric_claims_without_citation(sentences: list[str]) -> list[str]:
@@ -253,7 +270,7 @@ def build_report(path: Path, text: str, verify_dois: bool = False) -> dict[str, 
         results = []
         for index, doi in enumerate(dois):
             if index:
-                time.sleep(0.08)
+                time.sleep(CROSSREF_PUBLIC_INTERVAL_SECONDS)
             results.append(verify_doi(doi))
         report["doi_verification"] = results
     return report
@@ -294,18 +311,44 @@ def render_text(report: dict[str, Any]) -> str:
     return "\n".join(lines)
 
 
+def make_shareable(report: dict[str, Any]) -> dict[str, Any]:
+    """Remove local paths and unpublished excerpts from a JSON report copy."""
+    output = copy.deepcopy(report)
+    output["source"] = Path(output["source"]).name
+    output["shareable_redaction"] = "Local paths and manuscript excerpts removed; counts and diagnostics retained."
+    for key in ("stock_phrase_hits", "repeated_contrast_hits", "repeated_sentence_openers"):
+        for item in output.get(key, []):
+            item.pop("examples", None)
+    for item in output.get("repeated_sentence_openers", []):
+        item["opener"] = None
+    for item in output.get("repeated_fragments", []):
+        item["fragment"] = None
+    for key in ("numeric_claims_without_nearby_citation", "high_risk_claim_language"):
+        output[key + "_count"] = len(output.get(key, []))
+        output[key] = []
+    return output
+
+
 def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("input", type=Path, help="DOCX, TXT, or Markdown manuscript")
     parser.add_argument("--json", dest="json_path", type=Path, help="write the full report as UTF-8 JSON")
     parser.add_argument("--verify-dois", action="store_true", help="query Crossref for each DOI")
+    parser.add_argument("--shareable", action="store_true", help="redact local paths and manuscript excerpts from JSON output")
     parser.add_argument("--strict", action="store_true", help="exit 2 if a DOI is not verified")
     parser.add_argument("--version", action="version", version=f"%(prog)s {VERSION}")
     return parser.parse_args(argv)
 
 
+def same_path(left: Path, right: Path) -> bool:
+    return str(left.resolve()).casefold() == str(right.resolve()).casefold()
+
+
 def main(argv: list[str] | None = None) -> int:
     args = parse_args(argv)
+    if args.json_path and same_path(args.json_path, args.input):
+        print("error: --json must not overwrite the input manuscript", file=sys.stderr)
+        return 1
     try:
         text = read_input(args.input)
         report = build_report(args.input, text, verify_dois=args.verify_dois)
@@ -315,7 +358,8 @@ def main(argv: list[str] | None = None) -> int:
     print(render_text(report))
     if args.json_path:
         args.json_path.parent.mkdir(parents=True, exist_ok=True)
-        args.json_path.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+        json_report = make_shareable(report) if args.shareable else report
+        args.json_path.write_text(json.dumps(json_report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     if args.strict and any(item.get("status") != "verified" for item in report.get("doi_verification", [])):
         return 2
     return 0
