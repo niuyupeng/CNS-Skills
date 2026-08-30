@@ -26,6 +26,54 @@ Run an object-level pass before delivery:
 5. Read the paragraph without its citations. It should still make a concrete and
    testable statement rather than merely announce that synthesis occurred.
 
+## Run a clean-manuscript gate
+
+Review the submission artifact separately from the author-facing handoff. Check
+every reader-visible component, including headings, shaded callouts, text boxes,
+table cells, figure labels, captions, footnotes, endnotes, and supplementary
+prose. A polished box is still leakage when its function is to instruct the
+author or record an editor's analysis.
+
+| Candidate | Reader-visible decision |
+|---|---|
+| `中心判断`, `Editorial assessment`, or another analysis label | Move the judgment to the author decision log; rewrite the underlying scientific point directly when it belongs in the paper. |
+| `作者提示`, `Note to author`, revision instructions, or unresolved questions | Resolve it, move it to comments/track changes when requested, or list it in the handoff; do not retain it as manuscript prose. |
+| `TODO`, `citation needed`, `insert value`, model/agent instructions, or output labels such as `revised version` | Remove after completing the action, or mark the unresolved item outside the submission artifact. |
+| A compact range such as `E1–E5`, `Q0–Q3`, or a new grading scale | Keep only if it names a necessary scientific construct and every category is defined at first use or in the adjacent table/legend. |
+| An already defined scientific classification, named reporting framework, or ordinary section heading | Keep it. Consistency and reader comprehension, not vocabulary avoidance, control the decision. |
+| Repeated unnumbered 1×1 shaded tables with the same label or structure | Three or more are a clean-copy defect: integrate the material into the section or convert a venue-required item into a formally numbered Box. |
+| `Box 1`, `Box 2`, etc., or a venue-required `Key Points` block | Preserve the formal publishing element; verify the requirement and keep its numbering/function explicit. |
+| `Table 1 ...` formatted as Heading 2, or obvious font-size drift inside one table | Apply a caption style and restore a deliberate, consistent table type scale. |
+| Tool/draft/version language in `lastModifiedBy`, description, or the external filename | Scrub production history from the distribution copy while retaining intentional author/title metadata. |
+
+Do not translate internal machinery into more elegant internal machinery. For
+example, changing `中心判断` to `Key editorial insight` preserves the defect.
+Either state the scientific conclusion under a normal content heading or keep
+the judgment in the author-facing report.
+
+Compact labels create a second risk: the writer may understand them from an
+extraction sheet while the reader never sees their definitions. For each visible
+code family, ask:
+
+1. What scientific construct does the prefix encode?
+2. Is each category defined where the reader first encounters it?
+3. Is the same code used with the same meaning in text, tables, figures, and
+   supplements?
+4. Does the code reduce repeated technical wording enough to justify the reading
+   cost?
+
+Preserve established project and field classifications. For example, a defined
+`C0–C4` autonomy scale should remain stable; it should not be removed simply
+because the notation is compact. Conversely, a sentence saying that `E1–E5 can
+serve as convenient shorthand` does not define what E1 through E5 mean and
+should not enter the final paper.
+
+Run prose-pattern and repeated-opener diagnostics on the manuscript body, not
+the reference list. Journal names, DOI prefixes, and repeated bibliographic
+syntax otherwise dominate the counts without describing authorial voice. The
+reference list remains in scope for citation structure, DOI, invariant, metadata,
+and clean-copy validation.
+
 Do not impose a word ban. Diagnose the referent and function in context.
 
 ## When common abstract nouns are legitimate

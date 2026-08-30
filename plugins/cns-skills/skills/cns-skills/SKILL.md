@@ -1,9 +1,9 @@
 ---
 name: cns-skills
-description: Edits, translates, polishes, proofreads, and peer-reviews scientific manuscripts and academic research papers for journals and top conferences. Use for SCI papers, theses/dissertations, review articles, Chinese-to-English scholarly translation, research grants, rebuttals, journal cover letters, claim/citation/DOI/overclaiming audits, manuscript figure/table/caption design or QA, graphical abstracts, and DOCX/PDF/LaTeX QA. Also match 论文润色、SCI英文润色、学术中译英、审稿回复、参考文献核验、科研图表. Benchmarked to Cell, Nature, Science, AAAI, CVPR, NeurIPS, ICML, and ICLR; preserves evidence and author intent. Excludes general translation, coursework/ghostwriting, literature search, identifier lookup, or citation formatting alone, raw data analysis, generic illustration, and biomedical Q&A without manuscript revision. CNS means Cell/Nature/Science, not central nervous system. For mixed requests, do legitimate manuscript work but refuse fabricated evidence, acceptance guarantees, or AI-detector evasion.
+description: Edits, translates, polishes, proofreads, and peer-reviews scientific manuscripts and academic research papers for journals and top conferences. Use for SCI papers, theses/dissertations, review articles, Chinese-to-English scholarly translation, research grants, rebuttals, journal cover letters, claim/citation/DOI/overclaiming audits, manuscript figure/table/caption design or QA, graphical abstracts, clean-submission-copy audits, and DOCX/PDF/LaTeX QA. Also match 论文润色、SCI英文润色、学术中译英、审稿回复、参考文献核验、科研图表. Benchmarked to Cell, Nature, Science, AAAI, CVPR, NeurIPS, ICML, and ICLR; preserves evidence and author intent. Excludes general translation, coursework/ghostwriting, literature search, identifier lookup, or citation formatting alone, raw data analysis, generic illustration, and biomedical Q&A without manuscript revision. CNS means Cell/Nature/Science, not central nervous system. For mixed requests, do legitimate manuscript work but refuse fabricated evidence, acceptance guarantees, or AI-detector evasion.
 license: MIT
 metadata:
-  version: "0.6.0"
+  version: "0.7.0"
 ---
 
 # CNS Skills
@@ -196,7 +196,51 @@ Use `references/evaluation-rubric.md` to score the revision. Revise again when a
 
 For **CNS/top-venue** mode, also return the editorial-gate scorecard from `references/cns-editorial-standard.md`. Use “CNS-targeted” or “top-venue-targeted” for work that has passed the writing workflow; reserve “submission-ready” for artifacts whose evidence, reporting, references, figures, and venue requirements have all been checked.
 
-## 8. Verify the artifact
+## 8. Clear the reader-visible manuscript
+
+Before delivery, inspect only what a journal or conference reader will see:
+title, abstract, headings, body text, tables, captions, text boxes, footnotes,
+endnotes, and supplementary prose. The artifact must read as a manuscript, not
+as a record of the editing session.
+
+Move author queries, editorial judgments, revision instructions, agent prompts,
+scorecards, analysis labels, unresolved placeholders, and handoff commentary out
+of the reader-visible file. Put necessary unresolved decisions in the decision
+log or in comments/tracked changes when the user requested them. Do not leave a
+prompt box in place merely because its typography looks polished.
+
+Apply this as a function test, not a word ban. A normal scientific heading, a
+named method, or a genuine taxonomy may remain. A compact code or grading scheme
+may appear only when it is scientifically necessary, its construct and every
+category are defined at first use or in the adjacent legend/table, and the labels
+remain stable. Preserve already defined project or field classifications such as
+`C0–C4`; never delete, rename, or repurpose them merely because they are compact.
+Read the clean-manuscript section of
+`references/review-prose-naturalness.md` for review articles.
+
+For DOCX clean copies, inspect the package as well as extracted text. Treat three
+or more unnumbered 1×1 shaded tables with the same label or visual structure as
+a clean-copy defect, not as ordinary manuscript design. Review isolated
+callouts in context. Preserve formally numbered `Box 1`, `Box 2`, and so on;
+also preserve a genuine `Key Points` block when the source lock records that the
+target venue requires it. Check that table titles use a Caption/Table Title
+style rather than a Heading style and that font sizes do not drift within a
+table body or cell.
+
+Inspect the external filename and core properties, especially `lastModifiedBy`
+and `description`, for tool identities, TODOs, draft labels, and internal version
+language. Keep intended author/title metadata; remove production history from
+the distribution copy. Exclude the final reference list from prose-rhythm,
+stock-phrase, and repeated-opener statistics by default, while retaining it for
+DOI, citation, invariant, and clean-copy checks.
+
+Run `cns_audit.py` and inspect every `reader_visible_output_candidates` and
+`docx_clean_copy_candidates` flag in context. The audit is triage: a flag
+requires a keep/move/rewrite decision, while an unflagged file still needs a
+human read of all visible components. A clean submission copy must have a
+`clean_copy_gate` status of `pass`.
+
+## 9. Verify the artifact
 
 When editing DOCX or PDF, use the relevant document/PDF workflow available in the environment. Render the final artifact and inspect every page for:
 
@@ -215,6 +259,7 @@ Run the local diagnostic before and after a substantial revision:
 
 ```bash
 python scripts/cns_audit.py manuscript.docx
+python scripts/cns_audit.py manuscript.docx --strict-clean-copy
 python scripts/cns_audit.py manuscript.docx --shareable --json report.json
 python scripts/cns_audit.py manuscript.docx --verify-dois --shareable --json report.json
 python scripts/review_citation_audit.py review.docx --shareable --json citations.json

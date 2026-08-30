@@ -10,8 +10,8 @@
     {
       "name": "cns-skills",
       "source": "./plugins/cns-skills",
-      "description": "Scientific paper polishing, manuscript revision, Chinese-to-English academic writing, peer review, citation audits, and figure/table QA.",
-      "version": "0.6.0",
+      "description": "Scientific paper polishing, manuscript revision, Chinese-to-English academic writing, peer review, citation audits, clean-copy gates, and figure/table QA.",
+      "version": "0.7.0",
       "author": {
         "name": "Yupeng Niu"
       },
@@ -24,7 +24,10 @@
         "peer-review",
         "response-to-reviewers",
         "citations",
+        "clean-copy",
+        "docx-qa",
         "figures",
+        "literature-review",
         "tables",
         "top-journals",
         "top-conferences"

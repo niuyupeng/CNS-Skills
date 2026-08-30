@@ -2,6 +2,14 @@
 
 ## Unreleased
 
+## 0.7.0 — 2026-08-30
+
+- Added a final clean-submission-copy gate that separates reader-visible manuscript prose from author queries, editorial judgments, prompts, scorecards, and production notes.
+- Added DOCX package checks for repeated unnumbered 1×1 shaded callouts, table titles misusing Heading styles, table-font drift, external filename leakage, and tool/draft/version language in core properties.
+- Added context protections for formally numbered boxes, venue-required Key Points, and scientifically necessary classifications; compact labels are retained only when their constructs and categories are defined.
+- Added `--strict-clean-copy`, which returns a dedicated nonzero exit code when unresolved clean-copy defects remain, and excluded reference lists from prose-rhythm diagnostics by default.
+- Expanded deterministic audit coverage from 45 to 60 tests, including held-out forward checks against a contaminated manuscript and its clean distribution copy.
+
 - Rebuilt the English and Chinese GitHub landing pages around **evidence-first manuscript engineering**, with a flagship workflow, a synthetic evidence-boundary demonstration, a verifiable proof matrix, and direct install/star/citation calls to action.
 - Added a 1280×640 brand hero and social-preview asset for consistent repository sharing.
 - Strengthened citation metadata without implying publisher affiliation or editorial certification.

@@ -18,7 +18,7 @@ CNS Skills 把中文或英文初稿推进为更清晰、更可辩护的英文投
 [![Agent Skills](https://img.shields.io/badge/standard-Agent_Skills-123B5D.svg)](https://agentskills.io/)
 [![Cite](https://img.shields.io/badge/cite-CITATION.cff-7A263A.svg)](CITATION.cff)
 
-**12 项编辑门槛 · 8 类场所配置 · 320 篇摘要可审计基线 · 64 条路由案例 · 45 项确定性测试 · 4 个透明审计器**
+**12 项编辑门槛 · 8 类场所配置 · 320 篇摘要可审计基线 · 64 条路由案例 · 60 项确定性测试 · 4 个透明审计器**
 
 <sub>独立 MIT 开源项目。CNS 指 Cell · Nature · Science 这一编辑质量标杆，不表示隶属、背书或录用保证。</sub>
 
@@ -118,7 +118,7 @@ git clone https://github.com/niuyupeng/CNS-Skills.git ~/.claude/skills/cns-skill
 | [320 篇摘要聚合基线](references/venue-corpus-findings.md) | 可复现的场所语言描述 | 风格迁移语料或录用预测器 |
 | [64 条中英文路由案例](evals/README.md) | 正负触发防回归 | 所有宿主都保证自动调用 |
 | 30 条锁定留出集 | 降低针对已知样例堆关键词的风险 | 外部排行榜成绩 |
-| [45 项确定性测试](tests) | 脚本行为和关键不变量 | 每一次文字修改都语义正确 |
+| [60 项确定性测试](tests) | 脚本行为和关键不变量 | 每一次文字修改都语义正确 |
 | 4 个无第三方依赖审计器 | 本地、透明、可复核的分诊 | 自动代替原文精读和作者判断 |
 
 本项目不虚构“成功率”、用户数量、引用次数、录用率或 AI 检测分数。宣传可以很强，但硬数字必须能在仓库里点开核验。
@@ -128,13 +128,14 @@ git clone https://github.com/niuyupeng/CNS-Skills.git ~/.claude/skills/cns-skill
 需要 Python 3.9+，不依赖第三方包：
 
 ```bash
+python scripts/cns_audit.py manuscript.docx --strict-clean-copy
 python scripts/cns_audit.py manuscript.docx --verify-dois --shareable --json cns-report.json
 python scripts/review_citation_audit.py review.docx --shareable --json review-citations.json
 python scripts/check_invariants.py 中文源稿.docx 英文修改稿.docx --shareable --json invariants.json
 python scripts/check_crossrefs.py 英文修改稿.docx --shareable --json crossrefs.json
 ```
 
-它们会报告高风险表述、DOI 状态、公式化/编辑脚手架模式、方括号数字引文结构、数字/单位/统计量/引文变化和断裂的图表引用。它们不会自动改稿、独立判断全文支持关系、证明翻译等价或充当 AI 检测器。未经 `--shareable` 处理的 JSON 可能包含本地路径和未发表片段，不能随意外传。
+它们会报告高风险表述、DOI 状态、公式化/编辑脚手架模式、方括号数字引文结构、数字/单位/统计量/引文变化、断裂的图表引用和读者可见的成稿泄漏。严格成稿门禁还会检查重复的 1×1 提示框、作者侧生产说明、表题样式、表内字号漂移，以及 DOCX 文件名或元数据中的工具/版本痕迹。它们不会自动改稿、独立判断全文支持关系、证明翻译等价或充当 AI 检测器。未经 `--shareable` 处理的 JSON 可能包含本地路径和未发表片段，不能随意外传。
 
 完整运行规则见 [SKILL.md](SKILL.md)。专题参考包括[英文优先双语写作](references/english-first-bilingual.md)、[综述写作](references/review-article-mode.md)、[自然学术语言](references/natural-academic-style.md)、[综述—Skill 双向迭代](references/iterative-review-development.md)、[图表与图注](references/figures-tables.md)、[科研诚信](references/scientific-integrity.md)和[场所配置](references/venue-profiles.md)。
 
@@ -149,7 +150,7 @@ GitHub 会根据根目录 [CITATION.cff](CITATION.cff) 自动显示 **Cite this 
   author  = {Niu, Yupeng},
   title   = {CNS Skills: Evidence-First Scientific Manuscript Revision and Quality Assurance},
   year    = {2026},
-  version = {0.6.0},
+  version = {0.7.0},
   url     = {https://github.com/niuyupeng/CNS-Skills}
 }
 ```

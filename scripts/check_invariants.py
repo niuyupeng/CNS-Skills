@@ -21,7 +21,7 @@ from typing import Any
 from xml.etree import ElementTree as ET
 
 
-VERSION = "0.6.0"
+VERSION = "0.7.0"
 DOI_RE = re.compile(r"\b10\.\d{4,9}/[-._;()/:A-Z0-9]+", re.IGNORECASE)
 STAT_RE = re.compile(
     r"\b(?:p|q|r|R\^?2|CI)\s*(?:=|<|>|≤|≥|<=|>=)\s*[-+−]?\d+(?:\.\d+)?(?:\s*%)?",

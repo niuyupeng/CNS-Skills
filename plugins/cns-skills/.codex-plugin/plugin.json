@@ -1,7 +1,7 @@
 {
   "name": "cns-skills",
-  "version": "0.6.0",
-  "description": "Scientific paper polishing, academic manuscript revision, Chinese-to-English translation, peer review, citation auditing, and figure/table QA for Cell, Nature, Science, and leading conferences.",
+  "version": "0.7.0",
+  "description": "Scientific paper polishing, academic manuscript revision, Chinese-to-English translation, peer review, citation auditing, clean-copy gating, and figure/table QA for Cell, Nature, Science, and leading conferences.",
   "author": {
     "name": "Yupeng Niu",
     "url": "https://github.com/niuyupeng"
@@ -22,6 +22,9 @@
     "rebuttal",
     "citation-verification",
     "citation-audit",
+    "clean-copy",
+    "docx-qa",
+    "literature-review",
     "review-article",
     "scientific-figures",
     "top-journals",
@@ -30,8 +33,8 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "CNS Skills — Scientific Writing",
-    "shortDescription": "Scientific paper revision with evidence and visual audits",
-    "longDescription": "English-first bilingual scientific writing for research papers, reviews, grants, rebuttals, and cover letters, with evidence, citation, figure, table, and rendered-artifact QA.",
+    "shortDescription": "Scientific paper revision with evidence and clean-copy audits",
+    "longDescription": "English-first bilingual scientific writing for research papers, reviews, grants, rebuttals, and cover letters, with evidence, citation, clean-copy, figure, table, and rendered-artifact QA.",
     "developerName": "Yupeng Niu",
     "category": "Productivity",
     "capabilities": [

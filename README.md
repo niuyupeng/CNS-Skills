@@ -18,7 +18,7 @@ CNS Skills turns English or Chinese drafts into clearer, more defensible submiss
 [![Agent Skills](https://img.shields.io/badge/standard-Agent_Skills-123B5D.svg)](https://agentskills.io/)
 [![Cite](https://img.shields.io/badge/cite-CITATION.cff-7A263A.svg)](CITATION.cff)
 
-**12 editorial gates · 8 venue profiles · 320-abstract auditable baseline · 64 routing cases · 45 deterministic tests · 4 transparent auditors**
+**12 editorial gates · 8 venue profiles · 320-abstract auditable baseline · 64 routing cases · 60 deterministic tests · 4 transparent auditors**
 
 <sub>Independent MIT-licensed project. CNS means Cell · Nature · Science as an aspirational editorial benchmark; it does not imply affiliation, endorsement, or acceptance.</sub>
 
@@ -122,7 +122,7 @@ Every number below is inspectable in this repository.
 | [320-abstract aggregate baseline](references/venue-corpus-findings.md) | reproducible descriptive venue-language checks | a style-transfer corpus or acceptance model |
 | [64 bilingual routing cases](evals/README.md) | positive and negative discovery regression coverage | guaranteed activation in every agent host |
 | 30-case locked held-out split | resistance to metadata overfitting | an external benchmark leaderboard |
-| [45 deterministic tests](tests) | observable invariants and CLI behavior | semantic proof that every edit is correct |
+| [60 deterministic tests](tests) | observable invariants and CLI behavior | semantic proof that every edit is correct |
 | 4 dependency-free auditors | transparent, local manuscript diagnostics | source-reading or author judgment |
 | source/plugin synchronization in CI | packaged payload matches the root skill | endorsement by OpenAI, Anthropic, or a publisher |
 
@@ -160,13 +160,14 @@ Five operating modes keep the depth proportional to the task: `audit`, `revise`,
 The CLI requires Python 3.9+ and no third-party packages.
 
 ```bash
+python scripts/cns_audit.py manuscript.docx --strict-clean-copy
 python scripts/cns_audit.py manuscript.docx --verify-dois --shareable --json cns-report.json
 python scripts/review_citation_audit.py review.docx --shareable --json review-citations.json
 python scripts/check_invariants.py source.docx revision.docx --shareable --json invariants.json
 python scripts/check_crossrefs.py revision.docx --shareable --json crossrefs.json
 ```
 
-They report risky claim language, DOI status, formulaic/editorial-scaffolding patterns, bracketed numeric-reference structure, changed numbers/units/statistics/citations, and broken figure/table references. They do not edit the manuscript, determine entailment by themselves, prove translation equivalence, or act as AI detectors. Non-shareable JSON can contain local paths and unpublished excerpts; use `--shareable` before external distribution.
+They report risky claim language, DOI status, formulaic/editorial-scaffolding patterns, bracketed numeric-reference structure, changed numbers/units/statistics/citations, broken figure/table references, and reader-visible clean-copy defects. The strict clean-copy gate also checks repeated 1×1 callouts, author-side production notes, caption styles, table-font drift, and tool/version leakage in DOCX filenames or metadata. They do not edit the manuscript, determine entailment by themselves, prove translation equivalence, or act as AI detectors. Non-shareable JSON can contain local paths and unpublished excerpts; use `--shareable` before external distribution.
 
 The full operating contract is [SKILL.md](SKILL.md). Focused references cover [English-first bilingual writing](references/english-first-bilingual.md), [review articles](references/review-article-mode.md), [iterative review development](references/iterative-review-development.md), [figures and tables](references/figures-tables.md), [scientific integrity](references/scientific-integrity.md), and [venue profiles](references/venue-profiles.md).
 
@@ -181,7 +182,7 @@ GitHub exposes **Cite this repository** from the root [CITATION.cff](CITATION.cf
   author  = {Niu, Yupeng},
   title   = {CNS Skills: Evidence-First Scientific Manuscript Revision and Quality Assurance},
   year    = {2026},
-  version = {0.6.0},
+  version = {0.7.0},
   url     = {https://github.com/niuyupeng/CNS-Skills}
 }
 ```
