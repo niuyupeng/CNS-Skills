@@ -46,6 +46,13 @@ A high-value review does more than enumerate papers. It gives readers a map for 
 
 Choose a primary organizing axis such as mechanism, model class, decision stage, evidence layer, or translational bottleneck. Use secondary axes for comparison rather than letting them compete for chapter ownership.
 
+Plan figures, tables, and boxes with
+`review-visual-architecture.md`. A venue-compliant display count is only the
+quantity gate; the Review must also have visual coverage for its governing
+scope, cross-study synthesis, decision, and evidence boundary. Tables are best
+for exact lookup and provenance-rich comparison, but they do not substitute for
+a missing conceptual or evidence-synthesis figure.
+
 ## Section contract
 
 For every major section, write a one-sentence internal contract:

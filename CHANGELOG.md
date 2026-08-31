@@ -2,6 +2,14 @@
 
 ## Unreleased
 
+## 0.10.0 — 2026-08-31
+
+- Added separate Review, original research Article, and leading-conference modes. The Review path synthesizes cross-study evidence, the Article path follows an inference-led Results and figure sequence, and the conference path locks year, track, submission phase, page budget, comparators, robustness, and error analysis instead of transferring one generic top-venue template.
+- Added Review visual-architecture guidance that distinguishes venue-specific quantity limits from functional coverage across scope, synthesis, decision, and evidence boundary. A public purposive audit of 14 published Reviews reports an independent-display median of 7 and main-figure median of 4; the *Nature Reviews* subset (n=8) had a main-figure median of 5. These values are design calibration, not quotas, prevalence estimates, or acceptance predictors.
+- Expanded the official-source visual record for Nature Reviews and Cell Press Review displays while preserving rule classes and the prohibition on transferring figure counts, three-line-table examples, or generative-image permissions across venues and article types.
+- Added repeatable `--companion` inputs to `check_crossrefs.py` so a main manuscript and supplementary artifacts can be audited jointly without turning a legitimate cross-file reference into a false missing-caption result. JSON overwrite protection now covers every supplied companion.
+- Expanded deterministic regression coverage from 231 to 241 tests. Advanced skill, CLI, citation, Codex, Claude, marketplace, and generated-plugin metadata to 0.10.0; the public tool set remains nine transparent local tools.
+
 ## 0.9.0 — 2026-08-31
 
 - Added an evidence-bounded scientific-visual production route backed by current official-source checks and a public design-lineage note. Quantitative figures route to declared data and code, experimental images require authentic observations and auditable transformations, review schematics route to editable SVG, and conceptual generative art remains conditional on the exact venue policy and disclosure route.

@@ -101,6 +101,14 @@ claim, context × model choice, or capability × validation boundary. Move large
 record inventories and audit fields to a supplement when they obscure the main
 comparison.
 
+For a Review, read `review-visual-architecture.md`; for an original research
+paper, read `original-research-article-mode.md`; for a leading-conference paper,
+read `leading-conference-paper-mode.md`. The same visual object has different
+jobs across genres: a Review figure synthesizes relationships across studies,
+an Article figure carries a new inference, and a conference display tests a
+technical contribution within a page budget. Never copy a figure-count median
+or page-budget convention across those modes.
+
 End by resolving the governing question, identifying the highest-leverage
 uncertainties, and specifying what evidence would change the field's decisions.
 Do not end every section with an interchangeable advantages–limitations–future

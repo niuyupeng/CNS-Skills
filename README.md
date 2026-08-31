@@ -18,7 +18,7 @@ CNS Skills is an open-source scientific-writing Agent Skill for ChatGPT/Codex, C
 [![Agent Skills](https://img.shields.io/badge/standard-Agent_Skills-123B5D.svg)](https://agentskills.io/)
 [![Cite](https://img.shields.io/badge/cite-CITATION.cff-7A263A.svg)](CITATION.cff)
 
-**12 editorial gates · 8 venue profiles · 320-abstract baseline · 600-record genre corpus · two 100-title panels (150 distinct titles) · 68 routing cases · 231 deterministic tests · 9 transparent local tools**
+**12 editorial gates · 8 venue profiles · 320-abstract baseline · 600-record genre corpus · two 100-title panels (150 distinct titles) · 68 routing cases · 241 deterministic tests · 9 transparent local tools**
 
 <sub>Independent MIT-licensed project. CNS means Cell · Nature · Science as an aspirational editorial benchmark; it does not imply affiliation, endorsement, or acceptance.</sub>
 
@@ -30,7 +30,7 @@ CNS Skills is an open-source scientific-writing Agent Skill for ChatGPT/Codex, C
 
 Sentence-level polishing is only one layer. **CNS Skills engineers the manuscript without outrunning the science.**
 
-It starts by locking the source, claims, numbers, terminology, and evidence boundary. It then repairs the argument, reconstructs submission English, audits claim–citation fit, pressure-tests the paper through skeptical readers, strengthens the figure story, and—when the host provides document rendering—verifies the rendered DOCX or PDF.
+It starts by locking the source, claims, numbers, terminology, and evidence boundary. Before editing, it routes a Review, an original research Article, or a leading-conference paper to a separate argument and visual contract. It then repairs the argument, reconstructs submission English, audits claim–citation fit, pressure-tests the paper through skeptical readers, strengthens the figure story, and—when the host provides document rendering—verifies the rendered DOCX or PDF.
 
 The result is not generic “AI-sounding academic prose.” It is a manuscript whose contribution is easier to see, whose claims are easier to defend, and whose unresolved risks are harder to hide.
 
@@ -128,11 +128,13 @@ Every number below is inspectable in this repository.
 | [visual-production workflow](references/visual-production.md) and [source study](research/visual-production-study.md) | an inspectable route from reader question and evidence class to data/code, authentic images, editable SVG, or policy-cleared conceptual art | a universal journal style, permission to fabricate experimental imagery, or automatic venue compliance |
 | [320-abstract aggregate baseline](references/venue-corpus-findings.md) | reproducible descriptive venue-language checks | a style-transfer corpus or acceptance model |
 | [600-record genre corpus](research/genre-corpus-2026/README.md) | separately audited Review, original Article, and top-conference writing mechanisms with per-record provenance and text-level disclosure | 600 expert close readings, field-wide prevalence, or an acceptance model |
+| [three genre-specific playbooks](references/genre-aware-top-venue-writing.md) | separate Review synthesis, original-Article inference, and page-budgeted conference contribution/evaluation logic | one transferable top-venue template or a fixed display count |
+| [14-paper Review visual audit](research/top-review-visual-architecture-study.md) | a purposive aggregate calibration: median 7 independent displays and 4 main figures; the *Nature Reviews* subset (n=8) had a main-figure median of 5 | a universal quota, representative prevalence, or an acceptance predictor |
 | [100-title elite core](research/elite-venue-title-study.md) | 70 elite-journal titles with DOI metadata plus 30 accepted 2025 main-conference titles with official stable IDs | 100 full-paper readings, a title formula, or an acceptance model |
 | [100-title field layer](research/field-journal-title-study.md) | a second topic-matched panel retaining strong field venues including *ACS Nano*, *Advanced Functional Materials*, *Acta Biomaterialia*, and *Biomaterials*; 50 DOI records overlap the core, leaving 150 distinct titles across both panels | 200 distinct titles, a pooled prestige average, or a reason to override article type |
 | [68 bilingual routing cases](evals/README.md) | positive and negative discovery regression coverage | guaranteed activation in every agent host |
 | 30-case locked held-out split | resistance to metadata overfitting | an external benchmark leaderboard |
-| [231 deterministic tests](tests) | observable invariants and CLI behavior, including 118 review-search tests built around 93 independently designed counterexamples | semantic proof that every edit is correct |
+| [241 deterministic tests](tests) | observable invariants and CLI behavior, including 118 review-search tests built around 93 independently designed counterexamples | semantic proof that every edit is correct |
 | 9 dependency-free local tools | transparent manuscript diagnostics, safe visual routing, and deterministic concept-SVG generation | source-reading, image-integrity judgment, or author approval |
 | source/plugin synchronization in CI | packaged payload matches the root skill | endorsement by OpenAI, Anthropic, or a publisher |
 
@@ -180,6 +182,8 @@ For an ordinary SCI manuscript table whose exact venue does not prescribe anothe
 
 The visual brief preserves the reader question, supported claim, prohibited inference, provenance, deliverables, and venue status. The concept renderer supports editable `flow` and `independent_axes` SVGs; quantitative figures still require their underlying data and code. The DOCX visual auditor resolves inherited table styles, so a `Table Grid` table cannot pass merely because its direct formatting omits borders.
 
+For Reviews, CNS checks both the venue's quantity boundary and the display sequence's function. The public 14-paper audit is a design calibration only: its medians prompt a check for missing scope, synthesis, decision, or boundary functions; they never prescribe how many figures another Review should contain.
+
 ## Nine transparent local tools
 
 The CLI requires Python 3.9+ and no third-party packages.
@@ -199,7 +203,7 @@ python scripts/render_concept_svg.py figure-spec.json figure.svg
 
 The audit and checking tools report risky claim language, DOI status, formulaic/editorial-scaffolding patterns, review-search disclosure, title architecture, changed scientific invariants, broken cross-references, clean-copy defects, inherited table grids and fills, figure captions, alt text, placement, and effective raster DPI. `figure_brief.py` returns a bounded production route and refuses generative experimental imagery; `render_concept_svg.py` creates editable concept schematics, not data figures. These tools do not determine citation entailment, prove translation equivalence or image integrity, certify venue compliance, predict acceptance, or act as AI detectors. Non-shareable JSON can contain local paths and unpublished excerpts; use `--shareable` before external distribution.
 
-The full operating contract is [SKILL.md](SKILL.md). Focused references cover [English-first bilingual writing](references/english-first-bilingual.md), [scientific-title optimization](references/scientific-title-optimization.md), [review articles](references/review-article-mode.md), [genre-aware transfer](references/genre-aware-top-venue-writing.md), [iterative review development](references/iterative-review-development.md), [figures and tables](references/figures-tables.md), [scientific visual production](references/visual-production.md), [scientific integrity](references/scientific-integrity.md), and [venue profiles](references/venue-profiles.md).
+The full operating contract is [SKILL.md](SKILL.md). Focused references cover [English-first bilingual writing](references/english-first-bilingual.md), [scientific-title optimization](references/scientific-title-optimization.md), [Review writing](references/review-article-mode.md), [Review visual architecture](references/review-visual-architecture.md), [original research Articles](references/original-research-article-mode.md), [leading-conference papers](references/leading-conference-paper-mode.md), [genre-aware transfer](references/genre-aware-top-venue-writing.md), [iterative Review development](references/iterative-review-development.md), [figures and tables](references/figures-tables.md), [scientific visual production](references/visual-production.md), [scientific integrity](references/scientific-integrity.md), and [venue profiles](references/venue-profiles.md).
 
 ## Cite CNS Skills
 
@@ -212,7 +216,7 @@ GitHub exposes **Cite this repository** from the root [CITATION.cff](CITATION.cf
   author  = {Niu, Yupeng},
   title   = {CNS Skills: Evidence-First Scientific Manuscript Revision and Quality Assurance},
   year    = {2026},
-  version = {0.9.0},
+  version = {0.10.0},
   url     = {https://github.com/niuyupeng/CNS-Skills}
 }
 ```

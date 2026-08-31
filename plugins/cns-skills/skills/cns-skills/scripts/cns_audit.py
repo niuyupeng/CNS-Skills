@@ -25,7 +25,7 @@ from pathlib import Path
 from typing import Any, Iterable
 from xml.etree import ElementTree as ET
 
-VERSION = "0.9.0"
+VERSION = "0.10.0"
 CROSSREF_PUBLIC_INTERVAL_SECONDS = 0.22
 
 STOCK_PATTERNS: dict[str, str] = {
@@ -937,7 +937,7 @@ def doi_list(text: str) -> list[str]:
 
 def verify_doi(doi: str, timeout: float = 12.0, retries: int = 3) -> dict[str, Any]:
     url = "https://api.crossref.org/works/" + urllib.parse.quote(doi, safe="")
-    request = urllib.request.Request(url, headers={"User-Agent": "CNS-Skills/0.9.0 (https://github.com/niuyupeng/CNS-Skills)"})
+    request = urllib.request.Request(url, headers={"User-Agent": "CNS-Skills/0.10.0 (https://github.com/niuyupeng/CNS-Skills)"})
     for attempt in range(retries):
         try:
             with urllib.request.urlopen(request, timeout=timeout) as response:

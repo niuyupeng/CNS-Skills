@@ -12,7 +12,7 @@ from typing import Any
 
 
 ROOT = Path(__file__).resolve().parents[1]
-VERSION = "0.9.0"
+VERSION = "0.10.0"
 
 
 def load_json(relative: str, errors: list[str]) -> dict[str, Any]:
@@ -141,6 +141,7 @@ def validate_version_metadata(errors: list[str]) -> None:
         "scripts/review_search_audit.py",
         "scripts/title_audit.py",
         "scripts/venue_corpus_analyzer.py",
+        "scripts/visual_audit.py",
     ):
         text = (ROOT / relative).read_text(encoding="utf-8")
         if f'VERSION = "{VERSION}"' not in text:

@@ -20,7 +20,7 @@ from pathlib import Path
 from typing import Any, Iterable, Optional
 
 
-VERSION = "0.9.0"
+VERSION = "0.10.0"
 POLICY_SNAPSHOT = "2026-08-30"
 
 WORD_RE = re.compile(r"[A-Za-z0-9]+(?:[-'][A-Za-z0-9]+)*")

@@ -3,7 +3,7 @@ name: cns-skills
 description: Edits, translates, polishes, peer-reviews, and optimizes titles for scientific manuscripts targeting journals and top conferences. Use for a research paper or SCI manuscript, theses, reviews, Chinese-to-English scholarly translation, grants, rebuttals, cover letters, scientific title optimization, claim/citation/DOI/overclaiming audits, scientific figures, publication graphics, three-line tables, caption QA, graphical abstracts, clean-copy audits, and DOCX/PDF/LaTeX QA. Also match 论文题目优化、SCI标题润色、论文润色、SCI英文润色、学术中译英、审稿回复、参考文献核验、科研图表、论文作图、科研绘图、三线表. Benchmarked to Cell, Nature, Science, AAAI, CVPR, NeurIPS, ICML, and ICLR; preserves evidence and author intent. Excludes general translation, ghostwriting, literature search, identifier lookup, citation formatting alone, raw data analysis, generic illustration, and biomedical Q&A without manuscript revision. CNS means Cell/Nature/Science, not central nervous system. Refuse fabricated evidence, acceptance guarantees, and AI-detector evasion.
 license: MIT
 metadata:
-  version: "0.9.0"
+  version: "0.10.0"
 ---
 
 # CNS Skills
@@ -50,6 +50,22 @@ Articles, and leading-conference papers, also read
 `references/genre-aware-top-venue-writing.md`. Transfer rhetorical and evidential
 functions, not surface templates, and preserve the corpus's actual per-record
 analysis levels.
+
+Route the primary artifact by genre before editing:
+
+- Review or Perspective: read `references/review-article-mode.md`; for figure,
+  table, box, or display-count decisions also read
+  `references/review-visual-architecture.md`.
+- Original research Article: read
+  `references/original-research-article-mode.md`.
+- AAAI, CVPR, NeurIPS, ICML, ICLR, or another leading-conference paper: read
+  `references/leading-conference-paper-mode.md` and lock the exact year, track,
+  submission phase, template, and page budget.
+
+Do not merge these modes. A Review synthesizes cross-study evidence; an Article
+supports a new finding through an inference-led result sequence; a conference
+paper makes a page-budgeted technical contribution auditable through fair
+comparators, alternative-explanation tests, robustness, and error analysis.
 
 The aggregate corpus in `references/venue-corpus-findings.md` is descriptive context only. Never turn its medians, frequencies, or rhetorical moves into acceptance rules or copyable prose templates.
 
@@ -145,6 +161,13 @@ section should answer:
 3. Where does that evidence stop being sufficient?
 4. What follows for method selection, validation, or research design?
 
+For Review display planning, read `references/review-visual-architecture.md`.
+Count figures, tables, and boxes together only when the current venue defines a
+combined display limit. Use counts as page-budget constraints, never as quality
+targets. Check whether the display sequence covers scope, synthesis, decision,
+and evidence boundary; several tables do not substitute for a missing
+cross-study synthesis figure.
+
 Do not impose a generic introduction–advantages–limitations template on every section. Combine sections only when they make the same intellectual move; split sections when one paragraph carries several incompatible functions.
 
 ## 3. Edit paragraphs by function
@@ -208,6 +231,12 @@ Return unresolved citation issues as an audit table. Do not silently replace cit
 ## 6. Design and audit the visual evidence
 
 When figures, tables, captions, or a graphical abstract are supplied or needed, read `references/figures-tables.md`. Build a visual claim ledger and make each display answer a reader question.
+
+First route by article type. Review figures should synthesize or reorganize
+cross-study evidence; original-Article figures should carry the inference chain;
+conference figures should earn space within the verified page budget by testing
+the stated contribution. Never transfer a display-count norm from one genre or
+venue to another.
 
 For file-level creation, restyling, or semantic-axis/table-column auditing, also read `references/visual-production.md`. Route the display before choosing a tool: quantitative figures come from data and code; experimental images come only from authentic observations; review schematics default to editable SVG; generative image tools are limited to policy-cleared conceptual art. Use `scripts/figure_brief.py` to produce a bounded prompt/production contract and `scripts/render_concept_svg.py` for deterministic flow or independent-axis schematics.
 

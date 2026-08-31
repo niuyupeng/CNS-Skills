@@ -188,6 +188,28 @@ class CrossReferenceTests(unittest.TestCase):
         )
         self.assertEqual(result["status"], "clean")
 
+    def test_companion_artifact_resolves_supplementary_reference(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            main = Path(temp_dir) / "paper.txt"
+            supplement = Path(temp_dir) / "supplement.txt"
+            main.write_text("Supplementary Table S1 lists the complete matrix.\n", encoding="utf-8")
+            supplement.write_text("Supplementary Table S1 | Complete matrix.\n", encoding="utf-8")
+            result = crossrefs.build_report(main, [supplement])
+            self.assertEqual(result["status"], "clean")
+            self.assertEqual(result["companions"], [str(supplement.resolve())])
+
+    def test_json_output_cannot_overwrite_companion(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            main = Path(temp_dir) / "paper.txt"
+            supplement = Path(temp_dir) / "supplement.txt"
+            main.write_text("Supplementary Table S1 lists the matrix.\n", encoding="utf-8")
+            supplement.write_text("Supplementary Table S1 | Matrix.\n", encoding="utf-8")
+            self.assertEqual(
+                crossrefs.main([str(main), "--companion", str(supplement), "--json", str(supplement)]),
+                1,
+            )
+            self.assertEqual(supplement.read_text(encoding="utf-8"), "Supplementary Table S1 | Matrix.\n")
+
 
 if __name__ == "__main__":
     unittest.main()

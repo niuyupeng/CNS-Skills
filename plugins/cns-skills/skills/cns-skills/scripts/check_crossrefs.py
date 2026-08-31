@@ -15,7 +15,7 @@ from typing import Any
 from xml.etree import ElementTree as ET
 
 
-VERSION = "0.9.0"
+VERSION = "0.10.0"
 CAPTION_RE = re.compile(
     r"^\s*(?:(?P<scope>Supplementary|Supplemental|Extended\s+Data|补充|扩展数据)\s*)?"
     r"(?P<kind>Fig(?:ure)?|Table|图|表)\s*\.?\s*(?P<number>S?\d+)(?:[A-Za-z])?\b"
@@ -152,13 +152,18 @@ def audit_paragraphs(paragraphs: list[str]) -> dict[str, Any]:
     }
 
 
-def build_report(path: Path) -> dict[str, Any]:
+def build_report(path: Path, companions: list[Path] | None = None) -> dict[str, Any]:
+    companion_paths = companions or []
+    paragraphs = read_paragraphs(path)
+    for companion in companion_paths:
+        paragraphs.extend(read_paragraphs(companion))
     return {
         "tool": "CNS Skills cross-reference checker",
         "version": VERSION,
         "source": str(path.resolve()),
+        "companions": [str(item.resolve()) for item in companion_paths],
         "disclaimer": "Heuristic caption/reference audit; ranges, unusual numbering, text boxes, and field codes may require manual inspection.",
-        **audit_paragraphs(read_paragraphs(path)),
+        **audit_paragraphs(paragraphs),
     }
 
 
@@ -172,6 +177,8 @@ def render_text(report: dict[str, Any]) -> str:
         f"Status: {report['status']}",
         f"Captions: {report['caption_count']} | in-text references: {report['reference_count']}",
     ]
+    if report.get("companions"):
+        lines.append(f"Companion artifacts: {len(report['companions'])}")
     for heading, key in (
         ("Reference without caption", "references_without_caption"),
         ("Caption without reference", "captions_without_reference"),
@@ -185,6 +192,7 @@ def render_text(report: dict[str, Any]) -> str:
 def make_shareable(report: dict[str, Any]) -> dict[str, Any]:
     output = copy.deepcopy(report)
     output["source"] = Path(output["source"]).name
+    output["companions"] = [Path(item).name for item in output.get("companions", [])]
     output["shareable_redaction"] = "Local paths and manuscript excerpts removed; identifiers and counts retained."
     for item in output.get("references_without_caption", []):
         item["examples"] = []
@@ -198,6 +206,13 @@ def make_shareable(report: dict[str, Any]) -> dict[str, Any]:
 def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("input", type=Path)
+    parser.add_argument(
+        "--companion",
+        action="append",
+        default=[],
+        type=Path,
+        help="companion DOCX/text artifact whose captions and references should be audited jointly; repeat as needed",
+    )
     parser.add_argument("--json", dest="json_path", type=Path)
     parser.add_argument("--shareable", action="store_true", help="redact local paths and manuscript excerpts from JSON output")
     parser.add_argument("--strict", action="store_true", help="exit 2 when issues are found")
@@ -207,11 +222,12 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
 
 def main(argv: list[str] | None = None) -> int:
     args = parse_args(argv)
-    if args.json_path and same_path(args.json_path, args.input):
-        print("error: --json must not overwrite the input manuscript", file=sys.stderr)
+    protected_inputs = [args.input, *args.companion]
+    if args.json_path and any(same_path(args.json_path, item) for item in protected_inputs):
+        print("error: --json must not overwrite an input or companion artifact", file=sys.stderr)
         return 1
     try:
-        report = build_report(args.input)
+        report = build_report(args.input, args.companion)
     except (OSError, ValueError, zipfile.BadZipFile, KeyError, ET.ParseError) as exc:
         print(f"error: {exc}", file=sys.stderr)
         return 1

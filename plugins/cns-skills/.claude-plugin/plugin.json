@@ -1,7 +1,7 @@
 {
   "name": "cns-skills",
-  "version": "0.9.0",
-  "description": "Evidence-faithful scientific manuscript revision and peer review, Chinese-to-English academic writing, citation and clean-copy audits, scientific-figure routing, three-line-table QA, and editable concept SVGs for Cell, Nature, Science, and leading conferences.",
+  "version": "0.10.0",
+  "description": "Evidence-faithful scientific manuscript revision with separate Review, original-Article, and leading-conference modes; citation, clean-copy, and visual-architecture QA; and safe editable figures and tables.",
   "author": {
     "name": "Yupeng Niu"
   },

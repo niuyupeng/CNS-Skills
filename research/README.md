@@ -3,6 +3,7 @@
 This directory contains auditable research assets used by CNS Skills. Each asset states its own version, scope, method, and non-inferences.
 
 - `review-prose-study.md`: a 24-article study of how scientific reviews synthesize studies with object-level prose while keeping editorial scaffolding such as claim ledgers and evidence chains out of the manuscript.
+- `top-review-visual-architecture-study.md`: an aggregate 14-paper audit of main-text figures, tables, and boxes in selected Nature Reviews, Cell Press, and Science Reviews. Its medians calibrate functional visual review only; they are not display quotas or acceptance predictors.
 - `genre-corpus-2026/`: a 600-record, genre-separated study of top Reviews, original research Articles, and leading-conference papers. Each stratum exposes per-record provenance and the actual title/abstract/full-text analysis level; the corpus does not claim 600 expert close readings.
 - `elite-venue-title-study.md`: methods, venue tiers, subgroup findings, and limitations for the v0.8.0 core of 70 elite-journal plus 30 accepted top-conference titles.
 - `elite-venue-title-corpus-100.csv`: the core 100-title metadata corpus with DOI or official proceedings stable IDs, canonical URLs, venue tiers, genre status, and provenance; no abstract or full text.

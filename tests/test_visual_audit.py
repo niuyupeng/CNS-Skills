@@ -51,9 +51,10 @@ def table_xml(
     header_rule: bool = True,
     repeat_header: bool = True,
     protect_rows: bool = True,
+    caption_text: str = "Table 1. Results",
 ) -> str:
     table_caption = (
-        f'<w:p><w:pPr><w:pStyle w:val="{caption_style}"/></w:pPr><w:r><w:t>Table 1. Results</w:t></w:r></w:p>'
+        f'<w:p><w:pPr><w:pStyle w:val="{caption_style}"/></w:pPr><w:r><w:t>{caption_text}</w:t></w:r></w:p>'
         if caption
         else ""
     )
@@ -149,6 +150,10 @@ class VisualAuditTests(unittest.TestCase):
     def test_missing_caption_is_an_error(self):
         table = self.report_for(table_xml(caption=False))["tables"][0]
         self.assertIn("table_caption_missing_or_displaced", codes(table))
+
+    def test_chinese_supplementary_table_caption_is_recognized(self):
+        table = self.report_for(table_xml(caption_text="补充表S1｜完整矩阵"))["tables"][0]
+        self.assertNotIn("table_caption_missing_or_displaced", codes(table))
 
     def test_normal_caption_style_is_a_warning(self):
         table = self.report_for(table_xml(caption_style="Normal"))["tables"][0]

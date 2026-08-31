@@ -103,6 +103,11 @@ When no exact venue style is supplied and the user requests an ordinary SCI manu
 
 ## Review-article visuals
 
+Also read `review-visual-architecture.md` for display-role planning, main-versus-
+supplement decisions, and venue-specific count boundaries. A Review can satisfy
+a numeric display limit while still fail visually when tables dominate and no
+figure performs the central cross-study synthesis.
+
 For a review, distinguish:
 
 - conceptual synthesis created by the authors;

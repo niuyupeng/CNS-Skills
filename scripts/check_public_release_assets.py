@@ -21,6 +21,10 @@ PUBLIC_MARKDOWN = (
     ROOT / "README.zh-CN.md",
     ROOT / "research" / "README.md",
     ROOT / "research" / "genre-corpus-2026" / "README.md",
+    ROOT / "research" / "top-review-visual-architecture-study.md",
+    ROOT / "references" / "review-visual-architecture.md",
+    ROOT / "references" / "original-research-article-mode.md",
+    ROOT / "references" / "leading-conference-paper-mode.md",
     ROOT / "examples" / "synthetic-hydrogel-demo" / "README.md",
     ROOT / "distribution" / "README.md",
 )
@@ -43,7 +47,11 @@ REQUIRED_FILES = (
     ROOT / "examples" / "synthetic-hydrogel-demo" / "reports" / "cross-reference-risk-report.json",
     ROOT / "examples" / "synthetic-hydrogel-demo" / "reports" / "clean-copy-risk-report.json",
     ROOT / "references" / "visual-production.md",
+    ROOT / "references" / "review-visual-architecture.md",
+    ROOT / "references" / "original-research-article-mode.md",
+    ROOT / "references" / "leading-conference-paper-mode.md",
     ROOT / "research" / "visual-production-study.md",
+    ROOT / "research" / "top-review-visual-architecture-study.md",
     ROOT / "assets" / "figure_brief.json",
 )
 
@@ -162,7 +170,7 @@ def validate_corpus() -> None:
 def validate_public_counts() -> None:
     suite = unittest.defaultTestLoader.discover(str(ROOT / "tests"), pattern="test_*.py")
     test_count = suite.countTestCases()
-    if test_count != 231:
+    if test_count != 241:
         fail(f"discovered {test_count} tests; update the public proof line and this release gate")
 
     routing_path = ROOT / "evals" / "discovery-prompts.jsonl"
@@ -180,13 +188,39 @@ def validate_public_counts() -> None:
     english = (ROOT / "README.md").read_text(encoding="utf-8")
     chinese = (ROOT / "README.zh-CN.md").read_text(encoding="utf-8")
     for label, text in (("README.md", english), ("README.zh-CN.md", chinese)):
-        for claim in ("231", "118", "93", "68", "600"):
+        for claim in ("241", "118", "93", "68", "600"):
             if claim not in text:
                 fail(f"{label} no longer exposes the validated {claim} proof count")
     if "9 transparent local tools" not in english:
         fail("README.md no longer exposes the validated 9-tool public count")
     if "9 个透明本地工具" not in chinese:
         fail("README.zh-CN.md no longer exposes the validated 9-tool public count")
+
+
+def validate_top_review_visual_note() -> None:
+    note = (ROOT / "research" / "top-review-visual-architecture-study.md").read_text(encoding="utf-8")
+    required = (
+        "All Reviews (n=14)",
+        "median 7; mean 6.86; range 4–11",
+        "median 4; mean 4.43; range 2–7",
+        "*Nature Reviews* subset (n=8)",
+        "62 main figures, 17 tables, and 17 Boxes",
+        "not a random or systematic sample",
+        "not a minimum, maximum, quality score, acceptance predictor",
+    )
+    for claim in required:
+        if claim not in note:
+            fail(f"top-review visual audit lost its aggregate or non-inference record: {claim}")
+    prohibited = (
+        "Choosing Models for AI-Guided Biomaterials Design",
+        "AI-Guided_Biomaterials",
+        "current manuscript",
+        "当前稿",
+        ".docx",
+    )
+    for fragment in prohibited:
+        if fragment.casefold() in note.casefold():
+            fail(f"top-review visual audit exposes manuscript-specific information: {fragment}")
 
 
 def validate_demo_package() -> None:
@@ -222,11 +256,12 @@ def main() -> int:
         validate_local_links()
         validate_corpus()
         validate_public_counts()
+        validate_top_review_visual_note()
         validate_demo_package()
     except (AssertionError, csv.Error, json.JSONDecodeError, OSError, zipfile.BadZipFile) as exc:
         print(f"public release asset check failed: {exc}", file=sys.stderr)
         return 1
-    print("PASS: public links, proof counts, 600-record corpus, and synthetic demo assets are consistent")
+    print("PASS: public links, proof counts, 600-record corpus, 14-paper visual audit, and synthetic demo assets are consistent")
     return 0
 
 

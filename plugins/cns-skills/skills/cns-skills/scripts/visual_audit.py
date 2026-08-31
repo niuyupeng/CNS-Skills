@@ -19,6 +19,8 @@ from pathlib import Path
 from xml.etree import ElementTree as ET
 
 
+VERSION = "0.10.0"
+
 NS = {
     "w": "http://schemas.openxmlformats.org/wordprocessingml/2006/main",
     "a": "http://schemas.openxmlformats.org/drawingml/2006/main",
@@ -34,7 +36,7 @@ R_EMBED = f"{{{NS['r']}}}embed"
 
 CAPTION_RE = re.compile(
     r"^(?:table|figure|fig\.?|supplement(?:ary|al)\s+(?:table|figure)|"
-    r"extended\s+data\s+(?:table|fig\.?)|表|图)\s*[sS]?\d+\b",
+    r"extended\s+data\s+(?:table|fig\.?)|(?:补充|扩展数据)\s*(?:表|图)|表|图)\s*[sS]?\d+\b",
     re.IGNORECASE,
 )
 
@@ -445,6 +447,7 @@ def build_report(
     status = "fail" if errors else "warnings" if warnings else "pass"
     return {
         "tool": "CNS visual audit",
+        "version": VERSION,
         "source": str(path),
         "scope_note": "OOXML and production QA only; scientific truth, provenance, image integrity, and exact venue compliance still require human verification.",
         "expect_three_line": expect_three_line,
@@ -491,6 +494,7 @@ def print_text(report: dict) -> None:
 
 def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--version", action="version", version=f"%(prog)s {VERSION}")
     parser.add_argument("source", type=Path, help="DOCX file to audit")
     parser.add_argument("--expect-three-line", action="store_true", help="Require top, header-bottom, and bottom rules with no vertical/interior grid rules or color fills")
     parser.add_argument("--minimum-raster-dpi", type=int, default=300, help="Minimum effective DPI for PNG/JPEG figures (default: 300)")
