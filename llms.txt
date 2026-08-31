@@ -1,12 +1,12 @@
 # CNS Skills
 
-> An independent, MIT-licensed scientific-writing skill for ChatGPT/Codex,
-> Claude Code, and Agent Skills-compatible clients. It revises English or
-> Chinese manuscripts while preserving evidence boundaries, and audits claims,
-> citations, titles, figures, tables, cross-references, and clean-submission
-> DOCX artifacts. Review mode distinguishes graphical abstracts, overviews,
-> workflows, frameworks, cross-study evidence synthesis, and roadmaps, with an
-> object-based biomedical scene grammar and third-party visual provenance.
+> An independent, MIT-licensed scientific-manuscript development skill for
+> ChatGPT/Codex, Claude Code, and Agent Skills-compatible clients. It locks
+> positioning and decision provenance, builds argument-led outlines and
+> evidence-bounded author drafts, reconstructs English or Chinese manuscripts,
+> and audits claims, citations, titles, figures, tables, cross-references, and
+> clean-submission artifacts. Internal planning scaffolds remain outside the
+> reader-visible manuscript.
 
 Repository: https://github.com/niuyupeng/CNS-Skills
 License: https://github.com/niuyupeng/CNS-Skills/blob/main/LICENSE
@@ -17,6 +17,8 @@ License: https://github.com/niuyupeng/CNS-Skills/blob/main/LICENSE
 - Chinese overview: https://github.com/niuyupeng/CNS-Skills/blob/main/README.zh-CN.md
 - Installation: https://github.com/niuyupeng/CNS-Skills/blob/main/docs/INSTALL.md
 - Skill contract: https://github.com/niuyupeng/CNS-Skills/blob/main/SKILL.md
+- Author-led development workflow: https://github.com/niuyupeng/CNS-Skills/blob/main/references/manuscript-development.md
+- Development defect study: https://github.com/niuyupeng/CNS-Skills/blob/main/research/author-led-manuscript-development-study.md
 - Public synthetic demo: https://github.com/niuyupeng/CNS-Skills/tree/main/examples/synthetic-hydrogel-demo
 - Evaluation notes: https://github.com/niuyupeng/CNS-Skills/blob/main/evals/README.md
 - Privacy: https://github.com/niuyupeng/CNS-Skills/blob/main/PRIVACY.md

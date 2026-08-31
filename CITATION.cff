@@ -1,6 +1,6 @@
 cff-version: 1.2.0
-message: "If CNS Skills contributes to scientific title optimization, manuscript preparation, peer review, or citation QA, please cite this software."
-title: "CNS Skills: Evidence-First Scientific Manuscript Revision and Quality Assurance"
+message: "If CNS Skills contributes to scientific positioning, outlining, drafting, revision, peer review, or citation QA, please cite this software."
+title: "CNS Skills: Evidence-First Scientific Manuscript Development and Quality Assurance"
 type: software
 authors:
   - family-names: "Niu"
@@ -9,10 +9,13 @@ authors:
 repository-code: "https://github.com/niuyupeng/CNS-Skills"
 url: "https://github.com/niuyupeng/CNS-Skills"
 license: MIT
-version: 0.11.0
+version: 0.12.0
 date-released: 2026-08-31
 keywords:
   - scientific writing
+  - manuscript planning
+  - scientific outlines
+  - evidence-bounded drafting
   - academic writing
   - citation verification
   - manuscript revision

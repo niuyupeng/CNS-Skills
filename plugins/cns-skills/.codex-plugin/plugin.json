@@ -1,7 +1,7 @@
 {
   "name": "cns-skills",
-  "version": "0.11.0",
-  "description": "Evidence-faithful scientific manuscript revision with genre-specific writing and visual architecture, object-based biomedical scenes, cross-study synthesis, citation and clean-copy QA, and safe editable figures and tables.",
+  "version": "0.12.0",
+  "description": "Author-led scientific manuscript positioning, outlines, evidence-bounded first drafts, English revision, citation and clean-copy QA, and safe genre-specific figures and tables.",
   "author": {
     "name": "Yupeng Niu",
     "url": "https://github.com/niuyupeng"
@@ -13,6 +13,10 @@
     "scientific-writing",
     "academic-writing",
     "research-paper",
+    "manuscript-planning",
+    "manuscript-outline",
+    "first-draft",
+    "evidence-matrix",
     "paper-polishing",
     "manuscript-revision",
     "scientific-title",
@@ -40,8 +44,8 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "CNS Skills — Scientific Writing",
-    "shortDescription": "Scientific manuscript, citation, figure, and table QA",
-    "longDescription": "English-first manuscript and title revision with genre-specific argument and visual architecture, object-based biomedical scenes, genuine cross-study synthesis, evidence and citation audits, venue-aware tables, safe figure routing, and final-artifact QA.",
+    "shortDescription": "Scientific manuscript development and submission QA",
+    "longDescription": "Author-led positioning, argument-led outlines, evidence-bounded first drafts, English-final manuscript development, title and citation audits, genre-specific visual architecture, clean-copy checks, and rendered-artifact QA.",
     "developerName": "Yupeng Niu",
     "category": "Productivity",
     "capabilities": [
@@ -52,7 +56,7 @@
     "privacyPolicyURL": "https://github.com/niuyupeng/CNS-Skills/blob/main/PRIVACY.md",
     "termsOfServiceURL": "https://github.com/niuyupeng/CNS-Skills/blob/main/TERMS.md",
     "defaultPrompt": [
-      "Optimize this paper title, polish the SCI manuscript, and audit overclaiming.",
+      "Position this Review, build an evidence-mapped outline, and draft only from my approved sources.",
       "Translate this Chinese draft into evidence-faithful academic English.",
       "Peer-review paper; audit citations and visuals; use venue rules or neutral three-line tables; never invent experimental images."
     ],

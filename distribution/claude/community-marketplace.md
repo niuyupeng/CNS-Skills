@@ -29,7 +29,7 @@ Replace the frozen placeholders with public immutable values. The submitted comm
 
 ## Submission description
 
-CNS Skills is an independent, MIT-licensed Agent Skill for evidence-bounded scientific manuscript revision. It supports English-first bilingual rewriting, scientific-title optimization, peer review and rebuttals, claim-citation and overclaiming audits, figure/table/caption QA, and clean-submission-file checks. It preserves supplied scientific claims and invariants, reports unresolved evidence limits, and refuses fabricated evidence, acceptance guarantees, and AI-detector evasion.
+CNS Skills is an independent, MIT-licensed Agent Skill for author-led scientific manuscript development. It supports positioning, argument-led outlines, evidence matrices, evidence-bounded first drafts, English-first bilingual rewriting, scientific-title optimization, peer review, citation audits, figure/table QA, and clean-submission-file checks. It preserves supplied science, reports unresolved evidence limits, and refuses fabricated evidence, acceptance guarantees, and AI-detector evasion.
 
 It is a local, skills-only plugin with no hosted CNS account or MCP server. Optional scripts can query Crossref with DOI strings and OpenAlex for public scholarly metadata, as disclosed in the repository privacy policy.
 
@@ -72,7 +72,7 @@ Map its current labels to the following:
 - Plugin path: plugins/cns-skills
 - Commit or release reference: FROZEN_COMMIT_SHA and FROZEN_RELEASE_TAG
 - Plugin name: cns-skills
-- One-line summary: Evidence-bounded scientific manuscript revision, bilingual rewriting, peer review, citation audits, and clean-copy QA.
+- One-line summary: Author-led scientific outlines, evidence-bounded drafting, English revision, peer review, citations, and clean-copy QA.
 - Maintainer: Yupeng Niu, matching the repository and submission account.
 - License: MIT.
 - Runtime or service dependencies: no hosted CNS service; Python 3.9+ is needed only for optional local auditors.

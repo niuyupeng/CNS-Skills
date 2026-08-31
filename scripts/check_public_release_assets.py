@@ -22,6 +22,8 @@ PUBLIC_MARKDOWN = (
     ROOT / "research" / "README.md",
     ROOT / "research" / "genre-corpus-2026" / "README.md",
     ROOT / "research" / "top-review-visual-architecture-study.md",
+    ROOT / "research" / "author-led-manuscript-development-study.md",
+    ROOT / "references" / "manuscript-development.md",
     ROOT / "references" / "review-visual-architecture.md",
     ROOT / "references" / "original-research-article-mode.md",
     ROOT / "references" / "leading-conference-paper-mode.md",
@@ -54,6 +56,9 @@ REQUIRED_FILES = (
     ROOT / "research" / "top-review-visual-architecture-study.md",
     ROOT / "assets" / "figure_brief.json",
     ROOT / "assets" / "review_visual_plan.json",
+    ROOT / "assets" / "manuscript_development_plan.json",
+    ROOT / "references" / "manuscript-development.md",
+    ROOT / "research" / "author-led-manuscript-development-study.md",
 )
 
 PUBLIC_TOOLS = (
@@ -66,6 +71,7 @@ PUBLIC_TOOLS = (
     "visual_audit.py",
     "figure_brief.py",
     "render_concept_svg.py",
+    "manuscript_plan.py",
 )
 
 
@@ -171,16 +177,16 @@ def validate_corpus() -> None:
 def validate_public_counts() -> None:
     suite = unittest.defaultTestLoader.discover(str(ROOT / "tests"), pattern="test_*.py")
     test_count = suite.countTestCases()
-    if test_count != 254:
+    if test_count != 276:
         fail(f"discovered {test_count} tests; update the public proof line and this release gate")
 
     routing_path = ROOT / "evals" / "discovery-prompts.jsonl"
     routing = [json.loads(line) for line in routing_path.read_text(encoding="utf-8").splitlines() if line.strip()]
-    if len(routing) != 68:
-        fail(f"discovery prompt count is {len(routing)}; expected 68")
+    if len(routing) != 76:
+        fail(f"discovery prompt count is {len(routing)}; expected 76")
 
-    if len(PUBLIC_TOOLS) != 9:
-        fail(f"public tool registry contains {len(PUBLIC_TOOLS)} entries; expected 9")
+    if len(PUBLIC_TOOLS) != 10:
+        fail(f"public tool registry contains {len(PUBLIC_TOOLS)} entries; expected 10")
 
     for name in PUBLIC_TOOLS:
         if not (ROOT / "scripts" / name).is_file():
@@ -189,13 +195,13 @@ def validate_public_counts() -> None:
     english = (ROOT / "README.md").read_text(encoding="utf-8")
     chinese = (ROOT / "README.zh-CN.md").read_text(encoding="utf-8")
     for label, text in (("README.md", english), ("README.zh-CN.md", chinese)):
-        for claim in ("254", "118", "93", "68", "600"):
+        for claim in ("276", "118", "93", "76", "600"):
             if claim not in text:
                 fail(f"{label} no longer exposes the validated {claim} proof count")
-    if "9 transparent local tools" not in english:
-        fail("README.md no longer exposes the validated 9-tool public count")
-    if "9 个透明本地工具" not in chinese:
-        fail("README.zh-CN.md no longer exposes the validated 9-tool public count")
+    if "10 transparent local tools" not in english:
+        fail("README.md no longer exposes the validated 10-tool public count")
+    if "10 个透明本地工具" not in chinese:
+        fail("README.zh-CN.md no longer exposes the validated 10-tool public count")
 
 
 def validate_top_review_visual_note() -> None:
@@ -222,6 +228,36 @@ def validate_top_review_visual_note() -> None:
     for fragment in prohibited:
         if fragment.casefold() in note.casefold():
             fail(f"top-review visual audit exposes manuscript-specific information: {fragment}")
+
+
+def validate_manuscript_development_note() -> None:
+    note = (ROOT / "research" / "author-led-manuscript-development-study.md").read_text(
+        encoding="utf-8"
+    )
+    required = (
+        "not a prevalence survey",
+        "raw conversations and unpublished manuscript content are not redistributed",
+        "Rules intentionally not generalized",
+        "topic only",
+        "author-led, author-approved first draft",
+        "format",
+        "superseded",
+        "AI-detector evasion",
+    )
+    for claim in required:
+        if claim.casefold() not in note.casefold():
+            fail(f"manuscript-development study lost a method or boundary record: {claim}")
+    prohibited = (
+        "AI指导生物材料",
+        "Choosing Models for AI-Guided Biomaterials Design",
+        "C0–C4",
+        "52/61",
+        "current manuscript",
+        "当前稿",
+    )
+    for fragment in prohibited:
+        if fragment.casefold() in note.casefold():
+            fail(f"manuscript-development study exposes project-specific information: {fragment}")
 
 
 def validate_demo_package() -> None:
@@ -258,11 +294,12 @@ def main() -> int:
         validate_corpus()
         validate_public_counts()
         validate_top_review_visual_note()
+        validate_manuscript_development_note()
         validate_demo_package()
     except (AssertionError, csv.Error, json.JSONDecodeError, OSError, zipfile.BadZipFile) as exc:
         print(f"public release asset check failed: {exc}", file=sys.stderr)
         return 1
-    print("PASS: public links, proof counts, 600-record corpus, 14-paper visual audit, and synthetic demo assets are consistent")
+    print("PASS: public links, proof counts, manuscript-development contract, 600-record corpus, 14-paper visual audit, and synthetic demo assets are consistent")
     return 0
 
 

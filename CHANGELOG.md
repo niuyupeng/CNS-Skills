@@ -2,6 +2,14 @@
 
 ## Unreleased
 
+## 0.12.0 — 2026-08-31
+
+- Expanded CNS Skills from supplied-draft revision to an author-led scientific-writing lifecycle: Positioning, one-page and detailed Outline, Evidence matrix, evidence-bounded First draft, complete draft, Plain-language brief, and Submission copy. A topic alone now routes to a provisional architecture and evidence-acquisition plan rather than a fabricated manuscript.
+- Added decision provenance, source-role, title, article-type, artifact-budget, approval-checkpoint, continuity, and substantive-version locks. Formatting references cannot establish scientific content; assistant proposals cannot be reported as meeting decisions; superseded frameworks cannot silently return.
+- Added `references/manuscript-development.md`, a synthetic `assets/manuscript_development_plan.json`, and the dependency-free `manuscript_plan.py` auditor. The plan blocks unsupported drafting, false completeness, benchmark-status inflation, exposed editorial scaffolding, unapproved title drift, and completion claims without artifact checks.
+- Added an anonymized longitudinal defect study covering positioning, outlines, evidence matrices, data readiness, natural prose, figures, tables, clean copies, and delivery. Project-specific taxonomies, reference counts, page counts, and display counts remain in project locks rather than becoming universal rules.
+- Expanded bilingual discovery coverage from 68 to 76 cases and deterministic regression coverage from 254 to 276 tests. Advanced skill, CLI, citation, Codex, Claude, marketplace, and generated-plugin metadata to 0.12.0; the public tool set now contains ten transparent local tools.
+
 ## 0.11.0 — 2026-08-31
 
 - Added an original object-based biomedical scene grammar for Review visuals: scientific object → experimental action → measurement/test → decision or feedback → evidence boundary. The guidance now rejects static card/box stacks when they conceal the experiment and requires every icon to carry a declared scientific role.

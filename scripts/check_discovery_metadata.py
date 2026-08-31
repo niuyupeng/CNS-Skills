@@ -12,7 +12,7 @@ from typing import Any
 
 
 ROOT = Path(__file__).resolve().parents[1]
-VERSION = "0.11.0"
+VERSION = "0.12.0"
 
 
 def load_json(relative: str, errors: list[str]) -> dict[str, Any]:
@@ -63,6 +63,8 @@ def validate_skill(errors: list[str]) -> None:
         "peer review": ("peer-review", "response to reviewers"),
         "scientific title optimization": ("scientific title optimization", "paper-title"),
         "Chinese title optimization": ("论文题目优化", "SCI标题润色"),
+        "scientific outline": ("Review outline", "论文大纲", "综述大纲"),
+        "author-led first draft": ("author-led first draft", "论文初稿", "SCI初稿"),
         "citation audit": ("citation", "DOI"),
         "visual evidence": ("figure", "table", "caption"),
         "negative boundary": ("AI-detector evasion", "fabricated evidence"),
@@ -142,6 +144,7 @@ def validate_version_metadata(errors: list[str]) -> None:
         "scripts/title_audit.py",
         "scripts/venue_corpus_analyzer.py",
         "scripts/visual_audit.py",
+        "scripts/manuscript_plan.py",
     ):
         text = (ROOT / relative).read_text(encoding="utf-8")
         if f'VERSION = "{VERSION}"' not in text:

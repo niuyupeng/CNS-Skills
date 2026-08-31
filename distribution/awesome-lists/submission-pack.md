@@ -17,7 +17,7 @@ Its current contribution instructions ask contributors to add a concise skill li
 Replace CURRENT_STAR_COUNT with the live count at pull-request time:
 
 ~~~markdown
-| [niuyupeng/CNS-Skills](https://github.com/niuyupeng/CNS-Skills) | CURRENT_STAR_COUNT | Evidence-bounded scientific manuscript revision with English-first bilingual rewriting, scientific-title optimization, claim-citation audits, peer-review and rebuttal workflows, figure/table QA, and local clean-copy checks. |
+| [niuyupeng/CNS-Skills](https://github.com/niuyupeng/CNS-Skills) | CURRENT_STAR_COUNT | Author-led scientific positioning, outlines, evidence matrices and first drafts, plus English reconstruction, titles, citations, peer review, figure/table QA, and local clean-copy checks. |
 ~~~
 
 ### Generic two-column entry
@@ -25,7 +25,7 @@ Replace CURRENT_STAR_COUNT with the live count at pull-request time:
 Use only when the target list uses a two-column name-and-description format:
 
 ~~~markdown
-| [CNS Skills](https://github.com/niuyupeng/CNS-Skills) | Evidence-bounded scientific manuscript revision with bilingual rewriting, title and citation audits, peer-review workflows, figure/table QA, and local clean-copy checks. |
+| [CNS Skills](https://github.com/niuyupeng/CNS-Skills) | Author-led scientific outlines and evidence-bounded drafting with bilingual rewriting, title/citation audits, peer review, figure/table QA, and local clean-copy checks. |
 ~~~
 
 ### Pull-request title
@@ -41,7 +41,7 @@ Adds [CNS Skills](https://github.com/niuyupeng/CNS-Skills) to the Academic Writi
 
 ## Why it fits
 
-CNS Skills is an MIT-licensed Agent Skill for evidence-bounded scientific manuscript revision. It covers English-first Chinese-to-English reconstruction, scientific-title optimization, claim-citation and overclaiming audits, skeptical peer review, rebuttals, figure/table/caption QA, and clean-submission-file checks.
+CNS Skills is an MIT-licensed Agent Skill for author-led scientific manuscript development. It covers positioning, argument-led outlines, evidence matrices, first drafts from approved sources, English-first reconstruction, title and citation audits, peer review, rebuttals, figure/table QA, and clean-submission-file checks.
 
 The repository includes a documented SKILL.md, explicit non-target and scientific-integrity boundaries, local audit scripts, regression tests, privacy and support documents, and installable Agent Skills / Claude Code / Codex plugin layouts. It does not require a proprietary CNS backend.
 
@@ -49,7 +49,7 @@ The repository includes a documented SKILL.md, explicit non-target and scientifi
 
 The project does not fabricate evidence or references, guarantee acceptance, claim publisher affiliation, or optimize for AI-detector evasion. Optional network checks are disclosed in its privacy policy.
 
-I have placed it under Academic Writing rather than Literature Search or Statistical Analysis because its core task is supplied-manuscript revision and quality assurance.
+I have placed it under Academic Writing rather than Literature Search or Statistical Analysis because its core task is author-led manuscript development and quality assurance from supplied decisions, sources, results, and drafts.
 ~~~
 
 ## Second-wave candidate lists
@@ -63,7 +63,7 @@ Check the live contribution rules before preparing a change:
 Use this generic entry only if the list accepts individual third-party skills:
 
 ~~~markdown
-- [CNS Skills](https://github.com/niuyupeng/CNS-Skills) — Evidence-bounded scientific manuscript revision, bilingual scholarly rewriting, peer-review and rebuttal workflows, citation audits, visual QA, and clean-copy checks.
+- [CNS Skills](https://github.com/niuyupeng/CNS-Skills) — Author-led scientific outlines and evidence-bounded drafting, bilingual scholarly rewriting, peer-review and rebuttal workflows, citation audits, visual QA, and clean-copy checks.
 ~~~
 
 ## Submission discipline

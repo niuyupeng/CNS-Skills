@@ -1,10 +1,10 @@
 interface:
   display_name: "CNS Skills"
-  short_description: "Top-venue writing and biomedical-figure QA"
+  short_description: "End-to-end scientific manuscript development and QA"
   icon_small: "./assets/cns-icon.svg"
   icon_large: "./assets/cns-icon.svg"
   brand_color: "#123B5D"
-  default_prompt: "Use $cns-skills to revise this manuscript into evidence-faithful submission English, optimize its title, redesign object-based biomedical figures and three-line tables when needed, require genuine cross-study synthesis for a Review, audit claims and citations, and verify the final file."
+  default_prompt: "Use $cns-skills to position, outline, or author an evidence-bounded first draft from my approved sources, then build submission English, optimize the title, audit claims and citations, design genre-appropriate figures and tables, clear internal AI-like scaffolding from the reader copy, and verify the final file."
 
 policy:
   allow_implicit_invocation: true

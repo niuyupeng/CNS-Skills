@@ -19,7 +19,7 @@ from pathlib import Path
 from xml.etree import ElementTree as ET
 
 
-VERSION = "0.11.0"
+VERSION = "0.12.0"
 
 NS = {
     "w": "http://schemas.openxmlformats.org/wordprocessingml/2006/main",

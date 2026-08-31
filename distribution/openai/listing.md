@@ -28,11 +28,11 @@ The publisher value is a proposal, not a verification claim. The exact verified 
 
 ## Short description
 
-Evidence-bounded scientific manuscript revision, translation, peer review, and submission-file QA.
+Author-led scientific positioning, outlines, evidence-bounded drafting, English revision, and submission-file QA.
 
 ## Long description
 
-CNS Skills is an independent, open-source workflow for revising scientific manuscripts without outrunning the evidence. It helps researchers reconstruct Chinese drafts into natural submission English, strengthen titles and argument structure, audit consequential claims against citations, prepare evidence-faithful reviewer responses, review figures and tables, and check clean submission files.
+CNS Skills is an independent, open-source workflow for developing scientific manuscripts without outrunning the evidence. It distinguishes author decisions, verified evidence, format-only references, proposals, and superseded directions; builds argument-led outlines and evidence matrices; drafts only from approved sources; reconstructs Chinese manuscripts into natural submission English; audits consequential claims and citations; and checks figures, tables, responses, and clean submission files.
 
 The skill supports research papers, reviews, theses, grants, rebuttals, and journal cover letters. It preserves supplied claims, numbers, terminology, citations, and project-defined scales; identifies unsupported or over-broad statements; and returns unresolved risks instead of inventing evidence. When the host provides document rendering, it can include rendered DOCX or PDF quality assurance.
 
@@ -48,7 +48,7 @@ https://github.com/niuyupeng/CNS-Skills/blob/main/PRIVACY.md
 
 ## Recommended starter prompts
 
-Use the first four prompts from starter-prompts.md in the initial listing unless the portal permits more. They cover the flagship full-manuscript workflow, bilingual reconstruction, skeptical peer review, and claim-citation audit. Additional prompts in that file cover titles, rebuttals, visual evidence, and review-method boundaries.
+Use the first four prompts from starter-prompts.md in the initial listing unless the portal permits more. They cover source-to-outline development, evidence-bounded first drafting, full-manuscript revision, and bilingual reconstruction. Additional prompts cover peer review, claim-citation auditing, titles, rebuttals, visual evidence, and review-method boundaries.
 
 ## Test-case source
 
@@ -60,7 +60,7 @@ Use openai/submission-tests.jsonl.
 
 ## Initial-submission release notes
 
-CNS Skills is being submitted for the first time as a Skills-only plugin. It provides evidence-bounded scientific manuscript revision, English-first bilingual rewriting, scientific-title optimization, peer-review and rebuttal workflows, claim-citation and overclaiming audits, figure/table/caption QA, and clean-submission-file checks. The submitted bundle is open source under the MIT License and requires no hosted CNS account or MCP server.
+CNS Skills is being submitted for the first time as a Skills-only plugin. It provides author-led positioning, scientific outlines, evidence matrices, evidence-bounded first drafts, English-first rewriting, title optimization, peer review, citation audits, figure/table QA, and clean-submission-file checks. The submitted bundle is open source under the MIT License and requires no hosted CNS account or MCP server.
 
 Reviewer note: this submission uses FROZEN_RELEASE_TAG at FROZEN_COMMIT_SHA. The exact uploaded bundle checksum is FROZEN_ZIP_SHA256. Optional DOI and venue-metadata checks use the public Crossref and OpenAlex services as disclosed in the privacy policy. No test credentials are required.
 

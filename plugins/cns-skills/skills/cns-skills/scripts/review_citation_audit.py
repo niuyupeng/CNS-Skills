@@ -21,7 +21,7 @@ from typing import Any, Iterable, NamedTuple
 from xml.etree import ElementTree as ET
 
 
-VERSION = "0.11.0"
+VERSION = "0.12.0"
 W_NS = "http://schemas.openxmlformats.org/wordprocessingml/2006/main"
 W = f"{{{W_NS}}}"
 M_T = "{http://schemas.openxmlformats.org/officeDocument/2006/math}t"

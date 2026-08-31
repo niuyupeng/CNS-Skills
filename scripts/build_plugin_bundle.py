@@ -31,6 +31,7 @@ FILE_PATHS = (
     Path("scripts/visual_audit.py"),
     Path("scripts/figure_brief.py"),
     Path("scripts/render_concept_svg.py"),
+    Path("scripts/manuscript_plan.py"),
 )
 
 

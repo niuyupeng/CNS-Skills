@@ -4,14 +4,14 @@
     "name": "Yupeng Niu"
   },
   "metadata": {
-    "description": "English-first scientific title and manuscript-quality workflows for journals and leading conferences."
+    "description": "Author-led scientific positioning, outlining, evidence-bounded drafting, English revision, and submission QA."
   },
   "plugins": [
     {
       "name": "cns-skills",
       "source": "./plugins/cns-skills",
-      "description": "Genre-aware scientific title and manuscript revision, Chinese-to-English academic writing, peer review, citation audits, object-based biomedical visual architecture, editable figures, three-line tables, and final-file QA.",
-      "version": "0.11.0",
+      "description": "Genre-aware scientific positioning, outlines, evidence matrices, author-led first drafts, Chinese-to-English writing, peer review, citations, figures, tables, and final-file QA.",
+      "version": "0.12.0",
       "author": {
         "name": "Yupeng Niu"
       },
@@ -19,6 +19,10 @@
       "tags": [
         "academic-writing",
         "scientific-writing",
+        "manuscript-planning",
+        "manuscript-outline",
+        "first-draft",
+        "evidence-matrix",
         "paper-polishing",
         "scientific-title",
         "paper-title",

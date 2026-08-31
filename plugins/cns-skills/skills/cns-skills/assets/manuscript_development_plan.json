@@ -1,0 +1,159 @@
+{
+  "template_notice": "Synthetic schema example only; replace every source, claim, and evidence locator before use.",
+  "plan_type": "manuscript_development_plan",
+  "artifact_stage": "detailed_outline",
+  "genre": "review",
+  "target_reader": "biomaterials researchers choosing among computational design approaches",
+  "source_language": "zh-CN",
+  "final_language": "en",
+  "source_sufficiency": "verified_literature",
+  "artifact_contract": {
+    "format": "docx",
+    "length_or_page_budget": "two landscape pages",
+    "approval_state": "pending_author_approval",
+    "editable": true
+  },
+  "positioning_lock": {
+    "article_type": "narrative review",
+    "article_family": "review",
+    "central_question": "How should a biomaterials researcher choose a computational approach for the next experimentally testable design decision?",
+    "primary_organizing_axis": "model role in the material-design decision",
+    "secondary_comparison_axes": [
+      "input representation",
+      "experimental validation setting",
+      "generalization",
+      "feedback role"
+    ],
+    "competing_primary_axes": [],
+    "differentiated_value": "connect model choice to the material decision, experimental action, validation boundary, and next useful test",
+    "boundaries": [
+      "not a claim of exhaustive literature coverage",
+      "not a universal maturity ranking"
+    ]
+  },
+  "authoritative_inputs": [
+    {
+      "id": "S1",
+      "role": "authoritative_content",
+      "locator": "author-approved meeting record"
+    },
+    {
+      "id": "S2",
+      "role": "format_reference",
+      "locator": "previous two-page outline supplied for layout only"
+    },
+    {
+      "id": "S3",
+      "role": "verified_evidence",
+      "locator": "verified primary-study evidence cards"
+    }
+  ],
+  "decision_provenance": [
+    {
+      "id": "D1",
+      "decision": "The model role owns the main section architecture.",
+      "status": "author_confirmed",
+      "source_id": "S1"
+    },
+    {
+      "id": "D2",
+      "decision": "The old material-category architecture remains active.",
+      "status": "superseded",
+      "source_id": "S1"
+    }
+  ],
+  "continuity": {
+    "project_record_read": true,
+    "active_decision_ids": ["D1"],
+    "superseded_decision_ids": ["D2"]
+  },
+  "title_lock": {
+    "source_title": "AI-guided biomaterials design",
+    "working_title": "Choosing computational models for experimentally testable biomaterials design",
+    "status": "proposal"
+  },
+  "genre_lock": {
+    "source_genre": "narrative_review",
+    "working_genre": "narrative_review",
+    "status": "source_explicit"
+  },
+  "genre_contract": {
+    "synthesis_units": "Group primary studies by the material decision changed by the model and compare what was tested next.",
+    "comparison_dimensions": [
+      "model action",
+      "experimental action",
+      "validation setting",
+      "generalization",
+      "evidence boundary"
+    ],
+    "coverage_boundary": "Narrative synthesis of a verified illustrative corpus; no claim of systematic completeness."
+  },
+  "claims": [
+    {
+      "id": "C1",
+      "text": "Model choice is useful only when tied to the material decision and its experimental validation boundary.",
+      "claim_type": "synthesis",
+      "status": "supported",
+      "validation_scope": "cross-study methodological synthesis with explicit experimental boundaries",
+      "evidence_ids": ["E1"]
+    }
+  ],
+  "evidence_records": [
+    {
+      "id": "E1",
+      "source_id": "S3",
+      "source_type": "primary_study",
+      "verification_status": "verified",
+      "metadata_status": "verified",
+      "full_text_status": "located",
+      "entailment_status": "verified",
+      "publication_status": "published",
+      "supported_claim_types": ["synthesis"],
+      "validation_scope": "recorded computational action, experimental test, and study-stated limitation",
+      "support_locator": "evidence card EC-001, quoted-support and boundary fields",
+      "exact_support": "record-level extraction fields for model action, experimental test, and stated boundary"
+    }
+  ],
+  "section_contracts": [
+    {
+      "id": "SEC1",
+      "heading": "From prediction to an experimental decision",
+      "reader_question": "What changes experimentally when a model ranks, generates, or selects a material candidate?",
+      "job": "Explain what changes when a model ranks, generates, or selects a material candidate and how that choice is tested.",
+      "claim_ids": ["C1"],
+      "evidence_ids": ["E1"],
+      "display_roles": ["overview"],
+      "evidence_gap": "No unresolved gap for the bounded outline claim; external-transfer evidence remains a later section question.",
+      "boundary": "Do not equate automation with autonomous feedback or experimental validation."
+    }
+  ],
+  "display_plan": [
+    {
+      "id": "F1",
+      "role": "overview",
+      "reader_question": "How do computational decisions connect to material preparation, measurement, and evidence boundaries?",
+      "claim_ids": ["C1"],
+      "evidence_ids": ["E1"],
+      "source_class": "verified cross-study concepts",
+      "editable_output": true
+    }
+  ],
+  "reader_visible_internal_labels": [],
+  "unresolved_items": [
+    {
+      "id": "U1",
+      "question": "Which exact venue and display limit will govern the final manuscript?",
+      "owner": "author",
+      "reader_visible": false
+    }
+  ],
+  "claims_substantive_new_version": true,
+  "architecture_delta": {
+    "primary_axis_change": "material-category chapters are replaced by model-decision chapters; material classes become cross-cutting evidence"
+  },
+  "data_or_benchmark_claims": false,
+  "literature_coverage_claim": {
+    "status": "illustrative"
+  },
+  "completion_status": "in_progress"
+}

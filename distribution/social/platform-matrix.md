@@ -6,7 +6,7 @@ Use one frozen release, one canonical repository link, and one claim-safe descri
 
 ## Canonical positioning
 
-CNS Skills is an independent, MIT-licensed Agent Skill for evidence-bounded scientific manuscript revision. It supports English-first bilingual rewriting, scientific-title optimization, claim-citation audits, peer review and rebuttals, figure/table/caption QA, and clean-submission-file checks. It does not fabricate evidence, promise acceptance, claim publisher affiliation, or optimize for AI-detector evasion.
+CNS Skills is an independent, MIT-licensed Agent Skill for author-led, evidence-bounded scientific manuscript development. It covers positioning, argument-led outlines, evidence matrices, first drafts from approved sources, English reconstruction, titles, citations, peer review, figures, tables, and clean-submission files. It does not fabricate evidence, promise acceptance, claim publisher affiliation, or optimize for AI-detector evasion.
 
 Canonical link:
 
@@ -35,13 +35,13 @@ https://github.com/niuyupeng/CNS-Skills
 
 Title:
 
-CNS Skills: an open, evidence-bounded Agent Skill for scientific manuscript revision
+CNS Skills: an open Agent Skill from scientific outline to defensible submission
 
 Body:
 
-I built CNS Skills to address the work that sentence-level academic polishing often leaves unresolved: the central claim, argument structure, claim-citation fit, reviewer logic, figure/table reporting, and the final clean submission file.
+I built CNS Skills to address the work that sentence-level academic polishing often leaves unresolved: which research decision is authoritative, how a topic becomes an argument-led outline, what evidence permits a first draft, how claims map to citations and figures, and whether the final submission file is genuinely clean.
 
-The open-source skill supports English-first reconstruction of Chinese drafts, scientific-title optimization, skeptical peer review, rebuttal preparation, six-axis citation auditing, visual-evidence QA, and local DOCX/text diagnostics. It explicitly refuses fabricated evidence, acceptance guarantees, publisher affiliation, and AI-detector evasion.
+The open-source skill supports positioning, outlines, evidence matrices, author-led first drafts, English-first reconstruction of Chinese manuscripts, scientific-title optimization, skeptical peer review, six-axis citation auditing, visual-evidence QA, and local DOCX/text diagnostics. Internal planning scaffolds stay outside the reader-visible manuscript. It explicitly refuses fabricated evidence, acceptance guarantees, publisher affiliation, and AI-detector evasion.
 
 The repository includes the full skill instructions, local auditors, positive and negative routing cases, privacy and support documents, and installable Codex / Claude Code / standalone Agent Skills layouts:
 
@@ -53,13 +53,13 @@ Before posting, replace this final paragraph with one concrete fact from the fro
 
 ### X
 
-Released CNS Skills: an open-source Agent Skill for evidence-bounded scientific manuscript revision—bilingual rewriting, scientific titles, claim/citation audits, rebuttals, figure/table QA, and clean-copy checks. No acceptance claims or detector evasion. https://github.com/niuyupeng/CNS-Skills
+Released CNS Skills: an open-source Agent Skill from scientific positioning and outline to an evidence-bounded first draft, submission English, citations, figures/tables, and clean-copy QA. No invented evidence, acceptance claims, or detector evasion. https://github.com/niuyupeng/CNS-Skills
 
 ### LinkedIn
 
 Scientific writing problems are rarely limited to grammar. A sentence can sound polished while the central claim is unclear, a citation supports only association rather than causation, a figure hides the true replication unit, or the final DOCX still exposes internal production notes.
 
-I built CNS Skills as an open, evidence-bounded Agent Skill for those deeper manuscript tasks. It supports English-first reconstruction of Chinese drafts, title optimization, peer review and rebuttals, claim-citation audits, figure/table/caption QA, and clean-submission-file checks.
+I built CNS Skills as an open, evidence-bounded Agent Skill for those deeper manuscript tasks. It can lock source authority, build an argument-led outline and evidence matrix, draft only from approved research materials, reconstruct Chinese manuscripts in submission English, and audit titles, citations, peer review, figures, tables, and clean-submission files.
 
 The project is MIT licensed and fully inspectable. It does not fabricate evidence, guarantee acceptance, claim affiliation with Cell, Nature, Science, or optimize for AI-detector evasion.
 
