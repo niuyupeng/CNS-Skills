@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "id": "Figure 1",
   "language": "English",
   "figure_type": "conceptual_flow",
@@ -12,6 +12,15 @@
   "height_mm": 70,
   "layout": "",
   "panels": [],
+  "review_role": "",
+  "biomedical_scene": false,
+  "scene_grammar": {
+    "scientific_object": "",
+    "experimental_action": "",
+    "measurement_or_test": "",
+    "decision_or_feedback": "",
+    "evidence_boundary": ""
+  },
   "data_source": "",
   "generative_art_permitted": false
 }

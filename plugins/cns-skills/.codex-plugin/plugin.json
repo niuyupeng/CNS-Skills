@@ -1,7 +1,7 @@
 {
   "name": "cns-skills",
-  "version": "0.10.0",
-  "description": "Evidence-faithful scientific manuscript revision with separate Review, original-Article, and leading-conference modes; citation, clean-copy, and visual-architecture QA; and safe editable figures and tables.",
+  "version": "0.11.0",
+  "description": "Evidence-faithful scientific manuscript revision with genre-specific writing and visual architecture, object-based biomedical scenes, cross-study synthesis, citation and clean-copy QA, and safe editable figures and tables.",
   "author": {
     "name": "Yupeng Niu",
     "url": "https://github.com/niuyupeng"
@@ -41,7 +41,7 @@
   "interface": {
     "displayName": "CNS Skills — Scientific Writing",
     "shortDescription": "Scientific manuscript, citation, figure, and table QA",
-    "longDescription": "English-first manuscript and title revision with genre-specific argument and visual architecture, evidence and citation audits, venue-aware tables, safe figure routing, and final-artifact QA.",
+    "longDescription": "English-first manuscript and title revision with genre-specific argument and visual architecture, object-based biomedical scenes, genuine cross-study synthesis, evidence and citation audits, venue-aware tables, safe figure routing, and final-artifact QA.",
     "developerName": "Yupeng Niu",
     "category": "Productivity",
     "capabilities": [

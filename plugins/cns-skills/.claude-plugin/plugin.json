@@ -1,7 +1,7 @@
 {
   "name": "cns-skills",
-  "version": "0.10.0",
-  "description": "Evidence-faithful scientific manuscript revision with separate Review, original-Article, and leading-conference modes; citation, clean-copy, and visual-architecture QA; and safe editable figures and tables.",
+  "version": "0.11.0",
+  "description": "Evidence-faithful scientific manuscript revision with genre-specific writing and visual architecture, object-based biomedical scenes, cross-study synthesis, citation and clean-copy QA, and safe editable figures and tables.",
   "author": {
     "name": "Yupeng Niu"
   },

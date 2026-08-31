@@ -53,6 +53,7 @@ REQUIRED_FILES = (
     ROOT / "research" / "visual-production-study.md",
     ROOT / "research" / "top-review-visual-architecture-study.md",
     ROOT / "assets" / "figure_brief.json",
+    ROOT / "assets" / "review_visual_plan.json",
 )
 
 PUBLIC_TOOLS = (
@@ -170,7 +171,7 @@ def validate_corpus() -> None:
 def validate_public_counts() -> None:
     suite = unittest.defaultTestLoader.discover(str(ROOT / "tests"), pattern="test_*.py")
     test_count = suite.countTestCases()
-    if test_count != 241:
+    if test_count != 254:
         fail(f"discovered {test_count} tests; update the public proof line and this release gate")
 
     routing_path = ROOT / "evals" / "discovery-prompts.jsonl"
@@ -188,7 +189,7 @@ def validate_public_counts() -> None:
     english = (ROOT / "README.md").read_text(encoding="utf-8")
     chinese = (ROOT / "README.zh-CN.md").read_text(encoding="utf-8")
     for label, text in (("README.md", english), ("README.zh-CN.md", chinese)):
-        for claim in ("241", "118", "93", "68", "600"):
+        for claim in ("254", "118", "93", "68", "600"):
             if claim not in text:
                 fail(f"{label} no longer exposes the validated {claim} proof count")
     if "9 transparent local tools" not in english:

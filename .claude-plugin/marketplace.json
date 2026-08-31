@@ -10,8 +10,8 @@
     {
       "name": "cns-skills",
       "source": "./plugins/cns-skills",
-      "description": "Genre-aware scientific title and manuscript revision, Chinese-to-English academic writing, peer review, citation audits, visual architecture, editable figures, three-line tables, and final-file QA.",
-      "version": "0.10.0",
+      "description": "Genre-aware scientific title and manuscript revision, Chinese-to-English academic writing, peer review, citation audits, object-based biomedical visual architecture, editable figures, three-line tables, and final-file QA.",
+      "version": "0.11.0",
       "author": {
         "name": "Yupeng Niu"
       },

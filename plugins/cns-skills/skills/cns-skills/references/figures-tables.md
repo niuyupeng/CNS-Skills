@@ -27,6 +27,14 @@ This is a reasoning sequence, not a mandatory five-figure template. Review artic
 
 Give each figure one governing question. Give each panel one job. Order panels in the reading direction and make the panel logic explicit in the caption.
 
+Do not treat graphical abstract, overview, workflow, framework, evidence
+synthesis, and roadmap as synonyms. Record one primary role for each item. A
+workflow shows an evidenced sequence; a framework shows non-temporal relations
+or decision logic; an evidence synthesis aligns multiple traceable studies on
+declared comparison dimensions; and a roadmap makes future choices conditional
+on present evidence gaps. A graphical abstract compresses the whole paper under
+the exact venue's policy and does not automatically replace any main-text role.
+
 ## Honest quantitative graphics
 
 - Show the experimental or sampling unit, not only the number of technical measurements.
@@ -108,6 +116,13 @@ supplement decisions, and venue-specific count boundaries. A Review can satisfy
 a numeric display limit while still fail visually when tables dominate and no
 figure performs the central cross-study synthesis.
 
+When a central Review claim depends on cross-study comparison, require at least
+one genuine evidence-synthesis figure with two or more traceable studies,
+explicit comparison dimensions, visible missingness, and a stated selection
+boundary. A second workflow or an icon-rich overview cannot substitute for this
+display. Preserve the full extraction record in a table or supplement when the
+main figure deliberately selects contrasts.
+
 For a review, distinguish:
 
 - conceptual synthesis created by the authors;
@@ -116,6 +131,15 @@ For a review, distinguish:
 - illustrative examples that are not systematic evidence.
 
 Do not draw arrow direction, hierarchy, readiness, or causal mechanism more strongly than the cited evidence permits. If studies are heterogeneous, show the source of heterogeneity instead of forcing a single ranking.
+
+For object-based biomedical schematics, show the scientific object,
+experimental action, measurement or test, decision or feedback, and evidence
+boundary when those layers answer the reader question. This is a semantic
+grammar rather than a fixed five-step layout. Icons must encode one of those
+scientific functions and be defined by a label, legend, or caption; remove
+decorative icons. Repeated text cards connected by generic arrows are a failure
+when they replace the material, intervention, readout, decision, and untested
+conditions that the Review is meant to explain.
 
 A strong evidence table records the validation ladder explicitly—for example, computational-only, retrospective/in vitro, prospective/in vivo, and clinical/deployment evidence—using definitions appropriate to the field.
 

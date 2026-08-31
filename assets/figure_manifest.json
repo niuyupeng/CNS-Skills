@@ -1,9 +1,10 @@
 {
-  "schema_version": "1.1",
+  "schema_version": "1.2",
   "figures": [
     {
       "id": "Figure 1",
       "figure_type": "",
+      "primary_review_role": "",
       "conceptual_or_evidence": "",
       "reader_question": "",
       "supported_claim": "",
@@ -13,7 +14,16 @@
       "independent_n": "",
       "uncertainty_and_statistics": "",
       "transformations": [],
+      "biomedical_scene_grammar": {
+        "scientific_object": "",
+        "experimental_action": "",
+        "measurement_or_test": "",
+        "decision_or_feedback": "",
+        "evidence_boundary": ""
+      },
+      "icon_semantics": {},
       "license_or_permission": "",
+      "third_party_visual_components": [],
       "tool_and_version": "",
       "prompt_or_code_record": "",
       "ai_assistance_disclosure": "",

@@ -22,6 +22,17 @@ Check each layer separately. A repository license may not cover model weights, d
 - “Nature-style” or similar wording is descriptive, not certification or endorsement. State the access date and require final official-policy verification.
 - Record permission for adapted/reproduced figures and the exact caption credit line.
 - Verify that icon, stock-art, diagram, and graphical-abstract licenses permit publication, modification, and the intended distribution model.
+- Do not copy BioRender assets, templates, screenshots, or visual identity into
+  CNS Skills, its examples, or a newly authored figure. BioRender is a
+  commercial platform, and visible access is not permission to redistribute its
+  library. Transfer only general principles such as object-based biomedical
+  semantics, clear hierarchy, consistent visual grammar, and an obvious reading
+  path; implement the geometry, composition, and labels independently.
+- If an author supplies a BioRender or other proprietary figure/component under
+  a valid licence, preserve the original source/export record and verify the
+  licence tier, publication right, required credit, permitted modification, and
+  redistribution boundary. A right to publish a finished figure does not
+  automatically permit releasing its editable assets in an open-source Skill.
 - Treat source-available or proprietary skills as inspectable comparison material only. Do not import their prompts, instructions, code, templates, or assets without permission that covers modification and redistribution. For example, Anthropic's public `docx`, `pdf`, `pptx`, and `xlsx` skill directories have repository-specific proprietary terms even though other directories in the same repository are Apache-2.0.
 
 Learning a general principle is not a license shortcut. Record the problem observed, derive an implementation independently, and keep the sources that informed the principle in the design review. If wording, code, examples, tests, or assets are adapted rather than independently implemented, treat them as a third-party component in the provenance register and satisfy the exact attribution and notice terms.

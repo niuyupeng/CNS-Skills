@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "plan_type": "review_visual_plan",
+  "article_type": "structured_narrative_review",
+  "target_venue": "exact venue pending",
+  "display_count_basis": "narrative_roles_and_verified_venue_rules",
+  "argument_depends_on_cross_study_comparison": true,
+  "displays": [
+    {
+      "id": "Figure 1",
+      "role": "overview",
+      "placement": "main",
+      "reader_question": "Which scientific objects, experimental actions, measurements, decisions, and boundaries define the reviewed system?",
+      "supported_claim": "The Review is organized around a declared scientific and experimental decision problem.",
+      "evidence_sources": [
+        "manuscript scope and cited sources"
+      ],
+      "biomedical_scene": true,
+      "visual_form": "object_based_scene",
+      "scene_grammar": {
+        "scientific_object": "material, formulation, biological system, or model",
+        "experimental_action": "synthesis, formulation, perturbation, manufacture, or administration",
+        "measurement_or_test": "declared physicochemical, process, in vitro, ex vivo, animal, or human readout",
+        "decision_or_feedback": "select, reject, prioritize, update, or trigger a verified next round",
+        "evidence_boundary": "unmeasured, untransferred, or unvalidated context"
+      },
+      "icons": [],
+      "icon_semantics": {},
+      "copy_brand_assets": false,
+      "imitate_visual_identity": false,
+      "third_party_visual_components": []
+    },
+    {
+      "id": "Figure 2",
+      "role": "evidence_synthesis",
+      "placement": "main",
+      "reader_question": "What changes when the selected studies are aligned on the same evidence dimensions?",
+      "supported_claim": "The compared studies differ on declared, independent dimensions without forming an unsupported maturity ranking.",
+      "cross_study": true,
+      "evidence_sources": [
+        "Study A citation or extraction record",
+        "Study B citation or extraction record"
+      ],
+      "comparison_dimensions": [
+        "experimental decision role",
+        "testing or validation context",
+        "generalization boundary"
+      ],
+      "selection_boundary": "State whether the studies are exhaustive, systematic, or deliberately selected contrasts.",
+      "visual_form": "evidence_landscape",
+      "icons": [],
+      "icon_semantics": {},
+      "copy_brand_assets": false,
+      "imitate_visual_identity": false,
+      "third_party_visual_components": []
+    }
+  ]
+}

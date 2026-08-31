@@ -52,11 +52,31 @@ The routed brief is a production contract, not permission to create missing evid
 - **Review flow, comparison, taxonomy, or decision schematic:** default to editable SVG with real text and semantic groups. Do not imply causality, order, or maturity unless the cited evidence supports it.
 - **Conceptual art or graphical abstract:** verify the exact venue's current AI-image and disclosure policy first. If permitted, label it as conceptual, retain the prompt/tool/version/output/human-edit history, and typeset final labels manually.
 
+For a biomedical Review schematic, decide whether the reader needs an
+object-based scene, evidence landscape, comparison matrix, mechanism diagram,
+or another form before choosing a layout. An object-based scene should encode
+the scientific object, experimental action, measurement/test, decision or
+feedback, and evidence boundary as semantic groups. Do not default to identical
+cards linked by arrows merely because they are easy to render.
+
 For deterministic concept figures, `render_concept_svg.py` supports `flow` and `independent_axes` layouts. Its output is an editable SVG, not a data figure:
 
 ```bash
 python scripts/render_concept_svg.py figure-spec.json figure.svg
 ```
+
+For a complete Review display plan, use the portfolio schema and the same
+router:
+
+```bash
+python scripts/figure_brief.py assets/review_visual_plan.json --json review-visual-audit.json
+```
+
+The portfolio audit distinguishes graphical abstract, overview, workflow,
+framework, evidence synthesis, and roadmap; it checks whether cross-study
+comparison has a genuine evidence-synthesis display and whether biomedical
+scene icons carry declared scientific semantics. It does not assess source
+entailment or replace a visual review.
 
 ## Audit semantic coverage before styling [PD]
 
@@ -109,6 +129,14 @@ For an editable review schematic:
 8. export a high-resolution preview only after the vector source passes structural review;
 9. inspect the standalone export and the rendered manuscript at final physical size.
 
+For an object-based biomedical scene, group the editable source by scientific
+object, experimental action, measurement/test, decision/feedback, and boundary.
+Use original geometry or components whose publication and redistribution rights
+are documented. Each icon must have a scientific role recorded in the figure
+brief; if changing the icon would not change interpretation, remove it. Treat a
+static card or box stack as a failed draft when it contains the same information
+as a bulleted list and shows no experimental object, action, readout, or limit.
+
 Do not force independent dimensions into aligned columns when alignment implies a false one-to-one mapping. Do not use a single arrow as a generic signal of progress when the scientific categories are non-ordinal. Use feedback arrows only when results actually inform another decision round.
 
 ## Prompts are bounded specifications [PD]
@@ -119,7 +147,13 @@ A useful scientific-visual prompt has three layers:
 2. **Production instruction:** layout, reading order, language, final size, labels, typography, palette, editable layers, and export.
 3. **Audit instruction:** no invented data or mechanisms; check arrows, labels, accessibility, final-size legibility, provenance, license, and venue policy.
 
-Do not ask for a generic “Nature-style” or “top-journal-style” image. Describe the qualities needed—clarity, evidence boundary, restrained hierarchy, accessible encoding, and editable output—without imitating a publisher's visual identity or implying endorsement.
+Do not ask for a generic “Nature-style”, “top-journal-style”, or “BioRender-
+style” image. Describe the transferable qualities needed—object-based
+biomedical semantics, clarity, evidence boundary, restrained hierarchy,
+accessible encoding, and editable output—without copying a publisher's or
+commercial platform's assets, templates, layout, or visual identity. If the
+author supplies a licensed third-party component, record its source, licence,
+publication rights, modification, credit line, and redistribution boundary.
 
 If a host exposes image generation, use the routed prompt only for venue-permitted conceptual artwork. For ordinary review schematics, tables, and data figures, deterministic vector or plotting workflows remain preferable.
 

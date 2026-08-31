@@ -4,7 +4,9 @@
 > Claude Code, and Agent Skills-compatible clients. It revises English or
 > Chinese manuscripts while preserving evidence boundaries, and audits claims,
 > citations, titles, figures, tables, cross-references, and clean-submission
-> DOCX artifacts.
+> DOCX artifacts. Review mode distinguishes graphical abstracts, overviews,
+> workflows, frameworks, cross-study evidence synthesis, and roadmaps, with an
+> object-based biomedical scene grammar and third-party visual provenance.
 
 Repository: https://github.com/niuyupeng/CNS-Skills
 License: https://github.com/niuyupeng/CNS-Skills/blob/main/LICENSE

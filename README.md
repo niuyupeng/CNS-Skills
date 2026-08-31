@@ -18,7 +18,7 @@ CNS Skills is an open-source scientific-writing Agent Skill for ChatGPT/Codex, C
 [![Agent Skills](https://img.shields.io/badge/standard-Agent_Skills-123B5D.svg)](https://agentskills.io/)
 [![Cite](https://img.shields.io/badge/cite-CITATION.cff-7A263A.svg)](CITATION.cff)
 
-**12 editorial gates · 8 venue profiles · 320-abstract baseline · 600-record genre corpus · two 100-title panels (150 distinct titles) · 68 routing cases · 241 deterministic tests · 9 transparent local tools**
+**12 editorial gates · 8 venue profiles · 320-abstract baseline · 600-record genre corpus · two 100-title panels (150 distinct titles) · 68 routing cases · 254 deterministic tests · 9 transparent local tools**
 
 <sub>Independent MIT-licensed project. CNS means Cell · Nature · Science as an aspirational editorial benchmark; it does not imply affiliation, endorsement, or acceptance.</sub>
 
@@ -125,7 +125,7 @@ Every number below is inspectable in this repository.
 |---|---|---|
 | [12-gate editorial standard](references/cns-editorial-standard.md) | a documented 12-dimension selective-venue review surface | acceptance by any journal or conference |
 | [8 venue profiles](references/venue-profiles.md) | distinct journal/conference review paths | permanent substitution for current official policies |
-| [visual-production workflow](references/visual-production.md) and [source study](research/visual-production-study.md) | an inspectable route from reader question and evidence class to data/code, authentic images, editable SVG, or policy-cleared conceptual art | a universal journal style, permission to fabricate experimental imagery, or automatic venue compliance |
+| [visual-production workflow](references/visual-production.md) and [source study](research/visual-production-study.md) | an inspectable route from reader question and evidence class to data/code, authentic images, editable SVG, policy-cleared conceptual art, or a Review-plan audit | a universal journal style, permission to fabricate experimental imagery, or automatic venue compliance |
 | [320-abstract aggregate baseline](references/venue-corpus-findings.md) | reproducible descriptive venue-language checks | a style-transfer corpus or acceptance model |
 | [600-record genre corpus](research/genre-corpus-2026/README.md) | separately audited Review, original Article, and top-conference writing mechanisms with per-record provenance and text-level disclosure | 600 expert close readings, field-wide prevalence, or an acceptance model |
 | [three genre-specific playbooks](references/genre-aware-top-venue-writing.md) | separate Review synthesis, original-Article inference, and page-budgeted conference contribution/evaluation logic | one transferable top-venue template or a fixed display count |
@@ -134,7 +134,7 @@ Every number below is inspectable in this repository.
 | [100-title field layer](research/field-journal-title-study.md) | a second topic-matched panel retaining strong field venues including *ACS Nano*, *Advanced Functional Materials*, *Acta Biomaterialia*, and *Biomaterials*; 50 DOI records overlap the core, leaving 150 distinct titles across both panels | 200 distinct titles, a pooled prestige average, or a reason to override article type |
 | [68 bilingual routing cases](evals/README.md) | positive and negative discovery regression coverage | guaranteed activation in every agent host |
 | 30-case locked held-out split | resistance to metadata overfitting | an external benchmark leaderboard |
-| [241 deterministic tests](tests) | observable invariants and CLI behavior, including 118 review-search tests built around 93 independently designed counterexamples | semantic proof that every edit is correct |
+| [254 deterministic tests](tests) | observable invariants and CLI behavior, including 118 review-search tests built around 93 independently designed counterexamples and biomedical Review-plan counterexamples | semantic proof that every edit is correct |
 | 9 dependency-free local tools | transparent manuscript diagnostics, safe visual routing, and deterministic concept-SVG generation | source-reading, image-integrity judgment, or author approval |
 | source/plugin synchronization in CI | packaged payload matches the root skill | endorsement by OpenAI, Anthropic, or a publisher |
 
@@ -175,14 +175,18 @@ CNS classifies a display before choosing a production tool:
 |---|---|---|
 | quantitative or statistical figure | declared data + plotting code + editable vector export | no image generator and no invented values |
 | microscopy, gels/blots, pathology, spectra, or other experimental image | authentic source observation + auditable transformations | no generative creation or content alteration |
-| review flow, taxonomy, comparison, or independent-axis schematic | deterministic editable SVG with real text and semantic groups | no unsupported causal arrows, rankings, or maturity scales |
+| review flow, taxonomy, comparison, or independent-axis schematic | original, deterministic editable SVG with real text and semantic groups | no unsupported causal arrows, rankings, maturity scales, or copied commercial assets |
 | conceptual art or graphical abstract | only after the exact venue policy and disclosure route are cleared | illustrative content cannot substitute for data or experimental evidence |
 
 For an ordinary SCI manuscript table whose exact venue does not prescribe another style, CNS uses a publication-neutral three-line default: top, header-bottom, and bottom rules; no vertical grid or decorative fill. This is a default, not a claim that every SCI journal mandates three-line tables. The current venue template always controls.
 
-The visual brief preserves the reader question, supported claim, prohibited inference, provenance, deliverables, and venue status. The concept renderer supports editable `flow` and `independent_axes` SVGs; quantitative figures still require their underlying data and code. The DOCX visual auditor resolves inherited table styles, so a `Table Grid` table cannot pass merely because its direct formatting omits borders.
+The visual brief preserves the reader question, supported claim, prohibited inference, provenance, deliverables, and venue status. The same tool audits a Review visual portfolio against six distinct roles: graphical abstract, overview, workflow, framework, evidence synthesis, and roadmap. The concept renderer supports editable `flow` and `independent_axes` SVGs; quantitative figures still require their underlying data and code. The DOCX visual auditor resolves inherited table styles, so a `Table Grid` table cannot pass merely because its direct formatting omits borders.
 
-For Reviews, CNS checks both the venue's quantity boundary and the display sequence's function. The public 14-paper audit is a design calibration only: its medians prompt a check for missing scope, synthesis, decision, or boundary functions; they never prescribe how many figures another Review should contain.
+For biomedical Reviews, CNS can require an object-based scene grammar—scientific object → experimental action → measurement/test → decision or feedback → evidence boundary—and flags static card/box stacks or icons with no scientific role. When the argument depends on comparing studies, at least one main-text figure must perform genuine cross-study evidence synthesis; a second workflow cannot replace it.
+
+For Reviews, CNS checks both the venue's quantity boundary and the display sequence's function. The public 14-paper audit is a design calibration only: its medians prompt a check for missing scope, synthesis, decision, or boundary functions; they never prescribe how many figures another Review should contain. Six figures plus one table may fit one manuscript, but it is not a CNS default or a transferable quota.
+
+CNS does not copy BioRender assets, templates, or visual identity. It transfers only general principles such as object-based biomedical semantics, clear hierarchy, and a readable path, then implements original geometry and records the licence and redistribution status of any author-supplied third-party component.
 
 ## Nine transparent local tools
 
@@ -198,6 +202,7 @@ python scripts/check_invariants.py source.docx revision.docx --shareable --json 
 python scripts/check_crossrefs.py revision.docx --shareable --json crossrefs.json
 python scripts/visual_audit.py revision.docx --expect-three-line --strict --shareable --json visual.json
 python scripts/figure_brief.py figure-brief.json --json routed-brief.json
+python scripts/figure_brief.py assets/review_visual_plan.json --json review-visual-audit.json
 python scripts/render_concept_svg.py figure-spec.json figure.svg
 ```
 
@@ -216,7 +221,7 @@ GitHub exposes **Cite this repository** from the root [CITATION.cff](CITATION.cf
   author  = {Niu, Yupeng},
   title   = {CNS Skills: Evidence-First Scientific Manuscript Revision and Quality Assurance},
   year    = {2026},
-  version = {0.10.0},
+  version = {0.11.0},
   url     = {https://github.com/niuyupeng/CNS-Skills}
 }
 ```

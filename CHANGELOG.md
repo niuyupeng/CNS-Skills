@@ -2,6 +2,15 @@
 
 ## Unreleased
 
+## 0.11.0 — 2026-08-31
+
+- Added an original object-based biomedical scene grammar for Review visuals: scientific object → experimental action → measurement/test → decision or feedback → evidence boundary. The guidance now rejects static card/box stacks when they conceal the experiment and requires every icon to carry a declared scientific role.
+- Separated graphical abstract, overview, workflow, framework, evidence synthesis, and roadmap as primary visual roles. When a Review's central argument depends on comparing studies, at least one main-text display must perform genuine cross-study evidence synthesis; an additional workflow cannot substitute for it.
+- Extended `figure_brief.py` to audit a complete Review visual plan, including role coverage, traceable multi-study synthesis, biomedical scene semantics, icon meaning, count-as-quota errors, and third-party visual provenance. Added `assets/review_visual_plan.json` as an editable planning contract.
+- Strengthened licence guidance: CNS Skills does not copy BioRender assets, templates, screenshots, or visual identity. It transfers only general clarity, hierarchy, and object-based-semantic principles, implements geometry independently, and records publication and redistribution rights for author-supplied proprietary components.
+- Clarified that display quantity follows distinct narrative roles, evidence needs, main-versus-supplement decisions, page space, and current venue rules. Six figures plus one table is an example that may fit one manuscript, not a CNS default or Review quota.
+- Expanded deterministic regression coverage from 241 to 254 tests and advanced skill, CLI, citation, Codex, Claude, marketplace, and generated-plugin metadata to 0.11.0. The public tool set remains nine transparent local tools.
+
 ## 0.10.0 — 2026-08-31
 
 - Added separate Review, original research Article, and leading-conference modes. The Review path synthesizes cross-study evidence, the Article path follows an inference-led Results and figure sequence, and the conference path locks year, track, submission phase, page budget, comparators, robustness, and error analysis instead of transferring one generic top-venue template.

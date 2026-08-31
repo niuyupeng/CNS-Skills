@@ -53,6 +53,21 @@ scope, cross-study synthesis, decision, and evidence boundary. Tables are best
 for exact lookup and provenance-rich comparison, but they do not substitute for
 a missing conceptual or evidence-synthesis figure.
 
+Assign every proposed display one primary role before drawing: graphical
+abstract, overview, workflow, framework, evidence synthesis, roadmap, table, or
+box. These labels are not interchangeable. In particular, a workflow explains
+an evidenced sequence, whereas an evidence-synthesis figure aligns findings
+from multiple studies on declared comparison dimensions. When a central Review
+claim is produced by cross-study comparison, the main visual argument must
+contain at least one genuine evidence-synthesis display; a second workflow,
+decorative summary, or larger inventory table does not satisfy that need.
+
+For biomedical overview, workflow, or framework figures, use the object-based
+scene grammar in `review-visual-architecture.md`. The scientific objects,
+experimental actions, measurements or tests, decisions or feedback, and
+evidence boundaries should be visible in the artwork or caption rather than
+reduced to a stack of interchangeable text boxes.
+
 ## Section contract
 
 For every major section, write a one-sentence internal contract:

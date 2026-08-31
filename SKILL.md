@@ -1,9 +1,9 @@
 ---
 name: cns-skills
-description: Edits, translates, polishes, peer-reviews, and optimizes titles for scientific manuscripts targeting journals and top conferences. Use for a research paper or SCI manuscript, theses, reviews, Chinese-to-English scholarly translation, grants, rebuttals, cover letters, scientific title optimization, claim/citation/DOI/overclaiming audits, scientific figures, publication graphics, three-line tables, caption QA, graphical abstracts, clean-copy audits, and DOCX/PDF/LaTeX QA. Also match 论文题目优化、SCI标题润色、论文润色、SCI英文润色、学术中译英、审稿回复、参考文献核验、科研图表、论文作图、科研绘图、三线表. Benchmarked to Cell, Nature, Science, AAAI, CVPR, NeurIPS, ICML, and ICLR; preserves evidence and author intent. Excludes general translation, ghostwriting, literature search, identifier lookup, citation formatting alone, raw data analysis, generic illustration, and biomedical Q&A without manuscript revision. CNS means Cell/Nature/Science, not central nervous system. Refuse fabricated evidence, acceptance guarantees, and AI-detector evasion.
+description: Edits, translates, polishes, peer-reviews, and optimizes titles for scientific manuscripts targeting journals and top conferences. Use for a research paper or SCI manuscript, theses, reviews, Chinese-to-English scholarly translation, grants, rebuttals, cover letters, scientific title optimization, claim/citation/DOI/overclaiming audits, scientific figures, object-based biomedical review graphics, three-line tables, caption QA, graphical abstracts, clean-copy audits, and DOCX/PDF/LaTeX QA. Also match 论文题目优化、SCI标题润色、论文润色、SCI英文润色、学术中译英、审稿回复、参考文献核验、科研图表、论文作图、科研绘图、三线表. Benchmarked to Cell, Nature, Science, AAAI, CVPR, NeurIPS, ICML, and ICLR; preserves evidence and author intent. Excludes general translation, ghostwriting, literature search, identifier lookup, citation formatting alone, raw data analysis, generic illustration, and biomedical Q&A without manuscript revision. CNS means Cell/Nature/Science, not central nervous system. Refuse fabricated evidence, acceptance guarantees, and AI-detector evasion.
 license: MIT
 metadata:
-  version: "0.10.0"
+  version: "0.11.0"
 ---
 
 # CNS Skills
@@ -168,6 +168,18 @@ targets. Check whether the display sequence covers scope, synthesis, decision,
 and evidence boundary; several tables do not substitute for a missing
 cross-study synthesis figure.
 
+For a biomedical Review, make overview, workflow, and framework figures carry
+scientific objects and experimental meaning rather than presenting the argument
+as repeated text cards. Use the scene grammar **scientific object → experimental
+action → measurement/test → decision or feedback → evidence boundary** when the
+reader question follows an experimental path. Every icon must identify an
+object, action, readout, decision, or boundary; decorative icons do not count as
+scientific content. Distinguish graphical abstract, overview, workflow,
+framework, evidence synthesis, and roadmap as separate primary roles. If the
+Review's argument depends on comparing studies, require at least one genuine
+cross-study evidence-synthesis display with traceable studies and explicit
+comparison dimensions; another workflow cannot replace it.
+
 Do not impose a generic introduction–advantages–limitations template on every section. Combine sections only when they make the same intellectual move; split sections when one paragraph carries several incompatible functions.
 
 ## 3. Edit paragraphs by function
@@ -238,7 +250,7 @@ conference figures should earn space within the verified page budget by testing
 the stated contribution. Never transfer a display-count norm from one genre or
 venue to another.
 
-For file-level creation, restyling, or semantic-axis/table-column auditing, also read `references/visual-production.md`. Route the display before choosing a tool: quantitative figures come from data and code; experimental images come only from authentic observations; review schematics default to editable SVG; generative image tools are limited to policy-cleared conceptual art. Use `scripts/figure_brief.py` to produce a bounded prompt/production contract and `scripts/render_concept_svg.py` for deterministic flow or independent-axis schematics.
+For file-level creation, restyling, or semantic-axis/table-column auditing, also read `references/visual-production.md`. Route the display before choosing a tool: quantitative figures come from data and code; experimental images come only from authentic observations; review schematics default to editable SVG; generative image tools are limited to policy-cleared conceptual art. Use `scripts/figure_brief.py` to produce a bounded prompt/production contract or audit a Review visual plan, and `scripts/render_concept_svg.py` for deterministic flow or independent-axis schematics.
 
 When the exact venue does not prescribe another table style and the user requests an ordinary SCI manuscript table, use the publication-neutral three-line default: top, header-bottom, and bottom rules; no vertical rules, cell grid, or decorative fill. Treat it as a default, not a universal SCI law. After DOCX edits, run `scripts/visual_audit.py manuscript.docx --expect-three-line --strict` and inspect inherited table styles as well as direct formatting.
 

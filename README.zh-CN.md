@@ -18,7 +18,7 @@ CNS Skills 是面向 ChatGPT/Codex、Claude Code 和兼容客户端的开源科�
 [![Agent Skills](https://img.shields.io/badge/standard-Agent_Skills-123B5D.svg)](https://agentskills.io/)
 [![Cite](https://img.shields.io/badge/cite-CITATION.cff-7A263A.svg)](CITATION.cff)
 
-**12 项编辑门槛 · 8 类场所配置 · 320 篇摘要基线 · 600 条分文体语料 · 两组各 100 个题名（共 150 个不同题名） · 68 条路由案例 · 241 项确定性测试 · 9 个透明本地工具**
+**12 项编辑门槛 · 8 类场所配置 · 320 篇摘要基线 · 600 条分文体语料 · 两组各 100 个题名（共 150 个不同题名） · 68 条路由案例 · 254 项确定性测试 · 9 个透明本地工具**
 
 <sub>独立 MIT 开源项目。CNS 指 Cell · Nature · Science 这一编辑质量标杆，不表示隶属、背书或录用保证。</sub>
 
@@ -121,7 +121,7 @@ git clone https://github.com/niuyupeng/CNS-Skills.git ~/.claude/skills/cns-skill
 |---|---|---|
 | [12 项 CNS 编辑门槛](references/cns-editorial-standard.md) | 一套公开的 12 维顶刊导向审查面 | 任何期刊或会议必然录用 |
 | [8 类场所配置](references/venue-profiles.md) | 期刊与顶会不会被当成同一种写法 | 永久替代最新官方投稿政策 |
-| [科研图表制作工作流](references/visual-production.md)与[来源研究记录](research/visual-production-study.md) | 从读者问题和证据类型，透明路由到数据/代码、真实图像、可编辑 SVG 或政策允许的概念艺术 | 万能期刊风格、伪造实验图像的许可或自动投稿合规 |
+| [科研图表制作工作流](references/visual-production.md)与[来源研究记录](research/visual-production-study.md) | 从读者问题和证据类型，透明路由到数据/代码、真实图像、可编辑 SVG、政策允许的概念艺术或综述视觉方案审计 | 万能期刊风格、伪造实验图像的许可或自动投稿合规 |
 | [320 篇摘要聚合基线](references/venue-corpus-findings.md) | 可复现的场所语言描述 | 风格迁移语料或录用预测器 |
 | [600 条分文体语料](research/genre-corpus-2026/README.md) | 分别审计综述、原创 Article 和顶会论文的写作机制，并公开逐条来源与实际文本层级 | 600 篇专家逐句精读、领域发生率或录用模型 |
 | [三套分文体工作流](references/genre-aware-top-venue-writing.md) | 分开处理 Review 的跨研究综合、原创 Article 的推断链和顶会论文的篇幅约束下贡献—评测逻辑 | 一套可跨场所照搬的“顶刊模板”或固定图数 |
@@ -130,7 +130,7 @@ git clone https://github.com/niuyupeng/CNS-Skills.git ~/.claude/skills/cns-skill
 | [领域比较 100 题名](research/field-journal-title-study.md) | 第二组主题匹配面板，保留 *ACS Nano*、*Advanced Functional Materials*、*Acta Biomaterialia*、*Biomaterials* 等强领域期刊；其中 50 个 DOI 与核心组重叠，两组合计 150 个不同题名 | 200 个不同题名、混合计算的“声望平均值”或无视文体的模仿理由 |
 | [68 条中英文路由案例](evals/README.md) | 正负触发防回归 | 所有宿主都保证自动调用 |
 | 30 条锁定留出集 | 降低针对已知样例堆关键词的风险 | 外部排行榜成绩 |
-| [241 项确定性测试](tests) | 脚本行为和关键不变量；其中 118 项综述检索测试围绕 93 个独立设计的反例构建 | 每一次文字修改都语义正确 |
+| [254 项确定性测试](tests) | 脚本行为和关键不变量；其中 118 项综述检索测试围绕 93 个独立设计的反例构建，并加入生物医学综述视觉反例 | 每一次文字修改都语义正确 |
 | 9 个无第三方依赖的本地工具 | 透明稿件分诊、安全图形路由和确定性概念 SVG 生成 | 自动代替原文精读、图像真实性判断或作者批准 |
 
 本项目不虚构“成功率”、用户数量、引用次数、录用率或 AI 检测分数。宣传可以很强，但硬数字必须能在仓库里点开核验。
@@ -143,14 +143,18 @@ CNS 在选择制作工具前先判断展示项属于哪一类：
 |---|---|---|
 | 定量图或统计图 | 已声明的数据 + 绘图代码 + 可编辑矢量导出 | 不调用生图模型，不编造数值 |
 | 显微图、凝胶/印迹、病理、光谱等实验图像 | 真实原始观测 + 可审计处理记录 | 不生成，也不改变实验内容 |
-| 综述流程、分类、比较或独立轴示意图 | 使用真实文字和语义分组的确定性可编辑 SVG | 不添加无依据的因果箭头、排名或成熟度 |
+| 综述流程、分类、比较或独立轴示意图 | 使用原创几何、真实文字和语义分组的确定性可编辑 SVG | 不添加无依据的因果箭头、排名、成熟度或复制商业资产 |
 | 概念艺术或图形摘要 | 仅在核验具体期刊政策和披露路径后使用 | 示意内容不能替代数据或实验依据 |
 
 对于没有指定其他样式的普通 SCI 稿件表格，CNS 使用中性的三线表默认值：顶线、表头下线和底线，不使用竖向网格和装饰底色。这只是默认样式，不表示所有 SCI 期刊都强制三线表；当前目标期刊模板始终优先。
 
-图形 brief 会保留读者问题、可支持主张、禁止推断、来源、交付物和期刊核验状态。概念图渲染器支持可编辑的 `flow` 与 `independent_axes` SVG；定量图仍必须保留底层数据与代码。DOCX 视觉审计器会解析继承的表格样式，因此 `Table Grid` 不会因为表格本身没有直接边框属性而漏检。
+图形 brief 会保留读者问题、可支持主张、禁止推断、来源、交付物和期刊核验状态。同一个工具还会按图形摘要、总览、工作流、框架、跨研究证据综合和路线图六种角色审计整套综述视觉方案。概念图渲染器支持可编辑的 `flow` 与 `independent_axes` SVG；定量图仍必须保留底层数据与代码。DOCX 视觉审计器会解析继承的表格样式，因此 `Table Grid` 不会因为表格本身没有直接边框属性而漏检。
 
-对 Review，CNS 同时检查目标场所的数量边界和展示序列的功能覆盖。公开的 14 篇核查只用于提示范围、跨研究综合、决策或边界是否缺少视觉承载；其中位数绝不会被当成另一篇 Review 必须满足的图数。
+对于生物医学 Review，CNS 可要求“科学对象→实验动作→测量/测试→决策或反馈→证据边界”的对象化场景语法，并检查静态卡片/方框堆叠和没有科学语义的图标。如果中心论证依赖跨研究比较，正文至少要有一幅真正的跨研究证据综合图；第二张工作流不能替代它。
+
+对 Review，CNS 同时检查目标场所的数量边界和展示序列的功能覆盖。公开的 14 篇核查只用于提示范围、跨研究综合、决策或边界是否缺少视觉承载；其中位数绝不会被当成另一篇 Review 必须满足的图数。六图加一表可能适合某一篇稿件，但不是 CNS 默认值或可照搬配额。
+
+CNS 不复制 BioRender 的资产、模板或视觉身份，只迁移对象化生物医学表达、清晰层级和可读路径等一般原则，并独立实现几何与排版。作者提供的任何第三方组件仍须记录来源、许可、发表权利和再分发边界。
 
 ## 九个透明本地工具
 
@@ -166,6 +170,7 @@ python scripts/check_invariants.py 中文源稿.docx 英文修改稿.docx --shar
 python scripts/check_crossrefs.py 英文修改稿.docx --shareable --json crossrefs.json
 python scripts/visual_audit.py 英文修改稿.docx --expect-three-line --strict --shareable --json visual.json
 python scripts/figure_brief.py figure-brief.json --json routed-brief.json
+python scripts/figure_brief.py assets/review_visual_plan.json --json review-visual-audit.json
 python scripts/render_concept_svg.py figure-spec.json figure.svg
 ```
 
@@ -184,7 +189,7 @@ GitHub 会根据根目录 [CITATION.cff](CITATION.cff) 自动显示 **Cite this 
   author  = {Niu, Yupeng},
   title   = {CNS Skills: Evidence-First Scientific Manuscript Revision and Quality Assurance},
   year    = {2026},
-  version = {0.10.0},
+  version = {0.11.0},
   url     = {https://github.com/niuyupeng/CNS-Skills}
 }
 ```
