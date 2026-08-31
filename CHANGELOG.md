@@ -2,6 +2,16 @@
 
 ## Unreleased
 
+## 0.9.0 — 2026-08-31
+
+- Added an evidence-bounded scientific-visual production route backed by current official-source checks and a public design-lineage note. Quantitative figures route to declared data and code, experimental images require authentic observations and auditable transformations, review schematics route to editable SVG, and conceptual generative art remains conditional on the exact venue policy and disclosure route.
+- Added a publication-neutral three-line-table default for ordinary SCI manuscript tables when the verified venue does not prescribe another style: top, header-bottom, and bottom rules without vertical grids or decorative fill. This is explicitly a default, not a universal journal mandate.
+- Added `visual_audit.py`, a dependency-free DOCX visual auditor that resolves inherited Word table styles and checks table rules/fills, caption placement and styles, figure placement and alt text, raster dimensions, and effective DPI. Its visual gate remains separate from the clean-copy gate and does not certify scientific truth, image integrity, or venue compliance.
+- Added `figure_brief.py` to lock the reader question, supported claim, prohibited inference, source, deliverables, and venue status before production. It routes data figures to code, blocks generative experimental imagery, and permits conceptual generation only after policy clearance.
+- Added `render_concept_svg.py` for deterministic, editable `flow` and `independent_axes` SVG schematics with real text and accessibility metadata. These outputs are concept figures, not substitutes for data figures or experimental evidence.
+- Expanded the figure and table manifests with production/provenance fields, documented editable SVG and data/code provenance, and strengthened the license/disclosure boundary without importing third-party prompts, templates, code, or publisher artwork.
+- Expanded deterministic regression coverage from 191 to 231 tests and the public local-tool set from six auditors to nine transparent tools. Advanced skill, CLI, citation, Codex, and Claude release metadata to 0.9.0.
+
 ## 0.8.0 — 2026-08-30
 
 - Added article-type-aware scientific-title optimization and a transparent title auditor, grounded in two deliberately separate 100-record metadata panels: a 70 elite-journal plus 30 accepted main-conference core, and a topic-matched field comparison. Fifty DOI records overlap the panels, yielding 150 distinct titles; these are title studies, not full-paper readings or acceptance rules.

@@ -42,15 +42,21 @@ REQUIRED_FILES = (
     ROOT / "examples" / "synthetic-hydrogel-demo" / "reports" / "overclaim-risk-report.json",
     ROOT / "examples" / "synthetic-hydrogel-demo" / "reports" / "cross-reference-risk-report.json",
     ROOT / "examples" / "synthetic-hydrogel-demo" / "reports" / "clean-copy-risk-report.json",
+    ROOT / "references" / "visual-production.md",
+    ROOT / "research" / "visual-production-study.md",
+    ROOT / "assets" / "figure_brief.json",
 )
 
-AUDITORS = (
+PUBLIC_TOOLS = (
     "cns_audit.py",
     "review_citation_audit.py",
     "review_search_audit.py",
     "title_audit.py",
     "check_invariants.py",
     "check_crossrefs.py",
+    "visual_audit.py",
+    "figure_brief.py",
+    "render_concept_svg.py",
 )
 
 
@@ -156,7 +162,7 @@ def validate_corpus() -> None:
 def validate_public_counts() -> None:
     suite = unittest.defaultTestLoader.discover(str(ROOT / "tests"), pattern="test_*.py")
     test_count = suite.countTestCases()
-    if test_count != 191:
+    if test_count != 231:
         fail(f"discovered {test_count} tests; update the public proof line and this release gate")
 
     routing_path = ROOT / "evals" / "discovery-prompts.jsonl"
@@ -164,16 +170,23 @@ def validate_public_counts() -> None:
     if len(routing) != 68:
         fail(f"discovery prompt count is {len(routing)}; expected 68")
 
-    for name in AUDITORS:
+    if len(PUBLIC_TOOLS) != 9:
+        fail(f"public tool registry contains {len(PUBLIC_TOOLS)} entries; expected 9")
+
+    for name in PUBLIC_TOOLS:
         if not (ROOT / "scripts" / name).is_file():
-            fail(f"missing public auditor: scripts/{name}")
+            fail(f"missing public tool: scripts/{name}")
 
     english = (ROOT / "README.md").read_text(encoding="utf-8")
     chinese = (ROOT / "README.zh-CN.md").read_text(encoding="utf-8")
     for label, text in (("README.md", english), ("README.zh-CN.md", chinese)):
-        for claim in ("191", "118", "93", "68", "600"):
+        for claim in ("231", "118", "93", "68", "600"):
             if claim not in text:
                 fail(f"{label} no longer exposes the validated {claim} proof count")
+    if "9 transparent local tools" not in english:
+        fail("README.md no longer exposes the validated 9-tool public count")
+    if "9 个透明本地工具" not in chinese:
+        fail("README.zh-CN.md no longer exposes the validated 9-tool public count")
 
 
 def validate_demo_package() -> None:

@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0",
+  "id": "Figure 1",
+  "language": "English",
+  "figure_type": "conceptual_flow",
+  "reader_question": "",
+  "supported_claim": "",
+  "evidence_sources": [],
+  "prohibited_content": [],
+  "target_venue": "exact venue pending",
+  "width_mm": 183,
+  "height_mm": 70,
+  "layout": "",
+  "panels": [],
+  "data_source": "",
+  "generative_art_permitted": false
+}

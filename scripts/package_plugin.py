@@ -12,7 +12,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 PLUGIN_ROOT = ROOT / "plugins" / "cns-skills"
-FIXED_TIME = (2026, 8, 30, 0, 0, 0)
+FIXED_TIME = (2026, 8, 31, 0, 0, 0)
 
 
 def plugin_version() -> str:

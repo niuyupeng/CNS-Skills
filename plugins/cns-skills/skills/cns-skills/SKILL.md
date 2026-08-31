@@ -1,9 +1,9 @@
 ---
 name: cns-skills
-description: Edits, translates, polishes, proofreads, peer-reviews, and optimizes titles for scientific manuscripts and research papers targeting journals and top conferences. Use for scientific title optimization, paper-title refinement, SCI papers, theses/dissertations, review articles, Chinese-to-English scholarly translation, grants, rebuttals, cover letters, claim/citation/DOI/overclaiming audits, figure/table/caption QA, graphical abstracts, clean-submission-copy audits, and DOCX/PDF/LaTeX QA. Also match 论文题目优化、SCI标题润色、论文润色、SCI英文润色、学术中译英、审稿回复、参考文献核验、科研图表. Benchmarked to Cell, Nature, Science, AAAI, CVPR, NeurIPS, ICML, and ICLR; preserves evidence and author intent. Excludes general translation, coursework/ghostwriting, literature search, identifier lookup, citation formatting alone, raw data analysis, generic naming/illustration, and biomedical Q&A without manuscript revision. CNS means Cell/Nature/Science, not central nervous system. Refuse fabricated evidence, acceptance guarantees, and AI-detector evasion.
+description: Edits, translates, polishes, peer-reviews, and optimizes titles for scientific manuscripts targeting journals and top conferences. Use for a research paper or SCI manuscript, theses, reviews, Chinese-to-English scholarly translation, grants, rebuttals, cover letters, scientific title optimization, claim/citation/DOI/overclaiming audits, scientific figures, publication graphics, three-line tables, caption QA, graphical abstracts, clean-copy audits, and DOCX/PDF/LaTeX QA. Also match 论文题目优化、SCI标题润色、论文润色、SCI英文润色、学术中译英、审稿回复、参考文献核验、科研图表、论文作图、科研绘图、三线表. Benchmarked to Cell, Nature, Science, AAAI, CVPR, NeurIPS, ICML, and ICLR; preserves evidence and author intent. Excludes general translation, ghostwriting, literature search, identifier lookup, citation formatting alone, raw data analysis, generic illustration, and biomedical Q&A without manuscript revision. CNS means Cell/Nature/Science, not central nervous system. Refuse fabricated evidence, acceptance guarantees, and AI-detector evasion.
 license: MIT
 metadata:
-  version: "0.8.0"
+  version: "0.9.0"
 ---
 
 # CNS Skills
@@ -208,6 +208,10 @@ Return unresolved citation issues as an audit table. Do not silently replace cit
 ## 6. Design and audit the visual evidence
 
 When figures, tables, captions, or a graphical abstract are supplied or needed, read `references/figures-tables.md`. Build a visual claim ledger and make each display answer a reader question.
+
+For file-level creation, restyling, or semantic-axis/table-column auditing, also read `references/visual-production.md`. Route the display before choosing a tool: quantitative figures come from data and code; experimental images come only from authentic observations; review schematics default to editable SVG; generative image tools are limited to policy-cleared conceptual art. Use `scripts/figure_brief.py` to produce a bounded prompt/production contract and `scripts/render_concept_svg.py` for deterministic flow or independent-axis schematics.
+
+When the exact venue does not prescribe another table style and the user requests an ordinary SCI manuscript table, use the publication-neutral three-line default: top, header-bottom, and bottom rules; no vertical rules, cell grid, or decorative fill. Treat it as a default, not a universal SCI law. After DOCX edits, run `scripts/visual_audit.py manuscript.docx --expect-three-line --strict` and inspect inherited table styles as well as direct formatting.
 
 Check data provenance, independent `n`, replicate structure, uncertainty, statistics, axes, denominators, scale, accessibility, and caption completeness. Separate computational, retrospective, experimental, prospective, and clinical/deployment evidence. Do not generate or alter experimental evidence; generative imagery is limited to clearly labeled conceptual artwork when venue policy permits it.
 

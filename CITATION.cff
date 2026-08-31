@@ -9,8 +9,8 @@ authors:
 repository-code: "https://github.com/niuyupeng/CNS-Skills"
 url: "https://github.com/niuyupeng/CNS-Skills"
 license: MIT
-version: 0.8.0
-date-released: 2026-08-30
+version: 0.9.0
+date-released: 2026-08-31
 keywords:
   - scientific writing
   - academic writing
@@ -22,5 +22,7 @@ keywords:
   - top conferences
   - bilingual scientific writing
   - scientific figures
+  - three-line tables
+  - scientific visualization
   - scientific title optimization
   - venue corpus analysis

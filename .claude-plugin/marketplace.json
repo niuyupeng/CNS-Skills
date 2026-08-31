@@ -10,8 +10,8 @@
     {
       "name": "cns-skills",
       "source": "./plugins/cns-skills",
-      "description": "Scientific title optimization, paper polishing, manuscript revision, Chinese-to-English academic writing, peer review, citation audits, clean-copy gates, and figure/table QA.",
-      "version": "0.8.0",
+      "description": "Scientific title optimization, manuscript revision, Chinese-to-English academic writing, peer review, citation audits, scientific figures, three-line tables, and final-file QA.",
+      "version": "0.9.0",
       "author": {
         "name": "Yupeng Niu"
       },
@@ -30,6 +30,9 @@
         "clean-copy",
         "docx-qa",
         "figures",
+        "scientific-figures",
+        "three-line-tables",
+        "graphical-abstract",
         "literature-review",
         "tables",
         "top-journals",

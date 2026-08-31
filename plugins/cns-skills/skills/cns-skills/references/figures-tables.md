@@ -2,6 +2,8 @@
 
 Use this reference when designing, revising, or auditing display items. A top-venue figure is part of the evidence chain, not decoration.
 
+For file-level figure production, three-line-table implementation, safe figure prompts, deterministic SVG output, and visual-gate commands, also read `visual-production.md`.
+
 ## Start with a visual claim ledger
 
 For every proposed display item, record:
@@ -88,6 +90,8 @@ Do not put unsupported interpretation in the caption. Do not use “representati
 ## Tables as comparison instruments
 
 Every table should answer one comparison question. Put the comparison dimensions in columns and the evaluated entities in rows unless another orientation is clearly easier to scan.
+
+When no exact venue style is supplied and the user requests an ordinary SCI manuscript table, default to the publication-neutral three-line profile in `visual-production.md`: top, header-bottom, and bottom rules; no vertical rules, cell grid, or decorative fill. Treat this as a project default rather than a universal journal mandate, and do not apply it to layout tables or formal boxes.
 
 - Define cohort, denominator, unit, precision, missingness, and statistical summaries.
 - Align decimals and keep meaningful precision; do not manufacture precision from rounded source data.

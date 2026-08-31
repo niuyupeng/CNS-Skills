@@ -1,14 +1,19 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "tables": [
     {
       "id": "Table 1",
+      "table_role": "",
       "comparison_question": "",
       "source_data": "",
+      "authors_synthesis_or_extracted_data": "",
       "denominator_and_unit": "",
       "missing_value_policy": "",
       "precision_policy": "",
+      "display_profile": "publication-neutral-three-line",
+      "color_encodes_scientific_information": false,
       "editable_source": "",
+      "venue_policy_checked_on": "",
       "caption_complete": false,
       "cross_references_checked": false,
       "rendered_page_checked": false,

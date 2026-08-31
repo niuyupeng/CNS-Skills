@@ -18,7 +18,7 @@ CNS Skills 是面向 ChatGPT/Codex、Claude Code 和兼容客户端的开源科�
 [![Agent Skills](https://img.shields.io/badge/standard-Agent_Skills-123B5D.svg)](https://agentskills.io/)
 [![Cite](https://img.shields.io/badge/cite-CITATION.cff-7A263A.svg)](CITATION.cff)
 
-**12 项编辑门槛 · 8 类场所配置 · 320 篇摘要基线 · 600 条分文体语料 · 两组各 100 个题名（共 150 个不同题名） · 68 条路由案例 · 191 项确定性测试 · 6 个透明审计器**
+**12 项编辑门槛 · 8 类场所配置 · 320 篇摘要基线 · 600 条分文体语料 · 两组各 100 个题名（共 150 个不同题名） · 68 条路由案例 · 231 项确定性测试 · 9 个透明本地工具**
 
 <sub>独立 MIT 开源项目。CNS 指 Cell · Nature · Science 这一编辑质量标杆，不表示隶属、背书或录用保证。</sub>
 
@@ -37,7 +37,7 @@ CNS Skills 是面向 ChatGPT/Codex、Claude Code 和兼容客户端的开源科�
 | 句子更流畅 | 中心主张、广泛意义、新颖性和段落逻辑 |
 | 中文逐句翻译 | 从主张图重写英文并回查中英文不变量 |
 | 参考文献格式 | DOI/状态、真实支持范围、落位和证据独立性 |
-| 图表更好看 | 图表承担的主张、来源、不确定性、图注和最终尺寸 |
+| 图表更好看 | 图形证据类型、数据/代码或真实图像来源、可编辑 SVG、图注、可访问性和最终尺寸 |
 | 文件能够打开 | 数字单位、交叉引用、修订、批注、可访问性和逐页渲染 |
 | “看起来能投稿” | 审稿风险、缺失证据和目标期刊适配边界 |
 
@@ -76,7 +76,8 @@ CNS Skills 是面向 ChatGPT/Codex、Claude Code 和兼容客户端的开源科�
 - “逐条检查重要主张是否被对应文献真正支持。”
 - “按论证缺口扩充这篇综述，不要为了凑篇数堆引用。”
 - “先读懂整篇稿件，再优化中英文科学题名，不能把贡献说大。”
-- “设计或审计论文图、证据表、图注和图形摘要。”
+- “把每幅图分别路由到数据/代码、真实实验图像、可编辑 SVG 或政策允许的概念艺术。”
+- “按目标期刊规则或中性三线表默认样式重排这些表，再审计 DOCX。”
 - “写一份证据范围准确的审稿回复和 rebuttal。”
 
 启用隐式调用后不需要背固定提示词。公开的[路由评测](evals/README.md)同时包含正向任务和容易混淆的负向任务，避免把普通翻译、单独查 DOI/PubMed、只改参考文献格式、中枢神经系统问答或 AI 检测规避误路由到本 Skill。
@@ -120,18 +121,34 @@ git clone https://github.com/niuyupeng/CNS-Skills.git ~/.claude/skills/cns-skill
 |---|---|---|
 | [12 项 CNS 编辑门槛](references/cns-editorial-standard.md) | 一套公开的 12 维顶刊导向审查面 | 任何期刊或会议必然录用 |
 | [8 类场所配置](references/venue-profiles.md) | 期刊与顶会不会被当成同一种写法 | 永久替代最新官方投稿政策 |
+| [科研图表制作工作流](references/visual-production.md)与[来源研究记录](research/visual-production-study.md) | 从读者问题和证据类型，透明路由到数据/代码、真实图像、可编辑 SVG 或政策允许的概念艺术 | 万能期刊风格、伪造实验图像的许可或自动投稿合规 |
 | [320 篇摘要聚合基线](references/venue-corpus-findings.md) | 可复现的场所语言描述 | 风格迁移语料或录用预测器 |
 | [600 条分文体语料](research/genre-corpus-2026/README.md) | 分别审计综述、原创 Article 和顶会论文的写作机制，并公开逐条来源与实际文本层级 | 600 篇专家逐句精读、领域发生率或录用模型 |
 | [顶级核心 100 题名](research/elite-venue-title-study.md) | 70 个含 DOI 元数据的顶级期刊题名，加 30 个具有官方稳定标识的 2025 正式主会题名 | 100 篇全文精读、万能题名公式或录用模型 |
 | [领域比较 100 题名](research/field-journal-title-study.md) | 第二组主题匹配面板，保留 *ACS Nano*、*Advanced Functional Materials*、*Acta Biomaterialia*、*Biomaterials* 等强领域期刊；其中 50 个 DOI 与核心组重叠，两组合计 150 个不同题名 | 200 个不同题名、混合计算的“声望平均值”或无视文体的模仿理由 |
 | [68 条中英文路由案例](evals/README.md) | 正负触发防回归 | 所有宿主都保证自动调用 |
 | 30 条锁定留出集 | 降低针对已知样例堆关键词的风险 | 外部排行榜成绩 |
-| [191 项确定性测试](tests) | 脚本行为和关键不变量；其中 118 项综述检索测试围绕 93 个独立设计的反例构建 | 每一次文字修改都语义正确 |
-| 6 个无第三方依赖审计器 | 本地、透明、可复核的分诊 | 自动代替原文精读和作者判断 |
+| [231 项确定性测试](tests) | 脚本行为和关键不变量；其中 118 项综述检索测试围绕 93 个独立设计的反例构建 | 每一次文字修改都语义正确 |
+| 9 个无第三方依赖的本地工具 | 透明稿件分诊、安全图形路由和确定性概念 SVG 生成 | 自动代替原文精读、图像真实性判断或作者批准 |
 
 本项目不虚构“成功率”、用户数量、引用次数、录用率或 AI 检测分数。宣传可以很强，但硬数字必须能在仓库里点开核验。
 
-## 六个透明稿件与题名审计器
+## 不伪造实验图像的科研图表工作流
+
+CNS 在选择制作工具前先判断展示项属于哪一类：
+
+| 展示类型 | 默认路径 | 不可突破的边界 |
+|---|---|---|
+| 定量图或统计图 | 已声明的数据 + 绘图代码 + 可编辑矢量导出 | 不调用生图模型，不编造数值 |
+| 显微图、凝胶/印迹、病理、光谱等实验图像 | 真实原始观测 + 可审计处理记录 | 不生成，也不改变实验内容 |
+| 综述流程、分类、比较或独立轴示意图 | 使用真实文字和语义分组的确定性可编辑 SVG | 不添加无依据的因果箭头、排名或成熟度 |
+| 概念艺术或图形摘要 | 仅在核验具体期刊政策和披露路径后使用 | 示意内容不能替代数据或实验依据 |
+
+对于没有指定其他样式的普通 SCI 稿件表格，CNS 使用中性的三线表默认值：顶线、表头下线和底线，不使用竖向网格和装饰底色。这只是默认样式，不表示所有 SCI 期刊都强制三线表；当前目标期刊模板始终优先。
+
+图形 brief 会保留读者问题、可支持主张、禁止推断、来源、交付物和期刊核验状态。概念图渲染器支持可编辑的 `flow` 与 `independent_axes` SVG；定量图仍必须保留底层数据与代码。DOCX 视觉审计器会解析继承的表格样式，因此 `Table Grid` 不会因为表格本身没有直接边框属性而漏检。
+
+## 九个透明本地工具
 
 需要 Python 3.9+，不依赖第三方包：
 
@@ -143,11 +160,14 @@ python scripts/review_search_audit.py review.docx --shareable --json review-sear
 python scripts/title_audit.py "暂定论文题目"
 python scripts/check_invariants.py 中文源稿.docx 英文修改稿.docx --shareable --json invariants.json
 python scripts/check_crossrefs.py 英文修改稿.docx --shareable --json crossrefs.json
+python scripts/visual_audit.py 英文修改稿.docx --expect-three-line --strict --shareable --json visual.json
+python scripts/figure_brief.py figure-brief.json --json routed-brief.json
+python scripts/render_concept_svg.py figure-spec.json figure.svg
 ```
 
-它们会报告高风险表述、DOI 状态、公式化/编辑脚手架模式、综述检索披露、题名结构与检索词、方括号数字引文结构、数字/单位/统计量/引文变化、断裂的图表引用和读者可见的成稿泄漏。严格成稿门禁还会检查重复的 1×1 提示框、作者侧生产说明、表题样式、表内字号漂移，以及 DOCX 文件名或元数据中的工具/版本痕迹。综述检索的严格类型门禁只覆盖明确声明的系统综述、范围综述和荟萃分析；rapid、umbrella、integrative、realist 等未支持类型必须人工分类。它们不会自动改稿、独立判断全文支持关系、证明翻译等价、预测录用或充当 AI 检测器。未经 `--shareable` 处理的 JSON 可能包含本地路径和未发表片段，不能随意外传。
+审计和核对工具会报告高风险表述、DOI 状态、公式化/编辑脚手架模式、综述检索披露、题名结构、科学不变量变化、断裂的交叉引用、成稿泄漏、继承的表格网格与底色、图题、替代文本、图形位置和有效栅格 DPI。`figure_brief.py` 会给出有边界的制作路径并拒绝生成实验图像；`render_concept_svg.py` 只生成可编辑概念示意图，不生成数据图。它们不能独立判断引文全文支持关系、证明翻译等价或图像真实性、认证期刊合规、预测录用，也不是 AI 检测器。未经 `--shareable` 处理的 JSON 可能包含本地路径和未发表片段，不能随意外传。
 
-完整运行规则见 [SKILL.md](SKILL.md)。专题参考包括[英文优先双语写作](references/english-first-bilingual.md)、[科学题名优化](references/scientific-title-optimization.md)、[综述写作](references/review-article-mode.md)、[分文体顶级写作迁移](references/genre-aware-top-venue-writing.md)、[自然学术语言](references/natural-academic-style.md)、[综述—Skill 双向迭代](references/iterative-review-development.md)、[图表与图注](references/figures-tables.md)、[科研诚信](references/scientific-integrity.md)和[场所配置](references/venue-profiles.md)。
+完整运行规则见 [SKILL.md](SKILL.md)。专题参考包括[英文优先双语写作](references/english-first-bilingual.md)、[科学题名优化](references/scientific-title-optimization.md)、[综述写作](references/review-article-mode.md)、[分文体顶级写作迁移](references/genre-aware-top-venue-writing.md)、[自然学术语言](references/natural-academic-style.md)、[综述—Skill 双向迭代](references/iterative-review-development.md)、[图表与图注](references/figures-tables.md)、[科研图表制作](references/visual-production.md)、[科研诚信](references/scientific-integrity.md)和[场所配置](references/venue-profiles.md)。
 
 ## 引用 CNS Skills
 
@@ -160,7 +180,7 @@ GitHub 会根据根目录 [CITATION.cff](CITATION.cff) 自动显示 **Cite this 
   author  = {Niu, Yupeng},
   title   = {CNS Skills: Evidence-First Scientific Manuscript Revision and Quality Assurance},
   year    = {2026},
-  version = {0.8.0},
+  version = {0.9.0},
   url     = {https://github.com/niuyupeng/CNS-Skills}
 }
 ```

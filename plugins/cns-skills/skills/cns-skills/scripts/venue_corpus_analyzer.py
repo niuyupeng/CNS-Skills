@@ -28,9 +28,9 @@ from pathlib import Path
 from typing import Any, Iterable
 
 
-VERSION = "0.8.0"
+VERSION = "0.9.0"
 OPENALEX_WORKS = "https://api.openalex.org/works"
-USER_AGENT = "CNS-Skills/0.8.0 (https://github.com/niuyupeng/CNS-Skills)"
+USER_AGENT = "CNS-Skills/0.9.0 (https://github.com/niuyupeng/CNS-Skills)"
 
 # The conference windows reflect the coverage of these OpenAlex source records,
 # not the currency of the venue policies. Current official venue instructions are

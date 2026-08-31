@@ -1,7 +1,7 @@
 {
   "name": "cns-skills",
-  "version": "0.8.0",
-  "description": "Scientific title optimization, paper polishing, manuscript revision, Chinese-to-English translation, peer review, citation auditing, clean-copy gating, and figure/table QA for Cell, Nature, Science, and leading conferences.",
+  "version": "0.9.0",
+  "description": "Evidence-faithful scientific manuscript revision and peer review, Chinese-to-English academic writing, citation and clean-copy audits, scientific-figure routing, three-line-table QA, and editable concept SVGs for Cell, Nature, Science, and leading conferences.",
   "author": {
     "name": "Yupeng Niu"
   },
@@ -29,6 +29,10 @@
     "literature-review",
     "review-article",
     "scientific-figures",
+    "scientific-tables",
+    "three-line-tables",
+    "scientific-visualization",
+    "graphical-abstract",
     "top-journals",
     "top-conferences"
   ],

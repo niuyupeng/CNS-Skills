@@ -1,7 +1,7 @@
 {
   "name": "cns-skills",
-  "version": "0.8.0",
-  "description": "Scientific title optimization, paper polishing, manuscript revision, Chinese-to-English translation, peer review, citation auditing, clean-copy gating, and figure/table QA for Cell, Nature, Science, and leading conferences.",
+  "version": "0.9.0",
+  "description": "Evidence-faithful scientific manuscript revision and peer review, Chinese-to-English academic writing, citation and clean-copy audits, scientific-figure routing, three-line-table QA, and editable concept SVGs for Cell, Nature, Science, and leading conferences.",
   "author": {
     "name": "Yupeng Niu",
     "url": "https://github.com/niuyupeng"
@@ -30,14 +30,18 @@
     "literature-review",
     "review-article",
     "scientific-figures",
+    "scientific-tables",
+    "three-line-tables",
+    "scientific-visualization",
+    "graphical-abstract",
     "top-journals",
     "top-conferences"
   ],
   "skills": "./skills/",
   "interface": {
     "displayName": "CNS Skills — Scientific Writing",
-    "shortDescription": "Scientific paper revision with evidence and clean-copy audits",
-    "longDescription": "English-first bilingual scientific title and manuscript revision for research papers, reviews, grants, rebuttals, and cover letters, with evidence, citation, clean-copy, figure, table, and rendered-artifact QA.",
+    "shortDescription": "Scientific manuscript, citation, figure, and table QA",
+    "longDescription": "English-first manuscript and title revision with evidence, citation, clean-copy, venue-aware table, safe figure-routing, editable concept-SVG, and rendered-artifact QA.",
     "developerName": "Yupeng Niu",
     "category": "Productivity",
     "capabilities": [
@@ -50,7 +54,7 @@
     "defaultPrompt": [
       "Optimize this paper title, polish the SCI manuscript, and audit overclaiming.",
       "Translate this Chinese draft into evidence-faithful academic English.",
-      "Peer-review this paper and audit its citations, figures, tables, and captions."
+      "Peer-review paper; audit citations and visuals; use venue rules or neutral three-line tables; never invent experimental images."
     ],
     "brandColor": "#123B5D",
     "composerIcon": "./skills/cns-skills/assets/cns-icon.svg",

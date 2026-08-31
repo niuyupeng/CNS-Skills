@@ -44,6 +44,8 @@ Verify the exact journal, article type, submission phase, and current policy. Te
 
 Never use generative tools to create or alter experimental evidence. For permitted conceptual material, keep prompts/inputs, output provenance, human edits, disclosure text, and a statement that the graphic is illustrative rather than observed data.
 
+Treat a visual-generation prompt as part of the provenance record when it materially determines scientific content or appearance. Record the figure brief, tool/model and version, date, policy clearance, generated output, human corrections, final labels, and the exact disclosure decision. Do not publish an unpublished manuscript-derived prompt when it would expose confidential claims or data; keep a private record and share only a redacted production description.
+
 ## Handoff
 
 Do not call an artifact reusable or submission-ready while a material license, permission, confidentiality, or disclosure status is unresolved. Return the provenance register and label each entry `cleared`, `restricted`, `permission needed`, or `unknown`.
