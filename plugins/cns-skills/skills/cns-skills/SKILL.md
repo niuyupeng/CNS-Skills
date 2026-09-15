@@ -258,6 +258,13 @@ Do not force every paragraph into the same visible pattern. Vary paragraph lengt
 
 Use `references/natural-academic-style.md` for language-specific guidance and `references/english-first-bilingual.md` for English-final or bilingual work.
 
+When the author requests less defensive writing, more direct scientific prose,
+or `减少防御性写作`, read `references/direct-scientific-writing.md`. Diagnose
+the function of each qualification before editing: remove redundant defensive
+framing, preserve consequential uncertainty, and state the source-supported
+scientific point or decision. This is a contextual writing pass, not a hedge
+quota, vocabulary ban, or authorship detector.
+
 Keep the editorial scaffolding backstage. Claim ledgers, evidence cards, section
 contracts, synthesis units, reviewer gates, and comparison frameworks are tools
 for analysis; do not copy their labels into the manuscript by default. In a

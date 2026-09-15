@@ -29,7 +29,10 @@ M_T = "{http://schemas.openxmlformats.org/officeDocument/2006/math}t"
 CITATION_RE = re.compile(
     r"\[(?P<body>\d{1,4}(?:\s*(?:,|;|[-\u2012\u2013\u2014])\s*\d{1,4})*)\]"
 )
-REFERENCE_RE = re.compile(r"^\s*(?P<number>\d{1,4})\s*[.)\u3001]\s*(?P<body>.+)$")
+REFERENCE_RE = re.compile(
+    r"^\s*(?P<bracket>\[)?(?P<number>\d{1,4})\s*"
+    r"(?(bracket)\]|[.)\u3001])\s*(?P<body>.+)$"
+)
 DOI_RE = re.compile(r"\b10\.\d{4,9}/[-._;()/:A-Z0-9]+", re.IGNORECASE)
 REFERENCE_HEADINGS = {"references", "reference", "bibliography", "参考文献", "引用文献"}
 CAPTION_HINTS = ("caption", "图表题注", "题注")

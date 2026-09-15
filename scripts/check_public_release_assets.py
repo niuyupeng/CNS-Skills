@@ -177,7 +177,7 @@ def validate_corpus() -> None:
 def validate_public_counts() -> None:
     suite = unittest.defaultTestLoader.discover(str(ROOT / "tests"), pattern="test_*.py")
     test_count = suite.countTestCases()
-    if test_count != 276:
+    if test_count != 291:
         fail(f"discovered {test_count} tests; update the public proof line and this release gate")
 
     routing_path = ROOT / "evals" / "discovery-prompts.jsonl"
@@ -195,7 +195,7 @@ def validate_public_counts() -> None:
     english = (ROOT / "README.md").read_text(encoding="utf-8")
     chinese = (ROOT / "README.zh-CN.md").read_text(encoding="utf-8")
     for label, text in (("README.md", english), ("README.zh-CN.md", chinese)):
-        for claim in ("276", "118", "93", "76", "600"):
+        for claim in ("291", "118", "93", "76", "600"):
             if claim not in text:
                 fail(f"{label} no longer exposes the validated {claim} proof count")
     if "10 transparent local tools" not in english:

@@ -29,6 +29,13 @@ Search from a missing inferential role, not from a target reference count. Maint
 
 Prefer a source when it changes the synthesis: it supports a necessary claim, supplies an independent test, reveals a boundary, resolves a contradiction, or updates publication status. Do not add several papers that repeat the same dataset, laboratory, benchmark, or conclusion and then describe them as independent confirmation.
 
+After compression or restructuring, compare the old and revised source roles:
+retain, replace, relocate, or remove each source that supported a consequential
+claim. Removing an incorrect citation does not close the underlying argument gap.
+Assess coverage against the approved questions and comparisons, not bibliography
+length. Counts from comparable Reviews or Perspectives are descriptive context,
+not a minimum quota; a shorter revision can still have lost an important branch.
+
 ## Track evidence state
 
 Advance each candidate through explicit states:
@@ -63,6 +70,15 @@ Evaluate each consequential citation separately:
 6. **Independence** — apparent corroboration is not only a review citing the same primary study, a derivative analysis of the same data, or repeated work from one tightly coupled experimental lineage.
 
 Run `scripts/review_citation_audit.py` for bracketed numeric-reference structure and section coverage. It parses forms such as `[1]` and `[1, 2–4]`; it does not currently parse author–year or superscript Vancouver citations. Use authoritative metadata services and, where appropriate, `cns_audit.py --verify-dois` for axes 1–2; read the relevant source version for axes 3–6. Citation density is a diagnostic, not a quality score.
+
+For model comparisons, distinguish a project/tool name from its encoder,
+predictor, architecture, training/selection strategy, and design task. A combined
+workflow is not necessarily one model, and a figure panel is not a model count.
+Bind quantitative results to the actual dataset or assay, independent test unit,
+split/holdout design, endpoint and metric; a result on a random sample split cannot
+silently stand for performance on unseen families, sites, or experimental settings.
+Keep these checks backstage and put only the necessary scientific context beside
+the result, rather than appending a generic warning to every paragraph.
 
 ## Keep action, autonomy, and validation distinct
 

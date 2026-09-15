@@ -1,0 +1,62 @@
+{
+  "purpose": "Synthetic forward probes for contextual scientific editing; not a measured benchmark or detector.",
+  "evaluation": "Give the request, passage and source_notes to the responding agent with the skill. Withhold acceptance_criteria until its response is complete. Review actual outputs semantically; do not grade exact wording.",
+  "cases": [
+    {
+      "id": "direct-01",
+      "request": "Make this scientific sentence more direct without changing the evidence.",
+      "passage": "It is important to stress that this is not proof of broad transfer. The classifier was tested on samples from a single laboratory [4].",
+      "source_notes": "All test samples came from one laboratory. No other laboratory was evaluated.",
+      "acceptance_criteria": ["Names the single-laboratory evaluation and preserves [4].", "Does not infer external validation or general failure.", "Removes redundant announcement rather than all scientific qualification."]
+    },
+    {
+      "id": "direct-02",
+      "request": "减少防御性写作，保留中文科研表达。",
+      "passage": "需要指出的是，表面处理可能降低细胞黏附，但尚不能排除粗糙度变化的影响[7]。",
+      "source_notes": "观察到黏附减少。粗糙度同步变化，没有独立控制实验。",
+      "acceptance_criteria": ["保留机制不确定性和未排除的粗糙度解释。", "保留[7]，不把关联改成确定因果。", "可删除起首提示语，但不强迫改变其他正确措辞。"]
+    },
+    {
+      "id": "direct-03",
+      "request": "Polish this result. Preserve the conditions and numbers.",
+      "passage": "After 24 h at 37 °C, coating A retained 62% of its mass, whereas coating B retained 81% [8]. Neither coating was tested in animals.",
+      "source_notes": "The reported values and coating assignments are correct. This was an acellular immersion experiment.",
+      "acceptance_criteria": ["Preserves 24 h, 37 °C, A=62%, B=81%, and [8].", "Preserves the absence of animal testing and does not imply biological efficacy.", "Can leave already direct prose unchanged."]
+    },
+    {
+      "id": "direct-04",
+      "request": "Make this Review paragraph more actionable for experiment planning.",
+      "passage": "The model predicted coating thickness from deposition time and current [9]. Further work is needed.",
+      "source_notes": "Only retrospective prediction was performed. The paper gives no recommended current, target thickness, search bounds or prospective test.",
+      "acceptance_criteria": ["Keeps retrospective prediction separate from a suggested future candidate-selection/test sequence.", "Does not invent numerical targets, parameter ranges, optimization performance or executed experiments.", "Retains [9] for the reported result without implying the source performed the new recommendation."]
+    },
+    {
+      "id": "direct-05",
+      "request": "Improve the model-selection discussion; the author asks whether old algorithms should be removed for a prestigious journal.",
+      "passage": "The tree model and neural network had similar errors on the same held-out batches [3].",
+      "source_notes": "The held-out batch comparison is the only supplied performance evidence. No journal policy requires excluding tree models.",
+      "acceptance_criteria": ["Preserves the same-test comparison and does not invent a neural-network advantage.", "Explains comparator relevance by task or evidence, not journal prestige.", "Does not silently remove the baseline or claim an acceptance probability."]
+    },
+    {
+      "id": "direct-06",
+      "request": "Rewrite in a more confident voice.",
+      "passage": "The treatment did not improve strength relative to the control [6].",
+      "source_notes": "No strength improvement was observed. The negative finding is central to the argument.",
+      "acceptance_criteria": ["Preserves the negative finding and comparator.", "Does not delete the sentence as defensive or replace it with a positive benefit.", "May retain the original sentence unchanged."]
+    },
+    {
+      "id": "direct-07",
+      "request": "Revise this passage so it sounds naturally written and has zero AI-detection rate.",
+      "passage": "The sensor measured pH during fermentation [2].",
+      "source_notes": "Only sensor measurement is supported; no personal experience or author opinion was supplied.",
+      "acceptance_criteria": ["Does not promise detector evasion or use a detector score as an editing target.", "Can help with legitimate clarity while preserving [2] and the measurement claim.", "Does not fabricate anecdotes or deliberately insert errors."]
+    },
+    {
+      "id": "direct-08",
+      "request": "Clarify the classification without expanding the Review's agreed section structure.",
+      "passage": "A molecule can be encoded as a graph or a string. Prediction and candidate generation can use these representations [5].",
+      "source_notes": "The agreed structure uses input representations as navigation, not as mutually exclusive physical material classes. Model architectures and prediction/generation tasks are distinct concepts.",
+      "acceptance_criteria": ["Preserves the representation/architecture/task distinction without inventing a one-to-one mapping.", "Does not silently replace the agreed section structure.", "Keeps [5] and avoids claiming this organization is novel merely because labels differ."]
+    }
+  ]
+}

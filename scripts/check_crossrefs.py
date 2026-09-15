@@ -16,22 +16,26 @@ from xml.etree import ElementTree as ET
 
 
 VERSION = "0.12.0"
+# A hyphen/dot within an identifier is chapter numbering, not a range.
+# En-dash ranges and grouped whole-figure calls still require manual review.
+NUMBER_PATTERN = r"S?\d+(?:[-.]\d+)*"
+LABEL_END = r"(?![A-Za-z0-9]|[-.]\d)"
 CAPTION_RE = re.compile(
     r"^\s*(?:(?P<scope>Supplementary|Supplemental|Extended\s+Data|补充|扩展数据)\s*)?"
-    r"(?P<kind>Fig(?:ure)?|Table|图|表)\s*\.?\s*(?P<number>S?\d+)(?:[A-Za-z])?\b"
+    rf"(?P<kind>Fig(?:ure)?|Table|图|表)\s*\.?\s*(?P<number>{NUMBER_PATTERN})(?:[A-Za-z])?{LABEL_END}"
     r"\s*(?P<separator>[.．:：|｜]?)",
     re.IGNORECASE,
 )
 REFERENCE_RE = re.compile(
-    r"\b(?:(?P<scope>Supplementary|Supplemental|Extended\s+Data)\s+)?"
-    r"(?P<kind>Fig(?:ure)?s?|Tables?)\s*\.?\s*(?P<number>S?\d+)(?:[A-Za-z])?\b|"
-    r"(?:(?P<zhscope>补充|扩展数据)\s*)?(?P<zhkind>图|表)\s*(?P<zhnumber>S?\d+)(?:[A-Za-z])?",
+    r"(?<![A-Za-z0-9])(?:(?P<scope>Supplementary|Supplemental|Extended\s+Data)\s+)?"
+    rf"(?P<kind>Fig(?:ure)?s?|Tables?)\s*\.?\s*(?P<number>{NUMBER_PATTERN})(?P<panel>[A-Za-z])?{LABEL_END}|"
+    rf"(?:(?P<zhscope>补充|扩展数据)\s*)?(?P<zhkind>图|表)\s*(?P<zhnumber>{NUMBER_PATTERN})(?P<zhpanel>[A-Za-z])?{LABEL_END}",
     re.IGNORECASE,
 )
 PROSE_AFTER_LABEL_RE = re.compile(
     r"^(?:shows?|showed|illustrates?|illustrated|demonstrates?|demonstrated|"
     r"presents?|presented|lists?|listed|summari[sz]es?|compares?|provides?|depicts?|indicates?|reveals?)\b|"
-    r"^(?:显示|表明|展示|说明|列出|总结|比较|提供|描绘|揭示)",
+    r"^(?:显示|表明|展示|说明|列出|总结|比较|提供|描绘|揭示|所示)",
     re.IGNORECASE,
 )
 
@@ -94,6 +98,7 @@ def audit_paragraphs(paragraphs: list[str]) -> dict[str, Any]:
     references: Counter[str] = Counter()
     caption_examples: dict[str, str] = {}
     reference_examples: dict[str, list[str]] = {}
+    panel_references: Counter[str] = Counter()
     for paragraph in paragraphs:
         caption = CAPTION_RE.match(paragraph)
         if caption and is_caption(paragraph, caption):
@@ -113,6 +118,9 @@ def audit_paragraphs(paragraphs: list[str]) -> dict[str, Any]:
             scope = match.group("scope") or match.group("zhscope")
             key = identifier(kind, number, scope)
             references[key] += 1
+            panel = match.group("panel") or match.group("zhpanel")
+            if panel:
+                panel_references[f"{key}{panel.lower()}"] += 1
             reference_examples.setdefault(key, []).append(paragraph[:240])
 
     captions = {key: 1 for key in caption_candidates}
@@ -142,6 +150,7 @@ def audit_paragraphs(paragraphs: list[str]) -> dict[str, Any]:
         "reference_count": sum(references.values()),
         "captions": dict(sorted(captions.items())),
         "references": dict(sorted(references.items())),
+        "panel_references": dict(sorted(panel_references.items())),
         "references_without_caption": [
             {"id": key, "examples": reference_examples.get(key, [])[:3]} for key in missing_caption
         ],
@@ -162,7 +171,7 @@ def build_report(path: Path, companions: list[Path] | None = None) -> dict[str, 
         "version": VERSION,
         "source": str(path.resolve()),
         "companions": [str(item.resolve()) for item in companion_paths],
-        "disclaimer": "Heuristic caption/reference audit; ranges, unusual numbering, text boxes, and field codes may require manual inspection.",
+        "disclaimer": "Heuristic caption/reference audit; panel calls resolve to the parent caption and do not prove the panel exists. Ranges, grouped calls, unusual numbering, text boxes, and field codes may require manual inspection.",
         **audit_paragraphs(paragraphs),
     }
 

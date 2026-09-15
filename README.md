@@ -18,7 +18,7 @@ CNS Skills is an open-source scientific-writing Agent Skill for ChatGPT/Codex, C
 [![Agent Skills](https://img.shields.io/badge/standard-Agent_Skills-123B5D.svg)](https://agentskills.io/)
 [![Cite](https://img.shields.io/badge/cite-CITATION.cff-7A263A.svg)](CITATION.cff)
 
-**12 editorial gates · 8 venue profiles · 320-abstract baseline · 600-record genre corpus · two 100-title panels (150 distinct titles) · 76 routing cases · 276 deterministic tests · 10 transparent local tools**
+**12 editorial gates · 8 venue profiles · 320-abstract baseline · 600-record genre corpus · two 100-title panels (150 distinct titles) · 76 routing cases · 291 deterministic tests · 10 transparent local tools**
 
 <sub>Independent MIT-licensed project. CNS means Cell · Nature · Science as an aspirational editorial benchmark; it does not imply affiliation, endorsement, or acceptance.</sub>
 
@@ -147,12 +147,13 @@ Every number below is inspectable in this repository.
 | [600-record genre corpus](research/genre-corpus-2026/README.md) | separately audited Review, original Article, and top-conference writing mechanisms with per-record provenance and text-level disclosure | 600 expert close readings, field-wide prevalence, or an acceptance model |
 | [three genre-specific playbooks](references/genre-aware-top-venue-writing.md) | separate Review synthesis, original-Article inference, and page-budgeted conference contribution/evaluation logic | one transferable top-venue template or a fixed display count |
 | [author-led development workflow](references/manuscript-development.md), [defect study](research/author-led-manuscript-development-study.md), and [synthetic plan contract](assets/manuscript_development_plan.json) | explicit positioning, source authority, outline, evidence, drafting, data-readiness, backstage-scaffold, and completion rules derived from longitudinal failures | source truth, literature completeness, hidden ghostwriting, or automatic manuscript authorship |
+| [direct scientific writing](references/direct-scientific-writing.md) and [synthetic forward cases](evals/direct-scientific-writing-cases.json) | a contextual pass that replaces empty defensive framing with concrete scientific reasoning while preserving uncertainty and experimental conditions | automatic proof of semantic equivalence, a ban on hedging, or an AI-detector score |
 | [14-paper Review visual audit](research/top-review-visual-architecture-study.md) | a purposive aggregate calibration: median 7 independent displays and 4 main figures; the *Nature Reviews* subset (n=8) had a main-figure median of 5 | a universal quota, representative prevalence, or an acceptance predictor |
 | [100-title elite core](research/elite-venue-title-study.md) | 70 elite-journal titles with DOI metadata plus 30 accepted 2025 main-conference titles with official stable IDs | 100 full-paper readings, a title formula, or an acceptance model |
 | [100-title field layer](research/field-journal-title-study.md) | a second topic-matched panel retaining strong field venues including *ACS Nano*, *Advanced Functional Materials*, *Acta Biomaterialia*, and *Biomaterials*; 50 DOI records overlap the core, leaving 150 distinct titles across both panels | 200 distinct titles, a pooled prestige average, or a reason to override article type |
 | [76 bilingual routing cases](evals/README.md) | positive and negative discovery regression coverage | guaranteed activation in every agent host |
 | 30-case locked held-out split | resistance to metadata overfitting | an external benchmark leaderboard |
-| [276 deterministic tests](tests) | observable invariants and CLI behavior, including 118 review-search tests built around 93 independently designed counterexamples, biomedical Review-plan counterexamples, and 22 manuscript-development regressions | semantic proof that every edit is correct |
+| [291 deterministic tests](tests) | observable invariants and CLI behavior, including 118 review-search tests built around 93 independently designed counterexamples, biomedical Review-plan counterexamples, and 22 manuscript-development regressions | semantic proof that every edit is correct |
 | 10 dependency-free local tools | transparent manuscript planning diagnostics, safe visual routing, and deterministic concept-SVG generation | source-reading, image-integrity judgment, or author approval |
 | source/plugin synchronization in CI | packaged payload matches the root skill | endorsement by OpenAI, Anthropic, or a publisher |
 
